@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>玖团-SHOW</title>
+    <link rel="stylesheet" href="../public/stylesheets/show-time.css"/>
+    <link rel="icon" href="../public/images/main/j_tuan.ico"/>
+    <script src="../public/javascripts/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+    <div class="container show-time">
+        <div class="header">
+            <a href="javascript:;" class="logo">
+                <i class="logo"></i>
+            </a>
+            <div class="log-regist">
+                <a href="javascript:;" class="login">登录</a>
+                <a href="javascript:;" class="regist">注册</a>
+                <a href="javascript:;" class="phone-link">手机玖团</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="describe">
+                <div class="content">
+                    <span class="time">2016</span>
+                    <div class="tips">
+                        <span>JIUTUAN</span>
+                        <span>SHOW&nbsp;&nbsp;TIME</span>
+                    </div>
+                    <span class="interval"></span>
+                    <div class="main">
+                        <p>新的生活方式决定了你我的生活质量</p>
+                        <p>吃、喝、玩、乐从此有了新的定义</p>
+                        <p>年轻、时尚、便捷是我们的定义</p>
+                        <p>2016期待与你相遇！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="show-img">
+                <div class="field">
+                    <div class="image bottom">
+                        <img src="../public/images/show_time_02.jpg" alt=""/>
+                    </div>
+                    <div class="image">
+                        <img src="../public/images/show_time_01.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="show-img">
+                <div class="field">
+                    <div class="image bottom">
+                        <img src="../public/images/show_time_02.jpg" alt=""/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="image">
+                        <img src="../public/images/show_time_01.jpg" alt=""/>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <script>
+        var wHeight = $(window).height();
+        var cHeight = $("div.container.show-time").height();
+        if(cHeight <= wHeight){
+            $("div.container.show-time").css({
+                "height": wHeight
+            });
+        }
+    </script>
+</body>
+</html>

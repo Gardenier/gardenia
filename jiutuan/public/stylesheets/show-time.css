@@ -1,0 +1,281 @@
+/* line 4, ../sass/common.scss */
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 10, ../sass/common.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 13, ../sass/common.scss */
+li {
+  list-style: none;
+}
+
+/* line 4, ../sass/show-time.scss */
+.show-time {
+  min-width: 860px;
+  background-color: #F8F7F2;
+}
+/* line 7, ../sass/show-time.scss */
+.show-time .header {
+  height: 50px;
+  width: 100%;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  background-color: #F4F4F2;
+  position: relative;
+}
+/* line 14, ../sass/show-time.scss */
+.show-time .header a.logo {
+  color: #333333;
+  display: inline-block;
+  width: 100px;
+  height: 100%;
+  margin-left: 30px;
+}
+/* line 20, ../sass/show-time.scss */
+.show-time .header a.logo i.logo {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/jiutuan.png");
+  background-size: 100% 100%;
+}
+/* line 28, ../sass/show-time.scss */
+.show-time .header .log-regist {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+/* line 33, ../sass/show-time.scss */
+.show-time .header .log-regist a {
+  color: #333333;
+  display: inline-block;
+  margin-right: 30px;
+}
+/* line 40, ../sass/show-time.scss */
+.show-time .content {
+  background-color: #F8F7F2;
+  /*padding: 0 30px 20px 30px;*/
+  width: 100%;
+  box-sizing: border-box;
+}
+/* line 45, ../sass/show-time.scss */
+.show-time .content .describe {
+  width: 50%;
+  position: relative;
+  /*top: -100px;*/
+}
+/* line 49, ../sass/show-time.scss */
+.show-time .content .describe .content {
+  width: 100%;
+  padding: 100px 0;
+}
+/* line 52, ../sass/show-time.scss */
+.show-time .content .describe .content .time {
+  display: block;
+  width: 110px;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 50px;
+  background-color: #493737;
+  color: #ffffff;
+  font-size: 24px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+/* line 65, ../sass/show-time.scss */
+.show-time .content .describe .content .tips {
+  font-weight: bold;
+  color: #272c30;
+  font-family: "cooper std";
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* line 72, ../sass/show-time.scss */
+.show-time .content .describe .content .tips span {
+  display: block;
+}
+/* line 76, ../sass/show-time.scss */
+.show-time .content .describe .content .interval {
+  display: block;
+  width: 100px;
+  border: 1px solid #333333;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+/* line 83, ../sass/show-time.scss */
+.show-time .content .describe .content .main {
+  font-size: 18px;
+  text-align: center;
+}
+/* line 86, ../sass/show-time.scss */
+.show-time .content .describe .content .main p:nth-child(2) {
+  margin-left: 60px;
+}
+/* line 89, ../sass/show-time.scss */
+.show-time .content .describe .content .main p:nth-child(3) {
+  margin-left: -70px;
+}
+/* line 95, ../sass/show-time.scss */
+.show-time .content .show-img {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+/* line 100, ../sass/show-time.scss */
+.show-time .content .show-img .field {
+  width: 100%;
+}
+/* line 102, ../sass/show-time.scss */
+.show-time .content .show-img .field .image {
+  margin: 0 auto;
+  border: 10px solid #ffffff;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 225px;
+}
+/* line 108, ../sass/show-time.scss */
+.show-time .content .show-img .field .image:nth-child(1) {
+  -moz-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  position: relative;
+  top: 70px;
+  right: 10px;
+  -moz-box-shadow: 15px 15px 10px #bbbbbb;
+  -webkit-box-shadow: 15px 15px 10px #bbbbbb;
+  box-shadow: 15px 15px 10px #bbbbbb;
+  -moz-animation: move_down 2s;
+  -webkit-animation: move_down 2s;
+  animation: move_down 2s;
+}
+/* line 116, ../sass/show-time.scss */
+.show-time .content .show-img .field .image:nth-child(2) {
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  position: relative;
+  right: 60px;
+  -moz-box-shadow: -15px 15px 10px #bbbbbb;
+  -webkit-box-shadow: -15px 15px 10px #bbbbbb;
+  box-shadow: -15px 15px 10px #bbbbbb;
+  -moz-animation: move_up 2s;
+  -webkit-animation: move_up 2s;
+  animation: move_up 2s;
+}
+/* line 123, ../sass/show-time.scss */
+.show-time .content .show-img .field .image img {
+  display: inline-block;
+  width: 300px;
+  height: 225px;
+}
+/* line 127, ../sass/show-time.scss */
+.show-time .content .show-img .field .image img:nth-child(1) {
+  -moz-animation: move_down 2s;
+  -webkit-animation: move_down 2s;
+  animation: move_down 2s;
+}
+/* line 130, ../sass/show-time.scss */
+.show-time .content .show-img .field .image img:nth-child(2) {
+  -moz-animation: move_up 2s;
+  -webkit-animation: move_up 2s;
+  animation: move_up 2s;
+}
+@-moz-keyframes move_up {
+  0% {
+    width: 40px;
+    height: 30px;
+    right: 1000px;
+    bottom: 500px;
+  }
+  100% {
+    width: 300px;
+    height: 225px;
+    right: 60px;
+    bottom: 0;
+  }
+}
+@-webkit-keyframes move_up {
+  0% {
+    width: 40px;
+    height: 30px;
+    right: 1000px;
+    bottom: 500px;
+  }
+  100% {
+    width: 300px;
+    height: 225px;
+    right: 60px;
+    bottom: 0;
+  }
+}
+@keyframes move_up {
+  0% {
+    width: 40px;
+    height: 30px;
+    right: 1000px;
+    bottom: 500px;
+  }
+  100% {
+    width: 300px;
+    height: 225px;
+    right: 60px;
+    bottom: 0;
+  }
+}
+@-moz-keyframes move_down {
+  0% {
+    width: 40px;
+    height: 30px;
+    top: -200px;
+    right: 500px;
+  }
+  100% {
+    width: 300px;
+    height: 225px;
+    top: 70px;
+    right: 10px;
+  }
+}
+@-webkit-keyframes move_down {
+  0% {
+    width: 40px;
+    height: 30px;
+    top: -200px;
+    right: 500px;
+  }
+  100% {
+    width: 300px;
+    height: 225px;
+    top: 70px;
+    right: 10px;
+  }
+}
+@keyframes move_down {
+  0% {
+    width: 40px;
+    height: 30px;
+    top: -200px;
+    right: 500px;
+  }
+  100% {
+    width: 300px;
+    height: 225px;
+    top: 70px;
+    right: 10px;
+  }
+}

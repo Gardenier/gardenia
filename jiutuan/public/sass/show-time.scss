@@ -1,0 +1,166 @@
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "common";
+.show-time {
+  min-width: 860px;
+  background-color: #F8F7F2;
+  .header {
+    height: 50px;
+    width: 100%;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    background-color: #F4F4F2;
+    position: relative;
+    a.logo {
+      color: #333333;
+      display: inline-block;
+      width: 100px;
+      height: 100%;
+      margin-left: 30px;
+      i.logo {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/jiutuan.png");
+        background-size: 100% 100%;
+      }
+    }
+    .log-regist {
+      display:inline-block;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      a {
+        color: #333333;
+        display: inline-block;
+        margin-right: 30px;
+      }
+    }
+  }
+  .content {
+    background-color: #F8F7F2;
+    /*padding: 0 30px 20px 30px;*/
+    width: 100%;
+    box-sizing: border-box;
+    .describe {
+      width: 50%;
+      position: relative;
+      /*top: -100px;*/
+      .content {
+        width: 100%;
+        padding: 100px 0;
+        .time {
+          display: block;
+          width: 110px;
+          height: 50px;
+          margin: 0 auto;
+          text-align: center;
+          line-height: 50px;
+          background-color: #493737;
+          color: #ffffff;
+          font-size: 24px;
+          @include border-radius(30px);
+          margin-bottom: 20px;
+        }
+        .tips {
+          font-weight: bold;
+          color: #272c30;
+          font-family: "cooper std";
+          font-size: 32px;
+          text-align: center;
+          margin-bottom: 30px;
+          span {
+            display: block;
+          }
+        }
+        .interval {
+          display: block;
+          width: 100px;
+          border: 1px solid #333333;
+          margin: 0 auto;
+          margin-bottom: 15px;
+        }
+        .main {
+          font-size: 18px;
+          text-align: center;
+          p:nth-child(2){
+            margin-left: 60px;
+          }
+          p:nth-child(3){
+            margin-left: -70px;
+          }
+        }
+      }
+    }
+   .show-img {
+      width: 50%;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      .field {
+        width: 100%;
+        .image {
+          margin: 0 auto;
+          border: 10px solid #ffffff;
+          margin-bottom: 20px;
+          width: 300px;
+          height: 225px;
+          &:nth-child(1){
+           @include rotate(15deg);
+            position: relative;
+            top: 70px;
+            right: 10px;
+            @include box-shadow(15px 15px 10px #bbbbbb);
+            @include animation(move_down 2s);
+          }
+          &:nth-child(2){
+            @include rotate(-20deg);
+            position: relative;
+            right: 60px;
+            @include box-shadow(-15px 15px 10px #bbbbbb);
+            @include animation(move_up 2s);
+          }
+          img{
+            display: inline-block;
+            width: 300px;
+            height: 225px;
+            &:nth-child(1){
+              @include animation(move_down 2s);
+            }
+            &:nth-child(2){
+              @include animation(move_up 2s);
+            }
+          }
+        }
+      }
+      @include keyframes(move_up){
+        0%{
+          width: 40px;
+          height: 30px;
+          right: 1000px;
+          bottom: 500px;
+        }
+        100%{
+          width: 300px;
+          height: 225px;
+          right: 60px;
+          bottom: 0;
+        }
+      }
+      @include keyframes(move_down){
+        0%{
+          width: 40px;
+          height: 30px;
+          top: -200px;
+          right: 500px;
+        }
+        100%{
+          width: 300px;
+          height: 225px;
+          top: 70px;
+          right: 10px;
+        }
+      }
+    }
+  }
+}
