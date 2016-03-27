@@ -212,3 +212,94 @@ li {
   -webkit-box-align: center;
   box-align: center;
 }
+
+/* line 4, ../sass/register.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 7, ../sass/register.scss */
+.register {
+  height: 100%;
+  background-image: url("../images/loginBg.jpg");
+  background-size: 100% 100%;
+  text-align: center;
+}
+/* line 13, ../sass/register.scss */
+.register .pageTitle {
+  padding-top: 150px;
+  padding-bottom: 5%;
+  margin-top: 0;
+  color: #ED5651;
+  font-size: 40px;
+  font-family: "yeGenYou";
+}
+/* line 22, ../sass/register.scss */
+.register form {
+  width: 30%;
+  min-width: 300px;
+  margin: 0 auto;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+/* line 29, ../sass/register.scss */
+.register .form-control {
+  background: none;
+}
+/* line 32, ../sass/register.scss */
+.register .tag {
+  color: #F71119;
+}
+/* line 34, ../sass/register.scss */
+.register .tag div {
+  width: 50%;
+  padding: 10px;
+  float: left;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+/* line 41, ../sass/register.scss */
+.register .tag-active {
+  color: #fff;
+  background-color: #ED5852;
+}
+/* line 45, ../sass/register.scss */
+.register .input-block {
+  padding: 5px;
+  color: #F71119;
+  text-align: right;
+  border-bottom: 1px solid #F7BBB9;
+}
+/* line 50, ../sass/register.scss */
+.register .input-block input {
+  outline: none;
+}
+/* line 54, ../sass/register.scss */
+.register .input-block label {
+  width: 15%;
+  margin-right: 10px;
+}
+/* line 58, ../sass/register.scss */
+.register .input-block input {
+  width: 80%;
+}
+/* line 61, ../sass/register.scss */
+.register .input-block label, .register .input-block input {
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+/* line 67, ../sass/register.scss */
+.register .getCheckNum {
+  padding-bottom: 10px;
+}
+/* line 69, ../sass/register.scss */
+.register .getCheckNum input {
+  width: 48%;
+}
+/* line 72, ../sass/register.scss */
+.register .getCheckNum button {
+  width: 30%;
+}
