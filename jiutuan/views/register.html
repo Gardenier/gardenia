@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>玖团</title>
+	<link rel="stylesheet" href="../public/stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="../public/stylesheets/register.css">
+	<script src="../public/javascripts/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+	<div class="register">
+		<p class="pageTitle">玖团</p>
+		<form action="" class="form-horizontal">
+			<div class="tag clearfix">
+				<div class="tag-active" id="tag-regist">注册</div>
+				<div id="tag-login">登录</div>
+			</div>
+			<div class="input-block">
+				<label for="userName">用户名</label>
+				<input type="text" class="allBorder0" id="userName">
+			</div>
+			<div class="input-block">
+				<label for="phoneNum">手机号</label>
+				<input type="text" class="allBorder0" id="phoneNum">
+			</div>
+			<div class="input-block">
+				<label for="password">密码</label>
+				<input type="password" class="allBorder0" id="password">
+			</div>
+			<div class="input-block getCheckNum">
+				<label for="checkNum">验证码</label>
+				<input type="text" class="allBorder0" id="checkNum">
+				<button class="btn btn-default">获取验证码</button>
+			</div>
+		</form>
+	</div>
+</body>
+<script>
+	$('.tag').find('div').each(function(){
+		$(this).click(function(){
+			var idName = $(this).attr('id');
+			if(idName == 'tag-login'){
+				$('.tag div').css('border-top-left-radius','0');
+				$('.tag div').css('border-top-right-radius','10px');
+			}else {
+				$('.tag div').css('border-top-right-radius','0');
+				$('.tag div').css('border-top-left-radius','10px');
+			}
+			$(this).parent().find('div').removeClass('tag-active');
+			$(this).addClass('tag-active');
+		})
+	})
+</script>
+</html>

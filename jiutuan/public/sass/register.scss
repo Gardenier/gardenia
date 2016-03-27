@@ -1,0 +1,76 @@
+@import 'common.scss';
+@import "compass/css3";
+$ygy: 'yeGenYou';
+html,body {
+	height: 100%;
+}
+.register {
+	height: 100%;
+	background-image: url('../images/loginBg.jpg');
+	background-size: 100% 100%;
+	text-align: center;
+	//padding-bottom: 50%;
+	.pageTitle {
+		padding-top: 150px;
+		padding-bottom: 5%;
+		margin-top: 0;
+		color: #ED5651;
+		font-size: 40px;
+		//font-weight: bold;
+		font-family: $ygy;
+	}
+	form {
+		width: 30%;
+		min-width: 300px;
+		margin: 0 auto;
+		@include border-radius(10px);
+		background-color: #fff;
+	}
+	.form-control {
+		background: none;
+	}
+	.tag {
+		color: #F71119;
+		div {
+			width: 50%;
+			padding: 10px;
+			float: left;
+			@include border-top-left-radius(10px);
+		}
+	}
+	.tag-active {
+		color: #fff;
+		background-color: #ED5852;
+	}
+	.input-block {
+		padding: 5px;
+		color: #F71119;
+		text-align: right;
+		border-bottom: 1px solid #F7BBB9;
+		input {
+			outline: none;
+			//padding-left: 10px;
+		}
+		label{
+			width: 15%;
+			margin-right: 10px;
+		}
+		input {
+			width: 80%;
+		}
+		label,input {
+			padding-top: 5px;
+			margin-bottom: 0px;
+			//padding-bottom: 5px;
+		}
+	}
+	.getCheckNum {
+		padding-bottom: 10px;
+		input {
+			width: 48%;
+		}
+		button {
+			width: 30%;
+		}
+	}
+}
