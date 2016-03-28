@@ -5,5 +5,16 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-
+/*GET show-time.html*/
+router.get('/show',function(req, res, next) {
+  res.render('show-time', {title: '引导页'});
+});
+/*GET home.html*/
+router.get('/home',function(req, res, next) {
+  res.render('home', {title: '首页'});
+});
+/*GET product_detail.html*/
+router.get('/product_detail',function(req, res, next) {
+  res.render('product_detail', {title: '详情页'});
+});
 module.exports = router;
