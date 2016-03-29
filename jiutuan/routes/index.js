@@ -17,4 +17,8 @@ router.get('/home',function(req, res, next) {
 router.get('/product_detail',function(req, res, next) {
   res.render('product_detail', {title: 'œÍ«È“≥'});
 });
+/*GET product_list.html*/
+router.get('/product_list',function(req, res, next) {
+  res.render('product_list', {title: '¡–±Ì“≥'});
+});
 module.exports = router;

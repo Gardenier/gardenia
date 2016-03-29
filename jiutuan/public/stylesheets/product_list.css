@@ -1,0 +1,278 @@
+/* line 4, ../sass/common.scss */
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 10, ../sass/common.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 13, ../sass/common.scss */
+li {
+  list-style: none;
+}
+
+/* line 4, ../sass/product_list.scss */
+.comm-head {
+  width: 100%;
+  min-width: 860px;
+}
+/* line 7, ../sass/product_list.scss */
+.comm-head .nav-wrap {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 10px 0 10px;
+  color: #000;
+  background-color: #F4F4F2;
+}
+/* line 13, ../sass/product_list.scss */
+.comm-head .nav-wrap .nav-content {
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 17, ../sass/product_list.scss */
+.comm-head .nav-wrap a {
+  color: #000;
+}
+/* line 22, ../sass/product_list.scss */
+.comm-head .places span {
+  padding-right: 10px;
+}
+/* line 25, ../sass/product_list.scss */
+.comm-head .places span:nth-child(2) {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 31, ../sass/product_list.scss */
+.comm-head .nav-list li {
+  float: left;
+  padding-left: 20px;
+}
+/* line 36, ../sass/product_list.scss */
+.comm-head .mHeader {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* line 41, ../sass/product_list.scss */
+.comm-head .mHeader img {
+  height: 40px;
+}
+/* line 44, ../sass/product_list.scss */
+.comm-head .mHeader div {
+  line-height: 20px;
+  padding-top: 10px;
+}
+/* line 48, ../sass/product_list.scss */
+.comm-head .mHeader .search-input {
+  width: 240px;
+  padding: 6px 20px;
+  margin-right: -4px;
+  border: 1px solid #ccc;
+}
+/* line 54, ../sass/product_list.scss */
+.comm-head .mHeader .btn-default {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  position: relative;
+  top: -1px;
+}
+/* line 60, ../sass/product_list.scss */
+.comm-head .navGroup {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 64, ../sass/product_list.scss */
+.comm-head .navGroup .allClassify1 {
+  width: 20%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #EF5651;
+}
+/* line 71, ../sass/product_list.scss */
+.comm-head .navGroup a {
+  color: #fff;
+}
+/* line 74, ../sass/product_list.scss */
+.comm-head .navGroup .slide-title {
+  width: 80%;
+  float: left;
+  padding-left: 0;
+  margin-bottom: 0;
+  background-color: #CBAA72;
+}
+/* line 80, ../sass/product_list.scss */
+.comm-head .navGroup .slide-title li {
+  float: left;
+  width: 16.67%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+/* line 87, ../sass/product_list.scss */
+.comm-head .navGroup .slide-title a {
+  color: #fff;
+}
+
+/* line 93, ../sass/product_list.scss */
+.product-list {
+  background-color: #F9F7F1;
+  min-width: 860px;
+}
+/* line 96, ../sass/product_list.scss */
+.product-list .field {
+  width: 100%;
+  margin-top: 50px;
+}
+/* line 99, ../sass/product_list.scss */
+.product-list .field .item {
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+}
+/* line 104, ../sass/product_list.scss */
+.product-list .field .item a {
+  display: table-cell;
+  color: #333333;
+  /*width: 25%;*/
+}
+/* line 108, ../sass/product_list.scss */
+.product-list .field .item a:hover {
+  text-decoration: none;
+}
+/* line 111, ../sass/product_list.scss */
+.product-list .field .item a .item-cell {
+  width: 80%;
+  margin: 0 auto 20px;
+  padding: 5px;
+}
+/* line 115, ../sass/product_list.scss */
+.product-list .field .item a .item-cell:hover {
+  -moz-box-shadow: 0 0 5px 3px rgba(120, 120, 120, 0.1);
+  -webkit-box-shadow: 0 0 5px 3px rgba(120, 120, 120, 0.1);
+  box-shadow: 0 0 5px 3px rgba(120, 120, 120, 0.1);
+}
+/* line 118, ../sass/product_list.scss */
+.product-list .field .item a .item-cell img {
+  display: block;
+  width: 100%;
+}
+/* line 122, ../sass/product_list.scss */
+.product-list .field .item a .item-cell h3 {
+  font-size: 20px;
+  color: #666666;
+}
+/* line 126, ../sass/product_list.scss */
+.product-list .field .item a .item-cell p {
+  font-size: 16px;
+}
+/* line 129, ../sass/product_list.scss */
+.product-list .field .item a .item-cell .fee {
+  font-size: 12px;
+  position: relative;
+  margin-bottom: 15px;
+}
+/* line 133, ../sass/product_list.scss */
+.product-list .field .item a .item-cell .fee .coupon-new {
+  display: inline-block;
+  background-color: #EF5651;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  width: 100px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+/* line 143, ../sass/product_list.scss */
+.product-list .field .item a .item-cell .fee .money {
+  display: inline-block;
+  color: #EF5651;
+  position: absolute;
+  right: 3px;
+  line-height: 25px;
+}
+/* line 151, ../sass/product_list.scss */
+.product-list .field .item a .item-cell .other {
+  font-size: 12px;
+  position: relative;
+}
+/* line 154, ../sass/product_list.scss */
+.product-list .field .item a .item-cell .other span.grade {
+  display: inline-block;
+  color: #333333;
+}
+/* line 158, ../sass/product_list.scss */
+.product-list .field .item a .item-cell .other span.sale-num {
+  display: inline-block;
+  color: #999999;
+  position: absolute;
+  right: 3px;
+}
+
+/* line 170, ../sass/product_list.scss */
+.comm-footer {
+  width: 100%;
+  min-width: 860px;
+  border-top: 2px solid #F2F2F2;
+  padding: 50px 0;
+  box-sizing: border-box;
+}
+/* line 176, ../sass/product_list.scss */
+.comm-footer .others {
+  width: 85%;
+  margin: 0 auto;
+}
+/* line 179, ../sass/product_list.scss */
+.comm-footer .others ul {
+  width: 100%;
+  display: table;
+}
+/* line 182, ../sass/product_list.scss */
+.comm-footer .others ul li {
+  box-sizing: border-box;
+  display: table-cell;
+  border-left: 2px solid #F2F2F2;
+  text-align: center;
+  vertical-align: top;
+}
+/* line 188, ../sass/product_list.scss */
+.comm-footer .others ul li:nth-child(5) {
+  border-right: 2px solid #F2F2F2;
+}
+/* line 191, ../sass/product_list.scss */
+.comm-footer .others ul li h4 {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 10px;
+}
+/* line 196, ../sass/product_list.scss */
+.comm-footer .others ul li a {
+  display: block;
+  font-size: 12px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+/* line 205, ../sass/product_list.scss */
+.comm-footer p {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  color: #333333;
+}
+/* line 211, ../sass/product_list.scss */
+.comm-footer p span {
+  display: inline-block;
+  margin: 10px;
+}
