@@ -35,6 +35,7 @@ app.use(session({
 }));
 
 // view engine setup
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 //让ejs模板文件，使用扩展名为html的文件。
 app.engine('.html', ejs.__express);

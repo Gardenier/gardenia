@@ -1,9 +1,13 @@
 @import "compass/css3";
 @import "compass/css3/transform";
 @import "common";
+
 .show-time {
+  margin: 0;
+  padding: 0;
   min-width: 860px;
   background-color: #F8F7F2;
+  width: 100%;
   .header {
     height: 50px;
     width: 100%;
@@ -103,22 +107,22 @@
           margin: 0 auto;
           border: 10px solid #ffffff;
           margin-bottom: 20px;
-          width: 300px;
-          height: 225px;
+          width: 320px;
+          height: 245px;
           &:nth-child(1){
            @include rotate(15deg);
             position: relative;
             top: 70px;
             right: 10px;
             @include box-shadow(15px 15px 10px #bbbbbb);
-            @include animation(move_down 2s);
+            @include animation(move_downBox 2s);
           }
           &:nth-child(2){
             @include rotate(-20deg);
             position: relative;
             right: 60px;
             @include box-shadow(-15px 15px 10px #bbbbbb);
-            @include animation(move_up 2s);
+            @include animation(move_upBox 2s);
           }
           img{
             display: inline-block;
@@ -133,6 +137,34 @@
           }
         }
       }
+     @include keyframes(move_upBox){
+       0%{
+         width: 60px;
+         height: 50px;
+         right: 1000px;
+         bottom: 500px;
+       }
+       100%{
+         width: 320px;
+         height: 245px;
+         right: 60px;
+         bottom: 0;
+       }
+     }
+     @include keyframes(move_downBox){
+       0%{
+         width: 60px;
+         height: 50px;
+         top: -200px;
+         right: 500px;
+       }
+       100%{
+         width: 320px;
+         height: 245px;
+         top: 70px;
+         right: 10px;
+       }
+     }
       @include keyframes(move_up){
         0%{
           width: 40px;
