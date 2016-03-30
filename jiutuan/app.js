@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+var session = require('express-session');
+
 //var home = require('./routes/home');
 var users = require('./routes/users');
 var ejs = require('ejs');
@@ -21,11 +23,12 @@ var app = express();
 //     })
 //     .listen(3000);
 // //导入connect插件
-var session = require('express-session');
 
 //var app = express();
 app.use(session({ 
     secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
     cookie:{ 
         maxAge: 1000*60*30
     }
