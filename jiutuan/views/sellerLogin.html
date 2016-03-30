@@ -1,0 +1,143 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>玖团</title>
+	<link rel="icon" href="images/main/j_tuan.ico" type="image/x-ico"/>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/register.css">
+	<script src="javascripts/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+	<div class="register">
+		<p class="pageTitle">玖团</p>
+		<form action="" class="form-horizontal" id="loginFormb" style="display:none">
+			<div class="tag clearfix">
+				<div id="tag-regist">注册</div>
+				<div class="tag-active" id="tag-login">登录</div>
+			</div>
+			<div class="input-block">
+				<label for="userName">用户名</label>
+				<input type="text" class="allBorder0" id="userNameb">
+			</div>
+			<div class="input-block">
+				<label for="password">密码</label>
+				<input type="password" class="allBorder0" id="passwordb">
+			</div>
+			<button type="submit" class="btn btn-primary btn-block" id="loginb">登录</button>
+			<button type="button" class="btn btn-info col-sm-2 col-sm-offset-10" class="register0">注册</button>
+		</form>
+	</div>
+</body>
+<script>
+	$('.tag').find('div').each(function(){
+		$(this).click(function(){
+			var idName = $(this).attr('id');
+			if(idName == 'tag-login'){
+				$('.tag div').css('border-top-left-radius','0');
+				$('.tag div').css('border-top-right-radius','10px');
+				// $('#registerForm').hide();
+				// $('#loginForm').show();
+			}else {
+				// $('.tag div').css('border-top-right-radius','0');
+				// $('.tag div').css('border-top-left-radius','10px');
+				window.location.href = 'register';
+			}
+			$(this).parent().find('div').removeClass('tag-active');
+			$(this).addClass('tag-active');
+		})
+	})
+</script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title><%= title %></title>
+		<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/register.css">
+	<script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/bootstrap.js"></script>
+	<style type="text/css">
+	.m15{ margin: 15px;}
+ 	.tc{ text-align: center;font-size: 18px;font-weight: 600;}
+	</style>
+</head>
+<body screen_capture_injected="true">
+	<div class="container">
+	<%- message %>
+		<div>
+			<a href="login" id="user">用户</a>
+			<a href="sellerLogin" id="buser">商家</a>
+		</div>
+		<form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post" onsubmit="return false" id="loginFormb">
+			<fieldset>
+				<legend></legend>
+				<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="tc">商家登录</p>
+				</div>
+				<div class="panel-body m15">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" class="form-control" id="busername" name="busername" placeholder="请输入用户名" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="text" class="form-control" id="bpassword" name="bpassword" placeholder="请输入密码" required>
+					</div>
+				</div>
+				<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block" id="blogin">登录</button>
+				</div>
+				<div class="form-group">
+					<a class="btn btn-default" href="sellerRegister">注册</a>
+				</div>
+				</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+	$(function(){ 
+		// $(".register0").click(function(){ 
+		// 	location.href = 'sellerRegister';
+		// });
+		//商家登录
+		$("#blogin").click(function(){ 
+			var username = $("#busername").val();
+			var password = $("#bpassword").val();
+			var data = {"uname":username,"upwd":password};
+			$.ajax({ 
+				url:'/sellerLogin',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						location.href = 'busData';
+					}
+				},
+				error: function(data,status){ 
+					if(status == 'error'){ 
+						location.href = 'sellerLogin';
+					}
+				}
+			});
+		});
+	});
+	</script>
+</body>
+</head>
+</html>

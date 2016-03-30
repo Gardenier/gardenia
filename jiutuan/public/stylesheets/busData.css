@@ -1,0 +1,127 @@
+/* line 4, ../sass/common.scss */
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei";
+}
+
+/* line 10, ../sass/common.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 13, ../sass/common.scss */
+li {
+  list-style: none;
+}
+
+/* line 4, ../sass/busData.scss */
+.wrap {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+/* line 9, ../sass/busData.scss */
+.space-name {
+  padding: 30px 0;
+  border-bottom: 1px solid #bbb;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 15, ../sass/busData.scss */
+.part-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 1px solid #bbb;
+}
+
+/* line 21, ../sass/busData.scss */
+.part {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* line 25, ../sass/busData.scss */
+.part-cont {
+  width: 80%;
+  margin-left: 10%;
+}
+/* line 28, ../sass/busData.scss */
+.part-cont label {
+  width: 100px;
+  margin-right: 70px;
+}
+
+/* line 33, ../sass/busData.scss */
+.add-cont {
+  width: 90%;
+  margin-left: 5%;
+}
+/* line 36, ../sass/busData.scss */
+.add-cont label {
+  width: 70px;
+  margin-right: 50px;
+}
+
+/* line 41, ../sass/busData.scss */
+.package-name {
+  width: 50%;
+  line-height: 34px;
+  display: inline-block;
+}
+
+/* line 46, ../sass/busData.scss */
+.btn-add-wrap {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #bbb;
+}
+
+/* line 51, ../sass/busData.scss */
+.btn-save {
+  width: 20%;
+}
+
+/* line 54, ../sass/busData.scss */
+.btn-post, .btn-save {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* line 59, ../sass/busData.scss */
+.btn-post {
+  width: 150px;
+}
+
+/* line 62, ../sass/busData.scss */
+.file-input {
+  display: inline-block;
+}
+
+/* line 66, ../sass/busData.scss */
+.package-list div {
+  margin-bottom: 20px;
+}
+/* line 69, ../sass/busData.scss */
+.package-list a, .package-list button {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 74, ../sass/busData.scss */
+.tips {
+  color: #f00;
+  width: 100px;
+}
+
+/* line 78, ../sass/busData.scss */
+.part-cont .tips2 {
+  color: #f00;
+  width: 175px;
+  margin: 0;
+}

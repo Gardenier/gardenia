@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0">
+    <title>玖团</title>
+    <!-- Bootstrap core CSS -->
+	<link rel="icon" href="images/main/j_tuan.ico" type="image/x-ico"/>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/busData.css">
+    <script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/bootstrap.js"></script>
+    <script src="javascripts/bootstrap-datepicker.js"></script>
+	<script src="javascripts/bootstrap-datepicker.zh-CN.js"></script>
+	
+</head>
+<body>
+	<div class="wrap busData">
+		<form action="">
+			<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="text" class="form-control" id="password" name="password" placeholder="请输入密码" required>
+					</div>
+				</div>
+			<div>商户名称：<span id="sellerName"><%- user.name %></span></div>
+			<div class="part">
+				<p class="part-title">商家信息</p>
+				<div class="form-group form-inline part-cont">
+					<label for="resName">商家名称</label>
+					<input type="text" class="form-control" id="resName">
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="type">类别</label>
+					<select name="type" id="type" class="form-control">
+			         	<option>请选择商家类别</option>
+			         	<option>22222</option>
+			         	<option>33333</option>
+			         	<option>44444</option>
+			         	<option>55555</option>
+			      	</select>
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="startDate">开始日期</label>
+					<input type="text" value="" class="form-control choice-date" id="startDate">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="endDate">结束日期</label>
+					<input type="text" class="form-control choice-date" id="endDate">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="packageName">促销名称</label>
+					<input type="text" class="form-control" id="packageName">
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="upfile">首页图片</label>
+					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="upfile">
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="oldPrice">原价 ￥：</label>
+					<input type="text" class="form-control" id="oldPrice">
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="newPrice">现价 ￥：</label>
+					<input type="text" class="form-control" id="newPrice">
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="mealSize">适合用餐人数</label>
+					<select name="category" id="mealSize" class="form-control">
+			         	<option value="1">单人</option>
+			         	<option value="2">双人</option>
+			         	<option value="3+">3-4人</option>
+			         	<option value="5+">5-6人</option>
+			         	<option value="7+">7-8人</option>
+			         	<option value="9+">9-10人</option>
+			         	<option value="10+">10人以上</option>
+			         	<option value="10++">其他</option>
+			      	</select>
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="packageNumber">可提供数量</label>
+					<input type="text" class="form-control" id="packageNumber">
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="address">具体地址</label>
+					<input type="text" class="form-control" id="address">
+				</div>
+				<div class="form-group part-cont">
+					<label id="#holiday">节假日是否通用</label>
+					<input type="radio" name="holiday" value='true' checked="checked">是
+					<input type="radio" name="holiday" value='false'>否
+				</div>
+				<div class="form-group part-cont">
+					<label for="makeAppointment" id="makeAppointment">是否需要预约</label>
+					<input type="radio" name="makeAppointment" value='true' >是
+					<input type="radio" name="makeAppointment" value='false' checked="checked">否
+				</div>
+				<div class="form-group part-cont">
+					<label for="room" id="room">有无包间</label>
+					<input type="radio" name="room" value='true' >是
+					<input type="radio" name="room" value='false' checked="checked">否
+				</div>
+				<div class="form-group part-cont">
+					<label for="packFood" id="packFood">可否打包</label>
+					<input type="radio" name="packFood" value='true' >是
+					<input type="radio" name="packFood" value='false' checked="checked">否
+				</div>
+				<div class="form-group part-cont">
+					<label for="wifi" id="wifi">有无WiFi</label>
+					<input type="radio" name="wifi" value='true' >是
+					<input type="radio" name="wifi" value='false' checked="checked">否
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="parkingNum">可提供停车位数量</label>
+					<input type="text" class="form-control" id="parkingNum">
+				</div>
+				<div class="form-group part-cont">
+					<label for="info">图文描述</label>
+					<textarea id="info" type="text/plain" style='width: 100%;'></textarea>
+				</div>
+			</div>
+			<a class="btn btn-success btn-lg btn-post" id='submit'>提交</a>
+		</form>
+	</div>
+   <script src='javascripts/busData.js'></script>
+</body>
+</html>
+

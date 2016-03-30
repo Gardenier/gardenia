@@ -1,11 +1,676 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<% include header.html %>
+  <div class="homePage">
+    <div class="nav-wrap clearfix">
+      <div class="places pull-left">
+        <span>济南</span>
+        <span>|</span>
+        <a href="javascript:;">切换城市</a>
+      </div>
+      <ul class="nav-list pull-right">
+        <li><a href="/login">登录</a></li>
+        <li><a href="/register">注册</a></li>
+        <!-- <li><a href="/busData">商家入口</a></li> -->
+        <!-- <li><a href="/login">登录</a></li>
+        <li><a href="/register">注册</a></li> -->
+        <li><a href="javascript:;">用户中心</a></li>
+        <li><a href="javascript:;">收藏</a></li>
+        <li><a href="javascript:;">帮助</a></li>
+        <li><a href="javascript:;">手机玖团</a></li>
+      </ul>
+    </div>
+    <div class="mHeader clearfix">
+        <img class="pull-left" src="images/jiutuan.png" alt="logo">
+        <div class="pull-right">
+          <input type="text" placeholder="搜索商家">
+          <button>搜索</button>
+        </div>
+    </div>
+    <div class="mPart1 clearfix">
+      <ul class="allClassify pull-left">
+        <li>全部分类</li>
+        <li><a href="javascript:;">美食</a></li>
+        <li><a href="javascript:;">电影</a></li>
+        <li><a href="javascript:;">休闲娱乐</a></li>
+        <li><a href="javascript:;">购物</a></li>
+        <li><a href="javascript:;">生活服务</a></li>
+        <li><a href="javascript:;">酒店</a></li>
+        <li><a href="javascript:;">本地生活</a></li>
+      </ul>
+      <div class="slide-wrap pull-left">
+        <ul class="slide-title clearfix">
+          <li><a href="javascript:;">首页</a></li>
+          <li><a href="javascript:;">电影</a></li>
+          <li><a href="javascript:;">酒店</a></li>
+          <li><a href="javascript:;">今日特惠</a></li>
+          <li><a href="javascript:;">今日新单</a></li>
+        </ul>
+        <div class="swiper-container" style="height: 205px;overflow:hidden;">
+          <div class="swiper-wrap">
+            <div class="swiper-slide pull-left" style='width:66.66%' >
+              <img style="width: 100%;" src="images/slide1.jpg" alt="">
+            </div>
+            <div class="swiper-slide pull-left" style="width: 33.33%;">
+              <img style="width: 100%;" src="images/slide2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer clearfix">
+          <div>
+            <p>热门搜索</p>
+            <ul>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+            </ul>
+          </div>
+          <div>
+            <p>全部区域</p>
+            <ul>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+            </ul>
+          </div>
+          <div>
+            <p>热门商圈</p>
+            <ul>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+              <li><a href="javascript:;">火锅</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mPart clearfix">
+      <div class="left-mPart pull-left">
+        <div class="mPartLeftCell">
+          <div class="cellTop clearfix">
+            <a href="javascript:;" class="title pull-left">今日推荐</a>
+            <div class="arrows pull-right">
+              <a href="javascript:;"><</a>
+              <a href="javascript:;">></a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mPartLeftCell">
+          <div class="cellTop clearfix">
+            <a href="javascript:;" class="title pull-left">美食</a>
+            <div class="more pull-right">
+              <a href="javascript:;">查看全部>></a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mPartLeftCell">
+          <div class="cellTop clearfix">
+            <a href="javascript:;" class="title pull-left">电影</a>
+            <div class="more pull-right">
+              <a href="javascript:;">查看全部>></a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mPartLeftCell">
+          <div class="cellTop clearfix">
+            <a href="javascript:;" class="title pull-left">娱乐</a>
+            <div class="more pull-right">
+              <a href="javascript:;">查看全部>></a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mPartLeftCell">
+          <div class="cellTop clearfix">
+            <a href="javascript:;" class="title pull-left">购物</a>
+            <div class="more pull-right">
+              <a href="javascript:;">查看全部>></a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mPartLeftCell">
+          <div class="cellTop clearfix">
+            <a href="javascript:;" class="title pull-left">生活</a>
+            <div class="more pull-right">
+              <a href="javascript:;">查看全部>></a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tjCell">
+              <div class="mtjCell">
+                <img src="images/tj1.jpg" alt="">
+                <p>小城故事</p>
+                <p>100元代金券，可叠加</p>
+                <div class="clearfix">
+                  <div class="cutForNewer pull-left">新用户立减<span>6</span></div>
+                  <div class="price pull-right">￥<span>89.9</span></div>
+                </div>
+                <div class="mark-sold clearfix">
+                  <div class="pull-left"><span>4.5</span>分</div>
+                  <div class="pull-right">已售<span>100</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-mPart pull-right">
+        <div class="mPartRightCell pull-right">
+          <a class="rightCellTitle" href="javascript:;">热度排行榜</a>
+          <ul class="clearfix">
+          <li><a href="javascript:;">美食</a></li>
+          <li><a href="javascript:;">电影</a></li>
+          <li><a href="javascript:;">娱乐</a></li>
+          <li><a href="javascript:;">购物</a></li>
+          <li><a href="javascript:;">生活</a></li>
+          </ul>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+        </div>
+        <div class="mPartRightCell pull-right">
+          <a class="rightCellTitle" href="javascript:;">猜你喜欢</a>
+          <ul class="clearfix">
+            <li><a href="javascript:;">美食</a></li>
+            <li><a href="javascript:;">电影</a></li>
+            <li><a href="javascript:;">娱乐</a></li>
+            <li><a href="javascript:;">购物</a></li>
+            <li><a href="javascript:;">生活</a></li>
+          </ul>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+          <div class="rcContent clearfix">
+            <img src="images/top1.jpg" alt="">
+            <div class="pull-right">
+              <div class="infor">
+                <div>DQ冰雪皇后</div>
+                <div>小杯暴风雪</div>
+                <div>节假日通用</div>
+              </div>
+              <div class="price">￥<span>15.5</span></div>
+            </div>
+            <div class="topTag">1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer clearfix">
+      <div class="mPartLeftCell pull-left">
+        <div>
+          <p>用户帮助</p>
+          <a href="javascript:;">答疑反馈</a>
+          <a href="javascript:;">常见问题</a>
+        </div>
+        <div>
+          <p>商务合作</p>
+          <a href="javascript:;">友情链接</a>
+          <a href="javascript:;">市场合作</a>
+        </div>
+        <div>
+          <p>公司信息</p>
+          <a href="javascript:;">关于玖团</a>
+          <a href="javascript:;">加入我们</a>
+          <a href="javascript:;">法律中心</a>
+        </div>
+        <div>
+          <p>移动玖团</p>
+          <a href="javascript:;">玖团网手机版</a>
+          <a href="javascript:;">玖团网wap版</a>
+        </div>
+      </div>
+      <div class="pull-right">全国统一客服电话：000000
+      </div>
+    </div>
+    <p class="foot-p">@2016 JIUTUAN.COM XX备XXXXXX号</p>
+  </div>
+</body>
 </html>

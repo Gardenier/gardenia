@@ -1,0 +1,265 @@
+$(function(){
+	//组件调用 start
+	var start_date =new Date();
+	$('.choice-date').datepicker({
+		format: 'mm/dd/yyyy',//设置日期显示样式
+		language: 'zh-CN',//设置语言
+		startDate: new Date(),//所有日期控件可选日期>=当日日期
+		zIndexOffset: '999'//控制日期控件z-index
+	});
+	//组件调用 end
+	// $('#submit').click(function(){
+	// 	post_form();
+	// });
+	$("#submit").click(function(){ 
+		// var username = $("#username").val();
+		// var password = $("#password").val();
+		// var data = {"uname":username,"upwd":password};
+		// 		$.ajax({ 
+		// 			url: '/busData',
+		// 			type: 'post',
+		// 			data: data,
+		// 			success: function(data,status){ 
+		// 				if(status == 'success'){ 
+		// 					location.href = 'busData';
+		// 				}
+		// 			},
+		// 			error: function(data,err){ 
+		// 				console.log('kkkk');
+		// 					//location.href = 'register';
+		// 			}
+		// 		}); 
+		//post_form();
+		var uname = $('#sellerName').text();
+		var utype = $('#type').val();//find('option:selected').
+		var resName = $('#resName').val();
+		var packageName = $('#packageName').val();
+		var packageNumber = $('#packageNumber').val();
+		var oldPrice = $('#oldPrice').val();
+		var newPrice = $('#newPrice').val();
+		var startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);
+		var endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
+		var address = $('#address').val();
+		var mealSize = $('#mealSize').val();//find('option:selected').
+		var info = $('#info').val();
+		var holiday = $('input[name="holiday"]:checked').val();
+		var image = $('#upfile').val().lastIndexOf('\\');
+		image = $('#upfile').val().substring(image+1);
+		var makeAppointment = $('input[name="makeAppointment"]:checked').val();
+		var room = $('input[name="room"]:checked').val();
+		var packFood = $('input[name="packFood"]:checked').val();
+		var wifi = $('input[name="wifi"]:checked').val();
+		var parkingNum = $('#parkingNum').val();
+
+		console.log(
+			uname+'\n'+
+			resName+'\n'+
+			utype+'\n'+
+			startDate+'\n'+
+			endDate+'\n'+
+			packageName+'\n'+
+			image+'\n'+
+			oldPrice+'\n'+
+			newPrice+'\n'+
+			mealSize+'\n'+
+			packageNumber+'\n'+
+			address+'\n'+
+			info+'\n'+
+			holiday+'\n'+
+			room+'\n'+
+			packFood+'\n'+
+			wifi+'\n'+
+			parkingNum+'\n'+
+			makeAppointment+'\n'); 
+
+		var data = {
+			'name':uname,
+			'type':utype,
+			'resName':resName,
+			'packageName':packageName,
+			'oldPrice':oldPrice,
+			'newPrice':newPrice,
+			'startDate':startDate,
+			'endDate':endDate,
+			'packageNumber':packageNumber,
+			'address':address,
+			'mealSize':mealSize,
+			'info':info,
+			'holiday':holiday,
+			'image':image,
+			'makeAppointment':makeAppointment,
+			'room':room,
+			'packFood':packFood,
+			'wifi':wifi,
+			'parkingNum':parkingNum
+		};
+		console.log(data);
+		$.ajax({ 
+			url: '/busData',
+			type: 'post',
+			data: data,
+			success: function(data,status){ 
+				if(status == 'success'){ 
+					location.href = 'busData';
+				}
+			},
+			error: function(data,err){ 
+				console.log('error html');
+					//location.href = 'register';
+			}
+		}); 
+	});
+})
+//日期比较
+function checkDate(obj1,obj2,boolean){ 
+	var a = $(obj1).datepicker("getDate").toISOString().slice(0,10);
+	var b = $(obj2).datepicker("getDate").toISOString().slice(0,10); 
+	a = parseInt(a.replace("-", "").replace("-", ""));
+	b = parseInt(b.replace("-", "").replace("-", "")); 
+	if(!boolean){//两日期不可相等
+		if(a<b){
+			return 1;
+		}else{
+			return -1;
+		}
+	}else{//两日期可相等
+		return 0;
+	}
+}
+
+//没有数据,判空、报错
+function noData(obj,string){
+	obj.parent().append("<label class='tips2'>"+string+"</label>");
+	obj.focus();
+}
+// //验证表单  认为每一项都是必填
+function post_form(){
+	var name = $('#sellerName');
+	var resName = $('#resName');//.val();
+	var type = $('#type');
+	var packageName = $('#packageName');
+	var packageNumber = $('#packageNumber');
+	var oldPrice = $('#oldPrice');
+	var newPrice = $('#newPrice');
+	var mealSize = $('#mealSize');
+	var startDate = $('#startDate');
+	var endDate = $('#endDate');
+	var address = $('#address');
+	var info = $('#info');
+	var holiday = $('#holiday');
+	var image = $('#upfile');
+	//移除所有错误提示
+	$('.tips2').remove();
+	//v_resname = name.text();
+	v_type = type.val();
+	var v_resName = resName.val();
+	var v_packageName = packageName.val();
+	var v_packageNumber = packageNumber.val();
+	var v_oldPrice = oldPrice.val();
+	var v_newPrice = newPrice.val();
+	var v_startDate = startDate.datepicker("getDate");//.toISOString().slice(0,10);
+	var v_endDate = endDate.datepicker("getDate");//.toISOString().slice(0,10);
+	var v_address = address.val();
+	var v_mealSize = mealSize.val();
+	var v_info = info.val();
+	var v_holiday = $('input[name="holiday"]:checked').val();
+	var v_image = $('#upfile').val().lastIndexOf('\\');
+	v_image = $('#upfile').val().substring(image+1);
+	if(v_resName == ""){
+		noData(resName,"未填写店铺名称");
+		return false;
+	}
+	if(v_type == "请选择商家类别"){
+		noData(type,"未选择商家名称");
+		return false;
+	}
+	if(v_startDate == null){
+		noData(startDate,"未选择开始日期");
+		return false;
+	}
+	if(v_endDate == null){
+		noData(endDate,"未选择结束日期");
+		return false;
+	}else{
+		bool = checkDate('#startDate','#endDate',false);
+		if(bool == 0 || bool == -1){
+			noData($('#endDate'),"结束日期不能早于或等于开始日期");
+			return false;
+		}
+	}
+	if(v_packageName == ""){
+		noData(packageName,"未填写套餐名称");
+		return false;
+	}
+	if(v_image == ''){
+		noData(image,"未上传图片");
+		return false;
+	}
+	if(v_oldPrice ==''){
+		noData(oldPrice,"未填写商品原价");
+		return false;
+	}
+	if(v_newPrice == ''){
+		noData(newPrice,"未填写商品现价");
+		return false;
+	}
+	if(v_mealSize == ''){
+		noData(address,"未填写套餐规格");
+		return false;
+	}
+	if(v_packageNumber == ""){
+		noData(packageNumber,"未填写套餐数量");
+		return false;
+	}
+	if(v_address == ''){
+		noData(address,"未填写店铺地址");
+		return false;
+	}
+	if(v_info == ''){
+		// noData($('#edito1'),"未填写描述");
+		$("#info").parent().append("<label class='tips2'>未填写描述</label>");
+		return false;
+	}
+	console.log();
+}
+// function _s() {
+//     var f = $('#upfile').files;
+//     //上次修改时间
+//     console.log(f);
+//     //名称
+//     console.log(f.name);
+//     //大小 字节
+//     console.log(f.size);
+//     //类型
+//     console.log(f.type);
+// }
+// function checkImgType(ths){ 
+// 	ths = ths.target || window.event.srcElement;
+//     thsType = ths.value;
+//     //判断文件类型
+//    	if (!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(thsType)) {  
+//    		$('#upfile').after("<p style='color:#f00;font-weight: bold;margin:0;'>图片类型必须是.gif,jpeg,jpg,png中的一种</p>");  
+//         ths.value = "";  
+//         return false; 
+//     }
+//     return true;  
+// }  
+//获取数据
+function getData(){
+	name = $('#sellerName').text();
+	type = $('#type').val();//find('option:selected').
+	resName = $('#resName').val();
+	packageName = $('#packageName').val();
+	packageNumber = $('#packageNumber').val();
+	oldPrice = $('#oldPrice').val();
+	newPrice = $('#newPrice').val();
+	//startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);
+	//endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
+	address = $('#address').val();
+	mealSize = $('#mealSize').val();//find('option:selected').
+	info = $('#info').val();
+	holiday = $('input[name="holiday"]:checked').val();
+	image = $('#upfile').val().lastIndexOf('\\');
+	image = $('#upfile').val().substring(image+1);
+	
+}
