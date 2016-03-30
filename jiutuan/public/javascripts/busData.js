@@ -12,86 +12,50 @@ $(function(){
 	// 	post_form();
 	// });
 	$("#submit").click(function(){ 
-		// var username = $("#username").val();
-		// var password = $("#password").val();
-		// var data = {"uname":username,"upwd":password};
-		// 		$.ajax({ 
-		// 			url: '/busData',
-		// 			type: 'post',
-		// 			data: data,
-		// 			success: function(data,status){ 
-		// 				if(status == 'success'){ 
-		// 					location.href = 'busData';
-		// 				}
-		// 			},
-		// 			error: function(data,err){ 
-		// 				console.log('kkkk');
-		// 					//location.href = 'register';
-		// 			}
-		// 		}); 
-		//post_form();
-		var uname = $('#sellerName').text();
-		var utype = $('#type').val();//find('option:selected').
+		//表单验证
+		post_form();
+
+		var name = $('#sellerName').text();
+		var type = $('#type').val();
 		var resName = $('#resName').val();
 		var packageName = $('#packageName').val();
-		var packageNumber = $('#packageNumber').val();
-		var oldPrice = $('#oldPrice').val();
-		var newPrice = $('#newPrice').val();
 		var startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);
 		var endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
-		var address = $('#address').val();
-		var mealSize = $('#mealSize').val();//find('option:selected').
-		var info = $('#info').val();
-		var holiday = $('input[name="holiday"]:checked').val();
 		var image = $('#upfile').val().lastIndexOf('\\');
-		image = $('#upfile').val().substring(image+1);
+		image = $('#upfile').val().substring(image+1);// var packageNumber = $('#packageNumber').val();
+		var oldPrice = $('#oldPrice').val();
+		var newPrice = $('#newPrice').val();
+		var mealSize = $('#mealSize').val();
+		var packageNumber = $('#packageNumber').val();
+		var address = $('#address').val();
+		var holiday = $('input[name="holiday"]:checked').val();
 		var makeAppointment = $('input[name="makeAppointment"]:checked').val();
 		var room = $('input[name="room"]:checked').val();
 		var packFood = $('input[name="packFood"]:checked').val();
 		var wifi = $('input[name="wifi"]:checked').val();
 		var parkingNum = $('#parkingNum').val();
-
-		console.log(
-			uname+'\n'+
-			resName+'\n'+
-			utype+'\n'+
-			startDate+'\n'+
-			endDate+'\n'+
-			packageName+'\n'+
-			image+'\n'+
-			oldPrice+'\n'+
-			newPrice+'\n'+
-			mealSize+'\n'+
-			packageNumber+'\n'+
-			address+'\n'+
-			info+'\n'+
-			holiday+'\n'+
-			room+'\n'+
-			packFood+'\n'+
-			wifi+'\n'+
-			parkingNum+'\n'+
-			makeAppointment+'\n'); 
+		var info = $('#info').val();
 
 		var data = {
-			'name':uname,
-			'type':utype,
-			'resName':resName,
-			'packageName':packageName,
-			'oldPrice':oldPrice,
-			'newPrice':newPrice,
+			"name": name,
+			"type": type,
+			"resName": resName,
+			"packageName": packageName,
 			'startDate':startDate,
 			'endDate':endDate,
+			"image": image,
+			'oldPrice':oldPrice,
+			'newPrice':newPrice,
+			'mealSize':mealSize,
 			'packageNumber':packageNumber,
 			'address':address,
-			'mealSize':mealSize,
-			'info':info,
 			'holiday':holiday,
-			'image':image,
 			'makeAppointment':makeAppointment,
 			'room':room,
 			'packFood':packFood,
 			'wifi':wifi,
-			'parkingNum':parkingNum
+			'parkingNum':parkingNum,
+			'info':info
 		};
 		console.log(data);
 		$.ajax({ 

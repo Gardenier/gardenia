@@ -68,37 +68,78 @@ router.route("/register").get(function(req,res){    // 到达此路径则渲染r
 		}
 	});
 });
-// router.route("/busData").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
-// 	res.render("busData",{title:'User busData'});
-// }).post(function(req,res){ 
-// 	//这里的User就是从model中获取user对象，通过global.dbHandel全局方法（这个方法在app.js中已经实现)
-// 	var sellContent = global.dbHandel.getModel('sellContent');
-// 	var uname = req.body.uname;
-// 	var upwd = req.body.upwd;
-// 	sellContent.findOne({name: uname},function(err,doc){   // 同理 /login 路径的处理方式
-// 		if(err){ 
-// 			res.send(500);
-// 			req.session.error =  '网络异常错误！';
-// 			console.log(err);
-// 		}else if(doc){ 
-// 			req.session.error = '用户名已存在！';
-// 			res.send(500);
-// 		}else{ 
-// 			sellContent.create({ 							// 创建一组user对象置入model
-// 				name: uname,
-// 				password: upwd
-// 			},function(err,doc){ 
-// 				if (err) {
-//                     res.send(500);
-//                     console.log(err);
-//                 } else {
-//                     req.session.error = '用户名创建成功！';
-//                     res.send(200);
-//                 }
-//             });
-// 		}
-// 	});
-// });
+router.route("/busData").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+	res.render("busData",{title:'User busData'});
+}).post(function(req,res){ 
+	//这里的User就是从model中获取user对象，通过global.dbHandel全局方法（这个方法在app.js中已经实现)
+	var sellContent = global.dbHandel.getModel('sellContent');
+	//var uname = req.body.uname;
+	//var upwd = req.body.upwd;
+	var name = req.body.name;
+	var type = req.body.type;
+	var resName = req.body.resName;
+	var packageName = req.body.packageName;
+	var startDate = req.body.startDate;
+	var endDate = req.body.endDate;
+	var image = req.body.image;
+	var oldPrice = req.body.oldPrice;
+	var newPrice = req.body.newPrice;
+	var mealSize = req.body.mealSize;
+	var packageNumber = req.body.packageNumber;
+	var address = req.body.address;
+	var holiday = req.body.holiday;
+	var makeAppointment = req.body.makeAppointment;
+	var room = req.body.room;
+	var packFood = req.body.packFood;
+	var wifi = req.body.wifi;
+	var parkingNum = req.body.parkingNum;
+	var info = req.body.info;
+
+	sellContent.findOne(function(err,doc){   // 同理 /login 路径的处理方式
+		if(err){ 
+			res.send(500);
+			req.session.error =  '网络异常错误！';
+			console.log(err);
+		}else if(doc){ 
+			req.session.error = '用户名已存在！';
+			res.send(500);
+		}else{ 
+			sellContent.create({ 							// 创建一组user对象置入model
+				//name: uname,
+				//password: upwd,
+				name: name,
+				type: type,
+				resName: resName,
+				packageName: packageName,
+				startDate: startDate,
+				endDate: endDate,
+				image: image,
+				oldPrice: oldPrice,
+ 				newPrice: newPrice,
+ 				mealSize: mealSize,
+ 			 	packageNumber: packageNumber,
+ 				address: address,
+				holiday: holiday,
+				makeAppointment: makeAppointment,
+				room: room,
+				packFood: packFood,
+				wifi: wifi,
+				parkingNum: parkingNum,
+				info: info
+ 				
+
+			},function(err,doc){ 
+				if (err) {
+                    res.send(500);
+                    console.log(err);
+                } else {
+                    req.session.error = '用户名创建成功！';
+                    res.send(200);
+                }
+            });
+		}
+	});
+});
 
 /* GET home page. */
 router.get("/home",function(req,res){ 
@@ -107,68 +148,6 @@ router.get("/home",function(req,res){
 		res.redirect("/login");				//未登录则重定向到 /login 路径
 	}
 	res.render("home",{title:'Home'});         //已登录则渲染home页面
-});
-router.route("/busData").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
-	res.render("busData",{title:'User busData'});
-}).post(function(req,res){  
-	var sellContent = global.dbHandel.getModel('sellContent');
-	var uname = req.body.uname;
-	var utype = req.body.utype;
-	var resName = req.body.resName;
-	var packageName = req.body.packageName;
-	var oldPrice = req.body.oldPrice;
-	var newPrice = req.body.newPrice;
-	var startDate = req.body.startDate;
-	var endDate = req.body.endDate;
-	var packageNumber = req.body.packageNumber;
-	var address = req.body.address;
-	var mealSize = req.body.mealSize;
-	var info = req.body.info;
-	var holiday = req.body.holiday;
-	var image = req.body.image;
-	var makeAppointment = req.body.makeAppointment;
-	var room = req.body.room;
-	var packFood = req.body.packFood;
-	var wifi = req.body.wifi;
-	var parkingNum = req.body.parkingNum;
-	sellContent.findOne({name: uname},function(err,doc){   // 同理 /login 路径的处理方式
-		if(err){ 
-			res.send(500);
-			req.session.error =  '网络异常错误！';
-			console.log('网络异常错误！'+err);
-		}else{
-			sellContent.create({ 							// 创建一组user对象置入model
-				name: uname,
-				type: utype,
-				resName: resName,
-				packageName: packageName,
-				oldPrice: oldPrice,
-				newPrice: newPrice,
-				startDate: startDate,
-				endDate: endDate,
-				packageNumber: packageNumber,
-				address: address,
-				mealSize: mealSize,
-				info: info,
-				holiday: holiday,
-				image: image,
-				makeAppointment: makeAppointment,
-				room: room,
-				packFood: packFood,
-				wifi: wifi,
-				parkingNum: parkingNum
-			},function(err,doc){ 
-				if (err) {
-	                res.send(500);
-	                console.log('create'+err);
-	            } else {
-	                //req.session.error = '数据录入成功！';
-	                res.send(200);
-	                console.log('数据录入成功！');
-	            }
-	        });
-		}
-	});
 });
 
 /* GET logout page. */

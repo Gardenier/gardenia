@@ -1,3 +1,4 @@
 /.idea/
 /node_modules/
 /public/.sass-cache/
+/bin/npm-debug.log
