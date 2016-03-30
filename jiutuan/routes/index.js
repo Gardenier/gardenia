@@ -41,7 +41,7 @@ router.route("/register").get(function(req,res){    // 到达此路径则渲染r
 	res.render("register",{title:'User register'});
 }).post(function(req,res){ 
 	//这里的User就是从model中获取user对象，通过global.dbHandel全局方法（这个方法在app.js中已经实现)
-	var User = global.dbHandel.getModel('user');
+	//var User = global.dbHandel.getModel('user');
 	var uname = req.body.uname;
 	var upwd = req.body.upwd;
 	User.findOne({name: uname},function(err,doc){   // 同理 /login 路径的处理方式
@@ -53,7 +53,7 @@ router.route("/register").get(function(req,res){    // 到达此路径则渲染r
 			req.session.error = '用户名已存在！';
 			res.send(500);
 		}else{ 
-			User.create({ 							// 创建一组user对象置入model
+			User.collection.insert({ 							// 创建一组user对象置入model
 				name: uname,
 				password: upwd
 			},function(err,doc){ 
@@ -68,13 +68,11 @@ router.route("/register").get(function(req,res){    // 到达此路径则渲染r
 		}
 	});
 });
-router.route("/busData").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+
+router.route("/busData").get(function(req,res){  
 	res.render("busData",{title:'User busData'});
 }).post(function(req,res){ 
-	//这里的User就是从model中获取user对象，通过global.dbHandel全局方法（这个方法在app.js中已经实现)
 	var sellContent = global.dbHandel.getModel('sellContent');
-	//var uname = req.body.uname;
-	//var upwd = req.body.upwd;
 	var name = req.body.name;
 	var type = req.body.type;
 	var resName = req.body.resName;
@@ -95,7 +93,7 @@ router.route("/busData").get(function(req,res){    // 到达此路径则渲染re
 	var parkingNum = req.body.parkingNum;
 	var info = req.body.info;
 
-	sellContent.findOne(function(err,doc){   // 同理 /login 路径的处理方式
+	sellContent.findOne({resName:resName},function(err,doc){   
 		if(err){ 
 			res.send(500);
 			req.session.error =  '网络异常错误！';
@@ -104,9 +102,7 @@ router.route("/busData").get(function(req,res){    // 到达此路径则渲染re
 			req.session.error = '用户名已存在！';
 			res.send(500);
 		}else{ 
-			sellContent.create({ 							// 创建一组user对象置入model
-				//name: uname,
-				//password: upwd,
+			sellContent.collection.insert({ 							
 				name: name,
 				type: type,
 				resName: resName,
@@ -204,19 +200,20 @@ router.route("/sellerRegister").get(function(req,res){    // 到达此路径则�
 			req.session.error = '用户名已存在！';
 			res.send(500);
 		}else{ 
-			User.create({ 							// 创建一组user对象置入model
+			User.collection.insert({ 							// 创建一组user对象置入model
 				name: uname,
 				password: upwd
 			},function(err,doc){ 
-				 if (err) {
-                        res.send(500);
-                        console.log(err);
-                    } else {
-                        req.session.error = '用户名创建成功！';
-                        res.send(200);
-                    }
-                  });
+			if (err) {
+                    res.send(500);
+                    console.log(err);
+                } else {
+                    req.session.error = '用户名创建成功！';
+                    res.send(200);
+                }
+            });
 		}
 	});
 });
+
 module.exports = router;

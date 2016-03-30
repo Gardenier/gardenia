@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Schema.Types.ObjectId;
 var Schema = mongoose.Schema;
 var models = require("./models");
 
@@ -15,3 +16,4 @@ module.exports = {
 var _getModel = function(type){ 
 	return mongoose.model(type);
 };
+

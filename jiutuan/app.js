@@ -14,6 +14,7 @@ var ejs = require('ejs');
 //var mongoose = require('./mongodb');
 var mongoose = require('mongoose');
 global.dbHandel = require('./database/dbHandel');
+global.dbHandel = require('./database/methods');
 global.db = mongoose.connect("mongodb://localhost:27017/nodedb");
 var app = express();
 // var app = connect()
