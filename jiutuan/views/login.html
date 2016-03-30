@@ -11,28 +11,21 @@
 <body>
 	<div class="register">
 		<p class="pageTitle">玖团</p>
-		<form action="/register" method="post" class="form-horizontal" id="registerForm">
+		<form action="" class="form-horizontal" id="loginFormb" style="display:none">
 			<div class="tag clearfix">
-				<div class="tag-active" id="tag-regist">注册</div>
-				<div id="tag-login">登录</div>
+				<div id="tag-regist">注册</div>
+				<div class="tag-active" id="tag-login">登录</div>
 			</div>
 			<div class="input-block">
 				<label for="userName">用户名</label>
-				<input type="text" class="allBorder0" id="userName" name="user[name]">
-			</div>
-			<div class="input-block">
-				<label for="phoneNum">手机号</label>
-				<input type="text" class="allBorder0" id="phoneNum">
+				<input type="text" class="allBorder0" id="userNameb">
 			</div>
 			<div class="input-block">
 				<label for="password">密码</label>
-				<input type="password" class="allBorder0" id="password" name="user[password]">
+				<input type="password" class="allBorder0" id="passwordb">
 			</div>
-			<div class="input-block getCheckNum">
-				<label for="checkNum">验证码</label>
-				<input type="text" class="allBorder0" id="checkNum">
-				<button class="btn btn-default">获取验证码</button>
-			</div>
+			<button type="submit" class="btn btn-primary btn-block" id="loginb">登录</button>
+			<button type="button" class="btn btn-info col-sm-2 col-sm-offset-10" class="register0">注册</button>
 		</form>
 	</div>
 </body>
@@ -41,14 +34,14 @@
 		$(this).click(function(){
 			var idName = $(this).attr('id');
 			if(idName == 'tag-login'){
-				// $('.tag div').css('border-top-left-radius','0');
-				// $('.tag div').css('border-top-right-radius','10px');
-				window.location.href = 'login';
+				$('.tag div').css('border-top-left-radius','0');
+				$('.tag div').css('border-top-right-radius','10px');
+				// $('#registerForm').hide();
+				// $('#loginForm').show();
 			}else {
-				$('.tag div').css('border-top-right-radius','0');
-				$('.tag div').css('border-top-left-radius','10px');
-				// $('#registerForm').show();
-				// $('#loginForm').hide();
+				// $('.tag div').css('border-top-right-radius','0');
+				// $('.tag div').css('border-top-left-radius','10px');
+				window.location.href = 'register';
 			}
 			$(this).parent().find('div').removeClass('tag-active');
 			$(this).addClass('tag-active');
@@ -65,7 +58,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title><%= title %></title>
-	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+		<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
 	<link rel="stylesheet" href="stylesheets/register.css">
 	<script src="javascripts/jquery-2.0.3.min.js"></script>
 	<script src="javascripts/bootstrap.js"></script>
@@ -78,15 +71,15 @@
 	<div class="container">
 	<%- message %>
 		<div>
-			<a href="register" id="user">用户</a>
-			<a href="sellerRegister" id="buser">商家</a>
+			<a href="login" id="user">用户</a>
+			<a href="sellerLogin" id="buser">商家</a>
 		</div>
-		<form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post" onsubmit="return false" id='registerForm'>
+		<form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post" onsubmit="return false" id="loginForm">
 			<fieldset>
 				<legend></legend>
 				<div class="panel panel-default">
 				<div class="panel-heading">
-					<p class="tc">用户注册</p>
+					<p class="tc">用户登录</p>
 				</div>
 				<div class="panel-body m15">
 				<div class="form-group">
@@ -106,57 +99,44 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon">
-						<span class="glyphicon glyphicon-lock"></span>
-						</span>
-						<input type="text" class="form-control" id="password1" name="password1" placeholder="请再次输入密码" required>
-					</div>
+						<button type="submit" class="btn btn-primary btn-block" id="login0">登录</button>
 				</div>
 				<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-block" id="register1">注册</button>
-				</div>
-				<div class="form-group">
-						<a class="btn btn-default" href="login">登录</a>
+					<a class="btn btn-default" href="register">注册</a>
 				</div>
 				</div>
 				</div>
 			</fieldset>
 		</form>
-
 	</div>
 
 	<script type="text/javascript">
 	$(function(){ 
-		// $(".login1").click(function(){ 
-		// 	location.href = 'login';
+		// $(".register0").click(function(){ 
+		// 	location.href = 'register';
 		// });
-		$("#register1").click(function(){ 
+		$("#login0").click(function(){ 
 			var username = $("#username").val();
 			var password = $("#password").val();
-			var password1 = $("#password1").val();
-			if(password !== password1){ 
-				$("#password").css("border","1px solid red");
-				$("#password1").css("border","1px solid red");
-			}else if(password === password1){
-				var data = {"uname":username,"upwd":password};
-				$.ajax({ 
-					url: '/register',
-					type: 'post',
-					data: data,
-					success: function(data,status){ 
-						if(status == 'success'){ 
-							location.href = 'login';
-						}
-					},
-					error: function(data,err){ 
-							location.href = 'register';
+			var data = {"uname":username,"upwd":password};
+			$.ajax({ 
+				url:'/login',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						location.href = 'home';
 					}
-				}); 
-			}
+				},
+				error: function(data,status){ 
+					if(status == 'error'){ 
+						location.href = 'login';
+					}
+				}
+			});
 		});
 	});
-</script>
+	</script>
 </body>
 </head>
 </html>

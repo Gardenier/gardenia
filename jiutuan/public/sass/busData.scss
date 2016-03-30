@@ -1,0 +1,82 @@
+@import 'common.scss';
+$my-border-color: #bbb;
+
+.wrap {
+	width: 70%;
+	margin: 0 auto;
+	padding-bottom: 60px;
+}
+.space-name{
+	padding: 30px 0;
+	border-bottom: 1px solid $my-border-color;
+	font-size: 20px;
+	font-weight: bold;
+}
+.part-title {
+	font-size: 18px;
+	font-weight: bold;
+	padding:10px 0;
+	border-bottom: 1px solid $my-border-color;;
+}
+.part {
+	width: 90%;
+	margin: 0 auto;
+}
+.part-cont{
+	width: 80%;
+	margin-left: 10%;
+	label{
+		width: 100px;
+		margin-right: 70px;
+	}
+}
+.add-cont{
+	width: 90%;
+	margin-left: 5%;
+	label{
+		width: 70px;
+		margin-right: 50px;
+	}
+}
+.package-name{
+	width: 50%;
+	line-height: 34px;
+	display: inline-block;
+}
+.btn-add-wrap{
+	margin-top: 50px;
+	padding-top: 20px;
+	border-top: 1px solid $my-border-color;
+}
+.btn-save{
+	width: 20%;
+}
+.btn-post,.btn-save{
+	display: block;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.btn-post{
+	width: 150px;
+}
+.file-input{
+	display: inline-block;
+}
+.package-list{
+	div{
+		margin-bottom: 20px;
+	}
+	a,button{
+		float: left;
+		margin-right: 20px;
+	}
+}
+.tips{
+	color: #f00;
+	width: 100px;
+}
+.part-cont .tips2{
+	color: #f00;
+	width: 175px;
+	margin: 0;
+}
