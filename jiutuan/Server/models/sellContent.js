@@ -3,25 +3,35 @@ var Schema   = mongoose.Schema;
 
 //schema 就是如何定义数据的结构
 var sellConSchema = new mongoose.Schema({
-    name:{type: String, required: true},
-	type:{type: String, required: true},
-	resName:{type: String, required: true},
-	packageName:{type: String, required: true},
-	oldPrice:{type: String, required: true},
-	newPrice:{type: String, required: true},
-	startDate:{type:String, required: true},
-	endDate:{type: String, required: true},
-	packageNumber:{type: String, required: true},
-	address:{type: String, required: true},
-	mealSize:{type: String, required: true},
-	info:{type: String, required: true},
-	holiday:{type: String, required: true},
-	image:{type: String, required: true},
-	makeAppointment:{type: String, required: true},
-	room:{type: String, required: true},
-	packFood:{type: String, required: true},
-	wifi:{type: String, required: true},
-	parkingNum:{type: String, required: true}
+    //name: String,//, required: true
+	type: String,//, required: true
+	resName: String,//, required: true
+	packageName: String,//, required: true
+	oldPrice: Number,//, required: true
+	newPrice: Number,//, required: true
+	startDate: String,//, required: true
+	endDate: String,//, required: true
+	mealSize: String,//, required: true
+	area: String,//, required: true
+	address: String,
+	info: String,//, required: true
+	holiday: String,//, required: true
+	image: String,//, required: true
+	makeAppointment: String,//, required: true
+	room: String,//, required: true
+	packFood: String,//, required: true
+	wifi: String,//, required: true
+	parkingNum: Number,//, required: true
+	pjNumber:{
+		five: Number,
+		four: Number,
+		three :Number,
+		two: Number,
+		one: Number
+	},//评价个数
+	soldNumber: Number,
+	phoneNum: String,
+
 });
 //生成方法getModel给予调用，返回user模型
 module.exports = {

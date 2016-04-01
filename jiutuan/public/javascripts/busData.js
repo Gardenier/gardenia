@@ -15,10 +15,11 @@ $(function(){
 		//表单验证
 		post_form();
 
-		var name = $('#sellerName').text();
+		//var name = $('#sellerName').text();
 		var type = $('#type').val();
+		var city = $('#city').val();
 		var resName = $('#resName').val();
-		var packageName = $('#packageName').val();
+		var area = $('#area').val();
 		var startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);
 		var endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
 		var image = $('#upfile').val().lastIndexOf('\\');
@@ -26,8 +27,9 @@ $(function(){
 		var oldPrice = $('#oldPrice').val();
 		var newPrice = $('#newPrice').val();
 		var mealSize = $('#mealSize').val();
-		var packageNumber = $('#packageNumber').val();
+		var packageName = $('#packageName').val();
 		var address = $('#address').val();
+		var phoneNum = $('#phoneNum').val();
 		var holiday = $('input[name="holiday"]:checked').val();
 		var makeAppointment = $('input[name="makeAppointment"]:checked').val();
 		var room = $('input[name="room"]:checked').val();
@@ -37,8 +39,9 @@ $(function(){
 		var info = $('#info').val();
 
 		var data = {
-			"name": name,
+			//"name": name,
 			"type": type,
+			"city": city,
 			"resName": resName,
 			"packageName": packageName,
 			'startDate':startDate,
@@ -47,7 +50,7 @@ $(function(){
 			'oldPrice':oldPrice,
 			'newPrice':newPrice,
 			'mealSize':mealSize,
-			'packageNumber':packageNumber,
+			'area':area,
 			'address':address,
 			'holiday':holiday,
 			'makeAppointment':makeAppointment,
@@ -55,9 +58,31 @@ $(function(){
 			'packFood':packFood,
 			'wifi':wifi,
 			'parkingNum':parkingNum,
-			'info':info
+			'info':info,
+			'phoneNum':phoneNum
 		};
-		console.log(data);
+		console.log(
+			"type"+type+'\n'+
+			"city"+city+'\n'+
+			"resName"+resName+'\n'+
+			"packageName"+packageName+'\n'+
+			'startDate'+startDate+'\n'+
+			'endDate'+endDate+'\n'+
+			"image"+image+'\n'+
+			'oldPrice'+oldPrice+'\n'+
+			'newPrice'+newPrice+'\n'+
+			'mealSize'+mealSize+'\n'+
+			'area'+area+'\n'+
+			'address'+address+'\n'+
+			'holiday'+holiday+'\n'+
+			'makeAppointment'+makeAppointment+'\n'+
+			'room'+room+'\n'+
+			'packFood'+packFood+'\n'+
+			'wifi'+wifi+'\n'+
+			'parkingNum'+parkingNum+'\n'+
+			'info'+info+'\n'+
+			'phoneNum'+phoneNum
+			);
 		$.ajax({ 
 			url: '/busData',
 			type: 'post',
@@ -67,8 +92,10 @@ $(function(){
 					location.href = 'busData';
 				}
 			},
-			error: function(data,err){ 
-				console.log('error html');
+			error: function(status,err){ 
+				alert("此套餐已存在！");
+				location.href = 'busData';
+				//console.log('error html');
 					//location.href = 'register';
 			}
 		}); 
@@ -98,9 +125,10 @@ function noData(obj,string){
 }
 // //验证表单  认为每一项都是必填
 function post_form(){
-	var name = $('#sellerName');
+	//var name = $('#sellerName');
 	var resName = $('#resName');//.val();
 	var type = $('#type');
+	var city = $('#city');
 	var packageName = $('#packageName');
 	var packageNumber = $('#packageNumber');
 	var oldPrice = $('#oldPrice');
@@ -115,7 +143,8 @@ function post_form(){
 	//移除所有错误提示
 	$('.tips2').remove();
 	//v_resname = name.text();
-	v_type = type.val();
+	var v_type = type.val();
+	var v_city = city.val();
 	var v_resName = resName.val();
 	var v_packageName = packageName.val();
 	var v_packageNumber = packageNumber.val();
@@ -133,10 +162,10 @@ function post_form(){
 		noData(resName,"未填写店铺名称");
 		return false;
 	}
-	if(v_type == "请选择商家类别"){
-		noData(type,"未选择商家名称");
-		return false;
-	}
+	// if(v_type == "请选择商家类别"){
+	// 	noData(type,"未选择商家名称");
+	// 	return false;
+	// }
 	if(v_startDate == null){
 		noData(startDate,"未选择开始日期");
 		return false;

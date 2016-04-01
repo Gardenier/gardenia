@@ -272,7 +272,7 @@ router.get("/home",function(req,res){
 		req.session.error = "请先登录"
 		res.redirect("/login");				//未登录则重定向到 /login 路径
 	}
-	res.render("home",{title:'Home'});         //已登录则渲染home页面
+	res.render("home",{title:'Home',resName:'花信'});         //已登录则渲染home页面
 });
 
 /* GET logout page. */
@@ -414,8 +414,8 @@ router.route("/busData").get(function(req,res){
 	}
 	res.render("busData",{title:'User busData'});
 }).post(function(req,res){ 
-	var sellContent = global.sellContent.getModel();
-	var name = req.body.name;
+	//var sellContent = global.sellContent.getModel();
+	//var name = req.body.name;
 	var type = req.body.type;
 	var resName = req.body.resName;
 	var packageName = req.body.packageName;
@@ -425,8 +425,9 @@ router.route("/busData").get(function(req,res){
 	var oldPrice = req.body.oldPrice;
 	var newPrice = req.body.newPrice;
 	var mealSize = req.body.mealSize;
-	var packageNumber = req.body.packageNumber;
+	var area = req.body.area;
 	var address = req.body.address;
+	var phoneNum = req.body.phoneNum;
 	var holiday = req.body.holiday;
 	var makeAppointment = req.body.makeAppointment;
 	var room = req.body.room;
@@ -434,49 +435,103 @@ router.route("/busData").get(function(req,res){
 	var wifi = req.body.wifi;
 	var parkingNum = req.body.parkingNum;
 	var info = req.body.info;
+	var item = {five:0,four:0,three:0,two:0,one:0};
+	var soldNumber = 0;
+	var data = {
+		//name: name,
+		type: type,
+		resName: resName,
+		packageName: packageName,
+		startDate: startDate,
+		endDate: endDate,
+		image: image,
+		oldPrice: oldPrice,
+		newPrice: newPrice,
+		mealSize: mealSize,
+	 	area: area,
+		address: address,
+		holiday: holiday,
+		makeAppointment: makeAppointment,
+		room: room,
+		packFood: packFood,
+		wifi: wifi,
+		parkingNum: parkingNum,
+		info: info,
+		pjNumber: item,
+		soldNumber: soldNumber,
+		phoneNum: phoneNum
 
-	sellContent.findOne({resName:resName},function(err,doc){   
-		if(err){ 
-			res.send(500);
-			req.session.error =  '网络异常错误！';
-			console.log(err);
-		}else if(doc){ 
-			req.session.error = '用户名已存在！';
-			res.send(500);
-		}else{ 
-			sellContent.collection.insert({ 							
-				name: name,
-				type: type,
-				resName: resName,
-				packageName: packageName,
-				startDate: startDate,
-				endDate: endDate,
-				image: image,
-				oldPrice: oldPrice,
- 				newPrice: newPrice,
- 				mealSize: mealSize,
- 			 	packageNumber: packageNumber,
- 				address: address,
-				holiday: holiday,
-				makeAppointment: makeAppointment,
-				room: room,
-				packFood: packFood,
-				wifi: wifi,
-				parkingNum: parkingNum,
-				info: info
+	};
+	// sellContent.findOne({resName:resName},function(err,doc){   
+	// 	if(err){ 
+	// 		res.send(500);
+	// 		req.session.error =  '网络异常错误！';
+	// 		console.log(err);
+	// 	}else if(doc){ 
+	// 		req.session.error = '用户名已存在！';
+	// 		res.send(500);
+	// 	}else{ 
+	// 		sellContent.collection.insert({ 							
+	// 			name: name,
+	// 			type: type,
+	// 			resName: resName,
+	// 			packageName: packageName,
+	// 			startDate: startDate,
+	// 			endDate: endDate,
+	// 			image: image,
+	// 			oldPrice: oldPrice,
+ // 				newPrice: newPrice,
+ // 				mealSize: mealSize,
+ // 			 	packageNumber: packageNumber,
+ // 				address: address,
+	// 			holiday: holiday,
+	// 			makeAppointment: makeAppointment,
+	// 			room: room,
+	// 			packFood: packFood,
+	// 			wifi: wifi,
+	// 			parkingNum: parkingNum,
+	// 			info: info,
+	// 			pjNumber: data,
+	// 			// pjNumber.four: four,
+	// 			// pjNumber.three: three,
+	// 			// pjNumber.two: two,
+	// 			// pjNumber.one: one,
+	// 			soldNumber: soldNumber
  				
 
-			},function(err,doc){ 
-				if (err) {
-                    res.send(500);
-                    console.log(err);
-                } else {
-                    req.session.error = '用户名创建成功！';
-                    res.send(200);
-                }
-            });
+	// 		},function(err,doc){ 
+	// 			if (err) {
+ //                    res.send(500);
+ //                    console.log(err);
+ //                } else {
+ //                    req.session.error = '用户名创建成功！';
+ //                    res.send(200);
+ //                }
+ //            });
+	// 	}
+	// });
+	global.sellConControl.packageEqualAction({packageName:packageName},function(err,doc){
+		if(err) {
+			res.send(500);
+            console.log('index'+err);
+		}else if(doc){ 
+			req.session.error = '请创建新的套餐！';
+			//console.log('请创建新的套餐！');
+			res.send(300);
 		}
-	});
+		else {
+			global.sellConControl.sellConAddAction(data,function(err,doc){
+				if (err) {
+		            res.send(500);
+		            console.log(err);
+		        } else {
+		            req.session.error = '录入数据成功！';
+		            res.send(200);
+		        }
+		    });
+		}
+	});	
+	
 });
 
 //忘记密码 重新设置

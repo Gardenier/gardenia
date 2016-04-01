@@ -1,7 +1,6 @@
 var dbHelper = require('../DBhelper/dbHelper');
 var sellCon =require('../DBMongo/sellContentData');
 
-
 /**
  * add user
  * @returns {Function}
@@ -14,7 +13,7 @@ exports.sellConAddAction = function(data,callback) {
  * equal user
  * @returns {Function}
  */
-exports.sellConEqualAction = function(condition,callback) {
+exports.packageEqualAction = function(condition,callback) {
 
     sellCon.equalPackageName(condition,dbHelper,callback);
 }

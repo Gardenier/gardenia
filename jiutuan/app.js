@@ -16,7 +16,7 @@ var mongoose = require('mongoose');
 
 global.userControl =require('./Server/controller/userControl');
 global.BuserControl =require('./Server/controller/BuserControl');
-global.sellContent =require('./Server/models/sellContent');
+global.sellConControl =require('./Server/controller/sellConControl');
 //global.dbHandel = require('./database/dbHandel');
 global.User = require('./Server/models/users');
 global.db = mongoose.connect("mongodb://localhost:27017/test");

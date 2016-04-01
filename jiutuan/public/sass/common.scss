@@ -1,3 +1,43 @@
+@import "compass/css3";
+
+//iconfont  start
+@font-face {
+	font-family: "iconfont";
+  	src: url('../fonts/iconfont.eot?t=1458467378'); /* IE9*/
+  	src: url('../fonts/iconfont.eot?t=1458467378#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  	url('../fonts/iconfont.woff?t=1458467378') format('woff'), /* chrome, firefox */
+  	url('../fonts/iconfont.ttf?t=1458467378') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  	url('../fonts/iconfont.svg?t=1458467378#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  	font-family:"iconfont" !important;
+  	font-size: 16px;
+  	font-style:normal;
+  	-webkit-font-smoothing: antialiased;
+  	-webkit-text-stroke-width: 0.2px;
+  	-moz-osx-font-smoothing: grayscale;
+}
+.icon-xiuxianyule:before { content: "\e605"; }
+.icon-fuwu:before { content: "\e606"; }
+.icon-gouwu:before { content: "\e607"; }
+.icon-wuxingshixin:before { content: "\e602"; }
+.icon-wuxingmian:before { content: "\e603"; }
+.icon-weishoucang:before { content: "\e600"; }
+.icon-shoucangyishoucang-copy:before { content: "\e601"; }
+.icon-jiudian:before { content: "\e608"; }
+.icon-dianying:before { content: "\e609"; }
+.icon-meishi:before { content: "\e60a"; }
+.icon-shenghuofuwu:before { content: "\e60c"; }
+
+//iconfont  end
+@font-face {
+  font-family: yeGenYou;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/yegenyouweiyingti.ttf");
+  //src: url("../fonts/fontawesome-webfont.eot?#iefix") format("eot"), url("../fonts/fontawesome-webfont.svg#FontAwesome") format("svg"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/yegenyouweiyingti.ttf") format("truetype");
+}
 $font-family: 'Microsoft YaHei';
 
 //@import 'homePage.scss';
@@ -12,4 +52,99 @@ a {
 }
 li {
 	list-style: none;
+}
+.allBorder0 {
+	border: 0;
+}
+
+//公共头部样式
+.nav-wrap {
+	width: 100%;
+	padding-top: 10px;
+	color: #000;
+	background-color: #F4F4F2;
+	.nav-content {
+		width: 90%;
+		margin: 0 auto;
+	}
+	a {
+		color: #000;
+	}
+}
+.places {
+	span {
+		padding-right: 10px;
+	}
+	span:nth-child(2) {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+.nav-list {
+	li {
+		float: left;
+		padding-left: 20px;
+	}
+}
+.mHeader {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	img {
+		height: 40px;
+	}
+	div {
+		line-height: 20px;
+		padding-top: 10px;
+	}
+	.search-input {
+		width: 240px;
+		padding: 6px 20px;
+		margin-right: -4px;
+		border: 1px solid #ccc;
+	}
+	.btn-default {
+		@include border-radius(0);
+	}
+	button {
+		margin-bottom: 3px;
+	}
+}
+.navGroup {
+	width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    a {
+		color: #fff;
+	}
+}
+.allClassify1 {
+	width: 20%;
+	float: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #EF5651;
+}
+.slide-title {
+	width: 80%;
+	float: left;
+	padding-left: 0;
+	margin-bottom: 0;
+	background-color: #CBAA72;
+	li {
+		float: left;
+		width: 16.67%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+	}
+}
+.flex {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -moz-box-align: center;
+  -webkit-box-align: center;
+  box-align: center;
 }
