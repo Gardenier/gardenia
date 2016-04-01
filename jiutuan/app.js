@@ -13,9 +13,15 @@ var ejs = require('ejs');
 //var connect = require('connect');
 //var mongoose = require('./mongodb');
 var mongoose = require('mongoose');
-global.dbHandel = require('./database/dbHandel');
-global.dbHandel = require('./database/methods');
-global.db = mongoose.connect("mongodb://localhost:27017/nodedb");
+
+global.userControl =require('./Server/controller/userControl');
+global.BuserControl =require('./Server/controller/BuserControl');
+global.sellContent =require('./Server/models/sellContent');
+//global.dbHandel = require('./database/dbHandel');
+global.User = require('./Server/models/users');
+global.db = mongoose.connect("mongodb://localhost:27017/test");
+
+
 var app = express();
 // var app = connect()
 //     .use(connect.logger('dev'))
@@ -82,6 +88,7 @@ app.use('/sellerRegister',routes);
 app.use('/home',routes); // 即为为路径 /home 设置路由
 app.use("/logout",routes); // 即为为路径 /logout 设置路由
 app.use("/busData",routes);
+app.use("/foundPassword",routes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
