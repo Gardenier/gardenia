@@ -9,22 +9,24 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/homePage.css">
 </head>
 <body>
+	<div>数据长度：<%= div%></div>
 	<div class="homePage">
 		<div class="nav-wrap clearfix">
 			<div class="places pull-left">
 				<span>济南</span>
 				<span>|</span>
-				<a href="javascript:;">切换城市</a>
+				<a href="javascript:;" id="changeCity">切换城市</a>
 			</div>
 			<ul class="nav-list pull-right">
 				<!-- <li><a href="javascript:;">登录</a></li>
 				<li><a href="javascript:;">注册</a></li> -->
 				<li><%- user.name %></li>
-				<li><a href="/logout">我要注销 </a></li>
+				<li><a href="/logout">退出</a></li>
 				<li><a href="javascript:;">用户中心</a></li>
 				<li><a href="javascript:;">收藏</a></li>
 				<li><a href="javascript:;">帮助</a></li>
-				<li><a href="javascript:;">手机玖团</a></li>
+				<li><a href="javascript:;">我的订单</a></li>
+				<li><a href="javascript:;">我的购物车()</a></li>
 			</ul>
 		</div>
 		<div class="mHeader clearfix">
@@ -53,7 +55,7 @@
 					<li><a href="javascript:;">今日特惠</a></li>
 					<li><a href="javascript:;">今日新单</a></li>
 				</ul>
-				<div class="swiper-container" style="height: 205px;overflow:hidden;">
+				<div class="swiper-container" style="height: 205px;overflow:hidden;width: 100%;">
 					<div class="swiper-wrap">
 						<div class="swiper-slide pull-left" style='width:66.66%' >
 							<img style="width: 100%;" src="images/slide1.jpg" alt="">
@@ -65,45 +67,45 @@
 				</div>
 				<div class="slide-footer clearfix">
 					<div>
-						<p>热门搜索</p>
-						<ul>
+						<p class="title">热门搜索</p>
+						<ul class="clearfix">
+							<li><a href="javascript:;">小吃快餐</a></li>
+							<li><a href="javascript:;">自助餐</a></li>
 							<li><a href="javascript:;">火锅</a></li>
+							<li><a href="javascript:;">景点门票</a></li>
+							<li><a href="javascript:;">烧烤烤肉</a></li>
+							<li><a href="javascript:;">KTV</a></li>
 							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
+							<li><a href="javascript:;">甜点饮品</a></li>
 						</ul>
 					</div>
 					<div>
-						<p>全部区域</p>
+						<p class="title">全部区域</p>
 						<ul>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
+							<li><a href="javascript:;">历下区</a></li>
+							<li><a href="javascript:;">市中区</a></li>
+							<li><a href="javascript:;">历城区</a></li>
+							<li><a href="javascript:;">槐荫区</a></li>
+							<li><a href="javascript:;">天桥区</a></li>
+							<li><a href="javascript:;">长清区</a></li>
+							<li><a href="javascript:;">章丘市</a></li>
+							<li><a href="javascript:;">济阳县</a></li>
+							<li><a href="javascript:;">平阴县</a></li>
+							<li><a href="javascript:;">高新区</a></li>
+							<li><a href="javascript:;">商河县</a></li>
 						</ul>
 					</div>
 					<div>
-						<p>热门商圈</p>
+						<p class="title">热门商圈</p>
 						<ul>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">火锅</a></li>
+							<li><a href="javascript:;">世茂国际广场</a></li>
+							<li><a href="javascript:;">恒隆广场</a></li>
+							<li><a href="javascript:;">洪家楼</a></li>
+							<li><a href="javascript:;">大观园</a></li>
+							<li><a href="javascript:;">济大/会展中心</a></li>
+							<li><a href="javascript:;">西市场</a></li>
+							<li><a href="javascript:;">芙蓉街</a></li>
+							<li><a href="javascript:;">青龙小区</a></li>
 						</ul>
 					</div>
 				</div>
@@ -111,7 +113,7 @@
 		</div>
 		<div class="mPart clearfix">
 			<div class="left-mPart pull-left">
-				<div class="mPartLeftCell">
+				<!-- <div class="mPartLeftCell">
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">今日推荐</a>
 						<div class="arrows pull-right">
@@ -123,7 +125,7 @@
 						<div class="tjCell">
 							<div class="mtjCell">
 								<img src="images/tj1.jpg" alt="">
-								<p><%= resName %></p>
+								<p>ssss</p>
 								<p>100元代金券，可叠加</p>
 								<div class="clearfix">
 									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
@@ -181,7 +183,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="mPartLeftCell">
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">美食</a>
@@ -190,68 +192,32 @@
 						</div>
 					</div>
 					<div class="clearfix">
+						<% objList.forEach(function(data, index){ %>
+						<% if (data.type == "美食" ) {  %>
 						<div class="tjCell">
 							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
+								<img src="images/meishi/<%= data.image%>" alt="">
+								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
+								<p class="info_c"><%= data.info %></p>
 								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
+									<div class="price newPrice pull-left">
+										￥<%= data.newPrice %>
+									</div>
+									<div class="price oldPrice pull-right">
+										<s>￥<%= data.oldPrice %><s>
+									</div>
 								</div>
 								<div class="mark-sold clearfix">
 									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
+									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
 							</div>
 						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
+						<% } %>
+						<% }) %>
 					</div>
 				</div>
+				
 				<div class="mPartLeftCell">
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">电影</a>
@@ -260,66 +226,29 @@
 						</div>
 					</div>
 					<div class="clearfix">
+						<% objList.forEach(function(data, index){ %>
+						<% if (data.type == "电影" ) {  %>
 						<div class="tjCell">
 							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
+								<img src="images/movies/<%= data.image%>" alt="">
+								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
+								<p class="info_c"><%= data.info %></p>
 								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
+									<div class="price newPrice pull-left">
+										￥<%= data.newPrice %>
+									</div>
+									<div class="price oldPrice pull-right">
+										<s>￥<%= data.oldPrice %><s>
+									</div>
 								</div>
 								<div class="mark-sold clearfix">
 									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
+									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
 							</div>
 						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
+						<% } %>
+						<% }) %>
 					</div>
 				</div>
 				<div class="mPartLeftCell">
@@ -330,66 +259,29 @@
 						</div>
 					</div>
 					<div class="clearfix">
+						<% objList.forEach(function(data, index){ %>
+						<% if (data.type == "娱乐" ) {  %>
 						<div class="tjCell">
 							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
+								<img src="images/yule/<%= data.image%>" alt="">
+								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
+								<p class="info_c"><%= data.info %></p>
 								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
+									<div class="price newPrice pull-left">
+										￥<%= data.newPrice %>
+									</div>
+									<div class="price oldPrice pull-right">
+										<s>￥<%= data.oldPrice %><s>
+									</div>
 								</div>
 								<div class="mark-sold clearfix">
 									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
+									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
 							</div>
 						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
+						<% } %>
+						<% }) %>
 					</div>
 				</div>
 				<div class="mPartLeftCell">
@@ -400,66 +292,29 @@
 						</div>
 					</div>
 					<div class="clearfix">
+						<% objList.forEach(function(data, index){ %>
+						<% if (data.type == "购物" ) {  %>
 						<div class="tjCell">
 							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
+								<img src="images/shopping/<%= data.image%>" alt="">
+								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
+								<p class="info_c"><%= data.info %></p>
 								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
+									<div class="price newPrice pull-left">
+										￥<%= data.newPrice %>
+									</div>
+									<div class="price oldPrice pull-right">
+										<s>￥<%= data.oldPrice %><s>
+									</div>
 								</div>
 								<div class="mark-sold clearfix">
 									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
+									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
 							</div>
 						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
+						<% } %>
+						<% }) %>
 					</div>
 				</div>
 				<div class="mPartLeftCell">
@@ -470,66 +325,29 @@
 						</div>
 					</div>
 					<div class="clearfix">
+						<% objList.forEach(function(data, index){ %>
+						<% if (data.type == "服务" ) {  %>
 						<div class="tjCell">
 							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
+								<img src="images/service/<%= data.image%>" alt="">
+								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
+								<p class="info_c"><%= data.info %></p>
 								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
+									<div class="price newPrice pull-left">
+										￥<%= data.newPrice %>
+									</div>
+									<div class="price oldPrice pull-right">
+										<s>￥<%= data.oldPrice %><s>
+									</div>
 								</div>
 								<div class="mark-sold clearfix">
 									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
+									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
 							</div>
 						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
-						<div class="tjCell">
-							<div class="mtjCell">
-								<img src="images/tj1.jpg" alt="">
-								<p>小城故事</p>
-								<p>100元代金券，可叠加</p>
-								<div class="clearfix">
-									<div class="cutForNewer pull-left">新用户立减<span>6</span></div>
-									<div class="price pull-right">￥<span>89.9</span></div>
-								</div>
-								<div class="mark-sold clearfix">
-									<div class="pull-left"><span>4.5</span>分</div>
-									<div class="pull-right">已售<span>100</span></div>
-								</div>
-							</div>
-						</div>
+						<% } %>
+						<% }) %>
 					</div>
 				</div>
 			</div>

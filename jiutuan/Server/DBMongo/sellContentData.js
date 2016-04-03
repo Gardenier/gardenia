@@ -24,10 +24,10 @@ exports.equalPackageName = function(condition,dbHelper,callback) {
  * @param dbHelper
  * @param callback
  */
-exports.findUser = function(conditions,dbHelper,callback) {
+exports.findData = function(conditions,dbHelper,callback) {
 
-    var userModel = sell.getModel();
-    dbHelper.findData(userModel,conditions,callback);
+    var sellContentModel = sell.getModel();
+    dbHelper.findData(sellContentModel,conditions,callback);
 
 }
 

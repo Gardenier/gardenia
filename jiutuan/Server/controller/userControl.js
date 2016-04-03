@@ -21,6 +21,9 @@ exports.userEqualAction = function(condition,callback) {
 exports.userUpdateAction = function(condition,update,callback) {
     userDao.updateUser(condition, update,dbHelper,callback);
 }
+// exports.userAddDocumentAction = function(data,callback){
+//     userDao.addDocument(data,dbHelper,callback);
+// }
 /**
  * get User List
  * @returns {Function}

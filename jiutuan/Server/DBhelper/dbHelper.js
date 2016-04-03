@@ -10,7 +10,10 @@ exports.addData = function(model,data,callback) {
     //model.collection.insert(data, callback);
     model.collection.insert(data,callback);
 }
+exports.addDocumentData = function(model,data,callback) {
+    //model.collection.document.insert(data,callback);
 
+}
 /**/
 /**
  * 公共Add方法
@@ -37,6 +40,17 @@ exports.updateData =function(model,condition,update,callback) {
 }
 
 /**
+ * 公共find方法 非关联查找
+ * @param model
+ * @param conditions查找时限定的条件
+ * @param options
+ * @param callback
+ */
+exports.findData =function(model,condition,callback) {
+
+    model.find(condition, callback);
+}
+/**
  * 公共remove方法
  * @param model
  * @param conditions
@@ -60,19 +74,6 @@ exports.removeData =function(model,conditions,callback) {
 
         }
     });
-}
-
-/**
- * 公共find方法 非关联查找
- * @param model
- * @param conditions
- * @param fields 查找时限定的条件，如顺序，某些字段不查找等
- * @param options
- * @param callback
- */
-exports.findData =function(model,conditions,callback) {
-
-    model.findOne(conditions, callback);
 }
 
 /**

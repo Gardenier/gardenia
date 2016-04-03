@@ -22,8 +22,8 @@ exports.packageEqualAction = function(condition,callback) {
  * get User List
  * @returns {Function}
  */
-exports.userFindAction = function(condition,callback) {
-    sellCon.findUser(conditions,dbHelper,callback);
+exports.dataFindAction = function(conditions,callback) {
+    sellCon.findData(conditions,dbHelper,callback);
 }
 
 exports.userRemoveAction = function() {

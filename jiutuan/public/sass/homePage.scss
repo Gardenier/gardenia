@@ -1,5 +1,6 @@
 @import 'common.scss';
 .homePage {
+	min-width: 1110px;
 	height: 100%;
 	background-color: #F8F7F2;
 	.nav-wrap {
@@ -52,7 +53,7 @@
 		padding-left: 0;
 		text-align: left;
 		li {
-			padding: 10px;
+			padding: 13px;
 			border-left: 1px solid #ddd;
 			border-bottom: 1px solid #ddd;
 		}
@@ -76,8 +77,8 @@
 		li {
 			float: left;
 			width: 16.67%;
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-top: 13px;
+			padding-bottom: 13px;
 			text-align: center;
 		}
 		a{
@@ -85,7 +86,7 @@
 		}
 	}
 	.slide-footer {
-		height: 82px;
+		height: 124px;
 		text-align: center;
 		border-left: 1px solid #ddd;
 		border-bottom: 1px solid #ddd;
@@ -97,12 +98,18 @@
 			padding-top: 0;
 			border-right: 1px solid #ddd;
 		}
+		.title {
+			margin: 10px;
+			font-weight: bold;
+		}
 		ul {
+			padding-left: 10px;
 			padding-right: 10px;
 		}
 		li {
 			float: left;
-			padding-right: 5px;
+			padding-right: 10px;
+			padding-bottom: 10px;
 			a {
 				color: #333;
 			}
@@ -160,6 +167,18 @@
 	}
 	.mtjCell {
 		padding-right: 30px;
+		img {
+			height: 130px;
+		}
+	}
+	.info_h {
+		height: 40px;
+		font-weight: bold;
+		margin: 10px auto;
+	}
+	.info_c {
+		height: 60px;
+		overflow: hidden;
 	}
 	.cutForNewer {
 		padding-left: 10px;
@@ -171,19 +190,28 @@
 		background-color: #EC574E;
 	}
 	.price {
+    	line-height: 30px;
+	}
+	.oldPrice {
+		color: #555;
+		font-size: 12px;
+	}
+	.newPrice {
 		color: #EC574E;
-		line-height: 30px;
+		font-weight: bold;
+		font-size: 16px;
 	}
 	.mark-sold {
 		padding-top: 20px;
 		padding-bottom: 10px;
 		//border-bottom: 2px solid #ddd;
 		div:nth-child(2) {
-			color: #D8D7D3;
+			color: #555;
 		}
 	}
 	.mPartRightCell {
 		width: 90%;
+		min-width: 196px;
 		margin: 0 auto;
 		margin-top: 50px;
 		border: 1px solid #ddd;
@@ -207,6 +235,7 @@
 		line-height: 40px;
 	}
 	.rcContent {
+		min-width: 196px;
 		position: relative;
 		padding: 10px 10px;
 		border-bottom: 1px solid #ddd;

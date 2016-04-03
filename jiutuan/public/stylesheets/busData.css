@@ -1,4 +1,82 @@
-/* line 4, ../sass/common.scss */
+@font-face {
+  font-family: "iconfont";
+  src: url("../fonts/iconfont.eot?t=1458467378");
+  /* IE9*/
+  src: url("../fonts/iconfont.eot?t=1458467378#iefix") format("embedded-opentype"), url("../fonts/iconfont.woff?t=1458467378") format("woff"), url("../fonts/iconfont.ttf?t=1458467378") format("truetype"), url("../fonts/iconfont.svg?t=1458467378#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+/* line 13, ../sass/common.scss */
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 21, ../sass/common.scss */
+.icon-xiuxianyule:before {
+  content: "\e605";
+}
+
+/* line 22, ../sass/common.scss */
+.icon-fuwu:before {
+  content: "\e606";
+}
+
+/* line 23, ../sass/common.scss */
+.icon-gouwu:before {
+  content: "\e607";
+}
+
+/* line 24, ../sass/common.scss */
+.icon-wuxingshixin:before {
+  content: "\e602";
+}
+
+/* line 25, ../sass/common.scss */
+.icon-wuxingmian:before {
+  content: "\e603";
+}
+
+/* line 26, ../sass/common.scss */
+.icon-weishoucang:before {
+  content: "\e600";
+}
+
+/* line 27, ../sass/common.scss */
+.icon-shoucangyishoucang-copy:before {
+  content: "\e601";
+}
+
+/* line 28, ../sass/common.scss */
+.icon-jiudian:before {
+  content: "\e608";
+}
+
+/* line 29, ../sass/common.scss */
+.icon-dianying:before {
+  content: "\e609";
+}
+
+/* line 30, ../sass/common.scss */
+.icon-meishi:before {
+  content: "\e60a";
+}
+
+/* line 31, ../sass/common.scss */
+.icon-shenghuofuwu:before {
+  content: "\e60c";
+}
+
+@font-face {
+  font-family: yeGenYou;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/yegenyouweiyingti.ttf");
+}
+/* line 44, ../sass/common.scss */
 body {
   height: 100%;
   padding: 0;
@@ -6,14 +84,133 @@ body {
   font-family: "Microsoft YaHei";
 }
 
-/* line 10, ../sass/common.scss */
+/* line 50, ../sass/common.scss */
 a {
   text-decoration: none;
 }
 
-/* line 13, ../sass/common.scss */
+/* line 53, ../sass/common.scss */
 li {
   list-style: none;
+}
+
+/* line 56, ../sass/common.scss */
+.allBorder0 {
+  border: 0;
+}
+
+/* line 61, ../sass/common.scss */
+.nav-wrap {
+  width: 100%;
+  padding-top: 10px;
+  color: #000;
+  background-color: #F4F4F2;
+}
+/* line 66, ../sass/common.scss */
+.nav-wrap .nav-content {
+  width: 90%;
+  margin: 0 auto;
+}
+/* line 70, ../sass/common.scss */
+.nav-wrap a {
+  color: #000;
+}
+
+/* line 75, ../sass/common.scss */
+.places span {
+  padding-right: 10px;
+}
+/* line 78, ../sass/common.scss */
+.places span:nth-child(2) {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 84, ../sass/common.scss */
+.nav-list li {
+  float: left;
+  padding-left: 20px;
+}
+
+/* line 89, ../sass/common.scss */
+.mHeader {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* line 94, ../sass/common.scss */
+.mHeader img {
+  height: 40px;
+}
+/* line 97, ../sass/common.scss */
+.mHeader div {
+  line-height: 20px;
+  padding-top: 10px;
+}
+/* line 101, ../sass/common.scss */
+.mHeader .search-input {
+  width: 240px;
+  padding: 6px 20px;
+  margin-right: -4px;
+  border: 1px solid #ccc;
+}
+/* line 107, ../sass/common.scss */
+.mHeader .btn-default {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+/* line 110, ../sass/common.scss */
+.mHeader button {
+  margin-bottom: 3px;
+}
+
+/* line 114, ../sass/common.scss */
+.navGroup {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 118, ../sass/common.scss */
+.navGroup a {
+  color: #fff;
+}
+
+/* line 122, ../sass/common.scss */
+.allClassify1 {
+  width: 20%;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #EF5651;
+}
+
+/* line 129, ../sass/common.scss */
+.slide-title {
+  width: 80%;
+  float: left;
+  padding-left: 0;
+  margin-bottom: 0;
+  background-color: #CBAA72;
+}
+/* line 135, ../sass/common.scss */
+.slide-title li {
+  float: left;
+  width: 16.67%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/* line 143, ../sass/common.scss */
+.flex {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -moz-box-align: center;
+  -webkit-box-align: center;
+  box-align: center;
 }
 
 /* line 4, ../sass/busData.scss */

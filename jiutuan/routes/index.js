@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User =require('../Server/models/users');
+//var User =require('../Server/models/users');
 
 // /* GET index page. */
 // router.get('/', function(req, res,next) {
@@ -262,8 +262,16 @@ var User =require('../Server/models/users');
 
 
 /* GET index page. */
-router.get('/', function(req, res,next) {
-  res.render('index', { title: 'Express' });   
+router.get("/",function(req,res){ 
+	// if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
+	// 	req.session.error = "请先登录"
+	// 	res.redirect("/login");				//未登录则重定向到 /login 路径
+	// }
+	global.sellConControl.dataFindAction({},function(err,doc){
+		res.render("index",{title:'HomeIndex',objList:doc,div:doc.length});//已登录则渲染home页面
+		//title:'Home',resName:'花信'
+	});
+	
 });
 
 /* GET home page. */
@@ -272,7 +280,11 @@ router.get("/home",function(req,res){
 		req.session.error = "请先登录"
 		res.redirect("/login");				//未登录则重定向到 /login 路径
 	}
-	res.render("home",{title:'Home',resName:'花信'});         //已登录则渲染home页面
+	global.sellConControl.dataFindAction({},function(err,doc){
+		res.render("home",{title:'Home',objList:doc,div:doc.length});//已登录则渲染home页面
+		//title:'Home',resName:'花信'
+	});
+	
 });
 
 /* GET logout page. */
@@ -318,8 +330,9 @@ router.route("/register").get(function(req,res){
 }).post(function(req,res){ 
 	var uname = req.body.uname;
 	var upwd = req.body.upwd;
-	var data = {name: uname,password: upwd};	
-	var condition = {name: uname};
+	var arr = {};
+	var data = {userName: uname,password: upwd};	
+	var condition = {userName: uname};
 	global.userControl.userEqualAction(condition,function(err,doc){
 		if(err) {
 			res.send(500);
@@ -343,6 +356,35 @@ router.route("/register").get(function(req,res){
 		}
 	});			
 });
+
+router.route("/order").get(function(req,res){   
+	res.render("order",{title:'User order'});
+}).post(function(req,res){ 
+
+	var resName = req.body.resName;
+	var projectDetail = req.body.projectDetail;
+	var price = req.body.price;
+	var status = req.body.status;
+	var star = req.body.star;
+	var text = req.body.text;
+	var resName = req.body.resName;
+	var sstatus = req.body.sstatus;
+	var data = {
+		resName: resName,projectDetail: projectDetail,
+		price: price,status:status,star: star,text:text,sstatus: sstatus
+	};	
+	var condition = {userName: uname};
+	global.userControl.userAddDocumentAction(data,function(err,doc){ 
+	if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            req.session.error = '用户名创建成功！';
+            res.send(200);
+        }
+    });		
+});
+
 
 /* GET seller login page. */
 router.route("/sellerLogin").get(function(req,res){    // 到达此路径则渲染login文件，并传出title值供 login.html使用
@@ -576,4 +618,28 @@ router.route("/foundPassword").get(function(req,res){    // 到达此路径则�
  //    });
 });
 
+//详情页
+router.route("/product_detial").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
+	res.render("product_detial",{title:'详情页'});
+}).post(function(req,res){ 
+	//这里的User就是从model中获取user对象，通过global.dbHandel全局方法（这个方法在app.js中已经实现)
+	//var User = global.dbHandel.getModel('user');
+	// var five = req.body.five;
+	// var four = req.body.four;
+	// var three = req.body.three;
+	// var two = req.body.two;
+	// var one = req.body.one;
+
+	// var data = {five:five,four:four,three:three,two:two,one:one};
+	
+	// global.userControl.userUpdateAction({name: uname},data,function(err,doc){ 
+	// 	if (err) {
+ //            res.send(500);
+ //            console.log(err);
+ //        } else {
+ //            req.session.error = '密码修改成功！';
+ //            res.send(200);
+ //        }
+ //    });
+});
 module.exports = router;
