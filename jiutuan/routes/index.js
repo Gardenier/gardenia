@@ -16,7 +16,7 @@ router.get("/home",function(req,res){
 		res.redirect("/login");				//未登录则重定向到 /login 路径
 	}
 	global.sellConControl.dataFindAction({},function(err,doc){
-		res.render("home",{title:'Home',objList:doc});/
+		res.render("home",{title:'Home',objList:doc});
 	});
 	
 });
