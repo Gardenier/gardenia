@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include header.html %>
+	<title>玖团-详情页</title>
+	<link rel="stylesheet" href="/stylesheets/product_detail.css">
+	<link rel="stylesheet" href="/stylesheets/buyStep.css">
+	<script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/jquery.cookie.js"></script>
+</head>
+<body>
+	<!--公共头部start-->
+	<% include commonHeader.html %>
+	<!--公共头部end-->
+	<div class="product_detail buyStep">
+		<!--公共头部start-->
+		<div class="buy-process-bar-container">
+    		<ol class="buy-process-desc steps-desc">
+        		<li class="step current" style="width:33.333333333333%">1. 提交订单</li>
+        		<li class="step" style="width:33.333333333333%">2. 选择支付方式</li>
+        		<li class="step" style="width:33.333333333333%">3. 购买成功</li>
+    		</ol>
+	    	<div class="progress" id="yui_3_16_0_1_1459784680348_834">
+	        	<div class="progress-bar" style="width:33.333333333333%"></div>
+	    	</div>
+		</div>
+		<!--公共头部end-->
+		<% objList.forEach(function(data, index){ %>
+		<div class="table-section summary-table">
+    		<table class="buy-table">
+        		<tbody>
+        			<tr class="order-table-head-row">
+			            <th class="package">项目</th>
+			            <th class="price">单价</th>
+			            <th class="amount">数量</th>
+			            <th class="total">总价</th>
+			        </tr>
+	        		<tr>
+	            		<td class="package">
+                			<a href="product_detail?id=<%= data._id %>" target="_blank">
+                    			<%= data.resName %>:<%= data.info %>
+               	 			</a>
+            			</td>
+			            <td class="price">
+			                ¥<span id="deal-buy-price"><%= data.newPrice %></span>
+			            </td>
+            			<td class="amount">	
+		                	<div class="add-btn-wrap">
+								<div class="add-btn">
+									<button id="cut">-</button>
+									<input type="text" value="<li><%- user.name %></li>" id="pNumber">
+									<button id="add">+</button>
+								</div>
+							</div>
+            			</td>
+			            <td class="total">
+			                ¥<span id="J-deal-buy-total">3.90</span>
+			            </td>
+        			</tr>
+
+        			<tr>
+            			<td></td>
+            			<td colspan="3" class="extra-fee total-fee rightpadding">
+                			<strong>应付金额</strong>：
+                            <span class="inline-block money">
+                                ¥<strong id="deal-buy-total-t" mt-bind-html="fixNumber(orderTotal)">3.90</strong>
+                            </span>
+            			</td>
+        			</tr>
+    			</tbody>
+    		</table>
+    		<div class="buy-btn-wrap clearfix">
+				<a href="buyStep_1" class="btn btn-default buy-btn">立即购买</a>
+			</div>
+		</div>
+		<% }) %>
+	</div>
+	<script>
+	$(function(){
+		//console.log('$.cookie'+$.cookie('pNumber'));
+		$("#pNumber").val($.cookie('pNumber'));
+	});
+	</script>
+</body>
+</html>

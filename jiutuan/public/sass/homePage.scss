@@ -166,7 +166,10 @@
 		}
 	}
 	.mtjCell {
+		display: block;
 		padding-right: 30px;
+		color: #333;
+		//text-decoration:none;
 		img {
 			height: 130px;
 		}

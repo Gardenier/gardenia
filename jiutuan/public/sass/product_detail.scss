@@ -11,62 +11,102 @@ html,body {
 		padding-top: 20px;
 		margin-top: 20px;
     	border-top: 1px solid #ccc;
+    	background-color: #fff;
 	}
 	.cell {
 		width: 80%;
 		margin: 0 auto;
 	}
+	.resName {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.info {
+		padding-left: 10px;
+	}
 	.img-wrap {
-		-moz-box-flex: 1; 
-    	-webkit-box-flex: 1; 
-    	box-flex: 1;
+		// -moz-box-flex: 1; 
+  //   	-webkit-box-flex: 1; 
+  //   	box-flex: 1;
 		width: 40%;
-		//float: left;
+		float: left;
 		img {
 			width: 100%;
 			display: block;
 		}
 	}
 	.prices {
-		padding: 20px 10px;
+		//padding: 20px 10px;
+		div {
+			padding-right: 40px;
+		}
+		span {
+			line-height: 30px;
+		}
 
+	}
+	.tagName {
+		width: 70px;
+		color: #999;
+		padding-right: 20px;
+	}
+	.tagCon {
+		color: #666;
+	}
+	.colorF {
+		color: #FE6813;
+	}
+	.date_info {
+		padding-top: 20px;
+		padding-bottom: 20px;
 	}
 	.h-info {
 		//height: 170px;
-		-moz-box-flex: 1; 
-    	-webkit-box-flex: 1; 
-    	box-flex: 1;
+		// -moz-box-flex: 1; 
+  //   	-webkit-box-flex: 1; 
+  //   	box-flex: 1;
 		width: 55%;
-		//float: left;
+		float: left;
 		padding: 10px 20px;
 		margin-left: 5%;
-		background-color: #F2F2F2;
+		//background-color: #F2F2F2;
+		color: #888;
 	}
-	.nowPrice {
+	.newPrice {
 		color: #FE6813;
-		font-size: 20px;
+		font-size: 24px;
 	}
 	.backInfo {
 		div {
 			width: 33%;
+			height: 50px;
 			float: left;
 			margin-top: 20px; 
-			line-height: 60px;
+			line-height: 50px;
 			text-align: center;
-			border-right: 1px solid #ccc;
+			border-top: 1px solid #eee;
+			border-bottom: 1px solid #eee;
 		}
-		div:last-child {
-			border-right: 0;
+		// div:last-child {
+		// 	border-right: 0;
+		// }
+	}
+	.add-btn-wrap {
+		padding-bottom: 20px;
+		span {
+			line-height: 35px;
 		}
 	}
-	.collect-info {
-		width: 40%;
-		float: left;
-		padding-top: 20px;
-		color: #555;
-		span {
-			margin-left: 20px;
-			color: #ED5852;
+	.add-btn {
+		input {
+			width: 60px;
+			height: 35px;
+			text-align: center;
+		}
+		button {
+			width: 30px;
+			height: 35px;
+			text-align: center;
 		}
 	}
 	.u-info {
@@ -74,17 +114,41 @@ html,body {
 		float: left;
 		margin-left: 5%;
 		color: #555;
-		div:first-child {
-			float: left; 
+	}
+	.buy-btn-wrap {
+		padding-left: 70px;
+		button {
+			display: block;
+			float: left;
+			margin-left: 30px;
+			padding: 10px 10px;
 		}
-		div:last-child {
-			float: right;
+	}
+	.collect-info {
+		float: right;
+		padding-right: 40px;
+		color: #555;
+		span {
+			display: inline;
+			margin-left: 20px;
+			color: #ED5852;
+			font-size: 26px;
+			line-height: 50px;
 		}
 	}
 	.buy-btn {
+		display: block;
+		float: left;
+		font-size: 20px;
 		padding: 10px 30px;
 		color: #fff;
 		background-color: #ED5852;
+	}
+	.buy-btn:hover {
+		background-color: #EF3C35;
+	}
+	.shopCar {
+
 	}
 	.left-part {
 		width: 60%;

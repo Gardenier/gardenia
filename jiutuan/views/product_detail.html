@@ -4,61 +4,63 @@
 	<% include header.html %>
 	<title>玖团-详情页</title>
 	<link rel="stylesheet" href="/stylesheets/product_detail.css">
+	<script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/product_detail.js"></script>
+	<script src="javascripts/jquery.cookie.js"></script>
 </head>
 <body>
+	<% objList.forEach(function(data, index){ %>
 	<div class="product_detail">
 		<!--公共头部start-->
-		<div class="nav-wrap clearfix">
-			<div class="nav-content">
-				<div class="places pull-left">
-					<span>济南</span>
-					<span>|</span>
-					<a href="javascript:;">切换城市</a>
-				</div>
-				<ul class="nav-list pull-right">
-					<li><a href="javascript:;">登录</a></li>
-					<li><a href="javascript:;">注册</a></li>
-					<li><a href="javascript:;">用户中心</a></li>
-					<li><a href="javascript:;">收藏</a></li>
-					<li><a href="javascript:;">帮助</a></li>
-					<li><a href="javascript:;">手机玖团</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="mHeader clearfix">
-			<img class="pull-left" src="/images/jiutuan.png" alt="logo">
-			<div class="pull-right">
-				<input type="text" placeholder="搜索商家" class="search-input">
-				<button class="btn btn-default">搜索</button>
-			</div>
-		</div>
-		<div class="navGroup clearfix">
-			<div class="allClassify1">
-				<a href="javascript:;">全部分类</a>
-			</div>
-			<ul class="slide-title clearfix">
-				<li><a href="javascript:;">首页</a></li>
-				<li><a href="javascript:;">电影</a></li>
-				<li><a href="javascript:;">酒店</a></li>
-				<li><a href="javascript:;">今日特惠</a></li>
-				<li><a href="javascript:;">今日新单</a></li>
-			</ul>
-		</div>
+		<% include commonHeader.html %>
 		<!--公共头部end-->
 		<div class="cell-wrap">
 			<div class="cell">
 				<div>
-					<p class="resName">小城故事</p>
-					<p class="info">100元代金券可叠加，提供免费车位</p>
+					<p class="resName">【<%= data.resName %>】</p>
+					<p class="info"><%= data.info %></p>
 				</div>
-				<div class="flex">
+				<div class="clearfix">
 					<div class="img-wrap">
-						<img src="/images/tj1.jpg" alt="">
+						<% if (data.type == "美食") {%>
+						<img src="/images/meishi/<%= data.image %>" alt="">
+						<% } %>
+
+						<% if (data.type == "电影") {%>
+						<img src="/images/movies/<%= data.image %>" alt="">
+						<% } %>
+
+						<% if (data.type == "酒店") {%>
+						<img src="/images/hotel/<%= data.image %>" alt="">
+						<% } %>
+
+						<% if (data.type == "服务") {%>
+						<img src="/images/service/<%= data.image %>" alt="">
+						<% } %>
+
+						<% if (data.type == "购物") {%>
+						<img src="/images/shopping/<%= data.image %>" alt="">
+						<% } %>
+
+						<% if (data.type == "娱乐") {%>
+						<img src="/images/yule/<%= data.image %>" alt="">
+						<% } %>
 					</div>
 					<div class="h-info">
 						<div class="prices clearfix">
-							<div  class="nowPrice pull-left">￥<span>79</span></div>
-							<div class="pull-right">原价￥<span class="originPrice">100</span></div>
+							<div class="pull-left">
+								<span class="tagName">团购价</span>
+								<span class="newPrice">
+									￥<%= data.newPrice %>
+								</span>
+							</div>
+							<div class="pull-left">
+								<span class="tagName">
+									<s>门店价
+										￥<%= data.oldPrice %>
+									</s>
+								</span>
+							</div>
 						</div>
 						<div class="clearfix backInfo">
 							<div>已有<span>485</span>人购买</div>
@@ -71,17 +73,31 @@
 							</div>
 							<div><span>345</span>条评论</div>
 						</div>
-					</div>
-				</div>
-				<div class="clearfix">
-					<div class="collect-info">收藏<span class="iconfont icon-shoucangyishoucang-copy"></span></div>
-					<div class="u-info">
-						<div>
-							<p>有效期至<span>2016.03.30</span></p>
-							<p>数量<span>344</span></p>
+						<div class="date_info">
+							<span class="tagName">有效期</span>
+							<span class="tagCon"><%= data.endDate %></span>
+							<% if (data.holiday == "true") { %>
+							<span class="colorF">周末、法定节假日通用 </span>
+							<% }%>
+							<% if (data.holiday == "false") { %>
+							<span class="colorF">周末、法定节假日不可用用 </span>
+							<% }%>
 						</div>
-						<div>
-							<a href="javascript:;" class="btn btn-default buy-btn">立即购买</a>
+						<div class="clearfix add-btn-wrap">
+							<span class="pull-left tagName">数量</span>
+							<div class="pull-left add-btn">
+								<button id="cut">-</button>
+								<input type="text" value="1" id="pNumber">
+								<button id="add">+</button>
+							</div>
+						</div>
+						<div class="buy-btn-wrap clearfix">
+							<a href="buyStep_1?id=<%= data._id %>" class="btn btn-default buy-btn" id="toPay">立即购买</a>
+							<button><span class="iconfont icon-gouwuche"></span></button>
+							<a href="javascript:;" class="collect-info">
+								收藏
+								<span class="iconfont icon-weishoucang"></span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -118,7 +134,7 @@
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingmian"></span>
 							</div>
-							<div>满意率<span>93%</span></div>
+							<!-- <div>满意率<span>93%</span></div> -->
 							<div class="satisfaction-rate">
 								<a href="javascript:;">查看全部评论</a>
 							</div>
@@ -238,5 +254,37 @@
 			</div>
 		</div>
 	</div>
+	<% })%>
+	<!--<script>
+		$(function(){
+			$('#toPay').click(function(){
+				var num = $('#pNumber').val();
+				//alert(num);
+				var data = {'pNumber': num};
+				$.ajax({ 
+					url: '/buyStep_1',
+					type:'post',
+					data: data,
+					success: function(data,status){ 
+						alert('success'+data);
+					},
+					error: function(data,status,err){ 
+						alert(err);
+					}
+				});
+			});
+		});
+	</script>-->
+	<script>
+	$(function(){
+		$("#toPay").click(function(){
+			var pn = $('#pNumber').val();       
+        	//$.cookie('nak', nak);            //存储cookie名字
+        //alert($.cookie("nak"));      //弹出结果  curious------取得该cookie的name
+        //alert($.cookie(nak));         //这个，得到的是 null
+        	$.cookie('pNumber', pn);  //存储cookie数据
+		});
+	});
+	</script>
 </body>
 </html>

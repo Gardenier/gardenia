@@ -11,16 +11,24 @@
 }
 
 .iconfont {
-  	font-family:"iconfont" !important;
-  	font-size: 16px;
-  	font-style:normal;
-  	-webkit-font-smoothing: antialiased;
-  	-webkit-text-stroke-width: 0.2px;
-  	-moz-osx-font-smoothing: grayscale;
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
 }
+.icon-huidaodingbu:before { content: "\e604"; }
+.icon-yonghu:before { content: "\e60d"; }
 .icon-xiuxianyule:before { content: "\e605"; }
+.icon-gouwuche:before { content: "\e612"; }
+.icon-gouwuche1:before { content: "\e60b"; }
+.icon-yonghu1:before { content: "\e60e"; }
+.icon-remen:before { content: "\e60f"; }
 .icon-fuwu:before { content: "\e606"; }
 .icon-gouwu:before { content: "\e607"; }
+.icon-shangquan:before { content: "\e610"; }
+.icon-caidanxialaicon:before { content: "\e613"; }
 .icon-wuxingshixin:before { content: "\e602"; }
 .icon-wuxingmian:before { content: "\e603"; }
 .icon-weishoucang:before { content: "\e600"; }
@@ -29,6 +37,8 @@
 .icon-dianying:before { content: "\e609"; }
 .icon-meishi:before { content: "\e60a"; }
 .icon-shenghuofuwu:before { content: "\e60c"; }
+.icon-17:before { content: "\e611"; }
+
 
 //iconfont  end
 @font-face {
@@ -47,7 +57,7 @@ body {
 	margin: 0;
 	font-family: $font-family;
 }
-a {
+a,a:visited,a:focus,a:hover {
 	text-decoration: none;
 }
 li {

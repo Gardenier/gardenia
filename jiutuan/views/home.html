@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/homePage.css">
 </head>
 <body>
-	<div>数据长度：<%= div%></div>
+	<div id="#idol"></div>
 	<div class="homePage">
 		<div class="nav-wrap clearfix">
 			<div class="places pull-left">
@@ -195,7 +195,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "美食" ) {  %>
 						<div class="tjCell">
-							<div class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/meishi/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -211,7 +211,7 @@
 									<div class="pull-left"><span>4.5</span>分</div>
 									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
-							</div>
+							</a>
 						</div>
 						<% } %>
 						<% }) %>
@@ -229,7 +229,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "电影" ) {  %>
 						<div class="tjCell">
-							<div class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/movies/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -245,7 +245,7 @@
 									<div class="pull-left"><span>4.5</span>分</div>
 									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
-							</div>
+							</a>
 						</div>
 						<% } %>
 						<% }) %>
@@ -262,7 +262,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "娱乐" ) {  %>
 						<div class="tjCell">
-							<div class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/yule/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -278,7 +278,7 @@
 									<div class="pull-left"><span>4.5</span>分</div>
 									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
-							</div>
+							</a>
 						</div>
 						<% } %>
 						<% }) %>
@@ -295,7 +295,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "购物" ) {  %>
 						<div class="tjCell">
-							<div class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/shopping/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -311,7 +311,7 @@
 									<div class="pull-left"><span>4.5</span>分</div>
 									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
-							</div>
+							</a>
 						</div>
 						<% } %>
 						<% }) %>
@@ -328,7 +328,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "服务" ) {  %>
 						<div class="tjCell">
-							<div class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/service/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -344,7 +344,7 @@
 									<div class="pull-left"><span>4.5</span>分</div>
 									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
 								</div>
-							</div>
+							</a>
 						</div>
 						<% } %>
 						<% }) %>
@@ -499,6 +499,21 @@
 		</div>
 		<p class="foot-p">@2016 JIUTUAN.COM XX备XXXXXX号</p>
 	</div>
+	<!--<script>
+	$.ajax({
+				url: '/login',
+				type: 'get',
+				//data: data,
+				success: function(data){
+					console.log('data.idol'+data.idol);
+					console.log('data'+data)
+					$('#idol').html(data.idol);
+				},
+				error: function(err){
+					alert('post home'+err);
+				}
+			});
+	</script>-->
 </body>
 </html>
 

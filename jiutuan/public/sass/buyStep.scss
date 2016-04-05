@@ -1,0 +1,67 @@
+@import "compass/css3";
+
+.buyStep {
+	width: 80%;
+	margin: 30px auto;
+	background-color: #fff;
+	.buy-process-desc {
+	    width: 100%;
+	    box-sizing: border-box;
+	    background: 0 0;
+	    margin-bottom: 0;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    li {
+			@include inline-block;
+			width: 33.33%;
+	    }
+	}
+	.progress {
+	    height: 5px;
+	    width: 100%;
+	    padding: 1px;
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	    overflow: hidden;
+	    background-color: #EEE;
+	    @include border-radius(4px);
+	    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	}
+	.progress-bar {
+		height: 5px;
+		@include border-radius(4px);
+		background-color: #EF5651;
+	}
+	.buy-table {
+		width: 100%;
+	}
+	
+	.table-section {
+		th {
+		    padding: 6px 12px;
+		    font-size: 14px;
+		    font-weight: 700;
+		    text-align: center;
+		    background: #F7F7F7;
+		}
+		td {
+			text-align: center;
+		}
+		.package {
+			text-align: left;
+		}
+	}
+	.add-btn-wrap {
+		padding-top: 20px;
+	}
+	.add-btn {
+		text-align: center;
+	}
+	.package {
+		width: 55%;
+	}
+	.price,.amount,.total {
+		width: 15%;
+	}
+}
