@@ -20,8 +20,8 @@
 			<ul class="nav-list pull-right">
 				<!-- <li><a href="javascript:;">登录</a></li>
 				<li><a href="javascript:;">注册</a></li> -->
-				<li><%- user.name %></li>
-				<li><a href="/logout">退出</a></li>
+				<li><a id="login" href="/userCenter"><%= username %></a></li>
+				<li><a id="reg" href="/logout">退出</a></li>
 				<li><a href="javascript:;">用户中心</a></li>
 				<li><a href="javascript:;">收藏</a></li>
 				<li><a href="javascript:;">帮助</a></li>
@@ -500,6 +500,17 @@
 		</div>
 		<p class="foot-p">@2016 JIUTUAN.COM XX备XXXXXX号</p>
 	</div>
+	<script>
+		$(function(){
+			var user = $("#login");
+			var regist = $("#reg");
+			if(user.text() == "登录"){
+				user.attr("href","/login");
+				regist.html("注册");
+				regist.attr("href","/register");
+			}
+		});
+	</script>
 	<!--<script>
 	$.ajax({
 				url: '/login',

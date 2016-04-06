@@ -10,22 +10,23 @@ router.get("/",function(req,res){
 });
 
 /* GET home page. */
-router.get("/home",function(req,res){ 
-	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
-		req.session.error = "请先登录"
-		res.redirect("/login");				//未登录则重定向到 /login 路径
+router.get("/home",function(req,res){
+	var user = "";
+	if(req.session.user){
+		user = req.session.user.name;
+	}else {
+		user = "登录";
 	}
 	global.sellConControl.dataFindAction({},function(err,doc){
-		res.render("home",{title:'Home',objList:doc});
+		res.render("home",{title:'Home',objList:doc,username: user});
 	});
-	
 });
 
 /* GET logout page. */
 router.get("/logout",function(req,res){    // 到达 /logout 路径则登出， session中user,error对象置空，并重定向到根路径
 	req.session.user = null;
 	req.session.error = null;
-	res.redirect("/");
+	res.redirect("/home");
 });
 
 /* GET login page. */
@@ -345,36 +346,41 @@ router.route("/foundPassword").get(function(req,res){    // 到达此路径则�
 
 //列表页
 router.route('/product_list/:type').get(function(req, res){
+	    var user = "",
+			type = "",
+			titlename = "";
+		if(req.session.user){
+			user = req.session.user.name;
+		}else{
+			user = "登录";
+		}
 		if(req.params.type == "cate"){
-			global.sellConControl.dataFindAction({type: "美食"},function(err, List){
-				res.render("product_list",{title: "美食-列表页",objList:List});
-			});
+			type = "美食";
+			titlename = "美食-列表页";
 		}
 		else if(req.params.type == "movie"){
-			global.sellConControl.dataFindAction({type: "电影"},function(err, List){
-				res.render("product_list",{title: "电影-列表页",objList:List});
-			});
+			type = "电影";
+			titlename = "电影-列表页";
 		}
 		else if(req.params.type == "entertainment"){
-			global.sellConControl.dataFindAction({type: "娱乐"},function(err, List){
-				res.render("product_list",{title: "休闲娱乐-列表页",objList:List});
-			});
+			type = "电影";
+			titlename = "电影-列表页";
 		}
 		else if(req.params.type == "shopping"){
-			global.sellConControl.dataFindAction({type: "购物"},function(err, List){
-				res.render("product_list",{title: "购物-列表页",objList:List});
-			});
+			type = "购物";
+			titlename = "购物-列表页";
 		}
 		else if(req.params.type == "service"){
-			global.sellConControl.dataFindAction({type: "服务"},function(err, List){
-				res.render("product_list",{title: "生活服务-列表页",objList:List});
-			});
+			type = "服务";
+			titlename = "生活服务-列表页";
 		}
 		else if(req.params.type == "grogshop") {
-			global.sellConControl.dataFindAction({type: "酒店"},function(err, List){
-				res.render("product_list",{title: "酒店-列表页",objList:List});
-			});
+			type = "酒店";
+			titlename = "酒店-列表页";
 		}
+		global.sellConControl.dataFindAction({type: type},function(err, List){
+			res.render("product_list",{title: titlename,objList:List,username: user});
+		});
 });
 //详情页
 router.route("/product_detail/:type").get(function(req,res){
@@ -382,42 +388,60 @@ router.route("/product_detail/:type").get(function(req,res){
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
 		res.render("product_detail",{title:'Home',objList:doc});//已登录则渲染home页面
 	});*/
+	var user = "",
+		type = "",
+		titlename = "";
+	if(req.session.user){
+		user = req.session.user.name;
+	}
+	else {
+		user = "登录";
+	}
 	if(req.params.type == "cate"){
-		global.sellConControl.dataFindAction({type: "美食",_id:req.query.id},function(err, List){
-			res.render("product_detail",{title: "美食-详情页",objList:List});
-		});
+		type = "美食";
+		titlename = "美食-详情页";
 	}
 	else if(req.params.type == "movie"){
-		global.sellConControl.dataFindAction({type: "电影",_id:req.query.id},function(err, List){
-			res.render("product_detail",{title: "电影-详情页",objList:List});
-		});
+		type = "电影";
+		titlename = "电影-详情页";
 	}
 	else if(req.params.type == "entertainment"){
-		global.sellConControl.dataFindAction({type: "娱乐",_id:req.query.id},function(err, List){
-			res.render("product_detail",{title: "休闲娱乐-详情页",objList:List});
-		});
+		type = "娱乐";
+		titlename = "休闲娱乐-详情页";
 	}
 	else if(req.params.type == "shopping"){
-		global.sellConControl.dataFindAction({type: "购物",_id:req.query.id},function(err, List){
-			res.render("product_detail",{title: "购物-详情页",objList:List});
-		});
+		type = "购物";
+		titlename = "购物-详情页";
 	}
 	else if(req.params.type == "service"){
-		global.sellConControl.dataFindAction({type: "服务",_id:req.query.id},function(err, List){
-			res.render("product_detail",{title: "生活服务-详情页",objList:List});
-		});
+		type = "服务";
+		titlename = "生活服务-详情页";
 	}
 	else if(req.params.type == "grogshop") {
-		global.sellConControl.dataFindAction({type: "酒店",_id:req.query.id},function(err, List){
-			res.render("product_detail",{title: "酒店-详情页",objList:List});
-		});
+		type = "酒店";
+		titlename = "酒店-详情页";
 	}
+	global.sellConControl.dataFindAction({type: type,_id:req.query.id},function(err, List){
+		res.render("product_detail",{title: titlename,objList:List,username: user});
+	});
 });
 
 //购买页面1 提交订单
-router.route("/buyStep_1").get(function(req,res){    
+router.route("/buyStep_1").get(function(req,res){
+	var user = "";
+	/*if(req.session.user){
+		user = req.session.user.name;
+	}else{
+		user = "登录";
+	}*/
+	if(!req.session.user){
+		req.session.error = "您还没有登录";
+		res.redirect("/login");
+	}else{
+		user = req.session.user.name;
+	}
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
-		res.render("buyStep_1",{title:'Home',objList:doc});
+		res.render("buyStep_1",{title:'Home',objList:doc,username: user});
 	});
 }).post(function(req,res){
 	var name = req.body.userName;
@@ -459,19 +483,55 @@ router.route("/buyStep_1").get(function(req,res){
 });
 
 //购买页面1 支付
-router.route("/buyStep_2").get(function(req,res){    
-	res.render("buyStep_2",{title:'Home'});
+router.route("/buyStep_2").get(function(req,res){
+	var user = "";
+	/*if(req.session.user){
+	 user = req.session.user.name;
+	 }else{
+	 user = "登录";
+	 }*/
+	if(!req.session.user){
+		req.session.error = "您还没有登录";
+		res.redirect("/login");
+	}else{
+		user = req.session.user.name;
+	}
+	res.render("buyStep_2",{title:'Home',username: user});
 });
 //加入购物车 跳转页面
-router.route("/shopCar").get(function(req,res){    
+router.route("/shopCar").get(function(req,res){
+	var user = "";
+	/*if(req.session.user){
+	 user = req.session.user.name;
+	 }else{
+	 user = "登录";
+	 }*/
+	if(!req.session.user){
+		req.session.error = "您还没有登录";
+		res.redirect("/login");
+	}else{
+		user = req.session.user.name;
+	}
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
-		res.render("shopCar",{title:'Home',objList:doc});
+		res.render("shopCar",{title:'Home',objList:doc,username: user});
 	});
 });
 //个人中心
 router.route("/userCenter").get(function(req,res){
+	var user = "";
+	/*if(req.session.user){
+	 user = req.session.user.name;
+	 }else{
+	 user = "登录";
+	 }*/
+	if(!req.session.user){
+		req.session.error = "您还没有登录";
+		res.redirect("/login");
+	}else{
+		user = req.session.user.name;
+	}
 	//global.orderControl.dataFindAction({},function(err,doc){,objList: doc
-		res.render("userCenter",{title:"个人中心"});
+		res.render("userCenter",{title:"个人中心",username: user});
 	//});
 	//res.render("userCenter",{title:""});
 });
