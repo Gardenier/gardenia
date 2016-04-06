@@ -3,10 +3,10 @@ var router = express.Router();
 
 /* GET index page. */
 router.get("/",function(req,res){ 
-	global.sellConControl.dataFindAction({},function(err,doc){
+	/*global.sellConControl.dataFindAction({},function(err,doc){
 		res.render("index",{title:'HomeIndex',objList:doc,div:doc.length});//已登录则渲染home页面
-	});
-	
+	});*/
+	res.render('show-time',{title: "欢迎页"});
 });
 
 /* GET home page. */
@@ -343,12 +343,75 @@ router.route("/foundPassword").get(function(req,res){    // 到达此路径则�
 	});
 });
 
+//列表页
+router.route('/product_list/:type').get(function(req, res){
+		if(req.params.type == "cate"){
+			global.sellConControl.dataFindAction({type: "美食"},function(err, List){
+				res.render("product_list",{title: "美食-列表页",objList:List});
+			});
+		}
+		else if(req.params.type == "movie"){
+			global.sellConControl.dataFindAction({type: "电影"},function(err, List){
+				res.render("product_list",{title: "电影-列表页",objList:List});
+			});
+		}
+		else if(req.params.type == "entertainment"){
+			global.sellConControl.dataFindAction({type: "娱乐"},function(err, List){
+				res.render("product_list",{title: "休闲娱乐-列表页",objList:List});
+			});
+		}
+		else if(req.params.type == "shopping"){
+			global.sellConControl.dataFindAction({type: "购物"},function(err, List){
+				res.render("product_list",{title: "购物-列表页",objList:List});
+			});
+		}
+		else if(req.params.type == "service"){
+			global.sellConControl.dataFindAction({type: "服务"},function(err, List){
+				res.render("product_list",{title: "生活服务-列表页",objList:List});
+			});
+		}
+		else if(req.params.type == "grogshop") {
+			global.sellConControl.dataFindAction({type: "酒店"},function(err, List){
+				res.render("product_list",{title: "酒店-列表页",objList:List});
+			});
+		}
+});
 //详情页
-router.route("/product_detail").get(function(req,res){    
-	console.log('req.query.id'+req.query.id);
+router.route("/product_detail/:type").get(function(req,res){
+	/*console.log('req.query.id'+req.query.id);
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
 		res.render("product_detail",{title:'Home',objList:doc});//已登录则渲染home页面
-	});
+	});*/
+	if(req.params.type == "cate"){
+		global.sellConControl.dataFindAction({type: "美食",_id:req.query.id},function(err, List){
+			res.render("product_detail",{title: "美食-详情页",objList:List});
+		});
+	}
+	else if(req.params.type == "movie"){
+		global.sellConControl.dataFindAction({type: "电影",_id:req.query.id},function(err, List){
+			res.render("product_detail",{title: "电影-详情页",objList:List});
+		});
+	}
+	else if(req.params.type == "entertainment"){
+		global.sellConControl.dataFindAction({type: "娱乐",_id:req.query.id},function(err, List){
+			res.render("product_detail",{title: "休闲娱乐-详情页",objList:List});
+		});
+	}
+	else if(req.params.type == "shopping"){
+		global.sellConControl.dataFindAction({type: "购物",_id:req.query.id},function(err, List){
+			res.render("product_detail",{title: "购物-详情页",objList:List});
+		});
+	}
+	else if(req.params.type == "service"){
+		global.sellConControl.dataFindAction({type: "服务",_id:req.query.id},function(err, List){
+			res.render("product_detail",{title: "生活服务-详情页",objList:List});
+		});
+	}
+	else if(req.params.type == "grogshop") {
+		global.sellConControl.dataFindAction({type: "酒店",_id:req.query.id},function(err, List){
+			res.render("product_detail",{title: "酒店-详情页",objList:List});
+		});
+	}
 });
 
 //购买页面1 提交订单

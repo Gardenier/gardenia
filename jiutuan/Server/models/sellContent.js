@@ -30,7 +30,7 @@ var sellConSchema = new mongoose.Schema({
 		one: Number
 	},//评价个数
 	soldNumber: Number,
-	phoneNum: String,
+	phoneNum: String
 
 });
 //生成方法getModel给予调用，返回user模型
