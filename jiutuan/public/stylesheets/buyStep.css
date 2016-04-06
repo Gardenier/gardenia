@@ -40,16 +40,17 @@
 /* line 31, ../sass/buyStep.scss */
 .buyStep .progress-bar {
   height: 5px;
+  width: 33.33%;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   background-color: #EF5651;
 }
-/* line 36, ../sass/buyStep.scss */
+/* line 37, ../sass/buyStep.scss */
 .buyStep .buy-table {
   width: 100%;
 }
-/* line 41, ../sass/buyStep.scss */
+/* line 42, ../sass/buyStep.scss */
 .buyStep .table-section th {
   padding: 6px 12px;
   font-size: 14px;
@@ -57,27 +58,57 @@
   text-align: center;
   background: #F7F7F7;
 }
-/* line 48, ../sass/buyStep.scss */
+/* line 49, ../sass/buyStep.scss */
 .buyStep .table-section td {
   text-align: center;
 }
-/* line 51, ../sass/buyStep.scss */
+/* line 52, ../sass/buyStep.scss */
 .buyStep .table-section .package {
   text-align: left;
 }
-/* line 55, ../sass/buyStep.scss */
+/* line 56, ../sass/buyStep.scss */
 .buyStep .add-btn-wrap {
   padding-top: 20px;
 }
-/* line 58, ../sass/buyStep.scss */
+/* line 59, ../sass/buyStep.scss */
+.buyStep .buy-btn-wrap {
+  margin: 30px 60px 60px 0;
+}
+/* line 62, ../sass/buyStep.scss */
+.buyStep .btn_order {
+  float: right;
+  width: 200px;
+  margin-top: 60px;
+}
+/* line 67, ../sass/buyStep.scss */
 .buyStep .add-btn {
   text-align: center;
 }
-/* line 61, ../sass/buyStep.scss */
+/* line 70, ../sass/buyStep.scss */
 .buyStep .package {
   width: 55%;
 }
-/* line 64, ../sass/buyStep.scss */
+/* line 73, ../sass/buyStep.scss */
 .buyStep .price, .buyStep .amount, .buyStep .total {
   width: 15%;
+}
+/* line 76, ../sass/buyStep.scss */
+.buyStep .money {
+  font-size: 24px;
+  color: #EF3C35;
+}
+/* line 80, ../sass/buyStep.scss */
+.buyStep .sum {
+  line-height: 30px;
+  font-size: 18px;
+  text-align: right;
+}
+/* line 87, ../sass/buyStep.scss */
+.buyStep .radio-inline {
+  height: 30px;
+  margin: 20px 10px;
+}
+/* line 90, ../sass/buyStep.scss */
+.buyStep .radio-inline img {
+  height: 100%;
 }

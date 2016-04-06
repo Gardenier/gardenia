@@ -79,7 +79,7 @@ router.route("/register").get(function(req,res){
 		else {
 			//req.session.error = '未找到相同数据！';
 			global.userControl.userAddAction(data,function(err,doc){ 
-			if (err) {
+				if (err) {
 		            res.send(500);
 		            console.log(err);
 		        } else {
@@ -91,33 +91,33 @@ router.route("/register").get(function(req,res){
 	});			
 });
 
-router.route("/order").get(function(req,res){   
-	res.render("order",{title:'User order'});
-}).post(function(req,res){ 
+// router.route("/order").get(function(req,res){   
+// 	res.render("order",{title:'User order'});
+// }).post(function(req,res){ 
 
-	var resName = req.body.resName;
-	var projectDetail = req.body.projectDetail;
-	var price = req.body.price;
-	var status = req.body.status;
-	var star = req.body.star;
-	var text = req.body.text;
-	var resName = req.body.resName;
-	var sstatus = req.body.sstatus;
-	var data = {
-		resName: resName,projectDetail: projectDetail,
-		price: price,status:status,star: star,text:text,sstatus: sstatus
-	};	
-	var condition = {userName: uname};
-	global.userControl.userAddDocumentAction(data,function(err,doc){ 
-	if (err) {
-            res.send(500);
-            console.log(err);
-        } else {
-            req.session.error = '用户名创建成功！';
-            res.send(200);
-        }
-    });		
-});
+// 	var resName = req.body.resName;
+// 	var projectDetail = req.body.projectDetail;
+// 	var price = req.body.price;
+// 	var status = req.body.status;
+// 	var star = req.body.star;
+// 	var text = req.body.text;
+// 	var resName = req.body.resName;
+// 	var sstatus = req.body.sstatus;
+// 	var data = {
+// 		resName: resName,projectDetail: projectDetail,
+// 		price: price,status:status,star: star,text:text,sstatus: sstatus
+// 	};	
+// 	var condition = {userName: uname};
+// 	global.userControl.userAddDocumentAction(data,function(err,doc){ 
+// 	if (err) {
+//             res.send(500);
+//             console.log(err);
+//         } else {
+//             req.session.error = '用户名创建成功！';
+//             res.send(200);
+//         }
+//     });		
+// });
 
 
 /* GET seller login page. */
@@ -351,11 +351,66 @@ router.route("/product_detail").get(function(req,res){
 	});
 });
 
-//购买页面1
+//购买页面1 提交订单
 router.route("/buyStep_1").get(function(req,res){    
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
 		res.render("buyStep_1",{title:'Home',objList:doc});
 	});
+}).post(function(req,res){
+	var name = req.body.userName;
+	var rname = req.body.resName; 
+	var pd = req.body.projectDetail;
+	var price = req.body.price;
+	var status = req.body.status;
+	var feed = {
+		star: 0,//分数
+		text: 'dd',//评价内容
+		status: 0//状态
+	};
+	var data = {
+		userName: name,
+		resName: rname,
+		projectDetail: pd,
+		price: price,
+		status: status,
+		feedBack: feed
+	};
+	console.log(data.userName+'\n'+
+		data.resName+'\n'+
+		data.projectDetail+'\n'+
+		data.price+'\n'+
+		data.status+'\n'+
+		data.feedBack.star+'\n'+
+		data.feedBack.text+'\n'+
+		data.feedBack.status+'\n');
+	global.orderControl.orderAddAction(data,function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            ///req.session.error = '密码修改成功！';
+            console.log('订单已录入');
+            res.send(200);
+        }
+	});
+});
+
+//购买页面1 支付
+router.route("/buyStep_2").get(function(req,res){    
+	res.render("buyStep_2",{title:'Home'});
+});
+//加入购物车 跳转页面
+router.route("/shopCar").get(function(req,res){    
+	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
+		res.render("shopCar",{title:'Home',objList:doc});
+	});
+});
+//个人中心
+router.route("/userCenter").get(function(req,res){
+	//global.orderControl.dataFindAction({},function(err,doc){,objList: doc
+		res.render("userCenter",{title:"个人中心"});
+	//});
+	//res.render("userCenter",{title:""});
 });
 
 module.exports = router;

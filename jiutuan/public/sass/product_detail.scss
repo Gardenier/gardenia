@@ -147,9 +147,20 @@ html,body {
 	.buy-btn:hover {
 		background-color: #EF3C35;
 	}
-	.shopCar {
+	// .add_shopCar {
+	// 	display: block;
+	//     float: left;
+	//     margin-left: 30px;
+	//     padding: 10px 10px;	
+	//     color: #888;
+	//     background-color: #eee;
+	//     border: 1px solid #aaa;
+	// 	&:hover {
+	// 		background-color: #E9E9E9;
+	// 		border-color: #888;
+	// 	}
 
-	}
+	// }
 	.left-part {
 		width: 60%;
 		float: left;
@@ -269,4 +280,44 @@ html,body {
 	color: #fff;
 	@include border-radius(5px);
 	background-color: #ED5852;
+}
+.modal-body {
+	padding: 20px 20px 40px 20px;
+}
+.info-success {
+	h5 {
+		font-size: 20px;
+		line-height: 30px;
+	}
+}
+.m-btn {
+	margin-top: 20px;
+	display: inline-block;
+    vertical-align: middle;
+    padding: 7px 20px 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border-width: 0 0 1px;
+    border-style: solid;
+   	@include border-radius(4px);
+   	color: #fff;
+}
+.continue {
+	background-color: #2db3a6;
+	border-color: #008177;
+	margin-right: 20px;
+	&:hover {
+	    background-color: #2eb7aa;
+	    color: #fff;
+	}
+}
+.toCar {
+	background-color: #f76120;
+    border-color: #da3f02;
+	&:hover {
+		background-color: #ff8101;
+    	border-color: #f76120;
+    	color: #fff;
+	}
 }

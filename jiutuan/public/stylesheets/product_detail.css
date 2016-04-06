@@ -415,62 +415,62 @@ html, body {
 .product_detail .buy-btn:hover {
   background-color: #EF3C35;
 }
-/* line 153, ../sass/product_detail.scss */
+/* line 164, ../sass/product_detail.scss */
 .product_detail .left-part {
   width: 60%;
   float: left;
 }
-/* line 157, ../sass/product_detail.scss */
+/* line 168, ../sass/product_detail.scss */
 .product_detail .right-part {
   width: 40%;
   float: left;
 }
-/* line 161, ../sass/product_detail.scss */
+/* line 172, ../sass/product_detail.scss */
 .product_detail .otherPackage-info {
   display: block;
   color: #333;
   padding-bottom: 10px;
 }
-/* line 165, ../sass/product_detail.scss */
+/* line 176, ../sass/product_detail.scss */
 .product_detail .otherPackage-info div {
   float: left;
   padding-right: 20px;
 }
-/* line 169, ../sass/product_detail.scss */
+/* line 180, ../sass/product_detail.scss */
 .product_detail .otherPackage-info div:first-child {
   color: #FC7D6D;
 }
-/* line 172, ../sass/product_detail.scss */
+/* line 183, ../sass/product_detail.scss */
 .product_detail .otherPackage-info div:last-child {
   float: right;
   padding-right: 0;
   color: #C7C6C3;
 }
-/* line 179, ../sass/product_detail.scss */
+/* line 190, ../sass/product_detail.scss */
 .product_detail .star .icon-wuxingshixin {
   color: #ED5852;
 }
-/* line 182, ../sass/product_detail.scss */
+/* line 193, ../sass/product_detail.scss */
 .product_detail .star .icon-wuxingmian {
   color: #A6A5A5;
 }
-/* line 188, ../sass/product_detail.scss */
+/* line 199, ../sass/product_detail.scss */
 .product_detail .pj div {
   float: left;
   padding-right: 20px;
 }
-/* line 192, ../sass/product_detail.scss */
+/* line 203, ../sass/product_detail.scss */
 .product_detail .pj .satisfaction-rate {
   float: right;
   padding-right: 0;
 }
-/* line 197, ../sass/product_detail.scss */
+/* line 208, ../sass/product_detail.scss */
 .product_detail .pj-lines {
   padding: 10px 20px 0 20px;
   color: #454544;
   border-bottom: 1px solid #ED5852;
 }
-/* line 202, ../sass/product_detail.scss */
+/* line 213, ../sass/product_detail.scss */
 .product_detail .pjl-cell {
   width: 90%;
   -moz-box-flex: 1;
@@ -478,41 +478,41 @@ html, body {
   box-flex: 1;
   text-align: center;
 }
-/* line 209, ../sass/product_detail.scss */
+/* line 220, ../sass/product_detail.scss */
 .product_detail .lines {
   width: 100%;
   border-left: 1px solid #ED5852;
   border-right: 1px solid #ED5852;
 }
-/* line 214, ../sass/product_detail.scss */
+/* line 225, ../sass/product_detail.scss */
 .product_detail .line-wrap {
   width: 90%;
   padding-bottom: 10px;
   margin: 0 auto;
 }
-/* line 218, ../sass/product_detail.scss */
+/* line 229, ../sass/product_detail.scss */
 .product_detail .line-wrap div {
   float: left;
   width: 20%;
 }
-/* line 222, ../sass/product_detail.scss */
+/* line 233, ../sass/product_detail.scss */
 .product_detail .line-wrap .pj-line {
   width: 60%;
   height: 20px;
   float: left;
   background-color: #ED5852;
 }
-/* line 229, ../sass/product_detail.scss */
+/* line 240, ../sass/product_detail.scss */
 .product_detail .all-say-wrap {
   padding-left: 30px;
   padding-bottom: 10px;
   border-bottom: 1px solid #E2E1DF;
 }
-/* line 233, ../sass/product_detail.scss */
+/* line 244, ../sass/product_detail.scss */
 .product_detail .all-say-wrap p {
   margin-top: 10px;
 }
-/* line 238, ../sass/product_detail.scss */
+/* line 249, ../sass/product_detail.scss */
 .product_detail .all-say div {
   display: inline-block;
   vertical-align: middle;
@@ -524,12 +524,12 @@ html, body {
   border: 1px solid #ED5852;
   background-color: #fff;
 }
-/* line 246, ../sass/product_detail.scss */
+/* line 257, ../sass/product_detail.scss */
 .product_detail .pj-list {
   background-color: #E4E4E4;
   padding: 5px 10px;
 }
-/* line 249, ../sass/product_detail.scss */
+/* line 260, ../sass/product_detail.scss */
 .product_detail .pj-list div {
   display: inline-block;
   vertical-align: middle;
@@ -539,18 +539,18 @@ html, body {
   padding: 5px 10px;
   border-left: 1px solid #CCCCCC;
 }
-/* line 254, ../sass/product_detail.scss */
+/* line 265, ../sass/product_detail.scss */
 .product_detail .pj-list div:first-child {
   color: #AE4242;
   border-left: 0;
 }
-/* line 259, ../sass/product_detail.scss */
+/* line 270, ../sass/product_detail.scss */
 .product_detail .pj-detail {
   padding: 10px 20px;
   border-bottom: 1px solid #E4E3E1;
 }
 
-/* line 264, ../sass/product_detail.scss */
+/* line 275, ../sass/product_detail.scss */
 .btn-pj {
   width: 80%;
   display: block;
@@ -561,4 +561,56 @@ html, body {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background-color: #ED5852;
+}
+
+/* line 284, ../sass/product_detail.scss */
+.modal-body {
+  padding: 20px 20px 40px 20px;
+}
+
+/* line 288, ../sass/product_detail.scss */
+.info-success h5 {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* line 293, ../sass/product_detail.scss */
+.m-btn {
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 7px 20px 6px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  border-width: 0 0 1px;
+  border-style: solid;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+/* line 306, ../sass/product_detail.scss */
+.continue {
+  background-color: #2db3a6;
+  border-color: #008177;
+  margin-right: 20px;
+}
+/* line 310, ../sass/product_detail.scss */
+.continue:hover {
+  background-color: #2eb7aa;
+  color: #fff;
+}
+
+/* line 315, ../sass/product_detail.scss */
+.toCar {
+  background-color: #f76120;
+  border-color: #da3f02;
+}
+/* line 318, ../sass/product_detail.scss */
+.toCar:hover {
+  background-color: #ff8101;
+  border-color: #f76120;
+  color: #fff;
 }

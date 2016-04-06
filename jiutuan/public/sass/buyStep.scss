@@ -30,6 +30,7 @@
 	}
 	.progress-bar {
 		height: 5px;
+		width: 33.33%;
 		@include border-radius(4px);
 		background-color: #EF5651;
 	}
@@ -55,6 +56,14 @@
 	.add-btn-wrap {
 		padding-top: 20px;
 	}
+	.buy-btn-wrap {
+		margin: 30px 60px 60px 0;
+	}
+	.btn_order {
+		float: right;
+		width: 200px;
+		margin-top: 60px;
+	}
 	.add-btn {
 		text-align: center;
 	}
@@ -63,5 +72,23 @@
 	}
 	.price,.amount,.total {
 		width: 15%;
+	}
+	.money {
+		font-size: 24px;
+		color: #EF3C35;
+	}
+	.sum {
+		line-height: 30px;
+		font-size: 18px;
+		text-align: right;
+	}
+
+
+	.radio-inline {
+		height: 30px;
+		margin: 20px 10px;
+		img {
+			height: 100%;
+		}
 	}
 }

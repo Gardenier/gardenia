@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include header.html %>
+	<title>玖团-详情页</title>
+	<link rel="stylesheet" href="/stylesheets/product_detail.css">
+	<link rel="stylesheet" href="/stylesheets/buyStep.css">
+	<script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/jquery.cookie.js"></script>
+</head>
+<body>
+	<!--公共头部start-->
+	<% include commonHeader.html %>
+	<!--公共头部end-->
+	<div class="product_detail buyStep">
+		<% objList.forEach(function(data, index){ %>
+		<div class="table-section">
+    		<table class="buy-table">
+        		<tbody>
+        			<tr class="order-table-head-row">
+			            <th class="package">项目</th>
+			            <th class="price">单价</th>
+			            <th class="amount">数量</th>
+			            <th class="total_t">总价</th>
+			        </tr>
+	        		<tr>
+	            		<td class="package">
+                			<a href="product_detail?id=<%= data._id %>" target="_blank">
+                    			<%= data.resName %>:<%= data.info %>
+               	 			</a>
+            			</td>
+			            <td class="price">
+			                ¥<span id="price"><%= data.newPrice %></span>
+			            </td>
+            			<td class="amount">	
+		                	<div class="add-btn-wrap">
+								<div class="add-btn">
+									<button id="cut">-</button>
+									<input type="text" value="1" id="pNumber">
+									<button id="add">+</button>
+								</div>
+							</div>
+            			</td>
+			            <td class="total-wrap">
+			                ¥<span class="total">3.90</span>
+			            </td>
+        			</tr>
+    			</tbody>
+    		</table>
+    		<div class="buy-btn-wrap clearfix">
+    			<div class="sum">
+    				<strong>应付金额</strong>：
+                    <span class="money">
+                        ¥<strong class="sum_n">3.90</strong>
+                    </span>
+    			</div>
+				<a href="buyStep_1?id=<%= data._id %>" class="btn btn-default buy-btn btn_order"
+				 id="subOrder">立即支付</a>
+			</div>
+		</div>
+		<% }) %>
+	</div>
+	<script>
+	$(function(){
+		//cookie 传值
+		$("#pNumber").val($.cookie('pNumber'));
+		//添加 减少 数量 总价相应改变
+		var p = parseFloat($('#price').html());
+		var n = parseInt($("#pNumber").val());
+		$("#pNumber").val(n);
+		$(".total").html(n*p);
+		$(".sum_n").html(n*p);
+
+		$("#add").click(function(){
+			var p = parseFloat($('#price').html());
+			var n = parseInt($("#pNumber").val());
+			n +=1;
+			$("#pNumber").val(n);
+			$(".total").html(n*p);
+			$(".sum_n").html(n*p);
+		});
+		$("#cut").click(function(){
+			var p = parseFloat($('#price').html());
+			var n =parseInt($("#pNumber").val());
+			if(n > 1) {
+				n -=1;
+				$("#pNumber").val(n);
+				$(".total").html(n*p);
+				$(".sum_n").html(n*p);
+			}
+			
+		});
+		//确认订单 隐藏当前块 显示确认支付
+		$('#subOrder').click(function(){
+			$('.table-section').hide();
+			$('.controls').show();
+			$('.progress-bar').css('width','66.66%');
+		});
+
+		//数据交互
+		$('#paySure').click(function(){
+			alert('支付成功！');
+			var name = $('#userName').html();
+			
+			var pNumber = 1;
+			// $.ajax({ 
+			// 	url:'/login',
+			// 	type:'post',
+			// 	data: data,
+			// 	success: function(data,status){ 
+			// 		if(status == 'success'){ 
+			// 			location.href = 'home';
+			// 		}
+			// 	},
+			// 	error: function(data,status){ 
+			// 		if(status == '401'){ 
+			// 			//alert('用户名不存在');
+			// 			location.href = 'login';
+			// 		}
+			// 		if(status == '404'){ 
+			// 			//alert('密码错误');
+			// 			location.href = 'login';
+			// 		}else{
+			// 			//alert('unknown error');
+			// 			location.href = 'login';
+			// 		}
+			// 	}
+			// });
+		});
+
+	});
+	</script>
+</body>
+</html>

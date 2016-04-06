@@ -1,36 +1,39 @@
 <div class="nav-wrap clearfix">
-			<div class="nav-content">
-				<div class="places pull-left">
-					<span>济南</span>
-					<span>|</span>
-					<a href="javascript:;">切换城市</a>
-				</div>
-				<ul class="nav-list pull-right">
-					<li><a href="javascript:;">登录</a></li>
-					<li><a href="javascript:;">注册</a></li>
-					<li><a href="javascript:;">用户中心</a></li>
-					<li><a href="javascript:;">收藏</a></li>
-					<li><a href="javascript:;">帮助</a></li>
-					<li><a href="javascript:;">手机玖团</a></li>
-				</ul>
-			</div>
+	<div class="nav-content">
+		<div class="places pull-left">
+			<span>济南</span>
+			<span>|</span>
+			<a href="javascript:;">切换城市</a>
 		</div>
-		<div class="mHeader clearfix">
-			<img class="pull-left" src="/images/jiutuan.png" alt="logo">
-			<div class="pull-right">
-				<input type="text" placeholder="搜索商家" class="search-input">
-				<button class="btn btn-default">搜索</button>
-			</div>
-		</div>
-		<div class="navGroup clearfix">
-			<div class="allClassify1">
-				<a href="javascript:;">全部分类</a>
-			</div>
-			<ul class="slide-title clearfix">
-				<li><a href="javascript:;">首页</a></li>
-				<li><a href="javascript:;">电影</a></li>
-				<li><a href="javascript:;">酒店</a></li>
-				<li><a href="javascript:;">今日特惠</a></li>
-				<li><a href="javascript:;">今日新单</a></li>
-			</ul>
-		</div>
+		<ul class="nav-list pull-right">
+			<!-- <li><a href="javascript:;">登录</a></li>
+			<li><a href="javascript:;">注册</a></li> -->
+			<li id="userName"><%- user.name %></li>
+			<li><a href="/logout">退出</a></li>
+			<li><a href="javascript:;">用户中心</a></li>
+			<li><a href="javascript:;">收藏</a></li>
+			<li><a href="javascript:;">帮助</a></li>
+			<li><a href="javascript:;">我的订单</a></li>
+			<li><a href="javascript:;">我的购物车()</a></li>
+		</ul>
+	</div>
+</div>
+<div class="mHeader clearfix">
+	<img class="pull-left" src="/images/jiutuan.png" alt="logo">
+	<div class="pull-right">
+		<input type="text" placeholder="搜索商家" class="search-input">
+		<button class="btn btn-default">搜索</button>
+	</div>
+</div>
+<div class="navGroup clearfix">
+	<div class="allClassify1">
+		<a href="javascript:;">全部分类</a>
+	</div>
+	<ul class="slide-title clearfix">
+		<li><a href="javascript:;">首页</a></li>
+		<li><a href="javascript:;">电影</a></li>
+		<li><a href="javascript:;">酒店</a></li>
+		<li><a href="javascript:;">今日特惠</a></li>
+		<li><a href="javascript:;">今日新单</a></li>
+	</ul>
+</div>

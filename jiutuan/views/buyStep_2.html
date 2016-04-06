@@ -25,55 +25,9 @@
 	    	</div>
 		</div>
 		<!--公共头部end-->
-		<% objList.forEach(function(data, index){ %>
-		<div class="table-section">
-    		<table class="buy-table">
-        		<tbody>
-        			<tr class="order-table-head-row">
-			            <th class="package">项目</th>
-			            <th class="price">单价</th>
-			            <th class="amount">数量</th>
-			            <th class="total_t">总价</th>
-			        </tr>
-	        		<tr>
-	            		<td class="package">
-                			<a href="product_detail?id=<%= data._id %>" target="_blank">
-                    			<span id="resName"><%= data.resName %></span>:<span id="resInfo"><%= data.info %></span>
-               	 			</a>
-            			</td>
-			            <td class="price">
-			                ¥<span id="price"><%= data.newPrice %></span>
-			            </td>
-            			<td class="amount">	
-		                	<div class="add-btn-wrap">
-								<div class="add-btn">
-									<button id="cut">-</button>
-									<input type="text" value="1" id="pNumber">
-									<button id="add">+</button>
-								</div>
-							</div>
-            			</td>
-			            <td class="total-wrap">
-			                ¥<span class="total">3.90</span>
-			            </td>
-        			</tr>
-    			</tbody>
-    		</table>
-    		<div class="buy-btn-wrap clearfix">
-    			<div class="sum">
-    				<strong>应付金额</strong>：
-                    <span class="money">
-                        ¥<strong class="sum_n">3.90</strong>
-                    </span>
-    			</div>
-				<a href="#" class="btn btn-default buy-btn btn_order"
-				 id="subOrder">提交订单</a>
-			</div>
-		</div>
-		<% }) %>
 
 		<!--after submit order-->
-		<!-- <div class="controls" style="display: none;">
+		<div class="controls">
 			<strong style="font-size: 20px;">支付方式</strong>
             <div>
             	<label class="radio-inline">
@@ -124,10 +78,12 @@
             <div class="buy-btn-wrap clearfix">
 				<a href="userCenter" class="btn btn-default buy-btn btn_order" id="paySure">确认付款</a>
 			</div>
-        </div> -->
+        </div>
 	</div>
 	<script>
 	$(function(){
+		//进度条
+		$('.progress-bar').css('width','66.66%');
 		//cookie 传值
 		$("#pNumber").val($.cookie('pNumber'));
 		//添加 减少 数量 总价相应改变
@@ -157,41 +113,39 @@
 			
 		});
 		//确认订单 隐藏当前块 显示确认支付
-		// $('#subOrder').click(function(){
-		// 	$('.table-section').hide();
-		// 	$('.controls').show();
-		// 	$('.progress-bar').css('width','66.66%');
-		// });
+		$('#subOrder').click(function(){
+			$('.table-section').hide();
+			$('.controls').show();
+			$('.progress-bar').css('width','66.66%');
+		});
 
 		//数据交互
-		$('#subOrder').click(function(){
-			//alert('支付成功！');
-			//var pNumber = 1;
-			var name = $('#userName').html();
-			var resName = $('#resName').html();
-			var pd = $('#resInfo').html();
-			var price = parseFloat($('#price').html());
-			//var status = 0;
-			// feedBack: {
-			// 	star: Number,//分数
-			// 	text: String,//评价内容
-			// 	status: Number//状态
-			// }
-			var data = {'userName': name,'resName': resName,'projectDetail': pd,'price': price,'status': 0};
-			console.log(data);
-			$.ajax({ 
-				url:'/buyStep_1',
-				type:'post',
-				data: data,
-				success: function(data,status){ 
-					if(status == 'success'){ 
-						location.href = 'buyStep_2';
-					}
-				},
-				error: function(err,status){ 
-					alert(status);
-				}
-			});
+		$('#paySure').click(function(){
+			alert('支付成功！');
+			var pNumber = 1;
+			// $.ajax({ 
+			// 	url:'/login',
+			// 	type:'post',
+			// 	data: data,
+			// 	success: function(data,status){ 
+			// 		if(status == 'success'){ 
+			// 			location.href = 'home';
+			// 		}
+			// 	},
+			// 	error: function(data,status){ 
+			// 		if(status == '401'){ 
+			// 			//alert('用户名不存在');
+			// 			location.href = 'login';
+			// 		}
+			// 		if(status == '404'){ 
+			// 			//alert('密码错误');
+			// 			location.href = 'login';
+			// 		}else{
+			// 			//alert('unknown error');
+			// 			location.href = 'login';
+			// 		}
+			// 	}
+			// });
 		});
 
 	});
