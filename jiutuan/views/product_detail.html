@@ -4,10 +4,10 @@
 	<% include header.html %>
 	<title><%= title %></title>
 	<link rel="stylesheet" href="/stylesheets/product_detail.css">
-	<script src="javascripts/jquery-2.0.3.min.js"></script>
-	<script src="javascripts/bootstrap.js"></script>
-	<script src="javascripts/product_detail.js"></script>
-	<script src="javascripts/jquery.cookie.js"></script>
+	<script src="/javascripts/jquery-2.0.3.min.js"></script>
+	<script src="/javascripts/bootstrap.js"></script>
+	<script src="/javascripts/product_detail.js"></script>
+	<script src="/javascripts/jquery.cookie.js"></script>
 </head>
 <body>
 	<% objList.forEach(function(data, index){ %>
@@ -93,7 +93,7 @@
 							</div>
 						</div>
 						<div class="buy-btn-wrap clearfix">
-							<a href="buyStep_1?id=<%= data._id %>" class="btn btn-default buy-btn" id="toPay">立即购买</a>
+							<a href="/buyStep_1?id=<%= data._id %>" class="btn btn-default buy-btn" id="toPay">立即购买</a>
 							<button id="shopCar" title="加入购物车" data-toggle="modal" data-target="#myModal">
 								<span class="iconfont icon-gouwuche"></span>
 							</button>

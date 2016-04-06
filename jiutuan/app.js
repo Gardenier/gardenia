@@ -17,6 +17,7 @@ var mongoose = require('mongoose');
 global.userControl =require('./Server/controller/userControl');
 global.BuserControl =require('./Server/controller/BuserControl');
 global.sellConControl =require('./Server/controller/sellConControl');
+global.orderControl = require('./Server/controller/orderControl');
 //global.dbHandel = require('./database/dbHandel');
 global.User = require('./Server/models/users');
 global.db = mongoose.connect("mongodb://localhost:27017/test");
@@ -89,6 +90,11 @@ app.use('/home',routes); // 即为为路径 /home 设置路由
 app.use("/logout",routes); // 即为为路径 /logout 设置路由
 app.use("/busData",routes);
 app.use("/foundPassword",routes);
+app.use("/product_detail",routes);
+app.use("/buyStep_1",routes);
+app.use("/buyStep_2",routes);
+app.use("/userCenter",routes);
+app.use("/shopCar",routes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
