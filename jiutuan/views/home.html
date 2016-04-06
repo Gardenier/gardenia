@@ -39,12 +39,12 @@
 		<div class="mPart1 clearfix">
 			<ul class="allClassify pull-left">
 				<li>全部分类</li>
-				<li><a href="javascript:;">美食</a></li>
-				<li><a href="javascript:;">电影</a></li>
-				<li><a href="javascript:;">休闲娱乐</a></li>
-				<li><a href="javascript:;">购物</a></li>
-				<li><a href="javascript:;">生活服务</a></li>
-				<li><a href="javascript:;">酒店</a></li>
+				<li><a href="/product_list/cate">美食</a></li>
+				<li><a href="/product_list/movie">电影</a></li>
+				<li><a href="/product_list/entertainment">休闲娱乐</a></li>
+				<li><a href="/product_list/shopping">购物</a></li>
+				<li><a href="/product_list/service">生活服务</a></li>
+				<li><a href="/product_list/grogshop">酒店</a></li>
 				<li><a href="javascript:;">本地生活</a></li>
 			</ul>
 			<div class="slide-wrap pull-left">
@@ -184,18 +184,19 @@
 						</div>
 					</div>
 				</div> -->
+
 				<div class="mPartLeftCell">
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">美食</a>
 						<div class="more pull-right">
-							<a href="javascript:;">查看全部>></a>
+							<a href="/product_list/cate">查看全部>></a>
 						</div>
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "美食" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
+							<a href="/product_detail/cate?id=<%= data._id%>" class="mtjCell">
 								<img src="images/meishi/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -217,19 +218,19 @@
 						<% }) %>
 					</div>
 				</div>
-				
+
 				<div class="mPartLeftCell">
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">电影</a>
 						<div class="more pull-right">
-							<a href="javascript:;">查看全部>></a>
+							<a href="/product_list/movie">查看全部>></a>
 						</div>
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "电影" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
+							<a href="product_detail/movie?id=<%= data._id%>" class="mtjCell">
 								<img src="images/movies/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -255,14 +256,14 @@
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">娱乐</a>
 						<div class="more pull-right">
-							<a href="javascript:;">查看全部>></a>
+							<a href="/product_list/entertainment">查看全部>></a>
 						</div>
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "娱乐" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
+							<a href="/product_detail/entertainment?id=<%= data._id%>" class="mtjCell">
 								<img src="images/yule/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -288,14 +289,14 @@
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">购物</a>
 						<div class="more pull-right">
-							<a href="javascript:;">查看全部>></a>
+							<a href="/product_list/shopping">查看全部>></a>
 						</div>
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "购物" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
+							<a href="product_detail/shopping?id=<%= data._id%>" class="mtjCell">
 								<img src="images/shopping/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -321,14 +322,14 @@
 					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">生活</a>
 						<div class="more pull-right">
-							<a href="javascript:;">查看全部>></a>
+							<a href="/product_list/service">查看全部>></a>
 						</div>
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "服务" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
+							<a href="product_detail/service?id=<%= data._id%>" class="mtjCell">
 								<img src="images/service/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>

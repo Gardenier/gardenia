@@ -99,12 +99,12 @@
     .item {
       width: 80%;
       margin: 0 auto;
-      display: table;
-      table-layout: fixed;
+      /*display: table;
+      table-layout: fixed;*/
       a{
-        display: table-cell;
+        display: inline-block;
         color: #333333;
-        /*width: 25%;*/
+        width: 24%;
         &:hover{
           text-decoration: none;
         }
@@ -112,6 +112,7 @@
           width: 80%;
           margin: 0 auto 20px;
           padding: 5px;
+          border: 1px solid #eeeeee;
           &:hover {
             @include box-shadow(0 0 5px 3px rgba(120,120,120,.1));
           }
@@ -122,9 +123,15 @@
           h3 {
             font-size: 20px;
             color: #666666;
+            height: 25px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
           p {
             font-size: 16px;
+            height: 45px;
+            overflow: hidden;
           }
           .fee {
             font-size: 12px;
@@ -132,17 +139,17 @@
             margin-bottom: 15px;
             .coupon-new{
               display: inline-block;
-              background-color: #EF5651;
-              @include border-radius(5px);
-              color: #ffffff;
+              color: #EF5651;
               width: 100px;
               height: 25px;
               line-height: 25px;
-              text-align: center;
+              text-align: left;
+              font-size: 15px;
             }
             .money {
               display: inline-block;
-              color: #EF5651;
+              color: #999999;
+              text-decoration: line-through;
               position: absolute;
               right: 3px;
               line-height: 25px;

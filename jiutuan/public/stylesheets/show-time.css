@@ -144,85 +144,85 @@ li {
   border: 0;
 }
 
-/* line 71, ../sass/common.scss */
+/* line 70, ../sass/common.scss */
 .nav-wrap {
   width: 100%;
   padding-top: 10px;
   color: #000;
   background-color: #F4F4F2;
 }
-/* line 76, ../sass/common.scss */
+/* line 75, ../sass/common.scss */
 .nav-wrap .nav-content {
   width: 90%;
   margin: 0 auto;
 }
-/* line 80, ../sass/common.scss */
+/* line 79, ../sass/common.scss */
 .nav-wrap a {
   color: #000;
 }
 
-/* line 85, ../sass/common.scss */
+/* line 84, ../sass/common.scss */
 .places span {
   padding-right: 10px;
 }
-/* line 88, ../sass/common.scss */
+/* line 87, ../sass/common.scss */
 .places span:nth-child(2) {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-/* line 94, ../sass/common.scss */
+/* line 93, ../sass/common.scss */
 .nav-list li {
   float: left;
   padding-left: 20px;
 }
 
-/* line 99, ../sass/common.scss */
+/* line 98, ../sass/common.scss */
 .mHeader {
   width: 80%;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/* line 104, ../sass/common.scss */
+/* line 103, ../sass/common.scss */
 .mHeader img {
   height: 40px;
 }
-/* line 107, ../sass/common.scss */
+/* line 106, ../sass/common.scss */
 .mHeader div {
   line-height: 20px;
   padding-top: 10px;
 }
-/* line 111, ../sass/common.scss */
+/* line 110, ../sass/common.scss */
 .mHeader .search-input {
   width: 240px;
   padding: 6px 20px;
   margin-right: -4px;
   border: 1px solid #ccc;
 }
-/* line 117, ../sass/common.scss */
+/* line 116, ../sass/common.scss */
 .mHeader .btn-default {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-/* line 120, ../sass/common.scss */
+/* line 119, ../sass/common.scss */
 .mHeader button {
   margin-bottom: 3px;
 }
 
-/* line 124, ../sass/common.scss */
+/* line 123, ../sass/common.scss */
 .navGroup {
   width: 85%;
   margin: 0 auto;
   text-align: center;
 }
-/* line 128, ../sass/common.scss */
+/* line 127, ../sass/common.scss */
 .navGroup a {
   color: #fff;
 }
 
-/* line 132, ../sass/common.scss */
+/* line 131, ../sass/common.scss */
 .allClassify1 {
   width: 20%;
   float: left;
@@ -231,7 +231,7 @@ li {
   background-color: #EF5651;
 }
 
-/* line 139, ../sass/common.scss */
+/* line 138, ../sass/common.scss */
 .slide-title {
   width: 80%;
   float: left;
@@ -239,7 +239,7 @@ li {
   margin-bottom: 0;
   background-color: #CBAA72;
 }
-/* line 145, ../sass/common.scss */
+/* line 144, ../sass/common.scss */
 .slide-title li {
   float: left;
   width: 16.67%;
@@ -248,7 +248,7 @@ li {
   text-align: center;
 }
 
-/* line 153, ../sass/common.scss */
+/* line 152, ../sass/common.scss */
 .flex {
   display: -moz-box;
   display: -webkit-box;

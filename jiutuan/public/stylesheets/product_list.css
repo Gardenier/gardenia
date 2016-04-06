@@ -144,85 +144,85 @@ li {
   border: 0;
 }
 
-/* line 71, ../sass/common.scss */
+/* line 70, ../sass/common.scss */
 .nav-wrap {
   width: 100%;
   padding-top: 10px;
   color: #000;
   background-color: #F4F4F2;
 }
-/* line 76, ../sass/common.scss */
+/* line 75, ../sass/common.scss */
 .nav-wrap .nav-content {
   width: 90%;
   margin: 0 auto;
 }
-/* line 80, ../sass/common.scss */
+/* line 79, ../sass/common.scss */
 .nav-wrap a {
   color: #000;
 }
 
-/* line 85, ../sass/common.scss */
+/* line 84, ../sass/common.scss */
 .places span {
   padding-right: 10px;
 }
-/* line 88, ../sass/common.scss */
+/* line 87, ../sass/common.scss */
 .places span:nth-child(2) {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-/* line 94, ../sass/common.scss */
+/* line 93, ../sass/common.scss */
 .nav-list li {
   float: left;
   padding-left: 20px;
 }
 
-/* line 99, ../sass/common.scss */
+/* line 98, ../sass/common.scss */
 .mHeader {
   width: 80%;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/* line 104, ../sass/common.scss */
+/* line 103, ../sass/common.scss */
 .mHeader img {
   height: 40px;
 }
-/* line 107, ../sass/common.scss */
+/* line 106, ../sass/common.scss */
 .mHeader div {
   line-height: 20px;
   padding-top: 10px;
 }
-/* line 111, ../sass/common.scss */
+/* line 110, ../sass/common.scss */
 .mHeader .search-input {
   width: 240px;
   padding: 6px 20px;
   margin-right: -4px;
   border: 1px solid #ccc;
 }
-/* line 117, ../sass/common.scss */
+/* line 116, ../sass/common.scss */
 .mHeader .btn-default {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-/* line 120, ../sass/common.scss */
+/* line 119, ../sass/common.scss */
 .mHeader button {
   margin-bottom: 3px;
 }
 
-/* line 124, ../sass/common.scss */
+/* line 123, ../sass/common.scss */
 .navGroup {
   width: 85%;
   margin: 0 auto;
   text-align: center;
 }
-/* line 128, ../sass/common.scss */
+/* line 127, ../sass/common.scss */
 .navGroup a {
   color: #fff;
 }
 
-/* line 132, ../sass/common.scss */
+/* line 131, ../sass/common.scss */
 .allClassify1 {
   width: 20%;
   float: left;
@@ -231,7 +231,7 @@ li {
   background-color: #EF5651;
 }
 
-/* line 139, ../sass/common.scss */
+/* line 138, ../sass/common.scss */
 .slide-title {
   width: 80%;
   float: left;
@@ -239,7 +239,7 @@ li {
   margin-bottom: 0;
   background-color: #CBAA72;
 }
-/* line 145, ../sass/common.scss */
+/* line 144, ../sass/common.scss */
 .slide-title li {
   float: left;
   width: 16.67%;
@@ -248,7 +248,7 @@ li {
   text-align: center;
 }
 
-/* line 153, ../sass/common.scss */
+/* line 152, ../sass/common.scss */
 .flex {
   display: -moz-box;
   display: -webkit-box;
@@ -378,14 +378,14 @@ li {
 .product-list .field .item {
   width: 80%;
   margin: 0 auto;
-  display: table;
-  table-layout: fixed;
+  /*display: table;
+  table-layout: fixed;*/
 }
 /* line 104, ../sass/product_list.scss */
 .product-list .field .item a {
-  display: table-cell;
+  display: inline-block;
   color: #333333;
-  /*width: 25%;*/
+  width: 24%;
 }
 /* line 108, ../sass/product_list.scss */
 .product-list .field .item a:hover {
@@ -396,65 +396,70 @@ li {
   width: 80%;
   margin: 0 auto 20px;
   padding: 5px;
+  border: 1px solid #eeeeee;
 }
-/* line 115, ../sass/product_list.scss */
+/* line 116, ../sass/product_list.scss */
 .product-list .field .item a .item-cell:hover {
   -moz-box-shadow: 0 0 5px 3px rgba(120, 120, 120, 0.1);
   -webkit-box-shadow: 0 0 5px 3px rgba(120, 120, 120, 0.1);
   box-shadow: 0 0 5px 3px rgba(120, 120, 120, 0.1);
 }
-/* line 118, ../sass/product_list.scss */
+/* line 119, ../sass/product_list.scss */
 .product-list .field .item a .item-cell img {
   display: block;
   width: 100%;
 }
-/* line 122, ../sass/product_list.scss */
+/* line 123, ../sass/product_list.scss */
 .product-list .field .item a .item-cell h3 {
   font-size: 20px;
   color: #666666;
+  height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-/* line 126, ../sass/product_list.scss */
+/* line 131, ../sass/product_list.scss */
 .product-list .field .item a .item-cell p {
   font-size: 16px;
+  height: 45px;
+  overflow: hidden;
 }
-/* line 129, ../sass/product_list.scss */
+/* line 136, ../sass/product_list.scss */
 .product-list .field .item a .item-cell .fee {
   font-size: 12px;
   position: relative;
   margin-bottom: 15px;
 }
-/* line 133, ../sass/product_list.scss */
+/* line 140, ../sass/product_list.scss */
 .product-list .field .item a .item-cell .fee .coupon-new {
   display: inline-block;
-  background-color: #EF5651;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: #ffffff;
+  color: #EF5651;
   width: 100px;
   height: 25px;
   line-height: 25px;
-  text-align: center;
+  text-align: left;
+  font-size: 15px;
 }
-/* line 143, ../sass/product_list.scss */
+/* line 149, ../sass/product_list.scss */
 .product-list .field .item a .item-cell .fee .money {
   display: inline-block;
-  color: #EF5651;
+  color: #999999;
+  text-decoration: line-through;
   position: absolute;
   right: 3px;
   line-height: 25px;
 }
-/* line 151, ../sass/product_list.scss */
+/* line 158, ../sass/product_list.scss */
 .product-list .field .item a .item-cell .other {
   font-size: 12px;
   position: relative;
 }
-/* line 154, ../sass/product_list.scss */
+/* line 161, ../sass/product_list.scss */
 .product-list .field .item a .item-cell .other span.grade {
   display: inline-block;
   color: #333333;
 }
-/* line 158, ../sass/product_list.scss */
+/* line 165, ../sass/product_list.scss */
 .product-list .field .item a .item-cell .other span.sale-num {
   display: inline-block;
   color: #999999;
@@ -462,7 +467,7 @@ li {
   right: 3px;
 }
 
-/* line 170, ../sass/product_list.scss */
+/* line 177, ../sass/product_list.scss */
 .comm-footer {
   width: 100%;
   min-width: 860px;
@@ -470,17 +475,17 @@ li {
   padding: 50px 0;
   box-sizing: border-box;
 }
-/* line 176, ../sass/product_list.scss */
+/* line 183, ../sass/product_list.scss */
 .comm-footer .others {
   width: 85%;
   margin: 0 auto;
 }
-/* line 179, ../sass/product_list.scss */
+/* line 186, ../sass/product_list.scss */
 .comm-footer .others ul {
   width: 100%;
   display: table;
 }
-/* line 182, ../sass/product_list.scss */
+/* line 189, ../sass/product_list.scss */
 .comm-footer .others ul li {
   box-sizing: border-box;
   display: table-cell;
@@ -488,24 +493,24 @@ li {
   text-align: center;
   vertical-align: top;
 }
-/* line 188, ../sass/product_list.scss */
+/* line 195, ../sass/product_list.scss */
 .comm-footer .others ul li:nth-child(5) {
   border-right: 2px solid #F2F2F2;
 }
-/* line 191, ../sass/product_list.scss */
+/* line 198, ../sass/product_list.scss */
 .comm-footer .others ul li h4 {
   font-size: 18px;
   color: #666666;
   margin-bottom: 10px;
 }
-/* line 196, ../sass/product_list.scss */
+/* line 203, ../sass/product_list.scss */
 .comm-footer .others ul li a {
   display: block;
   font-size: 12px;
   color: #333333;
   margin-bottom: 10px;
 }
-/* line 205, ../sass/product_list.scss */
+/* line 212, ../sass/product_list.scss */
 .comm-footer p {
   width: 85%;
   margin: 0 auto;
@@ -513,7 +518,7 @@ li {
   font-size: 14px;
   color: #333333;
 }
-/* line 211, ../sass/product_list.scss */
+/* line 218, ../sass/product_list.scss */
 .comm-footer p span {
   display: inline-block;
   margin: 10px;
