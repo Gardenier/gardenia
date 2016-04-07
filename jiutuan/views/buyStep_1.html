@@ -38,7 +38,7 @@
 	        		<tr>
 	            		<td class="package">
                 			<a href="product_detail?id=<%= data._id %>" target="_blank">
-                    			<span id="resName"><%= data.resName %></span>:<span id="resInfo"><%= data.info %></span>
+                    			<span id="resName"><%= data.resName %></span>:<span id="packageName"><%= data.packageName %></span>
                	 			</a>
             			</td>
 			            <td class="price">
@@ -66,93 +66,46 @@
                         ¥<strong class="sum_n">3.90</strong>
                     </span>
     			</div>
-				<a href="#" class="btn btn-default buy-btn btn_order"
+				<a href="buyStep_2?id=<%= data._id %>" class="btn btn-default buy-btn btn_order"
 				 id="subOrder">提交订单</a>
+				 <!-- <div style="display: none;" id="_id"><%= data._id %></div> -->
 			</div>
 		</div>
 		<% }) %>
-
-		<!--after submit order-->
-		<!-- <div class="controls" style="display: none;">
-			<strong style="font-size: 20px;">支付方式</strong>
-            <div>
-            	<label class="radio-inline">
-	            	<input type="radio" value="CMB" name="bank" checked="checked"> 
-	            	<img src="/images/bank/zhaoshangyinhang.gif" style="display: inline;">
-	           	</label>
-	            <label class="radio-inline">
-	            	<input type="radio" value="ICBCB2C" name="bank"> 
-	            	<img src="/images/bank/zhongguogongshang.gif" style="display: inline;">
-	            </label>
-	            <label class="radio-inline">
-	            	<input type="radio" value="CCB" name="bank"> 
-	            	<img src="/images/bank/zhongguojianshe.gif" style="display: inline;">
-	            </label>
-	            <label class="radio-inline">
-	            	<input type="radio" value="SPDB" name="bank"> 
-	            	<img src="/images/bank/pufa.gif" style="display: inline;">
-	            </label>
-            </div>
-            <div>
-            	<label class="radio-inline">
-	            	<input type="radio" value="ABC" name="bank"> 
-	            	<img src="http://res.musikid.com/images/bank/zhongguononye.gif" style="display: inline;">
-	            </label>
-	            <label class="radio-inline">
-	            	<input type="radio" value="CMBC" name="bank"> 
-	            	<img src="/images/bank/zhongguominsheng.gif" style="display: inline;">
-	            </label>
-	            <label class="radio-inline">
-	            	<input type="radio" value="COMM" name="bank"> 
-	            	<img src="/images/bank/jiaotongyinhang.gif" style="display: inline;">
-	            </label>
-	            <label class="radio-inline">
-	            	<input type="radio" value="BOCB2C" name="bank"> 
-	            	<img src="/images/bank/zhongguoyinhang.gif" style="display: inline;">
-	            </label>
-            </div>
-            <div>
-            	<label class="radio-inline">
-					<input type="radio" value="alipay" name="bank"> 
-					<img title="使用支付宝支付" src="/images/bank/zhifubao.gif" style="display: inline;">
-				</label>
-				<label class="radio-inline">
-					<input type="radio" value="weixin" name="bank"> 
-					<img title="使用微信支付" src="/images/bank/weixin.gif" style="display: inline;">
-				</label>
-            </div>
-            <div class="buy-btn-wrap clearfix">
-				<a href="userCenter" class="btn btn-default buy-btn btn_order" id="paySure">确认付款</a>
-			</div>
-        </div> -->
 	</div>
 	<script>
 	$(function(){
 		//cookie 传值
+		//alert($.cookie('pNumber'));
 		$("#pNumber").val($.cookie('pNumber'));
+		
 		//添加 减少 数量 总价相应改变
-		var p = parseFloat($('#price').html());
+		var p = parseFloat($('#price').html()).toFixed(1);
 		var n = parseInt($("#pNumber").val());
+		var sum = (p*n).toFixed(1);
 		$("#pNumber").val(n);
-		$(".total").html(n*p);
-		$(".sum_n").html(n*p);
+		$(".total").html(sum);
+		$(".sum_n").html(sum);
 
 		$("#add").click(function(){
-			var p = parseFloat($('#price').html());
+			var p = parseFloat($('#price').html()).toFixed(1);;
 			var n = parseInt($("#pNumber").val());
 			n +=1;
+			var sum = (p*n).toFixed(1);
 			$("#pNumber").val(n);
-			$(".total").html(n*p);
-			$(".sum_n").html(n*p);
+			$(".total").html(sum);
+			$(".sum_n").html(sum);
 		});
 		$("#cut").click(function(){
-			var p = parseFloat($('#price').html());
+			var p = parseFloat($('#price').html()).toFixed(1);;
 			var n =parseInt($("#pNumber").val());
+			var sum;
 			if(n > 1) {
 				n -=1;
+				sum = (p*n).toFixed(1);
 				$("#pNumber").val(n);
-				$(".total").html(n*p);
-				$(".sum_n").html(n*p);
+				$(".total").html(sum);
+				$(".sum_n").html(sum);
 			}
 			
 		});
@@ -165,33 +118,62 @@
 
 		//数据交互
 		$('#subOrder').click(function(){
+			//更新 订单数量
+			var pn = $('#pNumber').val();       
+        	var resName = $('#resName').html();
+			var pd = $('#packageName').html();
+
+			$.cookie('pNumber', pn, {path: '/'});  //存储cookie数据
+			$.cookie('pName', pd, {path: '/'});  //存储cookie数据
+			$.cookie('rName', resName, {path: '/'});  //存储cookie数据
+
 			//alert('支付成功！');
-			//var pNumber = 1;
+			//var pNumber = $('#pNumber').val();
+			//var str = window.location.search;
+			//var id = str.substring((str).indexOf('=')+1);
+			//var id = $('#_id').html();
+			var date  = new Date();
+			var id = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+
+					date.getDate()+'-'+date.getHours()+':'+date.getMinutes()+
+					':'+date.getSeconds()+':'+date.getMilliseconds();
+
+			//$.cookie('id', id, {path: '/'});  //存储cookie数据
+
 			var name = $('#userName').html();
-			var resName = $('#resName').html();
-			var pd = $('#resInfo').html();
+			//var resName = $('#resName').html();
+			//var pd = $('#packageName').html();
 			var price = parseFloat($('#price').html());
-			//var status = 0;
-			// feedBack: {
-			// 	star: Number,//分数
-			// 	text: String,//评价内容
-			// 	status: Number//状态
-			// }
-			var data = {'userName': name,'resName': resName,'projectDetail': pd,'price': price,'status': 0};
-			console.log(data);
+			//
+			var data = {'id': id,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': pn,'status': 0};
+			//alert(data.id);
+			$(this).attr('href','buyStep_2?id='+id);
 			$.ajax({ 
 				url:'/buyStep_1',
 				type:'post',
 				data: data,
 				success: function(data,status){ 
 					if(status == 'success'){ 
-						location.href = 'buyStep_2';
+						//location.href = 'buyStep_2';
 					}
 				},
 				error: function(err,status){ 
 					alert(status);
 				}
 			});
+
+			// $.ajax({ 
+			// 	url:'/buyStep_2',
+			// 	type:'post',
+			// 	data: {'id': id},
+			// 	success: function(data,status){ 
+			// 		if(status == 'success'){ 
+			// 			//location.href = 'buyStep_2';
+			// 		}
+			// 	},
+			// 	error: function(err,status){ 
+			// 		alert(status);
+			// 	}
+			// });
 		});
 
 	});

@@ -27,6 +27,7 @@
 		<!--公共头部end-->
 
 		<!--after submit order-->
+		<% objList.forEach(function(data, index){ %>
 		<div class="controls">
 			<strong style="font-size: 20px;">支付方式</strong>
             <div>
@@ -75,80 +76,61 @@
 					<img title="使用微信支付" src="/images/bank/weixin.gif" style="display: inline;">
 				</label>
             </div>
-            <div class="buy-btn-wrap clearfix">
-				<a href="userCenter" class="btn btn-default buy-btn btn_order" id="paySure">确认付款</a>
+            <div class="buy-btn-wrap pull-right">
+				<a href="javascript:;" id="noPay" class="btn btn-default buy-btn btn_order" style="background-color: #fff;color: #333;">暂不付款</a>
+			</div> 
+            <div class="buy-btn-wrap pull-right">
+				<a href="userCenter?name=<%= data.userName %>" class="btn btn-default buy-btn btn_order" id="paySure">确认付款</a>
 			</div>
         </div>
+        <% }) %>
 	</div>
 	<script>
 	$(function(){
 		//进度条
 		$('.progress-bar').css('width','66.66%');
-		//cookie 传值
-		$("#pNumber").val($.cookie('pNumber'));
-		//添加 减少 数量 总价相应改变
-		var p = parseFloat($('#price').html());
-		var n = parseInt($("#pNumber").val());
-		$("#pNumber").val(n);
-		$(".total").html(n*p);
-		$(".sum_n").html(n*p);
-
-		$("#add").click(function(){
-			var p = parseFloat($('#price').html());
-			var n = parseInt($("#pNumber").val());
-			n +=1;
-			$("#pNumber").val(n);
-			$(".total").html(n*p);
-			$(".sum_n").html(n*p);
-		});
-		$("#cut").click(function(){
-			var p = parseFloat($('#price').html());
-			var n =parseInt($("#pNumber").val());
-			if(n > 1) {
-				n -=1;
-				$("#pNumber").val(n);
-				$(".total").html(n*p);
-				$(".sum_n").html(n*p);
-			}
-			
-		});
-		//确认订单 隐藏当前块 显示确认支付
-		$('#subOrder').click(function(){
-			$('.table-section').hide();
-			$('.controls').show();
-			$('.progress-bar').css('width','66.66%');
-		});
 
 		//数据交互
 		$('#paySure').click(function(){
-			alert('支付成功！');
-			var pNumber = 1;
-			// $.ajax({ 
-			// 	url:'/login',
-			// 	type:'post',
-			// 	data: data,
-			// 	success: function(data,status){ 
-			// 		if(status == 'success'){ 
-			// 			location.href = 'home';
-			// 		}
-			// 	},
-			// 	error: function(data,status){ 
-			// 		if(status == '401'){ 
-			// 			//alert('用户名不存在');
-			// 			location.href = 'login';
-			// 		}
-			// 		if(status == '404'){ 
-			// 			//alert('密码错误');
-			// 			location.href = 'login';
-			// 		}else{
-			// 			//alert('unknown error');
-			// 			location.href = 'login';
-			// 		}
-			// 	}
-			// });
+			postData(true);
+		});
+		$('#noPay').click(function(){
+			postData(false);
 		});
 
 	});
+	function postData(type){
+		$('.progress-bar').css('width','100%');
+		var pn = $.cookie('pNumber');
+		var pna = $.cookie('pName');  //存储cookie数据
+		var rn = $.cookie('rName');  //存储cookie数据
+		//alert(pn+'\n'+pna+'\n'+rn+'\n');
+		var str = window.location.search;
+		var id = str.substring(str.indexOf('=')+1);
+		//alert(id);
+		var data = {
+			pay: type,
+			id: id,
+			pn: pn,
+			pna: pna,
+			rn: rn
+		}
+		//alert(id);
+		$.ajax({ 
+			url:'/buyStep_2',
+			type:'post',
+			data: data,
+			success: function(data,status){ 
+				if(status == 'success'){ 
+					//location.href = 'home';
+					alert('支付成功！');
+				}
+			},
+			error: function(err){ 
+				alert(err);
+			}
+		});
+	}
 	</script>
 </body>
 </html>

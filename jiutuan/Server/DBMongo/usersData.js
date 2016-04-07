@@ -27,7 +27,7 @@ exports.equalUser = function(condition,dbHelper,callback) {
  * @param callback
  */
 exports.updateUser = function(condition,update,dbHelper,callback) {
-    var userModel =user.getModel();
+    var userModel = user.getModel();
     dbHelper.updateData(userModel,condition,update,callback);
 }
 /**
@@ -38,7 +38,7 @@ exports.updateUser = function(condition,update,dbHelper,callback) {
  */
 exports.findUser = function(conditions,dbHelper,callback) {
 
-    var userModel =user.getModel();
+    var userModel = user.getModel();
     dbHelper.findData(userModel,conditions,callback);
 
 }

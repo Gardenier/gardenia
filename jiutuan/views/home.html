@@ -22,15 +22,17 @@
 				<li><a href="javascript:;">注册</a></li> -->
 				<li><%- user.name %></li>
 				<li><a href="/logout">退出</a></li>
-				<li><a href="javascript:;">用户中心</a></li>
+				<li><a href="userCenter?name=<%- user.name %>">用户中心</a></li>
 				<li><a href="javascript:;">收藏</a></li>
 				<li><a href="javascript:;">帮助</a></li>
-				<li><a href="javascript:;">我的订单</a></li>
+				<li><a href="userCenter?name=<%- user.name %>&status=1">我的订单</a></li>
 				<li><a href="javascript:;">我的购物车()</a></li>
 			</ul>
 		</div>
 		<div class="mHeader clearfix">
-				<img class="pull-left" src="images/jiutuan.png" alt="logo">
+				<a href="#">
+					<img class="pull-left" src="images/jiutuan.png" alt="logo">
+				</a>
 				<div class="pull-right">
 					<input type="text" placeholder="搜索商家">
 					<button>搜索</button>

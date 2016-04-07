@@ -416,36 +416,41 @@ router.route("/product_detail/:type").get(function(req,res){
 
 //购买页面1 提交订单
 router.route("/buyStep_1").get(function(req,res){    
+	//console.log('req.query.id'+req.query.id+'\n');
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
 		res.render("buyStep_1",{title:'Home',objList:doc});
 	});
 }).post(function(req,res){
+	var id = req.body.id;
 	var name = req.body.userName;
 	var rname = req.body.resName; 
 	var pd = req.body.projectDetail;
+	var pn = req.body.pn;
 	var price = req.body.price;
 	var status = req.body.status;
 	var feed = {
 		star: 0,//分数
-		text: 'dd',//评价内容
+		text: '',//评价内容
 		status: 0//状态
 	};
 	var data = {
+		id: id,
 		userName: name,
 		resName: rname,
 		projectDetail: pd,
+		pNumber: pn,
 		price: price,
 		status: status,
 		feedBack: feed
 	};
-	console.log(data.userName+'\n'+
-		data.resName+'\n'+
-		data.projectDetail+'\n'+
-		data.price+'\n'+
-		data.status+'\n'+
-		data.feedBack.star+'\n'+
-		data.feedBack.text+'\n'+
-		data.feedBack.status+'\n');
+	// console.log(data.userName+'\n'+
+	// 	data.resName+'\n'+
+	// 	data.projectDetail+'\n'+
+	// 	data.price+'\n'+
+	// 	data.status+'\n'+
+	// 	data.feedBack.star+'\n'+
+	// 	data.feedBack.text+'\n'+
+	// 	data.feedBack.status+'\n');
 	global.orderControl.orderAddAction(data,function(err,doc){
 		if (err) {
             res.send(500);
@@ -458,9 +463,57 @@ router.route("/buyStep_1").get(function(req,res){
 	});
 });
 
-//购买页面1 支付
-router.route("/buyStep_2").get(function(req,res){    
-	res.render("buyStep_2",{title:'Home'});
+//购买页面 支付
+router.route("/buyStep_2").get(function(req,res){ 
+	//var uname = req.body.userName;  
+	//console.log('uname'+uname); 
+	//var id =(req.query.id).toString();
+	//console.log('zz id:'+req.query.id+'\n'); 
+	global.orderControl.orderFindAction({id: req.query.id},function(err,doc){
+		//console.log('kkkkkkkkk:'+doc+'\n');
+		res.render("buyStep_2",{title:'Home',objList:doc});
+	});
+	//res.render("buyStep_2",{title:'Home'});
+}).post(function(req,res){
+	var pay = req.body.pay;
+	var id = req.body.id;
+	var sn =  parseInt(req.body.pn);
+	var pna = req.body.pna;
+	var rn = req.body.rn;
+	var u_condition = {
+		resName: rn,
+		packageName: pna
+	};
+	console.log("支付："+pay+'\n');
+	global.orderControl.orderUpdateAction({id: id},{status: 1},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            console.log('订单已支付');
+            //res.send(200);
+        }
+	});
+	if(pay == true) {
+		global.sellConControl.sellContentEqualAction(u_condition,function(err,doc){
+			if(err) {
+				res.send(500);
+			}else {
+				//console.log(doc+'\n');
+				sn += parseInt(doc.soldNumber);
+				//console.log('sn:'+sn+'\n');
+				global.sellConControl.sellConUpdateAction(u_condition,{soldNumber: sn},function(err,doc){
+					if (err) {
+			            res.send(500);
+			            console.log(err);
+			        } else {
+			            console.log('已售数量被更新');
+			            res.send(200);
+			        }
+				});
+			}
+		});
+	}
 });
 //加入购物车 跳转页面
 router.route("/shopCar").get(function(req,res){    
@@ -469,11 +522,57 @@ router.route("/shopCar").get(function(req,res){
 	});
 });
 //个人中心
-router.route("/userCenter").get(function(req,res){
-	//global.orderControl.dataFindAction({},function(err,doc){,objList: doc
-		res.render("userCenter",{title:"个人中心"});
-	//});
-	//res.render("userCenter",{title:""});
+router.route("/userCenter").get(function(req,res){ 
+	
+	if(req.query.status){
+		console.log('req.query.name'+req.query.name+'\n');
+		var status = req.query.status;
+		if(status == 0){
+			global.orderControl.orderFindAction({userName:req.query.name,status: 0},function(err,doc){//,objList: doc
+				res.render("userCenter",{title:"个人中心",objList: doc});
+				
+			});
+		}
+		if(status == 1){
+			global.orderControl.orderFindAction({userName:req.query.name,status: 1},function(err,doc){//,objList: doc
+				res.render("userCenter",{title:"个人中心",objList: doc});
+			});
+		}
+		if(status == 10){
+			var conditions = {
+				userName:req.query.name,
+				feedBack:{
+					star: 0,
+					text: '',
+					status: 0
+				}
+			};
+			global.orderControl.orderFindAction(conditions,function(err,doc){//,objList: doc
+				//console.log("status=10"+'\n'+doc+'\n');
+				res.render("userCenter",{title:"个人中心",objList: doc});
+			});
+		}
+		if(status == 11){
+			var conditions = {
+				userName:req.query.name,
+				feedBack:{
+					star: 0,
+					text: '',
+					status: 1
+				}
+			};
+			global.orderControl.orderFindAction(conditions,function(err,doc){//,objList: doc
+				//console.log("status=11"+'\n'+doc+'\n');
+				res.render("userCenter",{title:"个人中心",objList: doc});
+			});
+		}
+	}else {
+		console.log('cqw'+'\n');
+		global.orderControl.orderFindAction({userName:req.query.name},function(err,doc){//,objList: doc
+			res.render("userCenter",{title:"个人中心",objList: doc});
+		});
+	}
+	//res.render("userCenter",{title:"玖团"});
 });
 
 module.exports = router;

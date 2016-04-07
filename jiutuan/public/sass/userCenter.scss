@@ -1,0 +1,98 @@
+@import 'compass/css3';
+
+.userCenter {
+	width: 85%;
+	margin: 50px auto;
+}
+.tab-list{
+	//position: relative;
+    float: left;
+    width: 20%;
+    //min-height: 700px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    strong {
+    	line-height: 40px;
+    	cursor: pointer;
+    	width: 100%;
+    	display: inline-block;
+    	a {
+    		display: block;
+    		color: #333;
+    	}
+    }
+    ul {
+    	padding-left: 0;
+    }
+    li {
+    	line-height: 35px;
+    	cursor: pointer;
+    	a {
+    		display: block;
+    		color: #333;
+    		&:hover {
+	    		color: #EF5651;
+	    	}
+    	}
+    }
+    .bc {
+    	background-color: #EF5651;
+    	color: #fff;
+    	&:hover {
+    		color: #fff;
+    	}
+    }
+}
+.list-content {
+	width: 70%;
+	float: left;
+	margin-left: 10%;
+	padding: 50px 20px;
+	border-top: 3px solid #EF5651;
+	//border: 1px solid #ccc;
+    //background: #f9f9f9;
+}
+.userMes {
+	div {
+		line-height: 40px;
+		border-bottom: 1px dotted #ccc;
+		span {
+			@include inline-block;
+			width: 200px;
+		}
+	}
+	.mesCell {
+		width: 100px;
+	}
+	.upMes {
+		padding-left: 50px; 
+	}
+}
+.buy-table {
+	width: 100%;
+	tr {
+		line-height: 30px;
+	}
+	th {
+	    padding: 6px 12px;
+	    font-size: 14px;
+	    font-weight: 700;
+	    text-align: center;
+	    background: #F7F7F7;
+	}
+	td {
+		text-align: center;
+	}
+	.package {
+		width: 40%;
+		text-align: left;
+	}
+	.price,.amount,.total,.a-btn {
+		width: 15%;
+	}
+}
+

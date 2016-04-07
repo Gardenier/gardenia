@@ -1,0 +1,118 @@
+/* line 3, ../sass/userCenter.scss */
+.userCenter {
+  width: 85%;
+  margin: 50px auto;
+}
+
+/* line 7, ../sass/userCenter.scss */
+.tab-list {
+  float: left;
+  width: 20%;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+/* line 18, ../sass/userCenter.scss */
+.tab-list strong {
+  line-height: 40px;
+  cursor: pointer;
+  width: 100%;
+  display: inline-block;
+}
+/* line 23, ../sass/userCenter.scss */
+.tab-list strong a {
+  display: block;
+  color: #333;
+}
+/* line 28, ../sass/userCenter.scss */
+.tab-list ul {
+  padding-left: 0;
+}
+/* line 31, ../sass/userCenter.scss */
+.tab-list li {
+  line-height: 35px;
+  cursor: pointer;
+}
+/* line 34, ../sass/userCenter.scss */
+.tab-list li a {
+  display: block;
+  color: #333;
+}
+/* line 37, ../sass/userCenter.scss */
+.tab-list li a:hover {
+  color: #EF5651;
+}
+/* line 42, ../sass/userCenter.scss */
+.tab-list .bc {
+  background-color: #EF5651;
+  color: #fff;
+}
+/* line 45, ../sass/userCenter.scss */
+.tab-list .bc:hover {
+  color: #fff;
+}
+
+/* line 50, ../sass/userCenter.scss */
+.list-content {
+  width: 70%;
+  float: left;
+  margin-left: 10%;
+  padding: 50px 20px;
+  border-top: 3px solid #EF5651;
+}
+
+/* line 60, ../sass/userCenter.scss */
+.userMes div {
+  line-height: 40px;
+  border-bottom: 1px dotted #ccc;
+}
+/* line 63, ../sass/userCenter.scss */
+.userMes div span {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  width: 200px;
+}
+/* line 68, ../sass/userCenter.scss */
+.userMes .mesCell {
+  width: 100px;
+}
+/* line 71, ../sass/userCenter.scss */
+.userMes .upMes {
+  padding-left: 50px;
+}
+
+/* line 75, ../sass/userCenter.scss */
+.buy-table {
+  width: 100%;
+}
+/* line 77, ../sass/userCenter.scss */
+.buy-table tr {
+  line-height: 30px;
+}
+/* line 80, ../sass/userCenter.scss */
+.buy-table th {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  background: #F7F7F7;
+}
+/* line 87, ../sass/userCenter.scss */
+.buy-table td {
+  text-align: center;
+}
+/* line 90, ../sass/userCenter.scss */
+.buy-table .package {
+  width: 40%;
+  text-align: left;
+}
+/* line 94, ../sass/userCenter.scss */
+.buy-table .price, .buy-table .amount, .buy-table .total, .buy-table .a-btn {
+  width: 15%;
+}

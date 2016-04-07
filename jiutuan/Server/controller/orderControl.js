@@ -18,9 +18,11 @@ exports.orderAddAction = function(data,callback) {
 //     userDao.equalUser(condition,dbHelper,callback);
 // }
 
-// exports.userUpdateAction = function(condition,update,callback) {
-//     userDao.updateUser(condition, update,dbHelper,callback);
-// }
+//更新 status 已经付款
+exports.orderUpdateAction = function(condition,update,callback) {
+    orderDao.updateOrder(condition,update,dbHelper,callback);
+}
+
 // exports.userAddDocumentAction = function(data,callback){
 //     userDao.addDocument(data,dbHelper,callback);
 // }
@@ -28,9 +30,9 @@ exports.orderAddAction = function(data,callback) {
  * get User List
  * @returns {Function}
  */
-// exports.userFindAction = function(condition,callback) {
-//     userDao.findUser(conditions,dbHelper,callback);
-// }
+exports.orderFindAction = function(conditions,callback) {
+    orderDao.findOrder(conditions,dbHelper,callback);
+}
 
 // exports.userRemoveAction = function() {
 //     return function(req, res) {

@@ -13,7 +13,7 @@ exports.addSellContent = function(data,dbHelper,callback) {
 /**
 
  */
-exports.equalPackageName = function(condition,dbHelper,callback) {
+exports.equalSellContent = function(condition,dbHelper,callback) {
 
     var sellContentModel = sell.getModel();
     dbHelper.equalData(sellContentModel,condition,callback);
@@ -29,7 +29,18 @@ exports.findData = function(conditions,dbHelper,callback) {
     var sellContentModel = sell.getModel();
     dbHelper.findData(sellContentModel,conditions,callback);
 
-}
+};
+exports.findSoldNumber = function(conditions){
+    var sellContentModel = sell.getModel();
+    sellContentModel.findOne(conditions,function(error,result){
+        if (error) {
+            console.log('kkk'+error);
+        } else{
+            return result.soldNumber;
+        }
+        
+    });
+};
 
 /**
  * 调用公共remove方法并且传入操作数据库的模型user
@@ -54,11 +65,9 @@ exports.removeUser = function(conditions,dbHelper,callback) {
  * @param dbHelper
  * @param callback
  */
-exports.updateUser = function(conditions,update,options,dbHelper,callback) {
+exports.updateSellCon= function(conditions,update,dbHelper,callback) {
 
 
-    var userModel = sell.getModel();
-    dbHelper.updateData(userModel,conditions,update,options,function(result){
-        callback(result);
-    });
+    var sellContentModel = sell.getModel();
+    dbHelper.updateData(sellContentModel,conditions,update,callback);
 }

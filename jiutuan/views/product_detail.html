@@ -291,7 +291,8 @@
 		//立即购买
 		$("#toPay").click(function(){
 			var pn = $('#pNumber').val();       
-        	$.cookie('pNumber', pn);  //存储cookie数据
+        	$.cookie('pNumber', pn, {path: '/'});  //存储cookie数据
+        	//alert($.cookie('pNumber'));
 		});
 
 		//加入购物车

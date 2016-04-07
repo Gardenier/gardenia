@@ -50,6 +50,11 @@ exports.findData =function(model,condition,callback) {
 
     model.find(condition, callback);
 }
+
+// exports.findData =function(model,condition,callback) {
+
+//     model.find(condition, callback);
+// }
 /**
  * 公共remove方法
  * @param model
