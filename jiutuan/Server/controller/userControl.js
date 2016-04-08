@@ -28,7 +28,7 @@ exports.userUpdateAction = function(condition,update,callback) {
  * get User List
  * @returns {Function}
  */
-exports.userFindAction = function(condition,callback) {
+exports.userFindAction = function(conditions,callback) {
     userDao.findUser(conditions,dbHelper,callback);
 }
 

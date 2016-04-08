@@ -4,7 +4,7 @@
 	<% include header.html %>
 	<title>玖团-详情页</title>
 	<link rel="stylesheet" href="/stylesheets/product_detail.css">
-	<link rel="stylesheet" href="/stylesheets/buyStep.css">
+	<link rel="stylesheet" href="/stylesheets/userCenter.css">
 	<script src="javascripts/jquery-2.0.3.min.js"></script>
 	<script src="javascripts/jquery.cookie.js"></script>
 </head>
@@ -12,123 +12,166 @@
 	<!--公共头部start-->
 	<% include commonHeader.html %>
 	<!--公共头部end-->
-	<div class="product_detail buyStep">
-		<% objList.forEach(function(data, index){ %>
-		<div class="table-section">
-    		<table class="buy-table">
+	<div class="userCenter clearfix">
+		<div class="tab-list">
+			<div class="tab-t">
+				<strong id="myMes">
+					<a href="userCenter?name=<%= username %>">我的账户</a>
+				</strong>
+			</div>
+			<div class="tab-t">
+				<strong id="myOrder">我的订单</strong>
+				<ul>
+					<li id="succ"><a href="userCenter?name=<%= username %>&status=1">已完成</a></li>
+					<li id="usucc"><a href="userCenter?name=<%= username %>&status=0">未完成</a></li>
+				</ul>
+			</div>
+			<div class="tab-t">
+				<strong id="myAcc">我的评价</strong>
+				<ul>
+					<li id="acc"><a href="userCenter?name=<%= username %>&status=11">已评价</a></li>
+					<li id="uacc"><a href="userCenter?name=<%= username %>&status=10">未评价</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="list-content">
+			<div class="userMes">
+				<div>
+					<span class="mesCell">用户名：</span>
+					<span id="userName_copy"></span>
+					<a href="#" class="upMes">修改</a>
+				</div>
+				<div>
+					<button type="button" class="btn btn-primary">修改密码</button>
+				</div>
+			</div>
+			<% if( objList == ''){ %>
+				<div>
+					<img src="/images/noOrder.png" alt="">亲，您没有此类订单，请移步到<a href="home" style="color: #EF5651;">玖团首页</a>下单吧!<a href="home" style="color: #EF5651;"> 出发！</a>
+				</div>
+			<% }%>
+			<%  if(objList.length) { %>
+			<table class="buy-table">
         		<tbody>
         			<tr class="order-table-head-row">
 			            <th class="package">项目</th>
 			            <th class="price">单价</th>
 			            <th class="amount">数量</th>
-			            <th class="total_t">总价</th>
+			            <th class="total">总价</th>
+			            <th class="a-btn">操作</th>
 			        </tr>
+			        <% objList.forEach(function(data, index){ %>
 	        		<tr>
 	            		<td class="package">
                 			<a href="product_detail?id=<%= data._id %>" target="_blank">
-                    			<%= data.resName %>:<%= data.info %>
+                    			<span id="resName"><%= data.resName %></span>:<span id="packageName"><%= data.projectDetail %></span>
                	 			</a>
             			</td>
 			            <td class="price">
-			                ¥<span id="price"><%= data.newPrice %></span>
+			                ¥<span id="price"><%= data.price %></span>
 			            </td>
             			<td class="amount">	
-		                	<div class="add-btn-wrap">
-								<div class="add-btn">
-									<button id="cut">-</button>
-									<input type="text" value="1" id="pNumber">
-									<button id="add">+</button>
-								</div>
-							</div>
+		                	<%= data.pNumber %>
             			</td>
 			            <td class="total-wrap">
 			                ¥<span class="total">3.90</span>
 			            </td>
+			            <% if(data.status == 0){ %>
+			            <td class="a-btn">
+			            	<button>前去支付</button>
+			 				<button>删除</button>
+			            </td>
+			            <% } %>
+			            <% if(data.status == 1){ %>
+			            <td class="a-btn">
+			 				<button>删除</button>
+			            </td>
+			            <% } %>
+			            <% if(data.feedBack.status == 0){ %>
+			            <td class="a-btn">
+			            	<button>前去评论</button>
+			 				<button>删除</button>
+			            </td>
+			            <% } %>
+			            <% if(data.feedBack.status == 1){ %>
+			            <td class="a-btn">
+			 				<button class="s">删除</button>
+			            </td>
+			            <% } %>
         			</tr>
+        			<% }) %>
     			</tbody>
     		</table>
-    		<div class="buy-btn-wrap clearfix">
-    			<div class="sum">
-    				<strong>应付金额</strong>：
-                    <span class="money">
-                        ¥<strong class="sum_n">3.90</strong>
-                    </span>
-    			</div>
-				<a href="buyStep_1?id=<%= data._id %>" class="btn btn-default buy-btn btn_order"
-				 id="subOrder">立即支付</a>
-			</div>
+    		<% } %>
 		</div>
-		<% }) %>
 	</div>
 	<script>
 	$(function(){
-		//cookie 传值
-		$("#pNumber").val($.cookie('pNumber'));
-		//添加 减少 数量 总价相应改变
-		var p = parseFloat($('#price').html());
-		var n = parseInt($("#pNumber").val());
-		$("#pNumber").val(n);
-		$(".total").html(n*p);
-		$(".sum_n").html(n*p);
+		$('.tab-t li').click(function(){
+			$('.tab-t li').removeClass('bc');
+			$(this).addClass('bc');
+		});
+		$('#userName_copy').html($('#userName').html());
 
-		$("#add").click(function(){
-			var p = parseFloat($('#price').html());
-			var n = parseInt($("#pNumber").val());
-			n +=1;
-			$("#pNumber").val(n);
-			$(".total").html(n*p);
-			$(".sum_n").html(n*p);
-		});
-		$("#cut").click(function(){
-			var p = parseFloat($('#price').html());
-			var n =parseInt($("#pNumber").val());
-			if(n > 1) {
-				n -=1;
-				$("#pNumber").val(n);
-				$(".total").html(n*p);
-				$(".sum_n").html(n*p);
-			}
-			
-		});
-		//确认订单 隐藏当前块 显示确认支付
-		$('#subOrder').click(function(){
-			$('.table-section').hide();
-			$('.controls').show();
-			$('.progress-bar').css('width','66.66%');
-		});
+		//左侧高亮
+		lightTab();
 
 		//数据交互
-		$('#paySure').click(function(){
-			alert('支付成功！');
-			var name = $('#userName').html();
-			
-			var pNumber = 1;
-			// $.ajax({ 
-			// 	url:'/login',
-			// 	type:'post',
-			// 	data: data,
-			// 	success: function(data,status){ 
-			// 		if(status == 'success'){ 
-			// 			location.href = 'home';
-			// 		}
-			// 	},
-			// 	error: function(data,status){ 
-			// 		if(status == '401'){ 
-			// 			//alert('用户名不存在');
-			// 			location.href = 'login';
-			// 		}
-			// 		if(status == '404'){ 
-			// 			//alert('密码错误');
-			// 			location.href = 'login';
-			// 		}else{
-			// 			//alert('unknown error');
-			// 			location.href = 'login';
-			// 		}
-			// 	}
-			// });
-		});
 
 	});
+	function lightTab(){
+		//左侧高亮
+		var str = window.location.search;
+		var n = str.indexOf('&');
+		var search = str.substring(n+1);
+		//alert(search);
+		
+		if(n < 0 ){
+			$('#myMes a').addClass('bc');
+			$('.buy-table').hide();
+		}else {
+			$('.userMes').hide();
+			$('.buy-table').show();
+			if(search == 'status=1'){
+				$('#succ a').addClass('bc');
+			}
+			if(search == 'status=0'){
+				//$('#myMes').removeClass('bc');
+				$('#usucc a').addClass('bc');
+			}
+			if(search == 'status=11'){
+				//$('#myMes').removeClass('bc');
+				$('#acc a').addClass('bc');
+			}
+			if(search == 'status=10'){
+				//$('#myMes').removeClass('bc');
+				$('#uacc a').addClass('bc');
+			}
+		}
+	}
+	// function order_ed(){ 
+	// 	postDate();
+	// }
+	// function order_ing(){
+	// 	postDate();
+	// }
+	// function postDate(){ 
+	// 	var uname = $('#userName').html();
+	// 	var data = {uname: uname};
+	// 	$.ajax({ 
+	// 		url:'/userCenter',
+	// 		type:'post',
+	// 		data: data,
+	// 		success: function(data,status){ 
+	// 			if(status == 'success'){ 
+	// 				//location.href = 'home';
+	// 			}
+	// 		},
+	// 		error: function(err,status){ 
+	// 			alert(err);
+	// 		}
+	// 	});
+	// }
 	</script>
 </body>
 </html>

@@ -11,13 +11,15 @@
 			<li><a href="javascript:;">用户中心</a></li>
 			<li><a href="javascript:;">收藏</a></li>
 			<li><a href="javascript:;">帮助</a></li>
-			<li><a href="javascript:;">我的订单</a></li>
+			<li><a href="userCenter?name=<%= username %>&status=1">我的订单</a></li>
 			<li><a href="javascript:;">我的购物车()</a></li>
 		</ul>
 	</div>
 </div>
 <div class="mHeader clearfix">
-	<img class="pull-left" src="/images/jiutuan.png" alt="logo">
+	<a href="home">
+		<img class="pull-left" src="/images/jiutuan.png" alt="logo">
+	</a>
 	<div class="pull-right">
 		<form action="/search">
 			<input type="text" placeholder="搜索商家" class="search-input" name="text">
