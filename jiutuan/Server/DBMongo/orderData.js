@@ -40,7 +40,6 @@ exports.findOrder = function(conditions,dbHelper,callback) {
 
     var orderModel = order.getModel();
     dbHelper.findData(orderModel,conditions,callback);
-
 }
 
 /**
@@ -49,12 +48,10 @@ exports.findOrder = function(conditions,dbHelper,callback) {
  * @param dbHelper
  * @param callback
  */
-// exports.removeUser = function(conditions,dbHelper,callback) {
+exports.removeOrder = function(conditions,dbHelper,callback) {
 
 
-//     var userModel =user.getModel();
-//     dbHelper.removeData(userModel,conditions,function(result){
-//         callback(result);
-//     });
-// }
+    var orderModel = order.getModel();
+    dbHelper.removeData(orderModel,conditions,callback);
+}
 

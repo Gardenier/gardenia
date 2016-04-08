@@ -573,9 +573,9 @@ router.route("/userCenter").get(function(req,res){
 		
 		var status = req.query.status;
 		if(status == 0){
-			console.log('status'+status+'\n');
+			//console.log('status'+status+'\n');
 			global.orderControl.orderFindAction({userName:req.query.name,status: status},function(err,doc){//,objList: doc
-				console.log('问问'+doc+'\n');
+				//console.log('问问'+doc+'\n');
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
 				
 			});
@@ -638,6 +638,21 @@ router.route("/evaluate").post(function(req,res){
 			console.log('评价已更新');
 		    res.send(200);
 		}
+	});
+
+});
+router.route("/removeOrder").post(function(req,res){
+	var pid = req.body.pid;
+	console.log('wrap - pid:'+pid+'\n');
+	global.orderControl.orderRemoveAction({_id: pid},function(err,doc){
+		console.log('doc:'+doc+'\n');
+		if (err) {
+            console.log(err);
+            res.send(500);
+        } else {
+            console.log('此数据已被删除');
+            res.send(200);
+        }
 	});
 
 });

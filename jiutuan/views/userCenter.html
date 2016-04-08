@@ -80,21 +80,21 @@
 			            <% if(data.status == 0){ %>
 			            <td class="a-btn">
 			            	<button class="btn btn-info" onclick="pay()">前去支付</button>
-			 				<button class="btn btn-danger" onclick="remove()">删除</button>
+			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if (data.status == 1){ %>
 			            <td class="a-btn">
-			 				<button class="btn btn-danger" onclick="remove()">删除</button>
+			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
 			            <% if(data.feedBack.status == 0){ %>
 			            <td class="f-btn">
 			            	<button class="btn btn-info acc" data-toggle="modal" data-target="#myModal">评论</button>
-			 				<button class="btn btn-danger" onclick="remove()">删除</button>
+			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if(data.feedBack.status == 1){ %>
 			            <td class="f-btn">
-			 				<button class="s" class="btn btn-danger" onclick="remove()">删除</button>
+			 				<button class="s" class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
         			</tr>
@@ -158,6 +158,13 @@
 				acc();
 			})
 		});
+		$(".removeData").each(function(){
+			$(this).click(function(){
+				var pid = $(this).parents('tr').find('.pid').html();
+				//$('#pID').html(pid);
+				remove(pid);
+			})
+		});
 	});
 	function lightTab(){
 		//左侧高亮
@@ -191,22 +198,23 @@
 		}
 	}
 	//删除
-	function remove(){ 
-		var uname = $('#userName').html();
-		var data = {uname: uname};
-		// $.ajax({ 
-		// 	url:'/userCenter',
-		// 	type:'post',
-		// 	data: data,
-		// 	success: function(data,status){ 
-		// 		if(status == 'success'){ 
-		// 			//location.href = 'home';
-		// 		}
-		// 	},
-		// 	error: function(err,status){ 
-		// 		alert(err);
-		// 	}
-		// });
+	function remove(id){ 
+		var pid = id;
+		var data = {pid: pid};
+		console.log(pid);
+		$.ajax({ 
+			url:'/removeOrder',
+			type:'post',
+			data: data,
+			success: function(data,status){ 
+				if(status == 'success'){ 
+					location.reload();
+				}
+			},
+			error: function(err,status){ 
+				alert(err);
+			}
+		});
 	}
 	//支付
 	function pay(){ 

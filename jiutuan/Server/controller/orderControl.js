@@ -34,13 +34,14 @@ exports.orderFindAction = function(conditions,callback) {
     orderDao.findOrder(conditions,dbHelper,callback);
 }
 
-// exports.userRemoveAction = function() {
-//     return function(req, res) {
-//         var conditions ={};
-//         userDao.removeUser(conditions,dbHelper,function(result){
-//             res.json(result);
-//         });
-//         //除了要删除user表里的内容，还要删除关联表(user_schoolClass)的内容
-//     }
-// }
+exports.orderRemoveAction = function(conditions,callback) {
+	orderDao.removeOrder(conditions,dbHelper,callback);
+    // return function(req, res) {
+    //     var conditions ={};
+    //     userDao.removeUser(conditions,dbHelper,function(result){
+    //         res.json(result);
+    //     });
+    //     //除了要删除user表里的内容，还要删除关联表(user_schoolClass)的内容
+    // }
+}
 

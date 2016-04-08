@@ -48,9 +48,9 @@
     }
 }
 .list-content {
-	width: 70%;
+	width: 75%;
 	float: left;
-	margin-left: 10%;
+	margin-left: 5%;
 	padding: 50px 20px;
 	border-top: 3px solid #EF5651;
 	//border: 1px solid #ccc;
@@ -86,13 +86,18 @@
 	}
 	td {
 		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.package {
 		width: 40%;
 		text-align: left;
 	}
-	.price,.amount,.total,.a-btn {
-		width: 15%;
+	.price,.amount,.total{
+		width: 13%;
+	}
+	.a-btn,.f-btn,.do-btn {
+		width: 21%;
 	}
 }
 
