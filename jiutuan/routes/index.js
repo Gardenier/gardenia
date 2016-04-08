@@ -383,7 +383,7 @@ router.route('/product_list/:type').get(function(req, res){
 		});
 });
 //详情页
-router.route("/product_detail/:type").get(function(req,res){
+router.route("/product_detail").get(function(req,res){
 	/*console.log('req.query.id'+req.query.id);
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
 		res.render("product_detail",{title:'Home',objList:doc});//已登录则渲染home页面
@@ -397,7 +397,7 @@ router.route("/product_detail/:type").get(function(req,res){
 	else {
 		user = "登录";
 	}
-	if(req.params.type == "cate"){
+	/*if(req.params.type == "cate"){
 		type = "美食";
 		titlename = "美食-详情页";
 	}
@@ -420,9 +420,9 @@ router.route("/product_detail/:type").get(function(req,res){
 	else if(req.params.type == "grogshop") {
 		type = "酒店";
 		titlename = "酒店-详情页";
-	}
-	global.sellConControl.dataFindAction({type: type,_id:req.query.id},function(err, List){
-		res.render("product_detail",{title: titlename,objList:List,username: user});
+	}*/
+	global.sellConControl.dataFindAction({_id:req.query.id},function(err, List){
+		res.render("product_detail",{title: "详情页",objList:List,username: user});
 	});
 });
 

@@ -17,7 +17,7 @@
             <div class="item">
                 <% objList.forEach(function(data, index){ %>
                     <% if (data.type == "美食"){%>
-                    <a href="/product_detail/cate?id=<%= data._id %>">
+                    <a href="/product_detail?id=<%= data._id %>">
                         <div class="item-cell">
                             <div class="img">
                                 <img src="/images/meishi/<%= data.image %>" alt=""/>
@@ -35,7 +35,7 @@
                         </div>
                     </a>
                     <% }else if (data.type == "电影"){ %>
-                    <a href="/product_detail/movie?id=<%= data._id %>">
+                    <a href="/product_detail?id=<%= data._id %>">
                         <div class="item-cell">
                             <div class="img">
                                 <img src="/images/movies/<%= data.image %>" alt=""/>
@@ -53,7 +53,7 @@
                         </div>
                     </a>
                     <% }else if (data.type == "娱乐"){ %>
-                    <a href="/product_detail/entertainment?id=<%= data._id %>">
+                    <a href="/product_detail?id=<%= data._id %>">
                         <div class="item-cell">
                             <div class="img">
                                 <img src="/images/yule/<%= data.image %>" alt=""/>
@@ -71,7 +71,7 @@
                         </div>
                     </a>
                     <% }else if (data.type == "购物"){ %>
-                    <a href="/product_detail/shopping?id=<%= data._id %>">
+                    <a href="/product_detail?id=<%= data._id %>">
                         <div class="item-cell">
                             <div class="img">
                                 <img src="/images/shopping/<%= data.image %>" alt=""/>
@@ -89,7 +89,7 @@
                         </div>
                     </a>
                     <% }else if (data.type == "服务"){ %>
-                    <a href="/product_detail/service?id=<%= data._id %>">
+                    <a href="/product_detail?id=<%= data._id %>">
                         <div class="item-cell">
                             <div class="img">
                                 <img src="/images/service/<%= data.image %>" alt=""/>
@@ -107,7 +107,7 @@
                         </div>
                     </a>
                     <% }else if (data.type == "酒店"){ %>
-                    <a href="/product_detail/grogshop?id=<%= data._id %>">
+                    <a href="/product_detail?id=<%= data._id %>">
                         <div class="item-cell">
                             <div class="img">
                                 <img src="/images/hotel/<%= data.image %>" alt=""/>

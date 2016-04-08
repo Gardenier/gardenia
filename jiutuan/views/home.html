@@ -201,7 +201,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "美食" ) {  %>
 						<div class="tjCell">
-							<a href="/product_detail/cate?id=<%= data._id%>" class="mtjCell">
+							<a href="/product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/meishi/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -235,7 +235,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "电影" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail/movie?id=<%= data._id%>" class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/movies/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -268,7 +268,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "娱乐" ) {  %>
 						<div class="tjCell">
-							<a href="/product_detail/entertainment?id=<%= data._id%>" class="mtjCell">
+							<a href="/product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/yule/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -301,7 +301,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "购物" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail/shopping?id=<%= data._id%>" class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/shopping/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
@@ -334,7 +334,7 @@
 						<% objList.forEach(function(data, index){ %>
 						<% if (data.type == "服务" ) {  %>
 						<div class="tjCell">
-							<a href="product_detail/service?id=<%= data._id%>" class="mtjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/service/<%= data.image%>" alt="">
 								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
 								<p class="info_c"><%= data.info %></p>
