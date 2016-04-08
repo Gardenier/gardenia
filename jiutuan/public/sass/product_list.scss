@@ -105,20 +105,26 @@
         display: inline-block;
         color: #333333;
         width: 24%;
+        vertical-align: top;
         &:hover{
           text-decoration: none;
         }
         .item-cell {
           width: 80%;
+          height: 325px;
           margin: 0 auto 20px;
           padding: 5px;
           border: 1px solid #eeeeee;
           &:hover {
             @include box-shadow(0 0 5px 3px rgba(120,120,120,.1));
           }
-          img {
-            display: block;
+          div.img {
             width: 100%;
+            height: 146px;
+            img {
+              display: block;
+              width: 100%;
+            }
           }
           h3 {
             font-size: 20px;
@@ -219,5 +225,13 @@
       display: inline-block;
       margin: 10px;
     }
+  }
+}
+.tishi {
+  width: 100%;
+  text-align: center;
+  img{
+    display: block;
+    margin: 0 auto;
   }
 }

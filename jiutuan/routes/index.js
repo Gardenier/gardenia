@@ -535,5 +535,36 @@ router.route("/userCenter").get(function(req,res){
 	//});
 	//res.render("userCenter",{title:""});
 });
+/*router.get('/search',function(req, res){
+	var user = "",
+		text = req.body;
+	 if(req.session.user){
+	 user = req.session.user.name;
+	 }else{
+	 user = "登录";
+	 }
+	//req.query["text"] = req.body.resName;
+	global.sellConControl.dataFindAction({resName: "Honey"},function(err,doc){
+		console.log(req.query);
+		res.render("search",{title: "搜索页",objList:doc,username: user});
+	})
+});*/
+router.route('/search').get(function(req, res){
+	var user = "";
+	if(req.session.user){
+		user = req.session.user.name;
+	}else{
+		user = "登录";
+	}
+	global.sellConControl.dataFindAction({resName: req.query.text},function(err,doc){
+		//console.log(req.query.text);
+		res.render("search",{title: "搜索页",objList:doc,username: user});
+	})
+}).post(function(req, res){
+	//var text = req.body.text;
+	//global.sellConControl.dataFindAction({resName: text},function(err, doc){
+		req.query['text'] = req.body.text;
+	//});
+});
 
 module.exports = router;

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <% include header.html %>
+    <meta charset="utf-8"/>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/product_list.css"/>
+</head>
+<body>
+    <div class="product-list">
+        <!--公共头部start-->
+        <div class="comm-head">
+            <% include commonHeader.html %>
+        </div>
+        <!--公共头部end-->
+        <div class="field">
+            <div class="item">
+                <% if (objList.length > 0) {%>
+                <% objList.forEach(function(data, index){ %>
+                <% if (data.type == "美食"){%>
+                <a href="/product_detail/cate?id=<%= data._id %>">
+                    <div class="item-cell">
+                        <div class="img">
+                            <img src="/images/meishi/<%= data.image %>" alt=""/>
+                        </div>
+                        <h3><%= data.resName %></h3>
+                        <p class="coupon"><%= data.info %></p>
+                        <div class="fee">
+                            <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                            <span class="money">¥<%= data.oldPrice%></span>
+                        </div>
+                        <div class="other">
+                            <span class="grade">4.5分</span>
+                            <span class="sale-num">已售<%= data.soldNumber%></span>
+                        </div>
+                    </div>
+                </a>
+                <% }else if (data.type == "电影"){ %>
+                <a href="/product_detail/movie?id=<%= data._id %>">
+                    <div class="item-cell">
+                        <div class="img">
+                            <img src="/images/movies/<%= data.image %>" alt=""/>
+                        </div>
+                        <h3><%= data.resName %></h3>
+                        <p class="coupon"><%= data.info %></p>
+                        <div class="fee">
+                            <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                            <span class="money">¥<%= data.oldPrice%></span>
+                        </div>
+                        <div class="other">
+                            <span class="grade">4.5分</span>
+                            <span class="sale-num">已售<%= data.soldNumber%></span>
+                        </div>
+                    </div>
+                </a>
+                <% }else if (data.type == "娱乐"){ %>
+                <a href="/product_detail/entertainment?id=<%= data._id %>">
+                    <div class="item-cell">
+                        <div class="img">
+                            <img src="/images/yule/<%= data.image %>" alt=""/>
+                        </div>
+                        <h3><%= data.resName %></h3>
+                        <p class="coupon"><%= data.info %></p>
+                        <div class="fee">
+                            <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                            <span class="money">¥<%= data.oldPrice%></span>
+                        </div>
+                        <div class="other">
+                            <span class="grade">4.5分</span>
+                            <span class="sale-num">已售<%= data.soldNumber%></span>
+                        </div>
+                    </div>
+                </a>
+                <% }else if (data.type == "购物"){ %>
+                <a href="/product_detail/shopping?id=<%= data._id %>">
+                    <div class="item-cell">
+                        <div class="img">
+                            <img src="/images/shopping/<%= data.image %>" alt=""/>
+                        </div>
+                        <h3><%= data.resName %></h3>
+                        <p class="coupon"><%= data.info %></p>
+                        <div class="fee">
+                            <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                            <span class="money">¥<%= data.oldPrice%></span>
+                        </div>
+                        <div class="other">
+                            <span class="grade">4.5分</span>
+                            <span class="sale-num">已售<%= data.soldNumber%></span>
+                        </div>
+                    </div>
+                </a>
+                <% }else if (data.type == "服务"){ %>
+                <a href="/product_detail/service?id=<%= data._id %>">
+                    <div class="item-cell">
+                        <div class="img">
+                            <img src="/images/service/<%= data.image %>" alt=""/>
+                        </div>
+                        <h3><%= data.resName %></h3>
+                        <p class="coupon"><%= data.info %></p>
+                        <div class="fee">
+                            <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                            <span class="money">¥<%= data.oldPrice%></span>
+                        </div>
+                        <div class="other">
+                            <span class="grade">4.5分</span>
+                            <span class="sale-num">已售<%= data.soldNumber%></span>
+                        </div>
+                    </div>
+                </a>
+                <% }else if (data.type == "酒店"){ %>
+                <a href="/product_detail/grogshop?id=<%= data._id %>">
+                    <div class="item-cell">
+                        <div class="img">
+                            <img src="/images/hotel/<%= data.image %>" alt=""/>
+                        </div>
+                        <h3><%= data.resName %></h3>
+                        <p class="coupon"><%= data.info %></p>
+                        <div class="fee">
+                            <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                            <span class="money">¥<%= data.oldPrice%></span>
+                        </div>
+                        <div class="other">
+                            <span class="grade">4.5分</span>
+                            <span class="sale-num">已售<%= data.soldNumber%></span>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+                <% }) %>
+                <% } else {%>
+                    <div class="tishi">
+                        <img src="/images/main/tishi.png" alt="抱歉，没有找到您要找的东东~~"/>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <!-- 公共footer start-->
+        <div class="comm-footer">
+            <div class="others">
+                <ul>
+                    <li>
+                        <h4>用户帮助</h4>
+                        <a>答疑反馈</a>
+                        <a>常见问题</a>
+                    </li>
+                    <li>
+                        <h4>商务合作</h4>
+                        <a>友情链接</a>
+                        <a>市场合作</a>
+                    </li>
+                    <li>
+                        <h4>公司信息</h4>
+                        <a>关于玖团</a>
+                        <a>加入我们</a>
+                        <a>法律中心</a>
+                    </li>
+                    <li>
+                        <h4>移动玖团</h4>
+                        <a>玖团网手机版</a>
+                        <a>玖团网wap版</a>
+                    </li>
+                    <li>
+                        <h4>全国统一客服电话</h4>
+                        <a>XXXXXXXX-XXX</a>
+                    </li>
+                </ul>
+            </div>
+            <p>
+                <span>&copy;2016</span>
+                <span>JTUAN.COM</span>
+                <span>XXX备XXXXXXX号</span>
+            </p>
+        </div>
+        <!--公共footer end-->
+    </div>
+</body>
+</html>

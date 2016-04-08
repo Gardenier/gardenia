@@ -32,9 +32,12 @@
 		<div class="mHeader clearfix">
 				<img class="pull-left" src="images/jiutuan.png" alt="logo">
 				<div class="pull-right">
-					<input type="text" placeholder="搜索商家">
-					<button>搜索</button>
+					<form action="/search">
+						<input type="text" placeholder="搜索商家" class="search-input" name="text">
+						<button class="btn btn-default" id="search" type="submit">搜索</button>
+					</form>
 				</div>
+
 		</div>
 		<div class="mPart1 clearfix">
 			<ul class="allClassify pull-left">
@@ -509,6 +512,20 @@
 				regist.html("注册");
 				regist.attr("href","/register");
 			}
+			$("#search").bind("click",function(){
+				var text = $(".search-input").val();
+				var data = {'text': text};
+				$.ajax({
+					url: "/search?text="+text+"",
+					type: "post",
+					data: data,
+					success: function(data,status){
+						if(status == 'success'){
+							location.href = 'search';
+						}
+					}
+				});
+			});
 		});
 	</script>
 	<!--<script>

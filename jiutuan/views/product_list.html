@@ -19,28 +19,9 @@
                     <% if (data.type == "美食"){%>
                     <a href="/product_detail/cate?id=<%= data._id %>">
                         <div class="item-cell">
-                            <img src="/images/meishi/<%= data.image %>" alt=""/>
-                    <% }else if (data.type == "电影"){ %>
-                    <a href="/product_detail/movie?id=<%= data._id %>">
-                        <div class="item-cell">
-                            <img src="/images/movies/<%= data.image %>" alt=""/>
-                    <% }else if (data.type == "娱乐"){ %>
-                    <a href="/product_detail/entertainment?id=<%= data._id %>">
-                        <div class="item-cell">
-                            <img src="/images/yule/<%= data.image %>" alt=""/>
-                    <% }else if (data.type == "购物"){ %>
-                    <a href="/product_detail/shopping?id=<%= data._id %>">
-                        < class="item-cell">
-                            <img src="/images/shopping/<%= data.image %>" alt=""/>
-                    <% }else if (data.type == "服务"){ %>
-                    <div href="/product_detail/service?id=<%= data._id %>">
-                        <div class="item-cell">
-                            <img src="/images/service/<%= data.image %>" alt=""/>
-                    <% }else if (data.type == "酒店"){ %>
-                    <a href="/product_detail/grogshop?id=<%= data._id %>">
-                        <div class="item-cell">
-                            <img src="/images/hotel/<%= data.image %>" alt=""/>
-                    <% } %>
+                            <div class="img">
+                                <img src="/images/meishi/<%= data.image %>" alt=""/>
+                            </div>
                             <h3><%= data.resName %></h3>
                             <p class="coupon"><%= data.info %></p>
                             <div class="fee">
@@ -53,9 +34,101 @@
                             </div>
                         </div>
                     </a>
+                    <% }else if (data.type == "电影"){ %>
+                    <a href="/product_detail/movie?id=<%= data._id %>">
+                        <div class="item-cell">
+                            <div class="img">
+                                <img src="/images/movies/<%= data.image %>" alt=""/>
+                            </div>
+                            <h3><%= data.resName %></h3>
+                            <p class="coupon"><%= data.info %></p>
+                            <div class="fee">
+                                <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                                <span class="money">¥<%= data.oldPrice%></span>
+                            </div>
+                            <div class="other">
+                                <span class="grade">4.5分</span>
+                                <span class="sale-num">已售<%= data.soldNumber%></span>
+                            </div>
+                        </div>
+                    </a>
+                    <% }else if (data.type == "娱乐"){ %>
+                    <a href="/product_detail/entertainment?id=<%= data._id %>">
+                        <div class="item-cell">
+                            <div class="img">
+                                <img src="/images/yule/<%= data.image %>" alt=""/>
+                            </div>
+                            <h3><%= data.resName %></h3>
+                            <p class="coupon"><%= data.info %></p>
+                            <div class="fee">
+                                <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                                <span class="money">¥<%= data.oldPrice%></span>
+                            </div>
+                            <div class="other">
+                                <span class="grade">4.5分</span>
+                                <span class="sale-num">已售<%= data.soldNumber%></span>
+                            </div>
+                        </div>
+                    </a>
+                    <% }else if (data.type == "购物"){ %>
+                    <a href="/product_detail/shopping?id=<%= data._id %>">
+                        <div class="item-cell">
+                            <div class="img">
+                                <img src="/images/shopping/<%= data.image %>" alt=""/>
+                            </div>
+                            <h3><%= data.resName %></h3>
+                            <p class="coupon"><%= data.info %></p>
+                            <div class="fee">
+                                <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                                <span class="money">¥<%= data.oldPrice%></span>
+                            </div>
+                            <div class="other">
+                                <span class="grade">4.5分</span>
+                                <span class="sale-num">已售<%= data.soldNumber%></span>
+                            </div>
+                        </div>
+                    </a>
+                    <% }else if (data.type == "服务"){ %>
+                    <a href="/product_detail/service?id=<%= data._id %>">
+                        <div class="item-cell">
+                            <div class="img">
+                                <img src="/images/service/<%= data.image %>" alt=""/>
+                            </div>
+                            <h3><%= data.resName %></h3>
+                            <p class="coupon"><%= data.info %></p>
+                            <div class="fee">
+                                <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                                <span class="money">¥<%= data.oldPrice%></span>
+                            </div>
+                            <div class="other">
+                                <span class="grade">4.5分</span>
+                                <span class="sale-num">已售<%= data.soldNumber%></span>
+                            </div>
+                        </div>
+                    </a>
+                    <% }else if (data.type == "酒店"){ %>
+                    <a href="/product_detail/grogshop?id=<%= data._id %>">
+                        <div class="item-cell">
+                            <div class="img">
+                                <img src="/images/hotel/<%= data.image %>" alt=""/>
+                            </div>
+                            <h3><%= data.resName %></h3>
+                            <p class="coupon"><%= data.info %></p>
+                            <div class="fee">
+                                <span class="coupon-new">现价：¥<%= data.newPrice%></span>
+                                <span class="money">¥<%= data.oldPrice%></span>
+                            </div>
+                            <div class="other">
+                                <span class="grade">4.5分</span>
+                                <span class="sale-num">已售<%= data.soldNumber%></span>
+                            </div>
+                        </div>
+                    </a>
+                    <% } %>
+
                 <% }) %>
             </div>
-        </div>
+        </a>
         <!-- 公共footer start-->
         <div class="comm-footer">
             <div class="others">

@@ -19,8 +19,10 @@
 <div class="mHeader clearfix">
 	<img class="pull-left" src="/images/jiutuan.png" alt="logo">
 	<div class="pull-right">
-		<input type="text" placeholder="搜索商家" class="search-input">
-		<button class="btn btn-default">搜索</button>
+		<form action="/search">
+			<input type="text" placeholder="搜索商家" class="search-input" name="text">
+			<button class="btn btn-default" id="search" type="submit">搜索</button>
+		</form>
 	</div>
 </div>
 <div class="navGroup clearfix">
@@ -44,5 +46,20 @@
 			regist.html("注册");
 			regist.attr("href","/register");
 		}
+		//搜索数据提交
+		$("#search").bind("click",function(){
+			var text = $(".search-input").val();
+			var data = {'text': text};
+			$.ajax({
+				url: "/search?text="+text+"",
+				type: "post",
+				data: data,
+				success: function(data,status){
+					if(status == 'success'){
+						location.href = 'search';
+					}
+				}
+			});
+		});
 	});
 </script>
