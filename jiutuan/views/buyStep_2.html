@@ -92,15 +92,16 @@
 
 		//数据交互
 		$('#paySure').click(function(){
-			postData(true);
+			$('.progress-bar').css('width','100%');
+			postData();
 		});
-		$('#noPay').click(function(){
-			postData(false);
-		});
+		// $('#noPay').click(function(){
+		// 	postData(false);
+		// });
 
 	});
-	function postData(type){
-		$('.progress-bar').css('width','100%');
+	function postData(){
+		
 		var pn = $.cookie('pNumber');
 		var pna = $.cookie('pName');  //存储cookie数据
 		var rn = $.cookie('rName');  //存储cookie数据
@@ -109,7 +110,7 @@
 		var id = str.substring(str.indexOf('=')+1);
 		//alert(id);
 		var data = {
-			pay: type,
+			//pay: type,
 			id: id,
 			pn: pn,
 			pna: pna,

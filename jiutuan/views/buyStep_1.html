@@ -127,7 +127,7 @@
 			$.cookie('pName', pd, {path: '/'});  //存储cookie数据
 			$.cookie('rName', resName, {path: '/'});  //存储cookie数据
 
-			//alert('支付成功！');
+			//alert(resName);
 			//var pNumber = $('#pNumber').val();
 			//var str = window.location.search;
 			//var id = str.substring((str).indexOf('=')+1);
@@ -139,13 +139,13 @@
 
 			//$.cookie('id', id, {path: '/'});  //存储cookie数据
 
-			var name = $('#userName').html();
+			var name = $('#userName a').html();
 			//var resName = $('#resName').html();
 			//var pd = $('#packageName').html();
 			var price = parseFloat($('#price').html());
-			//
+			
 			var data = {'id': id,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': pn,'status': 0};
-			//alert(data.id);
+			//alert(name);
 			$(this).attr('href','buyStep_2?id='+id);
 			$.ajax({ 
 				url:'/buyStep_1',

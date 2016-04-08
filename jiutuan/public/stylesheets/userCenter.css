@@ -57,9 +57,9 @@
 
 /* line 50, ../sass/userCenter.scss */
 .list-content {
-  width: 70%;
+  width: 75%;
   float: left;
-  margin-left: 10%;
+  margin-left: 5%;
   padding: 50px 20px;
   border-top: 3px solid #EF5651;
 }
@@ -106,13 +106,19 @@
 /* line 87, ../sass/userCenter.scss */
 .buy-table td {
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-/* line 90, ../sass/userCenter.scss */
+/* line 92, ../sass/userCenter.scss */
 .buy-table .package {
   width: 40%;
   text-align: left;
 }
-/* line 94, ../sass/userCenter.scss */
-.buy-table .price, .buy-table .amount, .buy-table .total, .buy-table .a-btn {
-  width: 15%;
+/* line 96, ../sass/userCenter.scss */
+.buy-table .price, .buy-table .amount, .buy-table .total {
+  width: 13%;
+}
+/* line 99, ../sass/userCenter.scss */
+.buy-table .a-btn, .buy-table .f-btn, .buy-table .do-btn {
+  width: 21%;
 }

@@ -450,7 +450,7 @@ router.route("/buyStep_1").get(function(req,res){
 	var pd = req.body.projectDetail;
 	var pn = req.body.pn;
 	var price = req.body.price;
-	var status = req.body.status;
+	var status = parseInt(req.body.status);
 	var feed = {
 		star: 0,//分数
 		text: '',//评价内容
@@ -505,7 +505,6 @@ router.route("/buyStep_2").get(function(req,res){
 	});
 	//res.render("buyStep_2",{title:'Home'});
 }).post(function(req,res){
-	var pay = req.body.pay;
 	var id = req.body.id;
 	var sn =  parseInt(req.body.pn);
 	var pna = req.body.pna;
@@ -514,7 +513,6 @@ router.route("/buyStep_2").get(function(req,res){
 		resName: rn,
 		packageName: pna
 	};
-	console.log("支付："+pay+'\n');
 	global.orderControl.orderUpdateAction({id: id},{status: 1},function(err,doc){
 		if (err) {
             res.send(500);
@@ -524,26 +522,25 @@ router.route("/buyStep_2").get(function(req,res){
             //res.send(200);
         }
 	});
-	if(pay == true) {
-		global.sellConControl.sellContentEqualAction(u_condition,function(err,doc){
-			if(err) {
-				res.send(500);
-			}else {
-				//console.log(doc+'\n');
-				sn += parseInt(doc.soldNumber);
-				//console.log('sn:'+sn+'\n');
-				global.sellConControl.sellConUpdateAction(u_condition,{soldNumber: sn},function(err,doc){
-					if (err) {
-			            res.send(500);
-			            console.log(err);
-			        } else {
-			            console.log('已售数量被更新');
-			            res.send(200);
-			        }
-				});
-			}
-		});
-	}
+		
+	global.sellConControl.sellContentEqualAction(u_condition,function(err,doc){
+		if(err) {
+			res.send(500);
+		}else {
+			//console.log(doc+'\n');
+			sn += parseInt(doc.soldNumber);
+			//console.log('sn:'+sn+'\n');
+			global.sellConControl.sellConUpdateAction(u_condition,{soldNumber: sn},function(err,doc){
+				if (err) {
+		            res.send(500);
+		            console.log(err);
+		        } else {
+		            console.log('已售数量被更新');
+		            res.send(200);
+		        }
+			});
+		}
+	});
 });
 //加入购物车 跳转页面
 router.route("/shopCar").get(function(req,res){
@@ -573,10 +570,12 @@ router.route("/userCenter").get(function(req,res){
 		user = req.session.user.name;
 	}
 	if(req.query.status){
-		console.log('req.query.name'+req.query.name+'\n');
+		
 		var status = req.query.status;
 		if(status == 0){
-			global.orderControl.orderFindAction({userName:req.query.name,status: 0},function(err,doc){//,objList: doc
+			console.log('status'+status+'\n');
+			global.orderControl.orderFindAction({userName:req.query.name,status: status},function(err,doc){//,objList: doc
+				console.log('问问'+doc+'\n');
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
 				
 			});
@@ -621,6 +620,26 @@ router.route("/userCenter").get(function(req,res){
 		});
 	}
 	//res.render("userCenter",{title:"玖团"});
+});
+//评价
+router.route("/evaluate").post(function(req,res){
+	var pid = req.body.pid;
+	var star = req.body.star;
+	var text = req.body.text;
+	var fb = {
+		star: star,
+		text: text,
+		status: 1
+	}
+	global.orderControl.orderUpdateAction({_id: pid},{feedBack: fb},function(err,doc){
+		if(err) {
+			res.send(500);
+		}else {
+			console.log('评价已更新');
+		    res.send(200);
+		}
+	});
+
 });
 /*router.get('/search',function(req, res){
 	var user = "",
