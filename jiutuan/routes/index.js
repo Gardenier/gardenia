@@ -662,7 +662,7 @@ router.route('/search').get(function(req, res){
 	}else{
 		user = "登录";
 	}
-	global.sellConControl.dataFindAction({resName: req.query.text},function(err,doc){
+	global.sellConControl.dataFindAction({resName:{$regex: ''+req.query.text+'', $options:'i'}},function(err,doc){
 		//console.log(req.query.text);
 		res.render("search",{title: "搜索页",objList:doc,username: user});
 	})
