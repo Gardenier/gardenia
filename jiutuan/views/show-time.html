@@ -31,6 +31,10 @@
                         <p>年轻、时尚、便捷是我们的定义</p>
                         <p>2016期待与你相遇！</p>
                     </div>
+                    <a href="/home">
+                        <img class="go" src="/images/main/go.png" alt="go"/>
+                    </a>
+                    <span class="timecount"></span>
                 </div>
             </div>
             <div class="show-img">
@@ -53,6 +57,20 @@
                 "height": wHeight
             });
         }
+        /*//自动跳转首页
+        var c = 10;
+        var t;
+        function timeCount(){
+            $("span.timecount").html(c);
+            c--;
+            t=setTimeout('timeCount()',1000);
+            if(c==0){
+                location.href = "/home";
+            }
+        }
+        $(window).bind('load',function(){
+            timeCount();
+        });*/
     </script>
 </body>
 </html>

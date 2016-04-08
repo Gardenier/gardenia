@@ -94,6 +94,27 @@
             margin-left: -70px;
           }
         }
+        img.go{
+          display: block;
+          width: 66px;
+          margin: 0 auto;
+          @include animation(turn 10s 3s);
+        }
+        span.timecount {
+          display: block;
+          height: 20px;
+          width: 50px;
+          font-size: 15px;
+          margin: 0 auto;
+        }
+        @include keyframes(turn){
+          0%{
+             @include rotateY(0deg)
+          }
+          100%{
+             @include rotateY(1080deg);
+          }
+        }
       }
     }
    .show-img {
