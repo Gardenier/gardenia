@@ -65,7 +65,7 @@
 	        		<tr>
 	            		<td class="package">
                 			<a href="product_detail?id=<%= data._id %>" target="_blank">
-                    			<span class="resName"><%= data.resName %></span>:<span class="packageName"><%= data.projectDetail %></span>——<span class="pid"><%= data._id %></span>
+                    			<span class="resName"><%= data.resName %></span>:<span class="packageName"><%= data.projectDetail %></span><span class="pid" style="display: none;"><%= data._id %></span>
                	 			</a>
             			</td>
 			            <td class="price">
@@ -87,12 +87,12 @@
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
-			            <% if(data.feedBack.status == 0){ %>
+			            <% if(data.fstatus == 0){ %>
 			            <td class="f-btn">
 			            	<button class="btn btn-info acc" data-toggle="modal" data-target="#myModal">评论</button>
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
-			            <% } else if(data.feedBack.status == 1){ %>
+			            <% } else if(data.fstatus == 1){ %>
 			            <td class="f-btn">
 			 				<button class="s" class="btn btn-danger removeData">删除</button>
 			            </td>
@@ -155,7 +155,7 @@
 			$(this).click(function(){
 				var pid = $(this).parents('tr').find('.pid').html();
 				$('#pID').html(pid);
-				acc();
+				//acc();
 			})
 		});
 		$(".removeData").each(function(){
@@ -251,7 +251,7 @@
 			data: data,
 			success: function(data,status){ 
 				if(status == 'success'){ 
-					//location.href = 'home';
+					location.reload();
 				}
 			},
 			error: function(err,status){ 

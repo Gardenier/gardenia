@@ -451,11 +451,15 @@ router.route("/buyStep_1").get(function(req,res){
 	var pn = req.body.pn;
 	var price = req.body.price;
 	var status = parseInt(req.body.status);
-	var feed = {
-		star: 0,//分数
-		text: '',//评价内容
-		status: 0//状态
-	};
+	// var feed = {
+	// 	star: 0,//分数
+	// 	text: '',//评价内容
+	// 	status: 0//状态
+	// };
+	var star = 0;//分数
+	var text = '';//评价内容
+	var	fstatus = 0;//状态
+
 	var data = {
 		id: id,
 		userName: name,
@@ -464,8 +468,57 @@ router.route("/buyStep_1").get(function(req,res){
 		pNumber: pn,
 		price: price,
 		status: status,
-		feedBack: feed
+		//feedBack: feed
+		star: star,
+		text: text,
+		fstatus: fstatus
 	};
+	if(pn>1){
+		// for(var i=0;i<pn-1;i++){
+		// 	global.orderControl.orderAddAction(data,function(err,doc){
+		// 		if (err) {
+		//             res.send(500);
+		//             console.log(err);
+		//         } else {
+		//             ///req.session.error = '密码修改成功！';
+		//             console.log('订单已录入');
+		//             //res.send(200);
+		//         }
+		// 	});
+		// }
+		global.orderControl.orderAddAction(data,function(err,doc){
+			if (err) {
+	            res.send(500);
+	            console.log(err);
+	        } else {
+	            ///req.session.error = '密码修改成功！';
+	            console.log('订单已录入');
+	            global.orderControl.orderAddAction(data,function(err,doc){
+					if (err) {
+			            res.send(500);
+			            console.log(err);
+			        } else {
+			            ///req.session.error = '密码修改成功！';
+			            console.log('订单已录入');
+			            res.send(200);
+			        }
+				});
+	        }
+		});
+		
+	}else {
+		global.orderControl.orderAddAction(data,function(err,doc){
+				if (err) {
+		            res.send(500);
+		            console.log(err);
+		        } else {
+		            ///req.session.error = '密码修改成功！';
+		            console.log('订单已录入');
+		            res.send(200);
+		        }
+			});
+	}
+	
 	// console.log(data.userName+'\n'+
 	// 	data.resName+'\n'+
 	// 	data.projectDetail+'\n'+
@@ -474,16 +527,7 @@ router.route("/buyStep_1").get(function(req,res){
 	// 	data.feedBack.star+'\n'+
 	// 	data.feedBack.text+'\n'+
 	// 	data.feedBack.status+'\n');
-	global.orderControl.orderAddAction(data,function(err,doc){
-		if (err) {
-            res.send(500);
-            console.log(err);
-        } else {
-            ///req.session.error = '密码修改成功！';
-            console.log('订单已录入');
-            res.send(200);
-        }
-	});
+	
 });
 
 //购买页面 支付
@@ -588,11 +632,13 @@ router.route("/userCenter").get(function(req,res){
 		if(status == 10){
 			var conditions = {
 				userName:req.query.name,
-				feedBack:{
-					star: 0,
-					text: '',
-					status: 0
-				}
+				status: 1,
+				fstatus: 0
+				// feedBack:{
+				// 	star: 0,
+				// 	text: '',
+				// 	status: 0
+				// }
 			};
 			global.orderControl.orderFindAction(conditions,function(err,doc){//,objList: doc
 				//console.log("status=10"+'\n'+doc+'\n');
@@ -602,11 +648,13 @@ router.route("/userCenter").get(function(req,res){
 		if(status == 11){
 			var conditions = {
 				userName:req.query.name,
-				feedBack:{
-					star: 0,
-					text: '',
-					status: 1
-				}
+				status: 1,
+				fstatus: 1
+				// feedBack:{
+				// 	star: 0,
+				// 	text: '',
+				// 	status: 1
+				// }
 			};
 			global.orderControl.orderFindAction(conditions,function(err,doc){//,objList: doc
 				//console.log("status=11"+'\n'+doc+'\n');
@@ -629,9 +677,9 @@ router.route("/evaluate").post(function(req,res){
 	var fb = {
 		star: star,
 		text: text,
-		status: 1
+		fstatus: 1
 	}
-	global.orderControl.orderUpdateAction({_id: pid},{feedBack: fb},function(err,doc){
+	global.orderControl.orderUpdateAction({_id: pid},fb,function(err,doc){
 		if(err) {
 			res.send(500);
 		}else {

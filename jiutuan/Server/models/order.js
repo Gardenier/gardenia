@@ -9,11 +9,14 @@ var orderSchema = new Schema({
 	pNumber: Number,
 	price: Number,
 	status: Number,
-	feedBack: {
-		star: Number,//分数
-		text: String,//评价内容
-		status: Number//状态
-	}
+	// feedBack: {
+	// 	star: Number,//分数
+	// 	text: String,//评价内容
+	// 	status: Number//状态
+	// }
+	star: Number,//分数
+	text: String,//评价内容
+	fstatus: Number//状态
 });
 
 //var userSchema = new Schema({any:Schema.Types.Mixed});
