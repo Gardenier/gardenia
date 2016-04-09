@@ -3,10 +3,11 @@ var Schema   = mongoose.Schema;
 
 //收藏
 var collectionSchema = new Schema({
+	userName: String,
+	id: String,
 	c_resName: String,
 	projectDetail: String,
 	price: String,
-	status: Number
 });;
 
 //var userSchema = new Schema({any:Schema.Types.Mixed});

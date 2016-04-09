@@ -736,4 +736,43 @@ router.route('/search').get(function(req, res){
 	//});
 });
 
+//收藏
+router.route('/collection').post(function(req,res){
+	var userName = req.body.userName;
+	var id = req.body.id;
+	var c_resName = req.body.pna;
+	var projectDetail = req.body.pdetail;
+	var price = req.body.price;
+	var data = {
+		userName: userName,
+		id: id,
+		c_resName: c_resName,
+		projectDetail: projectDetail,
+		price: price
+	};
+	global.collectControl.collectAddAction(data,function(err,doc){
+		if (err) {
+            console.log(err);
+            res.send(500);
+        } else {
+            console.log('收藏成功');
+            res.send(200);
+        }
+	});
+});
+//取消收藏
+router.route('/uncollection').post(function(req,res){
+	var id = req.body.id;
+	var userName = req.body.userName;
+	global.collectControl.collectRemoveAction({id: id,userName: userName},function(err,doc){
+		//console.log('doc:'+doc+'\n');
+		if (err) {
+            console.log(err);
+            res.send(500);
+        } else {
+            console.log('取消收藏');
+            res.send(200);
+        }
+	});
+});
 module.exports = router;

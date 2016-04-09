@@ -51,9 +51,11 @@
 						<div class="prices clearfix">
 							<div class="pull-left">
 								<span class="tagName">团购价</span>
-								<span class="newPrice">
-									￥<%= data.newPrice %>
-								</span>
+								<div class="newPrice" style="display:inline-block;">
+									￥<span id="newPrice">
+										<%= data.newPrice %>
+									</span>	
+								</div>
 							</div>
 							<div class="pull-left">
 								<span class="tagName">
@@ -64,7 +66,7 @@
 							</div>
 						</div>
 						<div class="clearfix backInfo">
-							<div>已有<span>485</span>人购买</div>
+							<div>已有<span><%= data.soldNumber %></span>人购买</div>
 							<div class="star">
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingshixin"></span>
@@ -100,7 +102,7 @@
 							<!-- <a href="shopCar" class="add_shopCar" id="shopCar" title="加入购物车">
 								<span class="iconfont icon-gouwuche"></span>
 							</a> -->
-							<a href="collection" class="collect-info">
+							<a href="javascript:;" class="collect-info" id="collection">
 								收藏
 								<span class="iconfont icon-weishoucang"></span>
 							</a>
@@ -252,7 +254,7 @@
 					<div class="left-cell-info">
 						<p>商品详情</p>
 						<table>
-							
+							<span class="packageName"><%= data.packageName %></span>
 						</table>
 					</div>
 				</div>
@@ -299,6 +301,18 @@
 		// $('#shopCar').click(function(){
 		// 	location.href = 'shopCar';
 		// });
+
+		//收藏
+		$('#collection').click(function(){
+			var str = window.location.search;
+			var id = str.substring(str.indexOf('=')+1);
+			//console.log(id);
+			var index = $('.resName').html().indexOf('】');
+			var pna = $('.resName').html().substring(1,index);
+			var pdetail = $('.packageName').html();
+			var price = $('#newPrice').html();
+			console.log(id+'\n'+pna+'\n'+pdetail+'\n'+price);
+		});
 	});
 	</script>
 </body>
