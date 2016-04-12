@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+
+// var upload = require('./routes/upload');
+
 var session = require('express-session');
 
 //var home = require('./routes/home');
@@ -96,6 +99,11 @@ app.use("/buyStep_1",routes);
 app.use("/buyStep_2",routes);
 app.use("/userCenter",routes);
 app.use("/shopCar",routes);
+
+
+
+
+// app.use("/uploadImg",upload);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -17,6 +17,9 @@ var sellConSchema = new mongoose.Schema({
 	info: String,//, required: true
 	holiday: String,//, required: true
 	image: String,//, required: true
+	inimage1: String,
+	inimage2: String,
+	inimage3: String,
 	makeAppointment: String,//, required: true
 	room: String,//, required: true
 	packFood: String,//, required: true

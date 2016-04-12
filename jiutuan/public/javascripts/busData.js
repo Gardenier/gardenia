@@ -24,6 +24,13 @@ $(function(){
 		var endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
 		var image = $('#upfile').val().lastIndexOf('\\');
 		image = $('#upfile').val().substring(image+1);// var packageNumber = $('#packageNumber').val();
+		var inimage1 = $('#innerImg1').val().lastIndexOf('\\');
+		inimage1 = $('#innerImg1').val().substring(inimage1+1);
+		var inimage2 = $('#innerImg2').val().lastIndexOf('\\');
+		inimage2 = $('#innerImg2').val().substring(inimage2+1);
+		var inimage3 = $('#innerImg3').val().lastIndexOf('\\');
+		inimage3 = $('#innerImg3').val().substring(inimage3+1);
+
 		var oldPrice = $('#oldPrice').val();
 		var newPrice = $('#newPrice').val();
 		var mealSize = $('#mealSize').val();
@@ -47,6 +54,9 @@ $(function(){
 			'startDate':startDate,
 			'endDate':endDate,
 			"image": image,
+			'inimage1': inimage1,
+			'inimage2': inimage2,
+			'inimage3': inimage3,
 			'oldPrice':oldPrice,
 			'newPrice':newPrice,
 			'mealSize':mealSize,

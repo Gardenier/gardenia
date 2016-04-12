@@ -292,6 +292,39 @@
 				</div>
 				<div class="mPartLeftCell">
 					<div class="cellTop clearfix">
+						<a href="javascript:;" class="title pull-left">酒店</a>
+						<div class="more pull-right">
+							<a href="/product_list/hotel">查看全部>></a>
+						</div>
+					</div>
+					<div class="clearfix">
+						<% objList.forEach(function(data, index){ %>
+						<% if (data.type == "酒店" ) {  %>
+						<div class="tjCell">
+							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
+								<img src="images/hotel/<%= data.image%>" alt="">
+								<p class="info_h">【<%= data.area %>】<%= data.resName %></p>
+								<p class="info_c"><%= data.info %></p>
+								<div class="clearfix">
+									<div class="price newPrice pull-left">
+										￥<%= data.newPrice %>
+									</div>
+									<div class="price oldPrice pull-right">
+										<s>￥<%= data.oldPrice %></s>
+									</div>
+								</div>
+								<div class="mark-sold clearfix">
+									<div class="pull-left"><span>4.5</span>分</div>
+									<div class="pull-right">已售<span><%=data.soldNumber %></span></div>
+								</div>
+							</a>
+						</div>
+						<% } %>
+						<% }) %>
+					</div>
+				</div>
+				<div class="mPartLeftCell">
+					<div class="cellTop clearfix">
 						<a href="javascript:;" class="title pull-left">购物</a>
 						<div class="more pull-right">
 							<a href="/product_list/shopping">查看全部>></a>

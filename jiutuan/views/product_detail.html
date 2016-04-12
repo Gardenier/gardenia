@@ -23,29 +23,107 @@
 				</div>
 				<div class="clearfix">
 					<div class="img-wrap">
-						<% if (data.type == "美食") {%>
-						<img src="/images/meishi/<%= data.image %>" alt="">
-						<% } %>
-
-						<% if (data.type == "电影") {%>
-						<img src="/images/movies/<%= data.image %>" alt="">
-						<% } %>
-
-						<% if (data.type == "酒店") {%>
-						<img src="/images/hotel/<%= data.image %>" alt="">
-						<% } %>
-
-						<% if (data.type == "服务") {%>
-						<img src="/images/service/<%= data.image %>" alt="">
-						<% } %>
-
-						<% if (data.type == "购物") {%>
-						<img src="/images/shopping/<%= data.image %>" alt="">
-						<% } %>
-
-						<% if (data.type == "娱乐") {%>
-						<img src="/images/yule/<%= data.image %>" alt="">
-						<% } %>
+						<div id="myCarousel" class="carousel slide">
+						   	<!-- 轮播（Carousel）指标 -->
+						   	<ol class="carousel-indicators">
+						      	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						      	<li data-target="#myCarousel" data-slide-to="1"></li>
+						      	<li data-target="#myCarousel" data-slide-to="2"></li>
+						      	<li data-target="#myCarousel" data-slide-to="3"></li>
+						   	</ol>   
+						   	<!-- 轮播（Carousel）项目 -->
+						   	<div class="carousel-inner">
+						   		<% if (data.type == "美食") {%>
+						      	<div class="item active">
+						         	<img src="/images/meishi/<%= data.image %>" alt="First slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/meishi/<%= data.inimage1 %>" alt="Second slide">
+						     	 </div>
+						      	<div class="item">
+						         	<img src="/images/meishi/<%= data.inimage2 %>" alt="Third slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/meishi/<%= data.inimage3 %>" alt="4 slide">
+						      	</div>
+						      	<% } %>
+						      	<% if (data.type == "电影") {%>
+						      	<div class="item active">
+						         	<img src="/images/movies/<%= data.image %>" alt="First slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/movies/<%= data.inimage1 %>" alt="Second slide">
+						     	 </div>
+						      	<div class="item">
+						         	<img src="/images/movies/<%= data.inimage2 %>" alt="Third slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/movies/<%= data.inimage3 %>" alt="4 slide">
+						      	</div>
+						      	<% } %>
+						      	<% if (data.type == "服务") {%>
+						      	<div class="item active">
+						         	<img src="/images/service/<%= data.image %>" alt="First slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/service/<%= data.inimage1 %>" alt="Second slide">
+						     	 </div>
+						      	<div class="item">
+						         	<img src="/images/service/<%= data.inimage2 %>" alt="Third slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/service/<%= data.inimage3 %>" alt="4 slide">
+						      	</div>
+						      	<% } %>
+						      	<% if (data.type == "酒店") {%>
+						      	<div class="item active">
+						         	<img src="/images/hotel/<%= data.image %>" alt="First slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/hotel/<%= data.inimage1 %>" alt="Second slide">
+						     	 </div>
+						      	<div class="item">
+						         	<img src="/images/hotel/<%= data.inimage2 %>" alt="Third slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/hotel/<%= data.inimage3 %>" alt="4 slide">
+						      	</div>
+						      	<% } %>
+						      	<% if (data.type == "购物") {%>
+						      	<div class="item active">
+						         	<img src="/images/shopping/<%= data.image %>" alt="First slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/shopping/<%= data.inimage1 %>" alt="Second slide">
+						     	 </div>
+						      	<div class="item">
+						         	<img src="/images/shopping/<%= data.inimage2 %>" alt="Third slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/shopping/<%= data.inimage3 %>" alt="4 slide">
+						      	</div>
+						      	<% } %>
+						      	<% if (data.type == "娱乐") {%>
+						      	<div class="item active">
+						         	<img src="/images/yule/<%= data.image %>" alt="First slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/yule/<%= data.inimage1 %>" alt="Second slide">
+						     	 </div>
+						      	<div class="item">
+						         	<img src="/images/yule/<%= data.inimage2 %>" alt="Third slide">
+						      	</div>
+						      	<div class="item">
+						         	<img src="/images/yule/<%= data.inimage3 %>" alt="4 slide">
+						      	</div>
+						      	<% } %>
+						   	</div>
+						   	<!-- 轮播（Carousel）导航 -->
+						   	<a class="carousel-control left" href="#myCarousel" 
+						      data-slide="prev">&lsaquo;</a>
+						   	<a class="carousel-control right" href="#myCarousel" 
+						      data-slide="next">&rsaquo;</a>
+						</div> 
 					</div>
 					<div class="h-info">
 						<div class="prices clearfix">
@@ -302,17 +380,7 @@
 		// 	location.href = 'shopCar';
 		// });
 
-		//收藏
-		$('#collection').click(function(){
-			var str = window.location.search;
-			var id = str.substring(str.indexOf('=')+1);
-			//console.log(id);
-			var index = $('.resName').html().indexOf('】');
-			var pna = $('.resName').html().substring(1,index);
-			var pdetail = $('.packageName').html();
-			var price = $('#newPrice').html();
-			console.log(id+'\n'+pna+'\n'+pdetail+'\n'+price);
-		});
+		
 	});
 	</script>
 </body>

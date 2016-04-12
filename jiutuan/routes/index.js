@@ -374,7 +374,7 @@ router.route('/product_list/:type').get(function(req, res){
 			type = "服务";
 			titlename = "生活服务-列表页";
 		}
-		else if(req.params.type == "grogshop") {
+		else if(req.params.type == "hotel") {
 			type = "酒店";
 			titlename = "酒店-列表页";
 		}
@@ -775,4 +775,14 @@ router.route('/uncollection').post(function(req,res){
         }
 	});
 });
+// router.route("/uploadImg").get(function(req,res){  
+// 	// if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
+// 	// 	req.session.error = "请先登录"
+// 	// 	res.redirect("/sellerLogin");				//未登录则重定向到 /login 路径
+// 	// }
+// 	res.render("uploadImg",{title:'User busData'});
+// }).post(function(req,res){ 
+
+
+// });
 module.exports = router;

@@ -1,4 +1,5 @@
 $(function(){
+	$('.carousel').carousel();
 	$("#add").click(function(){
 		var n = parseInt($("#pNumber").val());
 		n +=1;
