@@ -183,6 +183,21 @@ router.route("/sellerRegister").get(function(req,res){    // 到达此路径则�
 	});	
 });
 
+/* GET login page. */
+router.route("/superMgLogin").get(function(req,res){    
+	res.render("superMgLogin",{title:'User Login'});
+}).post(function(req,res){ 					   // 从此路径检测到post方式则进行post数据的处理操作
+	var uname = req.body.uname;		
+	var pw = req.body.upwd;
+	if(uname == "manager" && pw == "manager"){
+		req.session.user = 'manager';
+		res.send(200);
+	}else{
+		req.session.error = '用户名或密码错误！';
+		res.send(401);
+	}
+	//管理员 userName：manager password：manager
+});
 /**/
 router.route("/busData").get(function(req,res){  
 	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
@@ -214,6 +229,7 @@ router.route("/busData").get(function(req,res){
 	var info = req.body.info;
 	var item = {five:0,four:0,three:0,two:0,one:0};
 	var soldNumber = 0;
+	//var sure = 0;
 	var data = {
 		//name: name,
 		type: type,
@@ -236,7 +252,8 @@ router.route("/busData").get(function(req,res){
 		info: info,
 		pjNumber: item,
 		soldNumber: soldNumber,
-		phoneNum: phoneNum
+		phoneNum: phoneNum,
+		sure: 0
 
 	};
 	// sellContent.findOne({resName:resName},function(err,doc){   
@@ -311,6 +328,41 @@ router.route("/busData").get(function(req,res){
 	
 });
 
+router.get("/superData",function(req,res){
+	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
+		req.session.error = "请先登录"
+		res.redirect("/superMgLogin");				//未登录则重定向到 /login 路径
+	}
+	global.sellConControl.dataFindAction({},function(err,doc){
+		res.render("superData",{title:'Home',objList:doc});
+	});
+});
+router.route("/superUpData").post(function(req,res){
+	var sure = req.body.sure;
+	var id = req.body.id;
+	global.sellConControl.sellConUpdateAction({_id: id},{sure: sure},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            req.session.error = '审核成功！';
+            res.send(200);
+        }
+	});
+});
+router.route("/superCancelData").post(function(req,res){
+	var sure = req.body.sure;
+	var id = req.body.id;
+	global.sellConControl.sellConUpdateAction({_id: id},{sure: sure},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            req.session.error = '取消审核！';
+            res.send(200);
+        }
+	});
+});
 //忘记密码 重新设置
 router.route("/foundPassword").get(function(req,res){    // 到达此路径则渲染register文件，并传出title值供 register.html使用
 	res.render("foundPassword",{title:'User register'});

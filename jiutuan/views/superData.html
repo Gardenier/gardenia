@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0">
+    <title>玖团</title>
+    <!-- Bootstrap core CSS -->
+	<link rel="icon" href="images/main/j_tuan.ico" type="image/x-ico"/>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheets/busData.css">
+    <script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/bootstrap.js"></script>
+	<style>
+	.container {
+		margin-top: 30px;
+		text-align: center;
+	}
+	th {
+		text-align: center;
+	}
+	.pid {
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<th>商家</th>
+				<th>类别</th>
+				<th>套餐</th>
+				<th>价格</th>
+				<th>状态</th>
+			</thead>	
+			<tbody>
+				<% objList.forEach(function(data, index){ %>
+				<tr>
+					<td class="pid"><%= data._id %></td>
+					<td><%= data.resName %></td>
+					<td><%= data.type %></td>
+					<td><%= data.packageName %></td>
+					<td><%= data.newPrice %></td>
+					<td>
+						<% if (data.sure == 0){ %>
+						<button class="btn btn-primary usure">未审核</button>
+						<% } else if (data.sure == 1){ %>
+						<button class="btn btn-success sure">已审核</button>
+						<button class="btn btn-danger cancel">取消审核</button>
+						<% } %>
+					</td>
+
+				</tr>
+				<% }) %>
+			</tbody>
+			<tfoot>
+				
+			</tfoot>
+		</table>
+	</div>
+	<script>
+		$('.usure').click(function(){
+			var id = $(this).parents('tr').find('.pid').html();
+			//console.log(id);
+			var data = {id: id,sure: 1};
+			$.ajax({
+				url:'/superUpData',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						//alert('收藏成功！');
+						location.reload();
+					}
+				},
+				error: function(err,status){ 
+					alert(err);
+				}
+			});
+		});
+		$('.cancel').click(function(){
+			var id = $(this).parents('tr').find('.pid').html();
+			console.log(id);
+			var data = {id: id,sure: 0};
+			$.ajax({
+				url:'/superCancelData',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						//alert('收藏成功！');
+						location.reload();
+					}
+				},
+				error: function(err,status){ 
+					alert(err);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

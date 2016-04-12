@@ -199,7 +199,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "美食" ) {  %>
+						<% if (data.type == "美食" && data.sure == 1) {  %>
 						<div class="tjCell">
 							<a href="/product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/meishi/<%= data.image%>" alt="">
@@ -233,7 +233,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "电影" ) {  %>
+						<% if (data.type == "电影" && data.sure == 1) {  %>
 						<div class="tjCell">
 							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/movies/<%= data.image%>" alt="">
@@ -266,7 +266,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "娱乐" ) {  %>
+						<% if (data.type == "娱乐" && data.sure == 1 ) {  %>
 						<div class="tjCell">
 							<a href="/product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/yule/<%= data.image%>" alt="">
@@ -299,7 +299,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "酒店" ) {  %>
+						<% if (data.type == "酒店" && data.sure == 1 ) {  %>
 						<div class="tjCell">
 							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/hotel/<%= data.image%>" alt="">
@@ -332,7 +332,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "购物" ) {  %>
+						<% if (data.type == "购物" && data.sure == 1 ) {  %>
 						<div class="tjCell">
 							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/shopping/<%= data.image%>" alt="">
@@ -365,7 +365,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "服务" ) {  %>
+						<% if (data.type == "服务" && data.sure == 1 ) {  %>
 						<div class="tjCell">
 							<a href="product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/service/<%= data.image%>" alt="">
