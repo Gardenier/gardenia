@@ -721,6 +721,7 @@ router.route("/userCenter").get(function(req,res){
 	}
 	//res.render("userCenter",{title:"玖团"});
 });
+
 //评价
 router.route("/evaluate").post(function(req,res){
 	var pid = req.body.pid;
@@ -787,12 +788,40 @@ router.route('/search').get(function(req, res){
 		req.query['text'] = req.body.text;
 	//});
 });
+//个人中心 收藏
+router.route("/myCollection").get(function(req,res){
+	var user = "";
+	if(!req.session.user){
+		req.session.error = "您还没有登录";
+		res.redirect("/login");
+	}else{
+		user = req.session.user.name;
+	}
 
+	global.collectControl.collectFindAction({userName: user},function(err,doc){
+		res.render("myCollection",{title:"个人中心-收藏",objList: doc,username:user});
+	});
+	//res.render("userCenter",{title:"玖团"});
+}).post(function(req,res){
+	var id = req.body.id;
+	var userName = req.body.userName;
+	console.log('id'+id+'\n'+userName);
+	global.collectControl.collectRemoveAction({id: id,userName: userName},function(err,doc){
+		console.log('doc:'+doc+'\n');
+		if (err) {
+            console.log(err);
+            res.send(500);
+        } else {
+            console.log('取消收藏');
+            res.send(200);
+        }
+	});
+});;
 //收藏
 router.route('/collection').post(function(req,res){
 	var userName = req.body.userName;
 	var id = req.body.id;
-	var c_resName = req.body.pna;
+	var c_resName = req.body.resName;
 	var projectDetail = req.body.pdetail;
 	var price = req.body.price;
 	var data = {

@@ -10,8 +10,7 @@ $(function(){
 		if(n > 1) {
 			n -=1;
 			$("#pNumber").val(n);
-		}
-		
+		}	
 	});
 	//收藏
 	// $('#collection').click(function(){

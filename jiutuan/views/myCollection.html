@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include header.html %>
+	<title>玖团-详情页</title>
+	<link rel="stylesheet" href="/stylesheets/product_detail.css">
+	<link rel="stylesheet" href="/stylesheets/userCenter.css">
+	<script src="javascripts/jquery-2.0.3.min.js"></script>
+	<script src="javascripts/bootstrap.js"></script>
+	<script src="javascripts/jquery.cookie.js"></script>
+</head>
+<body>
+	<!--公共头部start-->
+	<% include commonHeader.html %>
+	<!--公共头部end-->
+	<div class="userCenter clearfix">
+		<div class="tab-list">
+			<div class="tab-t">
+				<strong id="myMes">
+					<a href="userCenter?name=<%= username %>">我的账户</a>
+				</strong>
+			</div>
+			<div class="tab-t">
+				<strong id="myOrder">我的订单</strong>
+				<ul>
+					<li id="succ"><a href="userCenter?name=<%= username %>&status=1">已完成</a></li>
+					<li id="usucc"><a href="userCenter?name=<%= username %>&status=0">未完成</a></li>
+				</ul>
+			</div>
+			<div class="tab-t">
+				<strong id="myAcc">我的评价</strong>
+				<ul>
+					<li id="acc"><a href="userCenter?name=<%= username %>&status=11">已评价</a></li>
+					<li id="uacc"><a href="userCenter?name=<%= username %>&status=10">未评价</a></li>
+				</ul>
+			</div>
+			<div class="tab-t">
+				<strong id="myCollect">
+					<a href="myCollection" class="bc">我的收藏</a>
+				</strong>
+			</div>
+		</div>
+		<div class="list-content">
+			<% if( objList == ''){ %>
+				<div>
+					<img src="/images/noOrder.png" alt="">亲，您没有任何收藏，请移步到<a href="home" style="color: #EF5651;">玖团首页</a>收藏你喜爱的吧!<a href="home" style="color: #EF5651;"> 出发！</a>
+				</div>
+			<% }%>
+			<%  if(objList.length) { %>
+			<table class="buy-table">
+        		<tbody>
+        			<tr class="order-table-head-row">
+			            <th class="package">项目</th>
+			            <th class="price">单价</th>
+			            <th class="do-btns">操作</th>
+			        </tr>
+			        <% objList.forEach(function(data, index){ %>
+	        		<tr>
+	            		<td class="package">
+                			<a href="product_detail?id=<%= data._id %>" target="_blank">
+                    			<span class="resName"><%= data.c_resName %></span>:<span class="packageName"><%= data.projectDetail %></span><span class="pid" style="display: none;"><%= data.id %></span>
+               	 			</a>
+            			</td>
+			            <td class="price">
+			                ¥<span class="price"><%= data.price %></span>
+			            </td>
+			            <td>
+			            	<button class="btn btn-danger removeData">取消收藏</button>
+			            </td>
+        			</tr>
+        			<% }) %>
+    			</tbody>
+    		</table>
+    		<% } %>
+		</div>
+	</div>
+	<script>
+	$(function(){
+		$(".removeData").each(function(){
+			$(this).click(function(){
+				var pid = $(this).parents('tr').find('.pid').html();
+				//$('#pID').html(pid);
+				//console.log(pid);
+				remove(pid);
+			})
+		});
+	});
+	//删除
+	function remove(id){ 
+		//var pid = id;
+		var uname = $('#userName a').html();
+		console.log(uname);
+		var data = {
+			id: id,
+			userName: uname
+		}
+		$.ajax({
+			url:'/myCollection',
+			type:'post',
+			data: data,
+			success: function(data,status){ 
+				if(status == 'success'){ 
+					//alert('取消收藏！');
+					location.reload();
+				}
+			},
+			error: function(err,status){ 
+				alert(err);
+			}
+		});
+	}
+	</script>
+</body>
+</html>

@@ -17,4 +17,10 @@ exports.removeCollection = function(conditions,dbHelper,callback) {
     var collectionModel = collection.getModel();
     dbHelper.removeData(collectionModel,conditions,callback);
 }
+exports.findData = function(conditions,dbHelper,callback) {
+
+    var collectionModel = collection.getModel();
+    dbHelper.findData(collectionModel,conditions,callback);
+
+};
 

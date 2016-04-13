@@ -13,3 +13,6 @@ exports.collectAddAction = function(data,callback) {
 exports.collectRemoveAction = function(conditions,callback) {
 	collection.removeCollection(conditions,dbHelper,callback);
 }
+exports.collectFindAction = function(conditions,callback) {
+    collection.findData(conditions,dbHelper,callback);
+}
