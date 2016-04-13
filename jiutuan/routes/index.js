@@ -474,8 +474,16 @@ router.route("/product_detail").get(function(req,res){
 		titlename = "酒店-详情页";
 	}*/
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err, List){
-		res.render("product_detail",{title: "详情页",objList:List,username: user});
+		var List = List;
+		global.collectControl.collectFindAction({userName: user},function(err,doc){
+			res.render("product_detail",{title:"详情页",objList:List,cobjList: doc,username:user});
+		});
+		//res.render("product_detail",{title: "详情页",objList:List,username: user});
 	});
+
+	// global.collectControl.collectFindAction({userName: user},function(err,doc){
+	// 	res.render("product_detail",{title:"详情页",cobjList: doc,username:user});
+	// });
 });
 
 //购买页面1 提交订单

@@ -10,6 +10,9 @@
 	<script src="/javascripts/jquery.cookie.js"></script>
 </head>
 <body>
+	<% cobjList.forEach(function(data,index){ %>
+	<div class="collectId" style="display: none;"><%= data.id %></div>
+	<% }) %>
 	<% objList.forEach(function(data, index){ %>
 	<div class="product_detail">
 		<!--公共头部start-->
