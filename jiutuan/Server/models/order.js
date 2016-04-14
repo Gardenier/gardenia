@@ -9,6 +9,7 @@ var orderSchema = new Schema({
 	pNumber: Number,
 	price: Number,
 	status: Number,
+	pstatus: Number,
 	// feedBack: {
 	// 	star: Number,//分数
 	// 	text: String,//评价内容

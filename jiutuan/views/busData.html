@@ -15,8 +15,35 @@
     <script src="javascripts/bootstrap-datepicker.js"></script>
 	<script src="javascripts/bootstrap-datepicker.zh-CN.js"></script>
 	
+	<style>
+	nav {
+		margin: 20px 5px;
+		border: 1px solid #ccc;
+		box-shadow: 2px 2px 2px #eee;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	nav div {
+		display: inline-block;
+		width: 100px;
+	} 
+	nav a {
+		color: #000;
+		display: block;
+		padding: 10px;
+	}
+	.active {
+		background-color: #FDF59A;
+	}
+	</style>
 </head>
 <body>
+	<nav>
+		<div><a href="busData" class="active">数据上传</a></div>
+		<div><a href="bus_upData">数据修改</a></div>
+		<div><a href="bus_order">查看订单</a></div>
+		<div class="pull-right"><a href="sellerLogin">退出</a></div>
+	</nav>
 	<div class="wrap busData">
 		<form action="">
 			<!-- <div>商户名称：<span id="sellerName"><%- user.name %></span></div> -->

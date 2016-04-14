@@ -41,14 +41,14 @@
 			</div>
 			<div class="tab-t">
 				<strong id="myShopCar">
-					<a href="javascript:;">我的购物车</a>
+					<a href="javascript:;" class="bc">我的购物车</a>
 				</strong>
 			</div>
 		</div>
 		<div class="list-content">
 			<% if( objList == ''){ %>
 				<div>
-					<img src="/images/noOrder.png" alt="">亲，您没有任何收藏，请移步到<a href="home" style="color: #EF5651;">玖团首页</a>收藏你喜爱的吧!<a href="home" style="color: #EF5651;"> 出发！</a>
+					<img src="/images/noOrder.png" alt="">亲，您的购物车是空的，请移步到<a href="home" style="color: #EF5651;">玖团首页</a>添加你喜爱的吧!<a href="home" style="color: #EF5651;"> 出发！</a>
 				</div>
 			<% }%>
 			<%  if(objList.length) { %>
@@ -57,20 +57,29 @@
         			<tr class="order-table-head-row">
 			            <th class="package">项目</th>
 			            <th class="price">单价</th>
+			            <th class="amount">数量</th>
+			            <th class="total">总价</th>
 			            <th class="do-btns">操作</th>
 			        </tr>
 			        <% objList.forEach(function(data, index){ %>
 	        		<tr>
 	            		<td class="package">
                 			<a href="product_detail?id=<%= data._id %>" target="_blank">
-                    			<span class="resName"><%= data.c_resName %></span>:<span class="packageName"><%= data.projectDetail %></span><span class="pid" style="display: none;"><%= data.id %></span>
+                    			<span class="resName"><%= data.resName %></span>:<span class="packageName"><%= data.projectDetail %></span><span class="pid" style="display: none;"><%= data._id %></span>
                	 			</a>
             			</td>
 			            <td class="price">
 			                ¥<span class="price"><%= data.price %></span>
 			            </td>
-			            <td>
-			            	<button class="btn btn-danger removeData">取消收藏</button>
+            			<td class="amount">	
+		                	<%= data.pNumber %>
+            			</td>
+			            <td class="total-wrap">
+			                ¥<span class="total"><%= data.price*data.pNumber %></span>
+			            </td>
+			            <td class="a-btn">
+			            	<button class="btn btn-info" onclick="pay()">前去支付</button>
+			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
         			</tr>
         			<% }) %>
