@@ -565,7 +565,7 @@ router.route("/buyStep_1").get(function(req,res){
 		price: price,
 		status: status,
 		pstatus: 0,
-		//feedBack: feed
+		cstatus: 0,
 		star: star,
 		text: text,
 		fstatus: fstatus
@@ -768,6 +768,26 @@ router.route("/userCenter").get(function(req,res){
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
 			});
 		}
+		if(status == 21){
+			var conditions = {
+				userName: req.query.name,
+				status: 1,
+				cstatus: 1
+			};
+			global.orderControl.orderFindAction(conditions,function(err,doc){
+				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
+			})
+		}
+		if(status == 20){
+			var conditions = {
+				userName: req.query.name,
+				status: 1,
+				cstatus: 0
+			};
+			global.orderControl.orderFindAction(conditions,function(err,doc){
+				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
+			})
+		}
 	}else {
 		console.log('cqw'+'\n');
 		global.orderControl.orderFindAction({userName:req.query.name},function(err,doc){//,objList: doc
@@ -776,7 +796,18 @@ router.route("/userCenter").get(function(req,res){
 	}
 	//res.render("userCenter",{title:"玖团"});
 });
-
+//评价
+router.route("/consume").post(function(req,res){
+	var pid = req.body.pid;
+	global.orderControl.orderUpdateAction({_id: pid},{cstatus: 1},function(err,doc){
+		if(err) {
+			res.send(500);
+		}else {
+			console.log('消费成功');
+		    res.send(200);
+		}
+	});
+});
 //评价
 router.route("/evaluate").post(function(req,res){
 	var pid = req.body.pid;
