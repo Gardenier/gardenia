@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1.0">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/stylesheets/homePage.css">
+	<link rel="stylesheet" href="/stylesheets/skitter.styles.css"/>
 </head>
 <body>
 	<div id="#idol"></div>
@@ -60,57 +61,75 @@
 					<li><a href="javascript:;">今日特惠</a></li>
 					<li><a href="javascript:;">今日新单</a></li>
 				</ul>
-				<div class="swiper-container" style="height: 205px;overflow:hidden;width: 100%;">
-					<div class="swiper-wrap">
-						<div class="swiper-slide pull-left" style='width:66.66%' >
-							<img style="width: 100%;" src="images/slide1.jpg" alt="">
-						</div>
-						<div class="swiper-slide pull-left" style="width: 33.33%;">
-							<img style="width: 100%;" src="images/slide2.jpg" alt="">
-						</div>
+				<div class="skitter swiper-container">
+					<div class="box_skitter box_skitter_large skitter-content">
+						<ul>
+							<li>
+								<a href="javascript:;">
+									<img src="/images/meishi01.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<img src="/images/meishi02.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<img src="/images/meishi03.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<img src="/images/meishi02.jpg" />
+								</a>
+							</li>
+
+						</ul>
+
 					</div>
 				</div>
 				<div class="slide-footer clearfix">
 					<div>
 						<p class="title">热门搜索</p>
 						<ul class="clearfix">
-							<li><a href="javascript:;">小吃快餐</a></li>
-							<li><a href="javascript:;">自助餐</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">景点门票</a></li>
-							<li><a href="javascript:;">烧烤烤肉</a></li>
-							<li><a href="javascript:;">KTV</a></li>
-							<li><a href="javascript:;">火锅</a></li>
-							<li><a href="javascript:;">甜点饮品</a></li>
+							<li><a href="/search?text=小吃快餐">小吃快餐</a></li>
+							<li><a href="/search?text=自助餐">自助餐</a></li>
+							<li><a href="/search?text=火锅">火锅</a></li>
+							<li><a href="/search?text=景点门票">景点门票</a></li>
+							<li><a href="/search?text=烧烤烤肉">烧烤烤肉</a></li>
+							<li><a href="/search?text=KTV">KTV</a></li>
+							<li><a href="/search?text=火锅">火锅</a></li>
+							<li><a href="/search?text=甜点饮品">甜点饮品</a></li>
 						</ul>
 					</div>
 					<div>
 						<p class="title">全部区域</p>
 						<ul>
-							<li><a href="javascript:;">历下区</a></li>
-							<li><a href="javascript:;">市中区</a></li>
-							<li><a href="javascript:;">历城区</a></li>
-							<li><a href="javascript:;">槐荫区</a></li>
-							<li><a href="javascript:;">天桥区</a></li>
-							<li><a href="javascript:;">长清区</a></li>
-							<li><a href="javascript:;">章丘市</a></li>
-							<li><a href="javascript:;">济阳县</a></li>
-							<li><a href="javascript:;">平阴县</a></li>
-							<li><a href="javascript:;">高新区</a></li>
-							<li><a href="javascript:;">商河县</a></li>
+							<li><a href="/search/area/历下区">历下区</a></li>
+							<li><a href="/search/area/市中区">市中区</a></li>
+							<li><a href="/search/area/历城区">历城区</a></li>
+							<li><a href="/search/area/槐荫区">槐荫区</a></li>
+							<li><a href="/search/area/天桥区">天桥区</a></li>
+							<li><a href="/search/area/长清区">长清区</a></li>
+							<li><a href="/search/area/章丘市">章丘市</a></li>
+							<li><a href="/search/area/济阳县">济阳县</a></li>
+							<li><a href="/search/area/平阴县">平阴县</a></li>
+							<li><a href="/search/area/高新区">高新区</a></li>
+							<li><a href="/search/area/商河县">商河县</a></li>
 						</ul>
 					</div>
 					<div>
 						<p class="title">热门商圈</p>
 						<ul>
-							<li><a href="javascript:;">世茂国际广场</a></li>
-							<li><a href="javascript:;">恒隆广场</a></li>
-							<li><a href="javascript:;">洪家楼</a></li>
-							<li><a href="javascript:;">大观园</a></li>
-							<li><a href="javascript:;">济大/会展中心</a></li>
-							<li><a href="javascript:;">西市场</a></li>
-							<li><a href="javascript:;">芙蓉街</a></li>
-							<li><a href="javascript:;">青龙小区</a></li>
+							<li><a href="/search/address/世贸国际广场">世茂国际广场</a></li>
+							<li><a href="/search/address/恒隆广场">恒隆广场</a></li>
+							<li><a href="/search/address/洪家楼">洪家楼</a></li>
+							<li><a href="/search/address/大观园">大观园</a></li>
+							<li><a href="/search/address/济大">济大</a></li>
+							<li><a href="/search/address/西市场">西市场</a></li>
+							<li><a href="/search/address/芙蓉街">芙蓉街</a></li>
+							<li><a href="/search/address/青龙小区">青龙小区</a></li>
 						</ul>
 					</div>
 				</div>
@@ -199,7 +218,7 @@
 					</div>
 					<div class="clearfix">
 						<% objList.forEach(function(data, index){ %>
-						<% if (data.type == "美食" && data.sure == 1) {  %>
+						<% if (data.type == "美食") {  %>
 						<div class="tjCell">
 							<a href="/product_detail?id=<%= data._id%>" class="mtjCell">
 								<img src="images/meishi/<%= data.image%>" alt="">
@@ -539,6 +558,22 @@
 		<p class="foot-p">@2016 JIUTUAN.COM XX备XXXXXX号</p>
 	</div>
 	<script>
+		$('.box_skitter_large').skitter({
+			theme: 'clean',
+			animation: 'random',
+			interval: 1500,
+			numbers:false,                    //是否显示数字按钮
+			label:false,                        //是否显示底部标题
+			navigation:true,                //是否显示导航按钮,就是前后方向
+			progressbar: false,             //是否显示进度条动画
+			dots: false,                     //导航用点
+			preview: false,                    //是否显示预览图
+			controls:false,                    //是否显示控制按钮 play/pause选项
+			controls_position:'leftTop',    //控制按钮位置：center, leftTop, rightTop, leftBottom, rightBottom
+			show_randomly: true
+		});
+	</script>
+	<script>
 		$(function(){
 			var user = $("#login");
 			var regist = $("#reg");
@@ -553,7 +588,7 @@
 				var text = $(".search-input").val();
 				var data = {'text': text};
 				$.ajax({
-					url: "/search?text="+text+"",
+					url: "/search",
 					type: "post",
 					data: data,
 					success: function(data,status){
