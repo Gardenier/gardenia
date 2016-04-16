@@ -58,9 +58,9 @@
 				<% objList.forEach(function(data, index){ %>
 				<tr>
 					<td class="resName"><%= data.resName %></td>
-					<td class="pName"><%= data.projectDetail %></td>
+					<td class="pName"><%= data.packageName %></td>
 					<td>
-						<a href="busData?update=true" class="btn btn-primary" id="bus_upData">修改</a>
+						<a href="editorBusData?id=<%= data.id%>" class="btn btn-primary" id="bus_upData">修改</a>
 						<button class="btn btn-danger" id="bus_delete">删除</button>
 					</td>
 				</tr>
@@ -71,7 +71,7 @@
 			</tfoot>
 		</table>
 	</div>
-   <script src='javascripts/busData.js'></script>
+   <!--<script src='javascripts/busData.js'></script>-->
    <script>
    $('#bus_upData').click(function(){
    		var rname = $(this).parents('tr').find(".resName").html();

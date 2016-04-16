@@ -199,6 +199,34 @@ router.route("/superMgLogin").get(function(req,res){
 	//管理员 userName：manager password：manager
 });
 /**/
+//editor busData
+router.route('/editorBusData').get(function(req,res){
+	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
+		// console.log('editorBusData'+'\n'+doc);
+		// if (err) {
+  //           res.send(500);
+  //           console.log(err);
+  //       } else {
+  //           req.session.error = '录入数据成功！';
+  //           res.send(200);
+  //       }
+  		console.log("哈哈"+doc+'\n');
+  		res.render("editorBusData",{title:'修改套餐信息',objectList:doc});
+    });
+	
+});// .post(function(req,res){
+// 	global.sellConControl.sellConAddAction({},function(err,doc){
+// 		console.log('editorBusData'+'\n'+doc);
+// 		if (err) {
+//             res.send(500);
+//             console.log(err);
+//         } else {
+//             req.session.error = '录入数据成功！';
+//             res.send(200);
+//         }
+//     });
+// });
+//商家录入数据
 router.route("/busData").get(function(req,res){  
 	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
 		req.session.error = "请先登录"
@@ -357,7 +385,6 @@ router.route('/bus_order').get(function(req,res){
 	});
 });
 //商家 修改信息
-//商家 查看订单
 router.route('/bus_upData').get(function(req,res){
 	//var id = req.body.id;
 	global.sellConControl.dataFindAction({},function(err,doc){
