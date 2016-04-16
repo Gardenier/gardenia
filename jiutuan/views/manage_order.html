@@ -20,42 +20,44 @@
 	th {
 		text-align: center;
 	}
-	.pid {
-		display: none;
-	}
+	
 	nav {
 		margin: 20px 5px;
 		border: 1px solid #ccc;
 		box-shadow: 2px 2px 2px #eee;
-	}
-	nav div{
-		display: inline-block;
-	}
-	nav a{
-		display: block;
-		padding: 10px;
-		color: #000;
 		font-size: 20px;
 		font-weight: bold;
 	}
+	nav div {
+		display: inline-block;
+		width: 100px;
+	} 
+	nav a {
+		color: #000;
+		display: block;
+		padding: 10px;
+	}
 	.active {
-		background-color: yellow;
+		background-color: #FDF59A;
 	}
 	</style>
 </head>
 <body>
 	<nav>
-		<div><a href="superData" class="active">订单审核</a></div>
-		<div><a href="manage_order">查看订单</a></div>
-		<div class="pull-right"><a href="superMglogin">退出</a></div>
+		<div><a href="superData">商品审核</a></div>
+		<div><a href="manage_order" class="active">查看订单</a></div>
+		<div class="pull-right"><a href="superMgLogin">退出</a></div>
 	</nav>
 	<div class="container">
 		<table class="table table-striped">
 			<thead>
+				<th>订单号</th>
 				<th>商家</th>
-				<th>类别</th>
 				<th>套餐</th>
-				<th>价格</th>
+				<th>数量</th>
+				<th>单价</th>
+				<th>总价</th>
+				<th>用户</th>
 				<th>状态</th>
 			</thead>	
 			<tbody>
@@ -63,18 +65,23 @@
 				<tr>
 					<td class="pid"><%= data._id %></td>
 					<td><%= data.resName %></td>
-					<td><%= data.type %></td>
-					<td><%= data.packageName %></td>
-					<td><%= data.newPrice %></td>
+					<td><%= data.projectDetail %></td>
+					<td><%= data.pNumber %></td>
+					<td><%= data.price %></td>
+					<td><%= data.pNumber*data.price %></td>
+					<td><%= data.userName %></td>
 					<td>
-						<% if (data.sure == 0){ %>
-						<button class="btn btn-primary usure">未审核</button>
-						<% } else if (data.sure == 1){ %>
-						<button class="btn btn-success sure">已审核</button>
-						<button class="btn btn-danger cancel">取消审核</button>
+						<% if (data.status == 0){ %>
+						未支付
+						<% } else { %>
+						已支付
+							<% if(data.pstatus == 0) { %>
+							<button class="btn btn-success moneyToBus">给商家转账</button>
+							<% } else {%>
+							<span>—— 已转账</span>
+							<% } %>
 						<% } %>
 					</td>
-
 				</tr>
 				<% }) %>
 			</tbody>
@@ -84,31 +91,12 @@
 		</table>
 	</div>
 	<script>
-		$('.usure').click(function(){
+		$('.moneyToBus').click(function(){
 			var id = $(this).parents('tr').find('.pid').html();
 			//console.log(id);
-			var data = {id: id,sure: 1};
+			var data = {id: id,pstatus: 1};
 			$.ajax({
-				url:'/superUpData',
-				type:'post',
-				data: data,
-				success: function(data,status){ 
-					if(status == 'success'){ 
-						//alert('收藏成功！');
-						location.reload();
-					}
-				},
-				error: function(err,status){ 
-					alert(err);
-				}
-			});
-		});
-		$('.cancel').click(function(){
-			var id = $(this).parents('tr').find('.pid').html();
-			console.log(id);
-			var data = {id: id,sure: 0};
-			$.ajax({
-				url:'/superCancelData',
+				url:'/moneyToBus',
 				type:'post',
 				data: data,
 				success: function(data,status){ 

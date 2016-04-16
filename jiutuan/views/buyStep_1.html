@@ -117,9 +117,13 @@
 		// });
 
 		//数据交互
-		$('#subOrder').click(function(){
+		var pn = $('#pNumber').val();
+		for(var i =0;i<pn;i++){
+			addOrder();
+		}
+		function addOrder(){
 			//更新 订单数量
-			var pn = $('#pNumber').val();       
+			//var pn = $('#pNumber').val();       
         	var resName = $('#resName').html();
 			var pd = $('#packageName').html();
 
@@ -127,11 +131,6 @@
 			$.cookie('pName', pd, {path: '/'});  //存储cookie数据
 			$.cookie('rName', resName, {path: '/'});  //存储cookie数据
 
-			//alert(resName);
-			//var pNumber = $('#pNumber').val();
-			//var str = window.location.search;
-			//var id = str.substring((str).indexOf('=')+1);
-			//var id = $('#_id').html();
 			var date  = new Date();
 			var id = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+
 					date.getDate()+'-'+date.getHours()+':'+date.getMinutes()+
@@ -144,9 +143,9 @@
 			//var pd = $('#packageName').html();
 			var price = parseFloat($('#price').html());
 			
-			var data = {'id': id,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': pn,'status': 0};
+			var data = {'id': id,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': 1,'status': 0};
 			//alert(name);
-			$(this).attr('href','buyStep_2?id='+id);
+			$('#subOrder').attr('href','buyStep_2?id='+id);
 			$.ajax({ 
 				url:'/buyStep_1',
 				type:'post',
@@ -160,21 +159,7 @@
 					alert(status);
 				}
 			});
-
-			// $.ajax({ 
-			// 	url:'/buyStep_2',
-			// 	type:'post',
-			// 	data: {'id': id},
-			// 	success: function(data,status){ 
-			// 		if(status == 'success'){ 
-			// 			//location.href = 'buyStep_2';
-			// 		}
-			// 	},
-			// 	error: function(err,status){ 
-			// 		alert(status);
-			// 	}
-			// });
-		});
+		}
 
 	});
 	</script>

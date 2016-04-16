@@ -23,8 +23,10 @@
 			<div class="tab-t">
 				<strong id="myOrder">我的订单</strong>
 				<ul>
-					<li id="succ"><a href="userCenter?name=<%= username %>&status=1">已完成</a></li>
-					<li id="usucc"><a href="userCenter?name=<%= username %>&status=0">未完成</a></li>
+					<li id="succ"><a href="userCenter?name=<%= username %>&status=1">已付款</a></li>
+					<li id="usucc"><a href="userCenter?name=<%= username %>&status=0">待付款</a></li>
+					<li id="use"><a href="userCenter?name=<%= username %>&status=21">已消费</a></li>
+					<li id="unuse"><a href="userCenter?name=<%= username %>&status=20">待消费</a></li>
 				</ul>
 			</div>
 			<div class="tab-t">
@@ -36,12 +38,12 @@
 			</div>
 			<div class="tab-t">
 				<strong id="myCollect">
-					<a href="myCollection" class="bc">我的收藏</a>
+					<a href="myCollection">我的收藏</a>
 				</strong>
 			</div>
 			<div class="tab-t">
 				<strong id="myShopCar">
-					<a href="javascript:;" class="bc">我的购物车</a>
+					<a href="javascript:;">我的购物车</a>
 				</strong>
 			</div>
 		</div>
@@ -65,6 +67,7 @@
 			<table class="buy-table">
         		<tbody>
         			<tr class="order-table-head-row">
+        				<th class="orderNum">订单号</th>
 			            <th class="package">项目</th>
 			            <th class="price">单价</th>
 			            <th class="amount">数量</th>
@@ -73,9 +76,12 @@
 			        </tr>
 			        <% objList.forEach(function(data, index){ %>
 	        		<tr>
+	        			<td class="orderNum">
+	        				<span class="pid"><%= data._id %></span>
+	        			</td>
 	            		<td class="package">
                 			<a href="product_detail?id=<%= data._id %>" target="_blank">
-                    			<span class="resName"><%= data.resName %></span>:<span class="packageName"><%= data.projectDetail %></span><span class="pid" style="display: none;"><%= data._id %></span>
+                    			<span class="resName"><%= data.resName %></span>:<span class="packageName"><%= data.projectDetail %></span>
                	 			</a>
             			</td>
 			            <td class="price">
@@ -94,6 +100,16 @@
 			            </td>
 			            <% } else if (data.status == 1){ %>
 			            <td class="a-btn">
+			 				<button class="btn btn-danger removeData">删除</button>
+			            </td>
+			            <% } %>
+			            <% if(data.cstatus == 0){ %>
+			            <td class="p-btn">
+			            	<button class="btn btn-info" onclick="use()">消费</button>
+			 				<button class="btn btn-danger removeData">删除</button>
+			            </td>
+			            <% } else if (data.cstatus == 1){ %>
+			            <td class="p-btn">
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
@@ -191,19 +207,33 @@
 			$('.buy-table').show();
 			if(search == 'status=1'){
 				$('.f-btn').hide();
+				$('.p-btn').hide();
 				$('#succ a').addClass('bc');
 			}
 			if(search == 'status=0'){
 				$('.f-btn').hide();
+				$('.p-btn').hide();
 				$('#usucc a').addClass('bc');
 			}
 			if(search == 'status=11'){
 				$('.a-btn').hide();
+				$('.p-btn').hide();
 				$('#acc a').addClass('bc');
 			}
 			if(search == 'status=10'){
 				$('.a-btn').hide();
+				$('.p-btn').hide();
 				$('#uacc a').addClass('bc');
+			}
+			if(search == 'status=21'){
+				$('.a-btn').hide();
+				$('.f-btn').hide();
+				$('#use a').addClass('bc');
+			}
+			if(search == 'status=20'){
+				$('.a-btn').hide();
+				$('.f-btn').hide();
+				$('#unuse a').addClass('bc');
 			}
 		}
 	}
@@ -243,6 +273,27 @@
 		// 		alert(err);
 		// 	}
 		// });
+	}
+	//消费
+	function use(){ 
+		var pid = $('.pid').html();
+		var data =  {
+			pid: pid,
+		};
+		//alert(pid);
+		$.ajax({ 
+			url:'/consume',
+			type:'post',
+			data: data,
+			success: function(data,status){ 
+				if(status == 'success'){ 
+					location.reload();
+				}
+			},
+			error: function(err,status){ 
+				alert(err);
+			}
+		});
 	}
 	//评价
 	function acc(){ 

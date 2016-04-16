@@ -99,7 +99,7 @@ app.use("/buyStep_1",routes);
 app.use("/buyStep_2",routes);
 app.use("/userCenter",routes);
 app.use("/shopCar",routes);
-
+app.use('/bus_upData',routes);
 
 
 

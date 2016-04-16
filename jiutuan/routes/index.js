@@ -199,6 +199,34 @@ router.route("/superMgLogin").get(function(req,res){
 	//管理员 userName：manager password：manager
 });
 /**/
+//editor busData
+router.route('/editorBusData').get(function(req,res){
+	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
+		// console.log('editorBusData'+'\n'+doc);
+		// if (err) {
+  //           res.send(500);
+  //           console.log(err);
+  //       } else {
+  //           req.session.error = '录入数据成功！';
+  //           res.send(200);
+  //       }
+  		console.log("哈哈"+doc+'\n');
+  		res.render("editorBusData",{title:'修改套餐信息',objectList:doc});
+    });
+	
+});// .post(function(req,res){
+// 	global.sellConControl.sellConAddAction({},function(err,doc){
+// 		console.log('editorBusData'+'\n'+doc);
+// 		if (err) {
+//             res.send(500);
+//             console.log(err);
+//         } else {
+//             req.session.error = '录入数据成功！';
+//             res.send(200);
+//         }
+//     });
+// });
+//商家录入数据
 router.route("/busData").get(function(req,res){  
 	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
 		req.session.error = "请先登录"
@@ -328,6 +356,41 @@ router.route("/busData").get(function(req,res){
 	
 });
 
+//管理员 查看订单
+router.route('/manage_order').get(function(req,res){
+	global.orderControl.orderFindAction({},function(err,doc){
+		res.render("manage_order",{title:'Home',objList:doc});
+	});
+}).post(function(req,res){
+
+});
+//管理员 转账给商家
+router.route('/moneyToBus').post(function(req,res){
+	var id = req.body.id;
+	global.orderControl.orderUpdateAction({_id: id},{pstatus: 1},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            req.session.error = '转账成功！';
+            res.send(200);
+        }
+	});
+});
+//商家 查看订单
+router.route('/bus_order').get(function(req,res){
+	//var id = req.body.id;
+	global.orderControl.orderFindAction({},function(err,doc){
+		res.render("bus_order",{title:'Home',objList:doc});
+	});
+});
+//商家 修改信息
+router.route('/bus_upData').get(function(req,res){
+	//var id = req.body.id;
+	global.sellConControl.dataFindAction({},function(err,doc){
+		res.render("bus_upData",{title:'Home',objList:doc});
+	});
+});
 router.get("/superData",function(req,res){
 	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
 		req.session.error = "请先登录"
@@ -528,56 +591,67 @@ router.route("/buyStep_1").get(function(req,res){
 		pNumber: pn,
 		price: price,
 		status: status,
-		//feedBack: feed
+		pstatus: 0,
+		cstatus: 0,
 		star: star,
 		text: text,
 		fstatus: fstatus
 	};
-	if(pn>1){
-		// for(var i=0;i<pn-1;i++){
-		// 	global.orderControl.orderAddAction(data,function(err,doc){
-		// 		if (err) {
-		//             res.send(500);
-		//             console.log(err);
-		//         } else {
-		//             ///req.session.error = '密码修改成功！';
-		//             console.log('订单已录入');
-		//             //res.send(200);
-		//         }
-		// 	});
-		// }
-		global.orderControl.orderAddAction(data,function(err,doc){
-			if (err) {
-	            res.send(500);
-	            console.log(err);
-	        } else {
-	            ///req.session.error = '密码修改成功！';
-	            console.log('订单已录入');
-	            global.orderControl.orderAddAction(data,function(err,doc){
-					if (err) {
-			            res.send(500);
-			            console.log(err);
-			        } else {
-			            ///req.session.error = '密码修改成功！';
-			            console.log('订单已录入');
-			            res.send(200);
-			        }
-				});
-	        }
-		});
+	global.orderControl.orderAddAction(data,function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            ///req.session.error = '密码修改成功！';
+            console.log('订单已录入');
+            res.send(200);
+        }
+	});
+	// if(pn>1){
+	// 	// for(var i=0;i<pn-1;i++){
+	// 	// 	global.orderControl.orderAddAction(data,function(err,doc){
+	// 	// 		if (err) {
+	// 	//             res.send(500);
+	// 	//             console.log(err);
+	// 	//         } else {
+	// 	//             ///req.session.error = '密码修改成功！';
+	// 	//             console.log('订单已录入');
+	// 	//             //res.send(200);
+	// 	//         }
+	// 	// 	});
+	// 	// }
+	// 	global.orderControl.orderAddAction(data,function(err,doc){
+	// 		if (err) {
+	//             res.send(500);
+	//             console.log(err);
+	//         } else {
+	//             ///req.session.error = '密码修改成功！';
+	//             console.log('订单已录入');
+	//             global.orderControl.orderAddAction(data,function(err,doc){
+	// 				if (err) {
+	// 		            res.send(500);
+	// 		            console.log(err);
+	// 		        } else {
+	// 		            ///req.session.error = '密码修改成功！';
+	// 		            console.log('订单已录入');
+	// 		            res.send(200);
+	// 		        }
+	// 			});
+	//         }
+	// 	});
 		
-	}else {
-		global.orderControl.orderAddAction(data,function(err,doc){
-				if (err) {
-		            res.send(500);
-		            console.log(err);
-		        } else {
-		            ///req.session.error = '密码修改成功！';
-		            console.log('订单已录入');
-		            res.send(200);
-		        }
-			});
-	}
+	// }else {
+	// 	global.orderControl.orderAddAction(data,function(err,doc){
+	// 			if (err) {
+	// 	            res.send(500);
+	// 	            console.log(err);
+	// 	        } else {
+	// 	            ///req.session.error = '密码修改成功！';
+	// 	            console.log('订单已录入');
+	// 	            res.send(200);
+	// 	        }
+	// 		});
+	// }
 	
 	// console.log(data.userName+'\n'+
 	// 	data.resName+'\n'+
@@ -721,6 +795,26 @@ router.route("/userCenter").get(function(req,res){
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
 			});
 		}
+		if(status == 21){
+			var conditions = {
+				userName: req.query.name,
+				status: 1,
+				cstatus: 1
+			};
+			global.orderControl.orderFindAction(conditions,function(err,doc){
+				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
+			})
+		}
+		if(status == 20){
+			var conditions = {
+				userName: req.query.name,
+				status: 1,
+				cstatus: 0
+			};
+			global.orderControl.orderFindAction(conditions,function(err,doc){
+				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
+			})
+		}
 	}else {
 		console.log('cqw'+'\n');
 		global.orderControl.orderFindAction({userName:req.query.name},function(err,doc){//,objList: doc
@@ -729,7 +823,18 @@ router.route("/userCenter").get(function(req,res){
 	}
 	//res.render("userCenter",{title:"玖团"});
 });
-
+//评价
+router.route("/consume").post(function(req,res){
+	var pid = req.body.pid;
+	global.orderControl.orderUpdateAction({_id: pid},{cstatus: 1},function(err,doc){
+		if(err) {
+			res.send(500);
+		}else {
+			console.log('消费成功');
+		    res.send(200);
+		}
+	});
+});
 //评价
 router.route("/evaluate").post(function(req,res){
 	var pid = req.body.pid;

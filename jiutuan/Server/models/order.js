@@ -8,7 +8,9 @@ var orderSchema = new Schema({
 	projectDetail: String,
 	pNumber: Number,
 	price: Number,
-	status: Number,
+	status: Number,//支付状态 0 1
+	cstatus: Number,//消费状态 0 1
+	pstatus: Number,//转账状态 0 1
 	// feedBack: {
 	// 	star: Number,//分数
 	// 	text: String,//评价内容
@@ -16,7 +18,7 @@ var orderSchema = new Schema({
 	// }
 	star: Number,//分数
 	text: String,//评价内容
-	fstatus: Number//状态
+	fstatus: Number//评价状态 0 1 
 });
 
 //var userSchema = new Schema({any:Schema.Types.Mixed});
