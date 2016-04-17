@@ -12,88 +12,7 @@ $(function(){
 	//组件调用 end
 	
 	$("#submit").click(function(){ 
-		//表单验证
-		//post_form();
-		//var data = getData();
-		//console.log('gg'+data.resName);
-		//name = $('#sellerName').text();
-		type = $('#type').val();//find('option:selected').
-		resName = $('#resName').html();
-		packageName = $('#packageName').html();
-		startDate = $('#startDate').datepicker("getDate");//.toISOString().slice(0,10);
-		if(startDate == null){
-			startDate = $('#startDate').parent().find('span').html();
-		}else{
-			//console.log(startDate);
-			startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);rtDate = $('#startDate').datepicker("getDate");//.toISOString().slice(0,10);
-		}
-		endDate = $('#endDate').datepicker("getDate");//.toISOString().slice(0,10);
-		if(endDate == null){
-			endDate = $('#endDate').parent().find('span').html()
-		}else {
-			endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
-		}
-		image = $('#upfile').val().lastIndexOf('\\');
-		image = $('#upfile').val().substring(image+1);
-		if(image == ''){
-			image = $('#upfile').parent().find('span').html();
-		}
-		inimage1 = $('#innerImg1').val().lastIndexOf('\\');
-		inimage1 = $('#innerImg1').val().substring(inimage1+1);
-		if(inimage1 == ''){
-			inimage1 = $('#innerImg1').parent().find('span').html();
-		}
-		inimage2 = $('#innerImg2').val().lastIndexOf('\\');
-		inimage2 = $('#innerImg2').val().substring(inimage2+1);
-		if(inimage2 == ''){
-			inimage2 = $('#innerImg2').parent().find('span').html();
-		}
-		inimage3 = $('#innerImg3').val().lastIndexOf('\\');
-		inimage3 = $('#innerImg3').val().substring(inimage3+1);
-		if(inimage3 == ''){
-			inimage3 = $('#innerImg3').parent().find('span').html();
-		}
-		oldPrice = $('#oldPrice').val();
-		newPrice = $('#newPrice').val();
-		mealSize = $('#mealSize').val();
-		area = $('#area').val();
-		address = $('#address').val();
-		phoneNum = $('#phoneNum').val();
-		holiday = $('input[name="holiday"]:checked').val();
-		makeAppointment = $('input[name="makeAppointment"]:checked').val();
-		room = $('input[name="room"]:checked').val();
-		packFood = $('input[name="packFood"]:checked').val();
-		wifi = $('input[name="wifi"]:checked').val();
-		parkingNum = $('#parkingNum').val();
-		info = $('#info').val();
-		var str = window.location.search;
-		var id = str.substring(str.indexOf('=')+1);
-
-		var data = {
-			"id": id,
-			"type": type,
-			"resName": resName,
-			"packageName": packageName,
-			'startDate':startDate,
-			'endDate':endDate,
-			"image": image,
-			'inimage1': inimage1,
-			'inimage2': inimage2,
-			'inimage3': inimage3,
-			'oldPrice':oldPrice,
-			'newPrice':newPrice,
-			'mealSize':mealSize,
-			'area':area,
-			'address':address,
-			'holiday':holiday,
-			'makeAppointment':makeAppointment,
-			'room':room,
-			'packFood':packFood,
-			'wifi':wifi,
-			'parkingNum':parkingNum,
-			'info':info,
-			'phoneNum':phoneNum
-		};
+		var data = getData();
 		console.log(data);
 		//ajax  更新数据
 		$.ajax({ 
@@ -229,6 +148,8 @@ function post_form(){
  
 //获取数据
 function getData(){
+	var str = window.location.search;
+	var id = str.substring(str.indexOf('=')+1);
 	name = $('#sellerName').text();
 	type = $('#type').val();//find('option:selected').
 	resName = $('#resName').html();
@@ -281,6 +202,7 @@ function getData(){
 	info = $('#info').val();
 	var data = {
 			//"name": name,
+			id: id,
 			"type": type,
 			"resName": resName,
 			"packageName": packageName,

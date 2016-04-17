@@ -48,20 +48,17 @@
 			<thead>
 				<th>商家</th>
 				<th>套餐</th>
-				<!-- <th>数量</th>
-				<th>单价</th>
-				<th>总价</th>
-				<th>用户</th> -->
 				<th>状态</th>
 			</thead>	
 			<tbody>
 				<% objList.forEach(function(data, index){ %>
 				<tr>
+					<td class="id" style="display: none;"><%= data._id %></td>
 					<td class="resName"><%= data.resName %></td>
 					<td class="pName"><%= data.packageName %></td>
 					<td>
-						<a href="editorBusData?id=<%= data.id%>" class="btn btn-primary" id="bus_upData">修改</a>
-						<button class="btn btn-danger" id="bus_delete">删除</button>
+						<a href="editorBusData?id=<%= data.id%>" class="btn btn-primary" class="bus_upData">修改</a>
+						<button class="btn btn-danger bus_delete">删除</button>
 					</td>
 				</tr>
 				<% }) %>
@@ -73,11 +70,30 @@
 	</div>
    <!--<script src='javascripts/busData.js'></script>-->
    <script>
-   $('#bus_upData').click(function(){
-   		var rname = $(this).parents('tr').find(".resName").html();
-   		var pname = $(this).parents('tr').find(".pName").html();
-   		console.log(rname+pname);
-   });
+   // $('#bus_upData').click(function(){
+   // 		var rname = $(this).parents('tr').find(".resName").html();
+   // 		var pname = $(this).parents('tr').find(".pName").html();
+   // 		console.log(rname+pname);
+   // });
+	$('.bus_delete').click(function(){
+		var id = $(this).parents('tr').find(".id").html();
+		var data = {
+			id: id
+		};
+		$.ajax({ 
+			url: '/bus_delete',
+			type: 'post',
+			data: data,
+			success: function(data,status){ 
+				if(status == 'success'){ 
+					location.href = 'bus_upData';
+				}
+			},
+			error: function(status,err){ 
+				alert(err);
+			}
+		}); 
+	});
    </script>
 </body>
 </html>

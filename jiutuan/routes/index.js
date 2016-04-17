@@ -199,6 +199,18 @@ router.route("/superMgLogin").get(function(req,res){
 	//管理员 userName：manager password：manager
 });
 /**/
+//商家删除套餐
+router.route('/bus_delete').post(function(req,res){
+	global.sellConControl.sellConRemoveAction({_id: req.body.id},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            console.log('套餐删除成功！');
+            res.send(200);
+        }
+	})
+});
 //editor busData
 router.route('/editorBusData').get(function(req,res){
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
@@ -231,13 +243,9 @@ router.route('/editorBusData').get(function(req,res){
 	var wifi = req.body.wifi;
 	var parkingNum = req.body.parkingNum;
 	var info = req.body.info;
-	//var item = {five:0,four:0,three:0,two:0,one:0};
-	//var soldNumber = 0;
-	//var sure = 0;
+
 	var data = {
 		type: type,
-		//resName: resName,
-		//packageName: packageName,
 		startDate: startDate,
 		endDate: endDate,
 		image: image,
@@ -256,12 +264,9 @@ router.route('/editorBusData').get(function(req,res){
 		wifi: wifi,
 		parkingNum: parkingNum,
 		info: info,
-		//pjNumber: item,
-		//soldNumber: soldNumber,
 		phoneNum: phoneNum,
-		//sure: 0
 	};
-	console.log(data);
+	//console.log(data);
 	var condition = {
 		resName: resName,
 		packageName: packageName

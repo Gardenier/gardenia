@@ -29,15 +29,9 @@ exports.dataFindAction = function(conditions,callback) {
     sellCon.findData(conditions,dbHelper,callback);
 }
 
-// exports.userRemoveAction = function() {
-//     return function(req, res) {
-//         var conditions ={};
-//         sellCon.removeUser(conditions,dbHelper,function(result){
-//             res.json(result);
-//         });
-//         //除了要删除user表里的内容，还要删除关联表(user_schoolClass)的内容
-//     }
-// }
+exports.sellConRemoveAction = function(conditions,callback) {
+    sellCon.removeSellCon(conditions,dbHelper,callback);
+}
 
 exports.sellConUpdateAction = function(conditions,update,callback) {
     sellCon.updateSellCon(conditions, update, dbHelper,callback);

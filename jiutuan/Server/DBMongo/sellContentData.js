@@ -48,13 +48,9 @@ exports.findSoldNumber = function(conditions){
  * @param dbHelper
  * @param callback
  */
-exports.removeUser = function(conditions,dbHelper,callback) {
-
-
-    var userModel = sell.getModel();
-    dbHelper.removeData(userModel,conditions,function(result){
-        callback(result);
-    });
+exports.removeSellCon = function(conditions,dbHelper,callback) {
+    var sellContentModel = sell.getModel();
+    dbHelper.removeData(sellContentModel,conditions,callback);
 }
 
 /**
