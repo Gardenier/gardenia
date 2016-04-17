@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var transliteration = require('transliteration');
 /* GET index page. */
 router.get("/",function(req,res){ 
 	/*global.sellConControl.dataFindAction({},function(err,doc){
@@ -876,20 +876,6 @@ router.route("/removeOrder").post(function(req,res){
 	});
 
 });
-/*router.get('/search',function(req, res){
-	var user = "",
-		text = req.body;
-	 if(req.session.user){
-	 user = req.session.user.name;
-	 }else{
-	 user = "登录";
-	 }
-	//req.query["text"] = req.body.resName;
-	global.sellConControl.dataFindAction({resName: "Honey"},function(err,doc){
-		console.log(req.query);
-		res.render("search",{title: "搜索页",objList:doc,username: user});
-	})
-});*/
 router.route('/search').get(function(req, res){
 	var user = "";
 	if(req.session.user){
@@ -898,14 +884,36 @@ router.route('/search').get(function(req, res){
 		user = "登录";
 	}
 	global.sellConControl.dataFindAction({resName:{$regex: ''+req.query.text+'', $options:'i'}},function(err,doc){
-		//console.log(req.query.text);
 		res.render("search",{title: "搜索页",objList:doc,username: user});
 	})
 }).post(function(req, res){
-	//var text = req.body.text;
-	//global.sellConControl.dataFindAction({resName: text},function(err, doc){
 		req.query['text'] = req.body.text;
-	//});
+});
+//热门区域搜索
+router.route('/search/area/:area').get(function(req, res){
+	var user = "";
+	if(req.session.user){
+		user = req.session.user.name;
+	}else{
+		user = "登录";
+	};
+	global.sellConControl.dataFindAction({area:{$regex: ''+req.params.area+'', $options:'i'}},function(err,doc){
+		console.log(req.params.area);
+		res.render("search",{title: "搜索页",objList:doc,username: user});
+	})
+
+});
+//热门商圈搜索
+router.route('/search/address/:address').get(function(req, res){
+	var user = "";
+	if(req.session.user){
+		user = req.session.user.name;
+	}else{
+		user = "登录";
+	}
+	global.sellConControl.dataFindAction({address:{$regex: ''+req.params.address+'', $options:'i'}},function(err,doc){
+		res.render("search",{title: "搜索页",objList:doc,username: user});
+	})
 });
 //个人中心 收藏
 router.route("/myCollection").get(function(req,res){
