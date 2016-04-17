@@ -10,141 +10,106 @@ $(function(){
 		zIndexOffset: '999'//控制日期控件z-index
 	});
 	//组件调用 end
-
-	//数据初始化
-	var doc = $('#doc').html();
-	console.log(doc.pjNumber);
-	$.ajax({ 
-		url: '/editorBusData',
-		type: 'GET',
-		//data: data,
-		success: function(data,status){ 
-			if(status == 'success'){ 
-				//location.href = 'busData';
-				console.log(data);
-			}
-		},
-		error: function(status,err){ 
-			alert("get 数据 error！");
-		}
-	}); 
 	
 	$("#submit").click(function(){ 
 		//表单验证
 		//post_form();
+		//var data = getData();
+		//console.log('gg'+data.resName);
+		//name = $('#sellerName').text();
+		type = $('#type').val();//find('option:selected').
+		resName = $('#resName').html();
+		packageName = $('#packageName').html();
+		startDate = $('#startDate').datepicker("getDate");//.toISOString().slice(0,10);
+		if(startDate == null){
+			startDate = $('#startDate').parent().find('span').html();
+		}else{
+			//console.log(startDate);
+			startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);rtDate = $('#startDate').datepicker("getDate");//.toISOString().slice(0,10);
+		}
+		endDate = $('#endDate').datepicker("getDate");//.toISOString().slice(0,10);
+		if(endDate == null){
+			endDate = $('#endDate').parent().find('span').html()
+		}else {
+			endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
+		}
+		image = $('#upfile').val().lastIndexOf('\\');
+		image = $('#upfile').val().substring(image+1);
+		if(image == ''){
+			image = $('#upfile').parent().find('span').html();
+		}
+		inimage1 = $('#innerImg1').val().lastIndexOf('\\');
+		inimage1 = $('#innerImg1').val().substring(inimage1+1);
+		if(inimage1 == ''){
+			inimage1 = $('#innerImg1').parent().find('span').html();
+		}
+		inimage2 = $('#innerImg2').val().lastIndexOf('\\');
+		inimage2 = $('#innerImg2').val().substring(inimage2+1);
+		if(inimage2 == ''){
+			inimage2 = $('#innerImg2').parent().find('span').html();
+		}
+		inimage3 = $('#innerImg3').val().lastIndexOf('\\');
+		inimage3 = $('#innerImg3').val().substring(inimage3+1);
+		if(inimage3 == ''){
+			inimage3 = $('#innerImg3').parent().find('span').html();
+		}
+		oldPrice = $('#oldPrice').val();
+		newPrice = $('#newPrice').val();
+		mealSize = $('#mealSize').val();
+		area = $('#area').val();
+		address = $('#address').val();
+		phoneNum = $('#phoneNum').val();
+		holiday = $('input[name="holiday"]:checked').val();
+		makeAppointment = $('input[name="makeAppointment"]:checked').val();
+		room = $('input[name="room"]:checked').val();
+		packFood = $('input[name="packFood"]:checked').val();
+		wifi = $('input[name="wifi"]:checked').val();
+		parkingNum = $('#parkingNum').val();
+		info = $('#info').val();
+		var str = window.location.search;
+		var id = str.substring(str.indexOf('=')+1);
 
-		//var name = $('#sellerName').text();
-		// var type = $('#type').val();
-		// var city = $('#city').val();
-		// var resName = $('#resName').val();
-		// var area = $('#area').val();
-		// var startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);
-		// var endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
-		// var image = $('#upfile').val().lastIndexOf('\\');
-		// image = $('#upfile').val().substring(image+1);// var packageNumber = $('#packageNumber').val();
-		// var inimage1 = $('#innerImg1').val().lastIndexOf('\\');
-		// inimage1 = $('#innerImg1').val().substring(inimage1+1);
-		// var inimage2 = $('#innerImg2').val().lastIndexOf('\\');
-		// inimage2 = $('#innerImg2').val().substring(inimage2+1);
-		// var inimage3 = $('#innerImg3').val().lastIndexOf('\\');
-		// inimage3 = $('#innerImg3').val().substring(inimage3+1);
-
-		// var oldPrice = $('#oldPrice').val();
-		// var newPrice = $('#newPrice').val();
-		// var mealSize = $('#mealSize').val();
-		// var packageName = $('#packageName').val();
-		// var address = $('#address').val();
-		// var phoneNum = $('#phoneNum').val();
-		// var holiday = $('input[name="holiday"]:checked').val();
-		// var makeAppointment = $('input[name="makeAppointment"]:checked').val();
-		// var room = $('input[name="room"]:checked').val();
-		// var packFood = $('input[name="packFood"]:checked').val();
-		// var wifi = $('input[name="wifi"]:checked').val();
-		// var parkingNum = $('#parkingNum').val();
-		// var info = $('#info').val();
-
-		// var data = {
-		// 	//"name": name,
-		// 	"type": type,
-		// 	"city": city,
-		// 	"resName": resName,
-		// 	"packageName": packageName,
-		// 	'startDate':startDate,
-		// 	'endDate':endDate,
-		// 	"image": image,
-		// 	'inimage1': inimage1,
-		// 	'inimage2': inimage2,
-		// 	'inimage3': inimage3,
-		// 	'oldPrice':oldPrice,
-		// 	'newPrice':newPrice,
-		// 	'mealSize':mealSize,
-		// 	'area':area,
-		// 	'address':address,
-		// 	'holiday':holiday,
-		// 	'makeAppointment':makeAppointment,
-		// 	'room':room,
-		// 	'packFood':packFood,
-		// 	'wifi':wifi,
-		// 	'parkingNum':parkingNum,
-		// 	'info':info,
-		// 	'phoneNum':phoneNum
-		// };
-		// console.log(
-		// 	"type"+type+'\n'+
-		// 	"city"+city+'\n'+
-		// 	"resName"+resName+'\n'+
-		// 	"packageName"+packageName+'\n'+
-		// 	'startDate'+startDate+'\n'+
-		// 	'endDate'+endDate+'\n'+
-		// 	"image"+image+'\n'+
-		// 	'oldPrice'+oldPrice+'\n'+
-		// 	'newPrice'+newPrice+'\n'+
-		// 	'mealSize'+mealSize+'\n'+
-		// 	'area'+area+'\n'+
-		// 	'address'+address+'\n'+
-		// 	'holiday'+holiday+'\n'+
-		// 	'makeAppointment'+makeAppointment+'\n'+
-		// 	'room'+room+'\n'+
-		// 	'packFood'+packFood+'\n'+
-		// 	'wifi'+wifi+'\n'+
-		// 	'parkingNum'+parkingNum+'\n'+
-		// 	'info'+info+'\n'+
-		// 	'phoneNum'+phoneNum
-		// 	);
-		//ajax  get 数据
+		var data = {
+			"id": id,
+			"type": type,
+			"resName": resName,
+			"packageName": packageName,
+			'startDate':startDate,
+			'endDate':endDate,
+			"image": image,
+			'inimage1': inimage1,
+			'inimage2': inimage2,
+			'inimage3': inimage3,
+			'oldPrice':oldPrice,
+			'newPrice':newPrice,
+			'mealSize':mealSize,
+			'area':area,
+			'address':address,
+			'holiday':holiday,
+			'makeAppointment':makeAppointment,
+			'room':room,
+			'packFood':packFood,
+			'wifi':wifi,
+			'parkingNum':parkingNum,
+			'info':info,
+			'phoneNum':phoneNum
+		};
+		console.log(data);
+		//ajax  更新数据
 		$.ajax({ 
 			url: '/editorBusData',
-			type: 'GET',
-			//data: data,
+			type: 'post',
+			data: data,
 			success: function(data,status){ 
 				if(status == 'success'){ 
-					//location.href = 'busData';
-					console.log(data);
+					alert('修改成功！跳转页面');
+					location.href = 'bus_upData';
 				}
 			},
 			error: function(status,err){ 
-				alert("get 数据 error！");
-				//location.href = 'busData';
-				//console.log('error html');
-					//location.href = 'register';
+				alert("post 数据 error！");
 			}
-		}); 
-		// $.ajax({ 
-		// 	url: '/busData',
-		// 	type: 'post',
-		// 	data: data,
-		// 	success: function(data,status){ 
-		// 		if(status == 'success'){ 
-		// 			location.href = 'busData';
-		// 		}
-		// 	},
-		// 	error: function(status,err){ 
-		// 		alert("此套餐已存在！");
-		// 		location.href = 'busData';
-		// 		//console.log('error html');
-		// 			//location.href = 'register';
-		// 	}
-		// }); 
+		});  
 	});
 })
 //日期比较
@@ -266,60 +231,114 @@ function post_form(){
 function getData(){
 	name = $('#sellerName').text();
 	type = $('#type').val();//find('option:selected').
-	resName = $('#resName').val();
-	packageName = $('#packageName').val();
-	packageNumber = $('#packageNumber').val();
-	oldPrice = $('#oldPrice').val();
-	newPrice = $('#newPrice').val();
-	//startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);
-	//endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
-	address = $('#address').val();
-	mealSize = $('#mealSize').val();//find('option:selected').
-	info = $('#info').val();
-	holiday = $('input[name="holiday"]:checked').val();
+	resName = $('#resName').html();
+	packageName = $('#packageName').html();
+	startDate = $('#startDate').datepicker("getDate");//.toISOString().slice(0,10);
+	if(startDate == null){
+		startDate = $('#startDate').parent().find('span').html();
+	}else{
+		//console.log(startDate);
+		startDate = $('#startDate').datepicker("getDate").toISOString().slice(0,10);rtDate = $('#startDate').datepicker("getDate");//.toISOString().slice(0,10);
+	}
+	endDate = $('#endDate').datepicker("getDate");//.toISOString().slice(0,10);
+	if(endDate == null){
+		endDate = $('#endDate').parent().find('span').html()
+	}else {
+		//endDate = $('#endDate').datepicker("getDate").toISOString().slice(0,10);
+	}
 	image = $('#upfile').val().lastIndexOf('\\');
 	image = $('#upfile').val().substring(image+1);
-}
-//初始化数据
-function setData(){
-
-	type = $('#type').val();//find('option:selected').
-	startDate = '';//$('#startDate').datepicker("getDate").toISOString().slice(0,10);
-	endDate = '';//$('#endDate').datepicker("getDate").toISOString().slice(0,10);
-	$('#upfile').val() = 'kkk';
-	mealSize = $('#mealSize').val();//find('option:selected').
+	if(image == ''){
+		image = $('#upfile').parent().find('span').html();
+	}
+	inimage1 = $('#innerImg1').val().lastIndexOf('\\');
+	inimage1 = $('#innerImg1').val().substring(inimage1+1);
+	if(inimage1 == ''){
+		inimage1 = $('#innerImg1').parent().find('span').html();
+	}
+	inimage2 = $('#innerImg2').val().lastIndexOf('\\');
+	inimage2 = $('#innerImg2').val().substring(inimage2+1);
+	if(inimage2 == ''){
+		inimage2 = $('#innerImg2').parent().find('span').html();
+	}
+	inimage3 = $('#innerImg3').val().lastIndexOf('\\');
+	inimage3 = $('#innerImg3').val().substring(inimage3+1);
+	if(inimage3 == ''){
+		inimage3 = $('#innerImg3').parent().find('span').html();
+	}
+	oldPrice = $('#oldPrice').val();
+	newPrice = $('#newPrice').val();
+	mealSize = $('#mealSize').val();
+	area = $('#area').val();
+	address = $('#address').val();
+	phoneNum = $('#phoneNum').val();
 	holiday = $('input[name="holiday"]:checked').val();
 	makeAppointment = $('input[name="makeAppointment"]:checked').val();
 	room = $('input[name="room"]:checked').val();
 	packFood = $('input[name="packFood"]:checked').val();
 	wifi = $('input[name="wifi"]:checked').val();
 	parkingNum = $('#parkingNum').val();
-
-
-
-
-
-	// address = $('#address').val();
-
-
-
-
-	// packageName = $('#packageName').val();
-	// packageNumber = $('#packageNumber').val();
-	// oldPrice = $('#oldPrice').val();
-	// newPrice = $('#newPrice').val();
-	
-	
-	
-	// info = $('#info').val();
-	
-	// image = $('#upfile').val().lastIndexOf('\\');
-	// image = $('#upfile').val().substring(image+1);
-	// inimage1 = $('#innerImg1').val().lastIndexOf('\\');
-	// inimage1 = $('#innerImg1').val().substring(inimage1+1);
-	// inimage2 = $('#innerImg2').val().lastIndexOf('\\');
-	// inimage2 = $('#innerImg2').val().substring(inimage2+1);
-	// inimage3 = $('#innerImg3').val().lastIndexOf('\\');
-	// inimage3 = $('#innerImg3').val().substring(inimage3+1);
-	
+	info = $('#info').val();
+	var data = {
+			//"name": name,
+			"type": type,
+			"resName": resName,
+			"packageName": packageName,
+			'startDate':startDate,
+			'endDate':endDate,
+			"image": image,
+			'inimage1': inimage1,
+			'inimage2': inimage2,
+			'inimage3': inimage3,
+			'oldPrice':oldPrice,
+			'newPrice':newPrice,
+			'mealSize':mealSize,
+			'area':area,
+			'address':address,
+			'holiday':holiday,
+			'makeAppointment':makeAppointment,
+			'room':room,
+			'packFood':packFood,
+			'wifi':wifi,
+			'parkingNum':parkingNum,
+			'info':info,
+			'phoneNum':phoneNum
+	};
+	console.log(data);
+	return data;
+}
+//初始化数据
+function setData(){
+	$('#type').val($('#type').parent().find('span').html());
+	$('#mealSize').val($('#mealSize').parent().find('span').html());
+	console.log($('.hs').html());
+	console.log($('#holiday').parent().find('span').html());
+	if($('#holiday').parent().find('span').html() == 'true'){
+		console.log("kkk");
+		$('input[name="holiday"]:eq(0)').attr('checked','true');
+	}else {
+		console.log("kkkmmm");
+		$('input[name="holiday"]:eq(1)').attr('checked','true');
+	}
+	if($('#room').parent().find('span').html() == 'true'){
+		$('input[name="room"]:eq(0)').attr('checked','true');
+	}else {
+		$('input[name="room"]:eq(1)').attr('checked','true');
+	}
+	if($('#room').parent().find('span').html() == 'true'){
+		$('input[name="room"]:eq(0)').attr('checked','true');
+	}else {
+		$('input[name="room"]:eq(1)').attr('checked','true');
+	}
+	if($('#packFood').parent().find('span').html() == 'true'){
+		$('input[name="packFood"]:eq(0)').attr('checked','true');
+	}else {
+		$('input[name="packFood"]:eq(1)').attr('checked','true');
+	}
+	if($('#wifi').parent().find('span').html() == 'true'){
+		$('input[name="wifi"]:eq(0)').attr('checked','true');
+	}else {
+		$('input[name="wifi"]:eq(1)').attr('checked','true');
+	}
+	$('#info').val($('#info').parent().find('span').html());
 }

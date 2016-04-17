@@ -35,6 +35,9 @@
 	.active {
 		background-color: #FDF59A;
 	}
+	.hiddenSpan {
+		display: none;
+	}
 	</style>
 </head>
 <body>
@@ -48,9 +51,13 @@
 				<p class="part-title">商家信息</p>
 				<div class="form-group form-inline part-cont">
 					<label for="resName">商家名称</label>
-					<div class="data-wrap">
-						<input type="text" class="form-control" id="resName" value="<%= data.resName %>">
-					</div>
+					<span id="resName">
+						<%= data.resName %>
+					</span>
+				</div>
+				<div class="form-group form-inline part-cont">
+					<label for="packageName">促销名称</label>
+					<span id="packageName"><%= data.packageName %></span>
 				</div>
 				<div class="form-group form-inline part-cont">
 					<label for="city">所属城市</label>
@@ -69,41 +76,39 @@
 			         	<option>服务</option>
 			         	<option>购物</option>
 			      	</select>
-			      	<span><%= data.type %></span>
+			      	<span class="hiddenSpan"><%= data.type %></span>
 				</div>
 				<div class="form-group form-inline part-cont">
-					<label for="packageName">促销名称</label>
-					<input type="text" class="form-control" id="packageName" value="<%= data.packageName %>">
-				</div>
-				<div class="form-group form-inline part-cont">
-					<label for="startDate">开始日期</label>
-					<input type="text" value="<%= data.startDate %>" class="form-control choice-date" id="startDate">
+					<label for="startDate">修改开始日期</label>
+					<span><%= data.startDate %></span>
+					<input type="text" class="form-control choice-date" id="startDate">
 					<span class="glyphicon glyphicon-calendar"></span>
 				</div>
 				<div class="form-group form-inline part-cont">
-					<label for="endDate">结束日期</label>
-					<input type="text" value="<%= data.endDate %>" class="form-control choice-date" id="endDate">
+					<label for="endDate">修改结束日期</label>
+					<span><%= data.endDate %></span>
+					<input type="text" class="form-control choice-date" id="endDate">
 					<span class="glyphicon glyphicon-calendar"></span>
 				</div>
 				<div class="form-group form-inline part-cont">
-					<label for="upfile">首页图片</label>
-					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="upfile">
+					<label for="upfile">修改首页图片</label>
 					<span><%= data.image %></span>
+					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="upfile">
 				</div>
 				<div class="form-group form-inline part-cont">
-					<label for="upfile">内页图片1</label>
-					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="innerImg1">
+					<label for="innerImg1">修改内页图片1</label>
 					<span><%= data.inimage1 %></span>
+					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="innerImg1">
 				</div>
 				<div class="form-group form-inline part-cont">
-					<label for="upfile">内页图片2</label>
-					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="innerImg2">
+					<label for="innerIm2">修改内页图片2</label>
 					<span><%= data.inimage2 %></span>
+					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="innerImg2">
 				</div>
 				<div class="form-group form-inline part-cont">
-					<label for="upfile">内页图片3</label>
-					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="innerImg3">
+					<label for="innerImg3">修改内页图片3</label>
 					<span><%= data.inimage3 %></span>
+					<input type="file" class="btn btn-primary file-input" style="display: inline-block;" id="innerImg3">
 				</div>
 
 				<div class="form-group form-inline part-cont">
@@ -117,16 +122,16 @@
 				<div class="form-group form-inline part-cont">
 					<label for="mealSize">适合用餐人数</label>
 					<select name="category" id="mealSize" class="form-control">
-			         	<option value="1">单人</option>
-			         	<option value="2">双人</option>
-			         	<option value="3+">3-4人</option>
-			         	<option value="5+">5-6人</option>
-			         	<option value="7+">7-8人</option>
-			         	<option value="9+">9-10人</option>
-			         	<option value="10+">10人以上</option>
-			         	<option value="10++">其他</option>
+			         	<option value="单人">单人</option>
+			         	<option value="双人">双人</option>
+			         	<option value="3-4人">3-4人</option>
+			         	<option value="5-6人">5-6人</option>
+			         	<option value="7-8人">7-8人</option>
+			         	<option value="9-10人">9-10人</option>
+			         	<option value="10人以上">10人以上</option>
+			         	<option value="其他">其他</option>
 			      	</select>
-			      	<span><%= data.mealSize %></span>
+			      	<span class="hiddenSpan"><%= data.mealSize %></span>
 				</div>
 				<div class="form-group form-inline part-cont">
 					<label for="area">所属商圈</label>
@@ -141,34 +146,34 @@
 					<input type="text" value="<%= data.phoneNum %>" class="form-control" id="phoneNum">
 				</div>
 				<div class="form-group part-cont">
-					<label id="#holiday">节假日是否通用</label>
+					<label id="holiday">节假日是否通用</label>
 					<input type="radio" name="holiday" value='true' checked="checked">是
 					<input type="radio" name="holiday" value='false'>否
-					<span><%= data.holiday %></span>
+					<span class="hiddenSpan"><%= data.holiday %></span>
 				</div>
 				<div class="form-group part-cont">
 					<label for="makeAppointment" id="makeAppointment">是否需要预约</label>
 					<input type="radio" name="makeAppointment" value='true' >是
 					<input type="radio" name="makeAppointment" value='false' checked="checked">否
-					<span><%= data.makeAppointment %></span>
+					<span class="hiddenSpan"><%= data.makeAppointment %></span>
 				</div>
 				<div class="form-group part-cont">
 					<label for="room" id="room">有无包间</label>
 					<input type="radio" name="room" value='true' >是
 					<input type="radio" name="room" value='false' checked="checked">否
-					<span><%= data.room %></span>
+					<span class="hiddenSpan"><%= data.room %></span>
 				</div>
 				<div class="form-group part-cont">
 					<label for="packFood" id="packFood">可否打包</label>
 					<input type="radio" name="packFood" value='true' >是
 					<input type="radio" name="packFood" value='false' checked="checked">否
-					<span><%= data.packFood %></span>
+					<span class="hiddenSpan"><%= data.packFood %></span>
 				</div>
 				<div class="form-group part-cont">
 					<label for="wifi" id="wifi">有无WiFi</label>
 					<input type="radio" name="wifi" value='true' >是
 					<input type="radio" name="wifi" value='false' checked="checked">否
-					<span><%= data.wifi %></span>
+					<span class="hiddenSpan"><%= data.wifi %></span>
 				</div>
 				<div class="form-group form-inline part-cont">
 					<label for="parkingNum">可提供停车位数量</label>
@@ -177,7 +182,7 @@
 				<div class="form-group part-cont">
 					<label for="info">文字描述</label>
 					<textarea id="info" type="text/plain" style='width: 100%;'></textarea>
-					<span><%= data.info %></span>
+					<span class="hiddenSpan"><%= data.info %></span>
 				</div>
 			</div>
 			<a class="btn btn-success btn-lg btn-post" id='submit'>提交</a>

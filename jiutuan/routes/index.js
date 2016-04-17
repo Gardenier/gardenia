@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var transliteration = require('transliteration');
+//var transliteration = require('transliteration');
 /* GET index page. */
 router.get("/",function(req,res){ 
 	/*global.sellConControl.dataFindAction({},function(err,doc){
@@ -202,30 +202,81 @@ router.route("/superMgLogin").get(function(req,res){
 //editor busData
 router.route('/editorBusData').get(function(req,res){
 	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
-		// console.log('editorBusData'+'\n'+doc);
-		// if (err) {
-  //           res.send(500);
-  //           console.log(err);
-  //       } else {
-  //           req.session.error = '录入数据成功！';
-  //           res.send(200);
-  //       }
-  		console.log("哈哈"+doc+'\n');
+  		//console.log("哈哈"+doc+'\n');
   		res.render("editorBusData",{title:'修改套餐信息',objectList:doc});
     });
 	
-});// .post(function(req,res){
-// 	global.sellConControl.sellConAddAction({},function(err,doc){
-// 		console.log('editorBusData'+'\n'+doc);
-// 		if (err) {
-//             res.send(500);
-//             console.log(err);
-//         } else {
-//             req.session.error = '录入数据成功！';
-//             res.send(200);
-//         }
-//     });
-// });
+}).post(function(req,res){
+	//console.log("kkk");
+	var id = req.body.id;
+	var type = req.body.type;
+	var resName = req.body.resName;
+	var packageName = req.body.packageName;
+	var startDate = req.body.startDate;
+	var endDate = req.body.endDate;
+	var image = req.body.image;
+	var inimage1 = req.body.inimage1;
+	var inimage2 = req.body.inimage2;
+	var inimage3 = req.body.inimage3;
+	var oldPrice = req.body.oldPrice;
+	var newPrice = req.body.newPrice;
+	var mealSize = req.body.mealSize;
+	var area = req.body.area;
+	var address = req.body.address;
+	var phoneNum = req.body.phoneNum;
+	var holiday = req.body.holiday;
+	var makeAppointment = req.body.makeAppointment;
+	var room = req.body.room;
+	var packFood = req.body.packFood;
+	var wifi = req.body.wifi;
+	var parkingNum = req.body.parkingNum;
+	var info = req.body.info;
+	//var item = {five:0,four:0,three:0,two:0,one:0};
+	//var soldNumber = 0;
+	//var sure = 0;
+	var data = {
+		type: type,
+		//resName: resName,
+		//packageName: packageName,
+		startDate: startDate,
+		endDate: endDate,
+		image: image,
+		inimage1: inimage1,
+		inimage2: inimage2,
+		inimage3: inimage3,
+		oldPrice: oldPrice,
+		newPrice: newPrice,
+		mealSize: mealSize,
+	 	area: area,
+		address: address,
+		holiday: holiday,
+		makeAppointment: makeAppointment,
+		room: room,
+		packFood: packFood,
+		wifi: wifi,
+		parkingNum: parkingNum,
+		info: info,
+		//pjNumber: item,
+		//soldNumber: soldNumber,
+		phoneNum: phoneNum,
+		//sure: 0
+	};
+	console.log(data);
+	var condition = {
+		resName: resName,
+		packageName: packageName
+	};
+	global.sellConControl.sellConUpdateAction({_id: id},data,function(err,doc){
+		//console.log('editorBusData'+'\n'+doc);
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            console.log('商家信息更新成功！');
+            res.send(200);
+        }
+    });
+});
 //商家录入数据
 router.route("/busData").get(function(req,res){  
 	if(!req.session.user){ 					//到达/home路径首先判断是否已经登录
