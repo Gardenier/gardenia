@@ -150,6 +150,9 @@ function post_form(){
 	var info = $('#info');
 	var holiday = $('#holiday');
 	var image = $('#upfile');
+	var inimage1 = $('#innerImg1');
+	var inimage2 = $('#innerImg2');
+	var inimage3 = $('#innerImg3');
 	//移除所有错误提示
 	$('.tips2').remove();
 	//v_resname = name.text();
@@ -168,6 +171,12 @@ function post_form(){
 	var v_holiday = $('input[name="holiday"]:checked').val();
 	var v_image = $('#upfile').val().lastIndexOf('\\');
 	v_image = $('#upfile').val().substring(image+1);
+	var v_inimage1 = $('#innerImg1').val().lastIndexOf('\\');
+	v_inimage1 = $('#innerImg1').val().substring(inimage1+1);
+	var v_inimage2 = $('#innerImg2').val().lastIndexOf('\\');
+	v_inimage2 = $('#innerImg2').val().substring(inimage2+1);
+	var v_inimage3 = $('#innerImg3').val().lastIndexOf('\\');
+	v_inimage3 = $('#innerImg3').val().substring(inimage3+1);
 	if(v_resName == ""){
 		noData(resName,"未填写店铺名称");
 		return false;
@@ -196,6 +205,18 @@ function post_form(){
 	}
 	if(v_image == ''){
 		noData(image,"未上传图片");
+		return false;
+	}
+	if(v_inimage1 == ''){
+		noData(iinmage1,"未上传图片1");
+		return false;
+	}
+	if(v_inimage2 == ''){
+		noData(inimage2,"未上传图片2");
+		return false;
+	}
+	if(v_inimage3 == ''){
+		noData(inimage3,"未上传图片3");
 		return false;
 	}
 	if(v_oldPrice ==''){

@@ -1,4 +1,6 @@
 $(function(){
+	//初始化数据
+	setData();
 	//组件调用 start
 	var start_date =new Date();
 	$('.choice-date').datepicker({
@@ -24,9 +26,6 @@ $(function(){
 		},
 		error: function(status,err){ 
 			alert("get 数据 error！");
-			//location.href = 'busData';
-			//console.log('error html');
-				//location.href = 'register';
 		}
 	}); 
 	
@@ -280,5 +279,47 @@ function getData(){
 	holiday = $('input[name="holiday"]:checked').val();
 	image = $('#upfile').val().lastIndexOf('\\');
 	image = $('#upfile').val().substring(image+1);
+}
+//初始化数据
+function setData(){
+
+	type = $('#type').val();//find('option:selected').
+	startDate = '';//$('#startDate').datepicker("getDate").toISOString().slice(0,10);
+	endDate = '';//$('#endDate').datepicker("getDate").toISOString().slice(0,10);
+	$('#upfile').val() = 'kkk';
+	mealSize = $('#mealSize').val();//find('option:selected').
+	holiday = $('input[name="holiday"]:checked').val();
+	makeAppointment = $('input[name="makeAppointment"]:checked').val();
+	room = $('input[name="room"]:checked').val();
+	packFood = $('input[name="packFood"]:checked').val();
+	wifi = $('input[name="wifi"]:checked').val();
+	parkingNum = $('#parkingNum').val();
+
+
+
+
+
+	// address = $('#address').val();
+
+
+
+
+	// packageName = $('#packageName').val();
+	// packageNumber = $('#packageNumber').val();
+	// oldPrice = $('#oldPrice').val();
+	// newPrice = $('#newPrice').val();
+	
+	
+	
+	// info = $('#info').val();
+	
+	// image = $('#upfile').val().lastIndexOf('\\');
+	// image = $('#upfile').val().substring(image+1);
+	// inimage1 = $('#innerImg1').val().lastIndexOf('\\');
+	// inimage1 = $('#innerImg1').val().substring(inimage1+1);
+	// inimage2 = $('#innerImg2').val().lastIndexOf('\\');
+	// inimage2 = $('#innerImg2').val().substring(inimage2+1);
+	// inimage3 = $('#innerImg3').val().lastIndexOf('\\');
+	// inimage3 = $('#innerImg3').val().substring(inimage3+1);
 	
 }

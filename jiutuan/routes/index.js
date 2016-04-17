@@ -242,6 +242,9 @@ router.route("/busData").get(function(req,res){
 	var startDate = req.body.startDate;
 	var endDate = req.body.endDate;
 	var image = req.body.image;
+	var inimage1 = req.body.inimage1;
+	var inimage2 = req.body.inimage2;
+	var inimage3 = req.body.inimage3;
 	var oldPrice = req.body.oldPrice;
 	var newPrice = req.body.newPrice;
 	var mealSize = req.body.mealSize;
@@ -266,6 +269,9 @@ router.route("/busData").get(function(req,res){
 		startDate: startDate,
 		endDate: endDate,
 		image: image,
+		inimage1: inimage1,
+		inimage2: inimage2,
+		inimage3: inimage3,
 		oldPrice: oldPrice,
 		newPrice: newPrice,
 		mealSize: mealSize,
