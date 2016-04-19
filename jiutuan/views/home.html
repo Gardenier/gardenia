@@ -413,59 +413,96 @@
 				<div class="mPartRightCell pull-right">
 					<a class="rightCellTitle" href="javascript:;">热度排行榜</a>
 					<ul class="clearfix">
-					<li><a href="javascript:;">美食</a></li>
-					<li><a href="javascript:;">电影</a></li>
-					<li><a href="javascript:;">娱乐</a></li>
-					<li><a href="javascript:;">购物</a></li>
-					<li><a href="javascript:;">生活</a></li>
+					<li class="hot-type active" data-name="meishi">美食</li>
+					<li class="hot-type" data-name="movie">电影</li>
+					<li class="hot-type" data-name="recreation">娱乐</li>
+					<li class="hot-type" data-name="shopping">购物</li>
+					<li class="hot-type" data-name="live">生活</li>
 					</ul>
-					<div class="rcContent clearfix">
-						<img src="images/top1.jpg" alt="">
-						<div class="pull-right">
-							<div class="infor">
-								<div>DQ冰雪皇后</div>
-								<div>小杯暴风雪</div>
-								<div>节假日通用</div>
+					<div data-name="meishi" class="order show">
+						<% for (var i = 0; i < meishiList.length; i++){%>
+						<% if (i == 4) break;%>
+						<a href="/product_detail?id=<%= meishiList[i]._id %>">
+							<div class="rcContent clearfix">
+								<img src="images/meishi/<%= meishiList[i].image %>" alt="">
+								<div class="pull-right top-right">
+									<div class="infor">
+										<div><%= meishiList[i].resName %></div>
+									</div>
+									<div class="price">￥<span><%= meishiList[i].newPrice %></span></div>
+								</div>
+								<div class="topTag"><%= i+1 %></div>
 							</div>
-							<div class="price">￥<span>15.5</span></div>
-						</div>
-						<div class="topTag">1</div>
+						</a>
+						<% } %>
 					</div>
-					<div class="rcContent clearfix">
-						<img src="images/top1.jpg" alt="">
-						<div class="pull-right">
-							<div class="infor">
-								<div>DQ冰雪皇后</div>
-								<div>小杯暴风雪</div>
-								<div>节假日通用</div>
+					<div data-name="movie" class="order">
+						<% for (var i = 0; i < movieList.length; i++){%>
+						<% if (i == 4) break;%>
+						<a href="/product_detail?id=<%= movieList[i]._id %>">
+							<div class="rcContent clearfix">
+								<img src="images/movies/<%= movieList[i].image %>" alt="">
+								<div class="pull-right top-right">
+									<div class="infor">
+										<div><%= movieList[i].resName %></div>
+									</div>
+									<div class="price">￥<span><%= movieList[i].newPrice %></span></div>
+								</div>
+								<div class="topTag"><%= i+1 %></div>
 							</div>
-							<div class="price">￥<span>15.5</span></div>
-						</div>
-						<div class="topTag">2</div>
+						</a>
+						<% } %>
 					</div>
-					<div class="rcContent clearfix">
-						<img src="images/top1.jpg" alt="">
-						<div class="pull-right">
-							<div class="infor">
-								<div>DQ冰雪皇后</div>
-								<div>小杯暴风雪</div>
-								<div>节假日通用</div>
+					<div data-name="recreation" class="order">
+						<% for (var i = 0; i < recreationList.length; i++){%>
+						<% if (i == 4) break;%>
+						<a href="/product_detail?id=<%= recreationList[i]._id %>">
+							<div class="rcContent clearfix">
+								<img src="images/yule/<%= recreationList[i].image %>" alt="">
+								<div class="pull-right top-right">
+									<div class="infor">
+										<div><%= recreationList[i].resName %></div>
+									</div>
+									<div class="price">￥<span><%= recreationList[i].newPrice %></span></div>
+								</div>
+								<div class="topTag"><%= i+1 %></div>
 							</div>
-							<div class="price">￥<span>15.5</span></div>
-						</div>
-						<div class="topTag">3</div>
+						</a>
+						<% } %>
 					</div>
-					<div class="rcContent clearfix">
-						<img src="images/top1.jpg" alt="">
-						<div class="pull-right">
-							<div class="infor">
-								<div>DQ冰雪皇后</div>
-								<div>小杯暴风雪</div>
-								<div>节假日通用</div>
+					<div data-name="shopping" class="order">
+						<% for (var i = 0; i < shoppingList.length; i++){%>
+						<% if (i == 4) break;%>
+						<a href="/product_detail?id=<%= shoppingList[i]._id %>">
+							<div class="rcContent clearfix">
+								<img src="images/shopping/<%= shoppingList[i].image %>" alt="">
+								<div class="pull-right top-right">
+									<div class="infor">
+										<div><%= shoppingList[i].resName %></div>
+									</div>
+									<div class="price">￥<span><%= shoppingList[i].newPrice %></span></div>
+								</div>
+								<div class="topTag"><%= i+1 %></div>
 							</div>
-							<div class="price">￥<span>15.5</span></div>
-						</div>
-						<div class="topTag">4</div>
+						</a>
+						<% } %>
+					</div>
+					<div data-name="live" class="order">
+						<% for (var i = 0; i < liveList.length; i++){%>
+						<% if (i == 4) break;%>
+						<a href="/product_detail?id=<%= liveList[i]._id %>">
+							<div class="rcContent clearfix">
+								<img src="images/service/<%= liveList[i].image %>" alt="">
+								<div class="pull-right top-right">
+									<div class="infor">
+										<div><%= liveList[i].resName %></div>
+									</div>
+									<div class="price">￥<span><%= liveList[i].newPrice %></span></div>
+								</div>
+								<div class="topTag"><%= i+1 %></div>
+							</div>
+						</a>
+						<% } %>
 					</div>
 				</div>
 				<!-- <div class="mPartRightCell pull-right">
@@ -557,6 +594,14 @@
 		</div>
 		<p class="foot-p">@2016 JIUTUAN.COM XX备XXXXXX号</p>
 	</div>
+	<script>
+		var btnHot = $("li.hot-type");
+		btnHot.bind("click",function(){
+			var $this = $(this);
+			$this.addClass("active").siblings().removeClass("active");
+			$("div[data-name='"+ $this.data("name")+"']").addClass("show").siblings().removeClass("show");
+		});
+	</script>
 	<script>
 		$('.box_skitter_large').skitter({
 			theme: 'clean',
