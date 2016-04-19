@@ -30,7 +30,6 @@ $(function(){
 			}
 		}
 	}
-
 	//收藏
 	$('.collect-info').click(function(){
 		var uname = $('#userName a').html();

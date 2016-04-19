@@ -5,7 +5,7 @@ var Schema   = mongoose.Schema;
 //var userSchema = new Schema({any:Schema.Types.Mixed});(any:{})
 
 var userSchema = new Schema({
-    userName: String,
+    name: String,
 	password: String
 });
 

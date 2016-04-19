@@ -13,10 +13,10 @@ exports.sellConAddAction = function(data,callback) {
  * equal user
  * @returns {Function}
  */
-// exports.packageEqualAction = function(condition,callback) {
+exports.packageEqualAction = function(condition,callback) {
 
-//     sellCon.equalPackageName(condition,dbHelper,callback);
-// }
+    sellCon.equalPackageName(condition,dbHelper,callback);
+}
 exports.sellContentEqualAction = function(condition,callback) {
 
     sellCon.equalSellContent(condition,dbHelper,callback);

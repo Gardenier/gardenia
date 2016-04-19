@@ -10,6 +10,9 @@
 	<script src="/javascripts/jquery.cookie.js"></script>
 </head>
 <body>
+
+	<div><%= dobjList %></div>
+	
 	<% cobjList.forEach(function(data,index){ %>
 	<div class="collectId" style="display: none;"><%= data.id %></div>
 	<% }) %>
@@ -155,7 +158,7 @@
 								<span class="iconfont icon-wuxingmian"></span>
 								<span>4</span>分
 							</div>
-							<div><span>345</span>条评论</div>
+							<div><span><%= dobjList.length %></span>条评论</div>
 						</div>
 						<div class="date_info">
 							<span class="tagName">有效期</span>
@@ -197,7 +200,7 @@
 				<div class="left-part">
 					<div class="left-cell-info">
 						<p>本店其他套餐</p>
-						<a class="otherPackage-info clearfix">
+						<!-- <a class="otherPackage-info clearfix">
 							<div>￥<span>200</span></div>
 							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
 							<div><span>3</span>人已购买</div>
@@ -211,13 +214,14 @@
 							<div>￥<span>200</span></div>
 							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
 							<div><span>3</span>人已购买</div>
-						</a>
+						</a> -->
 					</div>
+					
 					<div class="left-cell-info">
 						<p>商品评价</p>
 						<div class="pj clearfix">
 							<div class="star">
-								<span>4</span>分
+								<span>?</span>分
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingshixin"></span>
@@ -262,7 +266,7 @@
 						<div>
 							<div class="pj-list">
 								<div>
-									全部(<span>1</span>)
+									全部(<span><%= dobjList.length %></span>)
 								</div>
 								<div>
 									好评(<span>1</span>)
@@ -274,38 +278,25 @@
 									差评(<span>1</span>)
 								</div>
 							</div>
+							<% dobjList.forEach(function(data,index) { %>
 							<div class="pj-detail">
 								<div>
 									<img src="" alt="">
 								</div>
 								<div>
-									<p>2016.03.02  14:00:00</p>
-									<p>啊啊啊啊啊啊啊啊啊啊啊</p>
+									<p><%= data.id %></p>
+									<p><%= data.text %></p>
 								</div>
 								<div class="star">
 									<span class="iconfont icon-wuxingshixin"></span>
 									<span class="iconfont icon-wuxingshixin"></span>
 									<span class="iconfont icon-wuxingshixin"></span>
 									<span class="iconfont icon-wuxingmian"></span>
-									<span>4</span>分
+									<span><%= data.star %></span>分
 								</div>
 							</div>
-							<div class="pj-detail">
-								<div>
-									<img src="" alt="">
-								</div>
-								<div>
-									<p>2016.03.02  14:00:00</p>
-									<p>啊啊啊啊啊啊啊啊啊啊啊</p>
-								</div>
-								<div class="star">
-									<span class="iconfont icon-wuxingshixin"></span>
-									<span class="iconfont icon-wuxingshixin"></span>
-									<span class="iconfont icon-wuxingshixin"></span>
-									<span class="iconfont icon-wuxingmian"></span>
-									<span>4</span>分
-								</div>
-							</div>
+							<% }) %>
+							
 						</div>
 						<ul>
 							<li>1</li>
@@ -313,6 +304,7 @@
 							<li>下一页</li>
 						</ul>
 					</div>
+					
 					<div class="left-cell-info">
 						<p>本单信息</p>
 						<div>

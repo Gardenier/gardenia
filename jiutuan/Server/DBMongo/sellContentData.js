@@ -13,7 +13,7 @@ exports.addSellContent = function(data,dbHelper,callback) {
 /**
 
  */
-exports.equalSellContent = function(condition,dbHelper,callback) {
+exports.equalPackageName = function(condition,dbHelper,callback) {
 
     var sellContentModel = sell.getModel();
     dbHelper.equalData(sellContentModel,condition,callback);

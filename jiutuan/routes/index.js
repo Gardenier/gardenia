@@ -66,8 +66,8 @@ router.route("/register").get(function(req,res){
 	var uname = req.body.uname;
 	var upwd = req.body.upwd;
 	var arr = {};
-	var data = {userName: uname,password: upwd};	
-	var condition = {userName: uname};
+	var data = {name: uname,password: upwd};	
+	var condition = {name: uname};
 	global.userControl.userEqualAction(condition,function(err,doc){
 		if(err) {
 			res.send(500);
@@ -346,64 +346,15 @@ router.route("/busData").get(function(req,res){
 		sure: 0
 
 	};
-	// sellContent.findOne({resName:resName},function(err,doc){   
-	// 	if(err){ 
-	// 		res.send(500);
-	// 		req.session.error =  '网络异常错误！';
-	// 		console.log(err);
-	// 	}else if(doc){ 
-	// 		req.session.error = '用户名已存在！';
-	// 		res.send(500);
-	// 	}else{ 
-	// 		sellContent.collection.insert({ 							
-	// 			name: name,
-	// 			type: type,
-	// 			resName: resName,
-	// 			packageName: packageName,
-	// 			startDate: startDate,
-	// 			endDate: endDate,
-	// 			image: image,
-	// 			oldPrice: oldPrice,
- // 				newPrice: newPrice,
- // 				mealSize: mealSize,
- // 			 	packageNumber: packageNumber,
- // 				address: address,
-	// 			holiday: holiday,
-	// 			makeAppointment: makeAppointment,
-	// 			room: room,
-	// 			packFood: packFood,
-	// 			wifi: wifi,
-	// 			parkingNum: parkingNum,
-	// 			info: info,
-	// 			pjNumber: data,
-	// 			// pjNumber.four: four,
-	// 			// pjNumber.three: three,
-	// 			// pjNumber.two: two,
-	// 			// pjNumber.one: one,
-	// 			soldNumber: soldNumber
- 				
-
-	// 		},function(err,doc){ 
-	// 			if (err) {
- //                    res.send(500);
- //                    console.log(err);
- //                } else {
- //                    req.session.error = '用户名创建成功！';
- //                    res.send(200);
- //                }
- //            });
-	// 	}
-	// });
 	global.sellConControl.packageEqualAction({packageName:packageName},function(err,doc){
 		if(err) {
 			res.send(500);
             console.log('index'+err);
 		}else if(doc){ 
 			req.session.error = '请创建新的套餐！';
-			//console.log('请创建新的套餐！');
+			console.log('请创建新的套餐！'+'\n');
 			res.send(300);
-		}
-		else {
+		}else {
 			global.sellConControl.sellConAddAction(data,function(err,doc){
 				if (err) {
 		            res.send(500);
@@ -561,10 +512,7 @@ router.route('/product_list/:type').get(function(req, res){
 });
 //详情页
 router.route("/product_detail").get(function(req,res){
-	/*console.log('req.query.id'+req.query.id);
-	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
-		res.render("product_detail",{title:'Home',objList:doc});//已登录则渲染home页面
-	});*/
+	/*console.log('req.query.id'+req.query.id);*/
 	var user = "",
 		type = "",
 		titlename = "";
@@ -574,7 +522,33 @@ router.route("/product_detail").get(function(req,res){
 	else {
 		user = "登录";
 	}
-	/*if(req.params.type == "cate"){
+	var rname,pname;
+	var arr = [];
+	global.sellConControl.dataFindAction({_id:req.query.id},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            rname = doc[0].resName;
+            pname = doc[0].packageName;
+            arr.push(rname);
+            arr.push(pname);
+			return arr;
+            //console.log("hhhh"+rname+pname);
+        }
+	});
+	global.sellConControl.dataFindAction({_id:req.query.id},function(err, List){
+		var List = List;
+		global.collectControl.collectFindAction({userName: user},function(err,cdoc){
+			var cdoc = cdoc;
+			global.orderControl.orderFindAction({resName: arr[0],projectDetail: arr[1],fstatus: 1},function(err,doc){
+				//console.log("kyyu"+'\n'+doc+'\n');
+				res.render("product_detail",{title:"详情页",objList:List,cobjList: cdoc,dobjList: doc,username:user});
+			});
+		});
+		//res.render("product_detail",{title: "详情页",objList:List,username: user});
+	});
+		/*if(req.params.type == "cate"){
 		type = "美食";
 		titlename = "美食-详情页";
 	}
@@ -598,19 +572,31 @@ router.route("/product_detail").get(function(req,res){
 		type = "酒店";
 		titlename = "酒店-详情页";
 	}*/
-	global.sellConControl.dataFindAction({_id:req.query.id},function(err, List){
-		var List = List;
-		global.collectControl.collectFindAction({userName: user},function(err,doc){
-			res.render("product_detail",{title:"详情页",objList:List,cobjList: doc,username:user});
-		});
-		//res.render("product_detail",{title: "详情页",objList:List,username: user});
-	});
-
 	// global.collectControl.collectFindAction({userName: user},function(err,doc){
 	// 	res.render("product_detail",{title:"详情页",cobjList: doc,username:user});
 	// });
 });
-
+// //获取详情页其他数据
+// router.route('/detailInfo').post(function(req,res){
+// 	var rname = req.body.rname;
+// 	var pname = req.body.pname;
+// 	var conditions = {
+// 		resName: rname,
+// 		projectDetail: pname
+// 	};
+// 	global.orderControl.orderFindAction(conditions,function(err,doc){
+// 		if (err) {
+//             res.send(500);
+//             console.log(err);
+//         } else {
+//             ///req.session.error = '密码修改成功！';
+            
+//             console.log('详情页其他数据读取成功');
+//             return doc;
+//             res.send(200);
+//         }
+// 	});
+// });
 //购买页面1 提交订单
 router.route("/buyStep_1").get(function(req,res){
 	var user = "";

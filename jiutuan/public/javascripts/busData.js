@@ -100,6 +100,7 @@ $(function(){
 			success: function(data,status){ 
 				if(status == 'success'){ 
 					location.href = 'busData';
+					//alert('成功');
 				}
 			},
 			error: function(status,err){ 
