@@ -95,7 +95,7 @@
 			            </td>
 			            <% if(data.status == 0){ %>
 			            <td class="a-btn">
-			            	<button class="btn btn-info" onclick="pay()">前去支付</button>
+			            	<button class="btn btn-info go-pay" data-id="<%= data.id%>" data-index="<%= index %>">前去支付</button>
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if (data.status == 1){ %>
@@ -257,28 +257,33 @@
 		});
 	}
 	//支付
-	function pay(){ 
-		var uname = $('#userName').html();
+	var goPay = $(".go-pay");
+	goPay.bind("click",function(){
+		var $this = $(this);
+		var id = $this.attr("data-id");
+		location.href = "buyStep_2?id="+id+"";
+	});
+		/*var uname = $('#userName').html();
 		var data = {uname: uname};
-		// $.ajax({ 
-		// 	url:'/userCenter',
-		// 	type:'post',
-		// 	data: data,
-		// 	success: function(data,status){ 
-		// 		if(status == 'success'){ 
-		// 			//location.href = 'home';
-		// 		}
-		// 	},
-		// 	error: function(err,status){ 
-		// 		alert(err);
-		// 	}
-		// });
-	}
+		 $.ajax({
+		 	url:'/userCenter',
+		 	type:'post',
+		 	data: data,
+		 	success: function(data,status){
+		 		if(status == 'success'){
+		 			location.href = '/buyStep_2';
+		 		}
+		 	},
+		 	error: function(err,status){
+		 		alert("出错了");
+		 	}
+		 });*/
+
 	//消费
 	function use(){ 
 		var pid = $('.pid').html();
 		var data =  {
-			pid: pid,
+			pid: pid
 		};
 		//alert(pid);
 		$.ajax({ 
