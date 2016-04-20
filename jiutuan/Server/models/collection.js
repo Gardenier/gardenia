@@ -7,7 +7,7 @@ var collectionSchema = new Schema({
 	id: String,
 	c_resName: String,
 	projectDetail: String,
-	price: String,
+	price: String
 });;
 
 //var userSchema = new Schema({any:Schema.Types.Mixed});
