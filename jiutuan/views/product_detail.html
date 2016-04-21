@@ -147,15 +147,11 @@
 							</div>
 						</div>
 						<div class="clearfix backInfo">
-							<div>已有<span><%= data.soldNumber %></span>人购买</div>
-							<div class="star">
-								<span class="iconfont icon-wuxingshixin"></span>
-								<span class="iconfont icon-wuxingshixin"></span>
-								<span class="iconfont icon-wuxingshixin"></span>
-								<span class="iconfont icon-wuxingmian"></span>
-								<span>4</span>分
+							<div class="divCell">已有<span><%= data.soldNumber %></span>人购买</div>
+							<div class="star-wrap divCell">
+								<span class="level">0</span>分
 							</div>
-							<div><span><%= dobjList.length %></span>条评论</div>
+							<div class="divCell"><span><%= dobjList.length %></span>条评论</div>
 						</div>
 						<div class="date_info">
 							<span class="tagName">有效期</span>
@@ -217,12 +213,9 @@
 					<div class="left-cell-info">
 						<h4>商品评价</h4>
 						<div class="pj clearfix">
-							<div class="star">
-								<span id="level">0</span>分
-								<span class="iconfont icon-wuxingshixin"></span>
-								<span class="iconfont icon-wuxingshixin"></span>
-								<span class="iconfont icon-wuxingshixin"></span>
-								<span class="iconfont icon-wuxingmian"></span>
+							<span class="level">0</span>分
+							<div class="star-gray">
+								<div class="star-light"></div>
 							</div>
 							<!-- <div>满意率<span>93%</span></div> -->
 							<!-- <div class="satisfaction-rate">
@@ -234,17 +227,23 @@
 							<div class="pjl-cell lines" style="border-right: 0;">
 								<div class="line-wrap clearfix">
 									<div>好评</div>
-									<div class="pj-line good level1-line" style="width: 0"></div>
+									<div class="pj-line good">
+										<div class="level1-line"></div>
+									</div>
 									<div><span class="p-level1">0</span>%</div>
 								</div>
 								<div class="line-wrap clearfix">
 									<div>中评</div>
-									<div class="pj-line good level2-line" style="width: 0"></div>
+									<div class="pj-line good">
+										<div class="level2-line"></div>
+									</div>
 									<div><span class="p-level2">0</span>%</div>
 								</div>
 								<div class="line-wrap clearfix">
 									<div>差评</div>
-									<div class="pj-line good level3-line" style="width: 0"></div>
+									<div class="pj-line good">
+										<div class="level3-line"></div>
+									</div>
 									<div><span class="p-level3">0</span>%</div>
 								</div>
 							</div>
@@ -275,22 +274,21 @@
 									<p><%= data.id %></p>
 									<p><%= data.text %></p>
 								</div>
-								<div class="star">
-									<span class="iconfont icon-wuxingshixin"></span>
-									<span class="iconfont icon-wuxingshixin"></span>
-									<span class="iconfont icon-wuxingshixin"></span>
-									<span class="iconfont icon-wuxingmian"></span>
+								<div class="star-wrap">
+									<div class="star-gray">
+										<div class="p-star-light" style="width:<%= data.star/5*100 %>%"></div>
+									</div>
 									<span><%= data.star %></span>分
 								</div>
 							</div>
 							<% }) %>
 							
 						</div>
-						<ul>
+						<!-- <ul>
 							<li>1</li>
 							<li>2</li>
 							<li>下一页</li>
-						</ul>
+						</ul> -->
 					</div>
 					
 					<div class="left-cell-info">

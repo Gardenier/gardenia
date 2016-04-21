@@ -609,13 +609,13 @@ router.route("/product_detail").get(function(req,res){
 });
 //获取详情页其他数据
 router.route('/detailInfo').get(function(req,res){
-	console.log(req.query.pid);
+	//console.log(req.query.pid);
 	global.orderControl.orderFindAction({pid:req.query.pid},function(err,doc){
 		if (err) {
             res.send(500);
             console.log(err);
         } else {
-            console.log('详情页其他数据读取成功'+'\n'+doc);
+            console.log('详情页其他数据读取成功');
        		res.send(doc);
             // return doc;
             // res.send(200);
@@ -778,16 +778,16 @@ router.route("/buyStep_2").get(function(req,res){
 		
 	global.sellConControl.sellContentEqualAction(u_condition,function(err,doc){
 		if(err) {
-			console.log("bbbbb");
+			console.log(err);
 			res.send(500);
 		}else {
 			//console.log(doc+'\n');
 			sn += parseInt(doc.soldNumber);
-			console.log('sn:'+sn+'\n');
+			//console.log('sn:'+sn+'\n');
 			global.sellConControl.sellConUpdateAction(u_condition,{soldNumber: sn},function(err,doc){
 				if (err) {
 		            res.send(500);
-		            console.log("www:"+err);
+		            console.log(err);
 		        } else {
 		            console.log('已售数量被更新');
 		            res.send(200);
@@ -892,7 +892,7 @@ router.route("/userCenter").get(function(req,res){
 			})
 		}
 	}else {
-		console.log('cqw'+'\n');
+		//console.log('cqw'+'\n');
 		global.orderControl.orderFindAction({userName:req.query.name},function(err,doc){//,objList: doc
 			res.render("userCenter",{title:"个人中心",objList: doc,username: user});
 		});
@@ -933,9 +933,9 @@ router.route("/evaluate").post(function(req,res){
 });
 router.route("/removeOrder").post(function(req,res){
 	var pid = req.body.pid;
-	console.log('wrap - pid:'+pid+'\n');
+	//console.log('wrap - pid:'+pid+'\n');
 	global.orderControl.orderRemoveAction({_id: pid},function(err,doc){
-		console.log('doc:'+doc+'\n');
+		//console.log('doc:'+doc+'\n');
 		if (err) {
             console.log(err);
             res.send(500);
@@ -968,7 +968,7 @@ router.route('/search/area/:area').get(function(req, res){
 		user = "登录";
 	};
 	global.sellConControl.dataFindAction({area:{$regex: ''+req.params.area+'', $options:'i'}},function(err,doc){
-		console.log(req.params.area);
+		//console.log(req.params.area);
 		res.render("search",{title: "搜索页",objList:doc,username: user});
 	})
 
@@ -1002,9 +1002,9 @@ router.route("/myCollection").get(function(req,res){
 }).post(function(req,res){
 	var id = req.body.id;
 	var userName = req.body.userName;
-	console.log('id'+id+'\n'+userName);
+	//console.log('id'+id+'\n'+userName);
 	global.collectControl.collectRemoveAction({id: id,userName: userName},function(err,doc){
-		console.log('doc:'+doc+'\n');
+		//console.log('doc:'+doc+'\n');
 		if (err) {
             console.log(err);
             res.send(500);

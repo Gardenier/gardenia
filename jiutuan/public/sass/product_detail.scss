@@ -80,19 +80,16 @@ html,body {
 		font-size: 24px;
 	}
 	.backInfo {
-		div {
+		margin-top: 20px;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
+		.divCell {
 			width: 33%;
 			height: 50px;
 			float: left;
-			margin-top: 20px; 
 			line-height: 50px;
 			text-align: center;
-			border-top: 1px solid #eee;
-			border-bottom: 1px solid #eee;
 		}
-		// div:last-child {
-		// 	border-right: 0;
-		// }
 	}
 	.add-btn-wrap {
 		padding-bottom: 20px;
@@ -189,7 +186,11 @@ html,body {
 			color: #C7C6C3;
 		}
 	}
-	.star {
+	.star-light {
+		left: 0;
+		position: absolute;
+		overflow: hidden;
+		width: 0;
 		.icon-wuxingshixin {
 			color: #ED5852;
 		}
@@ -197,12 +198,21 @@ html,body {
 			color: #A6A5A5;
 		}
 	}
-	
+	.star-gray {
+		width: 80px;
+		height: 17px;
+		position: relative;
+		float: left;
+		margin-right: 20px;
+		background: url(../images/star-gray.png);
+	}
+	.star-light,.p-star-light {
+		overflow: hidden;
+		height: 17px;
+		background: url(../images/star-light.png);
+	}
 	.pj {
-		div {
-			float: left;
-			padding-right: 20px;
-		}
+		position: relative;
 		.satisfaction-rate {
 			float: right;
 			padding-right: 0;
@@ -237,7 +247,12 @@ html,body {
 			width: 60%;
 			height: 20px;
 			float: left;
-			background-color: #ED5852;
+			background-color: #ffebd7;
+			div {
+				height: 20px;
+				width: 0;
+			 	background-color: #ED5852;
+			}
 		}
 	}
 	.all-say-wrap {

@@ -147,16 +147,20 @@ $(function(){
 	    	$(".level1").html(five.length+four.length);
 	    	$(".levle2").html(three.length+two.length);
 	    	$(".level3").html(one.length);
-	    	$(".p-level1").html((five.length+four.length)/farr.length*100);
+	    	$(".p-level1").html(((five.length+four.length)/farr.length*100).toFixed(1));
 
-	    	$(".p-level2").html((three.length+two.length)/farr.length*100);
+	    	$(".p-level2").html(((three.length+two.length)/farr.length*100).toFixed(1));
     		//console.log((three.length+two.length)/farr.length*100);
-	    	$(".p-level3").html(one.length/farr.length*100);
+	    	$(".p-level3").html((one.length/farr.length*100).toFixed(1));
 	    	console.log(one.length);
 	    	$(".level1-line").css('width',(five.length+four.length)/farr.length*60+'%');
 	    	$(".level2-line").css('width',(three.length+two.length)/farr.length*60+'%');
 	    	$(".level3-line").css('width',one.length/arr.length*60+'%');
-	    	$("#level").html((5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length);
+	    	$(".level").html((5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length);
+    		//星星
+    		var s = (5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length;
+    		console.log(s/5*80);
+    		$('.star-light').css('width',s/5*80+'px');
     	}
     	//已评价的
     	//console.log(farr.length);
