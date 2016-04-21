@@ -211,9 +211,9 @@
 					</div>-->
 					
 					<div class="left-cell-info">
-						<h4>商品评价</h4>
+						<h3>商品评价</h3>
 						<div class="pj clearfix">
-							<span class="level">0</span>分
+							<span class="level">0</span><span class="fen">分</span>
 							<div class="star-gray">
 								<div class="star-light"></div>
 							</div>
@@ -301,78 +301,92 @@
 					</div>
 					<div class="left-cell-info">
 						<h3>购买须知</h3>
-						<dl>
-							<dt>有效期</dt>
-							<dd>
-								<%= data.startDate %> 至 <%= data.endDate %>
-								<% if(data.holiday == "true") { %>
-								（周末、法定节假日通用）
-								<% } else if(data.holiday == "false") { %>
-								（周末、法定节假日不可用）
-								<% } %>
-							</dd>
-							<dt>使用时间</dt>
-							<dd>10:00-22:00,部分店铺看实际营业时间</dd>
-							<dt>预约提醒</dt>
-							<dd>
-								<% if(data.makeAppointment == "true") { %>
-								需要预约
-								<% } else if(data.makeAppointment == 'false') { %>
-								无需预约，消费高峰时可能需要等位
-								<% } %>
-							</dd>
-							<dt>限购限用提醒</dt>
-							<dd>
-								<% if(data.mealSize == '单人') { %>
-								每张美团券建议1人使用
-								<% } %>
-								<% if(data.mealSize == '双人') { %>
-								每张美团券建议2人使用
-								<% } %>
-								<% if(data.mealSize == '3-4人') { %>
-								每张美团券建议3-4人使用
-								<% } %>
-								<% if(data.mealSize == '5-6人') { %>
-								每张美团券建议5-6人使用
-								<% } %>
-								<% if(data.mealSize == '7-8人') { %>
-								每张美团券建议7-8人使用
-								<% } %>
-								<% if(data.mealSize == '9-10人') { %>
-								每张美团券建议9-10人使用
-								<% } %>
-								<% if(data.mealSize == '10人以上') { %>
-								每张美团券建议10人以上使用
-								<% } %>
-								<% if(data.mealSize == '其他') { %>
-								无建议
-								<% } %>
-							</dd>
-							<dt>包间</dt>
-							<dd>
-								<% if(data.room == "true") { %>
-								店内有包间
-								<% } else if(data.room == 'false') { %>
-								店内无包间
-								<% } %>
-							</dd>
-							<dt>堂食外带</dt>
-							<dd>
-								<% if(data.packFood == "true") { %>
-								堂食外带均可，可免费打包
-								<% } else if(data.packFood == 'false') { %>
-								堂食不可外带
-								<% } %>
-							</dd>
-							<dt>温馨提示</dt>
-							<dd>
-								<% if(data.wifi == "true") { %>
-								提供免费WiFi
-								<% } else if(data.wifi == 'false') { %>
-								无WiFi
-								<% } %>
-							</dd>
-						</dl>
+						<div class="buy-tip">
+							<div class="tip">
+								<span>有效期</span>
+								<p>
+									<%= data.startDate %> 至 <%= data.endDate %>
+									<% if(data.holiday == "true") { %>
+									（周末、法定节假日通用）
+									<% } else if(data.holiday == "false") { %>
+									（周末、法定节假日不可用）
+									<% } %>
+								</p>
+							</div>
+							<div class="tip">
+								<span>使用时间</span>
+								<p>10:00-22:00,部分店铺看实际营业时间</p>
+							</div>
+							<div class="tip">
+								<span>预约提醒</span>
+								<p>
+									<% if(data.makeAppointment == "true") { %>
+									需要预约
+									<% } else if(data.makeAppointment == 'false') { %>
+									无需预约，消费高峰时可能需要等位
+									<% } %>
+								</p>
+							</div>
+							<div class="tip">
+								<span>限购限用提醒</span>
+								<p>
+									<% if(data.mealSize == '单人') { %>
+									每张美团券建议1人使用
+									<% } %>
+									<% if(data.mealSize == '双人') { %>
+									每张美团券建议2人使用
+									<% } %>
+									<% if(data.mealSize == '3-4人') { %>
+									每张美团券建议3-4人使用
+									<% } %>
+									<% if(data.mealSize == '5-6人') { %>
+									每张美团券建议5-6人使用
+									<% } %>
+									<% if(data.mealSize == '7-8人') { %>
+									每张美团券建议7-8人使用
+									<% } %>
+									<% if(data.mealSize == '9-10人') { %>
+									每张美团券建议9-10人使用
+									<% } %>
+									<% if(data.mealSize == '10人以上') { %>
+									每张美团券建议10人以上使用
+									<% } %>
+									<% if(data.mealSize == '其他') { %>
+									无建议
+									<% } %>
+								</p>
+							</div>
+							<div class="tip">
+								<span>包间</span>
+								<p>
+									<% if(data.room == "true") { %>
+									店内有包间
+									<% } else if(data.room == 'false') { %>
+									店内无包间
+									<% } %>
+								</p>
+							</div>
+							<div class="tip">
+								<span>堂食外带</span>
+								<p>
+									<% if(data.packFood == "true") { %>
+									堂食外带均可，可免费打包
+									<% } else if(data.packFood == 'false') { %>
+									堂食不可外带
+									<% } %>
+								</p>
+							</div>
+							<div class="tip">
+								<span>温馨提示</span>
+								<p>
+									<% if(data.wifi == "true") { %>
+									提供免费WiFi
+									<% } else if(data.wifi == 'false') { %>
+									无WiFi
+									<% } %>
+								</p>
+							</div>
+						</div>
 					</div>
 					<div class="left-cell-info">
 						<h3>本单信息</h3>
