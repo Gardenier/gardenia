@@ -3,6 +3,7 @@ var Schema   = mongoose.Schema;
 
 var orderSchema = new Schema({
 	id: String,
+	pid: String,
 	userName: String,
 	resName: String,
 	projectDetail: String,

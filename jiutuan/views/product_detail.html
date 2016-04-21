@@ -10,9 +10,6 @@
 	<script src="/javascripts/jquery.cookie.js"></script>
 </head>
 <body>
-
-	<div><%= dobjList %></div>
-	
 	<% cobjList.forEach(function(data,index){ %>
 	<div class="collectId" style="display: none;"><%= data.id %></div>
 	<% }) %>
@@ -198,9 +195,9 @@
 		<div class="cell-wrap clearfix">
 			<div class="cell">
 				<div class="left-part">
-					<div class="left-cell-info">
+					<!--<div class="left-cell-info">
 						<p>本店其他套餐</p>
-						<!-- <a class="otherPackage-info clearfix">
+						 <a class="otherPackage-info clearfix">
 							<div>￥<span>200</span></div>
 							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
 							<div><span>3</span>人已购买</div>
@@ -214,68 +211,59 @@
 							<div>￥<span>200</span></div>
 							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
 							<div><span>3</span>人已购买</div>
-						</a> -->
-					</div>
+						</a> 
+					</div>-->
 					
 					<div class="left-cell-info">
-						<p>商品评价</p>
+						<h4>商品评价</h4>
 						<div class="pj clearfix">
 							<div class="star">
-								<span>?</span>分
+								<span id="level">0</span>分
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingshixin"></span>
 								<span class="iconfont icon-wuxingmian"></span>
 							</div>
 							<!-- <div>满意率<span>93%</span></div> -->
-							<div class="satisfaction-rate">
+							<!-- <div class="satisfaction-rate">
 								<a href="javascript:;">查看全部评论</a>
-							</div>
+							</div> -->
 						</div>
 						<div class="pj-lines flex">
-							<div class="pjl-cell">此团购有<span>43</span>人评价</div>
-							<div class="pjl-cell lines">
+							<div class="pjl-cell">此团购有<span><%= dobjList.length %></span>人评价</div>
+							<div class="pjl-cell lines" style="border-right: 0;">
 								<div class="line-wrap clearfix">
 									<div>好评</div>
-									<div class="pj-line good"></div>
-									<div><span>40</span>条</div>
+									<div class="pj-line good level1-line" style="width: 0"></div>
+									<div><span class="p-level1">0</span>%</div>
 								</div>
 								<div class="line-wrap clearfix">
 									<div>中评</div>
-									<div class="pj-line good"></div>
-									<div><span>40</span>条</div>
+									<div class="pj-line good level2-line" style="width: 0"></div>
+									<div><span class="p-level2">0</span>%</div>
 								</div>
 								<div class="line-wrap clearfix">
 									<div>差评</div>
-									<div class="pj-line good"></div>
-									<div><span>40</span>条</div>
+									<div class="pj-line good level3-line" style="width: 0"></div>
+									<div><span class="p-level3">0</span>%</div>
 								</div>
 							</div>
-							<div class="pjl-cell">
-								<a href="javascript:;" class="btn-pj">我要评价</a>
-							</div>
+							
 						</div>
-						<div class="all-say-wrap">
-							<p>大家都在说</p>
-							<div class="all-say clearfix">
-								<div>环境还行（<span>1</span>）</div>
-								<div>口味还行（<span>1</span>）</div>
-								<div>位置不好找（<span>1</span>）</div>
-							</div>
-						</div>
+						
 						<div>
 							<div class="pj-list">
 								<div>
 									全部(<span><%= dobjList.length %></span>)
 								</div>
 								<div>
-									好评(<span>1</span>)
+									好评(<span class="level1">0</span>)
 								</div>
 								<div>
-									中评(<span>1</span>)
+									中评(<span class="level2">0</span>)
 								</div>
 								<div>
-									差评(<span>1</span>)
+									差评(<span class="level3">0</span>)
 								</div>
 							</div>
 							<% dobjList.forEach(function(data,index) { %>
@@ -306,11 +294,93 @@
 					</div>
 					
 					<div class="left-cell-info">
-						<p>本单信息</p>
-						<div>
-							<p>店面详情</p>
-							<div></div>
-						</div>
+						<h3>商家位置</h3>
+						<ul>
+							<li>评价：<%= dobjList.length %>人评价</li>
+							<li>地址：<%= data.address %></li>
+							<li>电话：<%= data.phoneNum %></li>
+						</ul>
+					</div>
+					<div class="left-cell-info">
+						<h3>购买须知</h3>
+						<dl>
+							<dt>有效期</dt>
+							<dd>
+								<%= data.startDate %> 至 <%= data.endDate %>
+								<% if(data.holiday == "true") { %>
+								（周末、法定节假日通用）
+								<% } else if(data.holiday == "false") { %>
+								（周末、法定节假日不可用）
+								<% } %>
+							</dd>
+							<dt>使用时间</dt>
+							<dd>10:00-22:00,部分店铺看实际营业时间</dd>
+							<dt>预约提醒</dt>
+							<dd>
+								<% if(data.makeAppointment == "true") { %>
+								需要预约
+								<% } else if(data.makeAppointment == 'false') { %>
+								无需预约，消费高峰时可能需要等位
+								<% } %>
+							</dd>
+							<dt>限购限用提醒</dt>
+							<dd>
+								<% if(data.mealSize == '单人') { %>
+								每张美团券建议1人使用
+								<% } %>
+								<% if(data.mealSize == '双人') { %>
+								每张美团券建议2人使用
+								<% } %>
+								<% if(data.mealSize == '3-4人') { %>
+								每张美团券建议3-4人使用
+								<% } %>
+								<% if(data.mealSize == '5-6人') { %>
+								每张美团券建议5-6人使用
+								<% } %>
+								<% if(data.mealSize == '7-8人') { %>
+								每张美团券建议7-8人使用
+								<% } %>
+								<% if(data.mealSize == '9-10人') { %>
+								每张美团券建议9-10人使用
+								<% } %>
+								<% if(data.mealSize == '10人以上') { %>
+								每张美团券建议10人以上使用
+								<% } %>
+								<% if(data.mealSize == '其他') { %>
+								无建议
+								<% } %>
+							</dd>
+							<dt>包间</dt>
+							<dd>
+								<% if(data.room == "true") { %>
+								店内有包间
+								<% } else if(data.room == 'false') { %>
+								店内无包间
+								<% } %>
+							</dd>
+							<dt>堂食外带</dt>
+							<dd>
+								<% if(data.packFood == "true") { %>
+								堂食外带均可，可免费打包
+								<% } else if(data.packFood == 'false') { %>
+								堂食不可外带
+								<% } %>
+							</dd>
+							<dt>温馨提示</dt>
+							<dd>
+								<% if(data.wifi == "true") { %>
+								提供免费WiFi
+								<% } else if(data.wifi == 'false') { %>
+								无WiFi
+								<% } %>
+							</dd>
+						</dl>
+					</div>
+					<div class="left-cell-info">
+						<h3>本单信息</h3>
+						<ul>
+							<li><%= data.packageName %></li>
+						</ul>
 					</div>
 					<div class="left-cell-info">
 						<p>套餐内容</p>
@@ -319,13 +389,13 @@
 						</table>
 					</div>
 					<div class="left-cell-info">
-						<p>消费提示</p>
+						<h3>消费提示</h3>
 						<table>
 							
 						</table>
 					</div>
 					<div class="left-cell-info">
-						<p>商品详情</p>
+						<h3>商品详情</h3>
 						<table>
 							<span class="packageName"><%= data.packageName %></span>
 						</table>

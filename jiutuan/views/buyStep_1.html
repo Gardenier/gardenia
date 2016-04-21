@@ -130,7 +130,8 @@
 			$.cookie('pNumber', pn, {path: '/'});  //存储cookie数据
 			$.cookie('pName', pd, {path: '/'});  //存储cookie数据
 			$.cookie('rName', resName, {path: '/'});  //存储cookie数据
-
+			var $str = window.location.search;
+			var pid = $str.substring($str.indexOf('=')+1);
 			var date  = new Date();
 			var id = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+
 					date.getDate()+'-'+date.getHours()+':'+date.getMinutes()+
@@ -143,7 +144,7 @@
 			//var pd = $('#packageName').html();
 			var price = parseFloat($('#price').html());
 			
-			var data = {'id': id,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': 1,'status': 0};
+			var data = {'id': id,'pid':pid,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': 1,'status': 0};
 			//alert(name);
 			$('#subOrder').attr('href','buyStep_2?id='+id);
 			$.ajax({ 

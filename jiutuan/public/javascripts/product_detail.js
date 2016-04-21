@@ -96,5 +96,72 @@ $(function(){
 			}
 		}
 	});
-	
+	//获取order表中的数据 评分 评价内容
+	var $str = window.location.search;
+	var $id = $str.substring($str.indexOf('=')+1);
+	var arr = [];
+	$.ajax({
+        type: "get",
+        url: '/detailInfo?pid='+$id,
+        dataType: "json",
+        async: false,//使得ajax内部方法内的数据能在外部被访问
+        success: function(data){
+			if(data){  
+	            //console.log(data[0]._id);
+	            $.each(data,function(index){
+	            	arr.push(data[index]);
+	            })
+	            //console.log(arr);
+	            //return arr;
+	        } else{  
+	            alert('失败');
+	        }                      
+      	}
+    });
+    getStar(arr);
+    function getStar(arr){
+    	var farr = [];
+    	var five = [];
+    	var four = [];
+    	var three = [];
+    	var two = [];
+    	var one = [];
+    	if(arr.length>0){
+    		for(var i=0,len=arr.length;i<len;i++){
+	    		if(arr[i].fstatus == 1){
+	    			farr.push(arr[i]);
+	    			var star = arr[i].star;
+	    			if(star == 5){
+	    				five.push(arr[i]);
+	    			}else if(star == 4){
+	    				four.push(arr[i]);
+	    			}else if(star == 3){
+	    				three.push(arr[i]);
+	    			}else if(star == 2){
+	    				two.push(arr[i]);
+	    			}else{
+	    				one.push(arr[i]);
+	    			}
+	    		}
+	    	}
+	    	$(".level1").html(five.length+four.length);
+	    	$(".levle2").html(three.length+two.length);
+	    	$(".level3").html(one.length);
+	    	$(".p-level1").html((five.length+four.length)/farr.length*100);
+
+	    	$(".p-level2").html((three.length+two.length)/farr.length*100);
+    		//console.log((three.length+two.length)/farr.length*100);
+	    	$(".p-level3").html(one.length/farr.length*100);
+	    	console.log(one.length);
+	    	$(".level1-line").css('width',(five.length+four.length)/farr.length*60+'%');
+	    	$(".level2-line").css('width',(three.length+two.length)/farr.length*60+'%');
+	    	$(".level3-line").css('width',one.length/arr.length*60+'%');
+	    	$("#level").html((5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length);
+    	}
+    	//已评价的
+    	//console.log(farr.length);
+    	//
+    	//console.log('five'+five.length);
+    	//console.log("three"+three.length);
+    }
 })

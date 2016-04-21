@@ -19,7 +19,7 @@ exports.packageEqualAction = function(condition,callback) {
 }
 exports.sellContentEqualAction = function(condition,callback) {
 
-    sellCon.equalSellContent(condition,dbHelper,callback);
+    sellCon.equalPackageName(condition,dbHelper,callback);
 }
 /**
  * get User List

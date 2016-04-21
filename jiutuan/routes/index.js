@@ -576,27 +576,21 @@ router.route("/product_detail").get(function(req,res){
 	// 	res.render("product_detail",{title:"详情页",cobjList: doc,username:user});
 	// });
 });
-// //获取详情页其他数据
-// router.route('/detailInfo').post(function(req,res){
-// 	var rname = req.body.rname;
-// 	var pname = req.body.pname;
-// 	var conditions = {
-// 		resName: rname,
-// 		projectDetail: pname
-// 	};
-// 	global.orderControl.orderFindAction(conditions,function(err,doc){
-// 		if (err) {
-//             res.send(500);
-//             console.log(err);
-//         } else {
-//             ///req.session.error = '密码修改成功！';
-            
-//             console.log('详情页其他数据读取成功');
-//             return doc;
-//             res.send(200);
-//         }
-// 	});
-// });
+//获取详情页其他数据
+router.route('/detailInfo').get(function(req,res){
+	console.log(req.query.pid);
+	global.orderControl.orderFindAction({pid:req.query.pid},function(err,doc){
+		if (err) {
+            res.send(500);
+            console.log(err);
+        } else {
+            console.log('详情页其他数据读取成功'+'\n'+doc);
+       		res.send(doc);
+            // return doc;
+            // res.send(200);
+        }
+	});
+});
 //购买页面1 提交订单
 router.route("/buyStep_1").get(function(req,res){
 	var user = "";
@@ -616,6 +610,7 @@ router.route("/buyStep_1").get(function(req,res){
 	});
 }).post(function(req,res){
 	var id = req.body.id;
+	var pid = req.body.pid;
 	var name = req.body.userName;
 	var rname = req.body.resName; 
 	var pd = req.body.projectDetail;
@@ -627,12 +622,13 @@ router.route("/buyStep_1").get(function(req,res){
 	// 	text: '',//评价内容
 	// 	status: 0//状态
 	// };
-	var star = 0;//分数
+	var star = 5;//分数
 	var text = '';//评价内容
 	var	fstatus = 0;//状态
 
 	var data = {
 		id: id,
+		pid: pid,
 		userName: name,
 		resName: rname,
 		projectDetail: pd,
@@ -751,15 +747,16 @@ router.route("/buyStep_2").get(function(req,res){
 		
 	global.sellConControl.sellContentEqualAction(u_condition,function(err,doc){
 		if(err) {
+			console.log("bbbbb");
 			res.send(500);
 		}else {
 			//console.log(doc+'\n');
 			sn += parseInt(doc.soldNumber);
-			//console.log('sn:'+sn+'\n');
+			console.log('sn:'+sn+'\n');
 			global.sellConControl.sellConUpdateAction(u_condition,{soldNumber: sn},function(err,doc){
 				if (err) {
 		            res.send(500);
-		            console.log(err);
+		            console.log("www:"+err);
 		        } else {
 		            console.log('已售数量被更新');
 		            res.send(200);
