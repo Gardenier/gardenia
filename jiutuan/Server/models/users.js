@@ -5,8 +5,8 @@ var Schema   = mongoose.Schema;
 //var userSchema = new Schema({any:Schema.Types.Mixed});(any:{})
 
 var userSchema = new Schema({
-    name: String,
-	password: String
+    name: String,//用户名
+	password: String//密码
 });
 
 //生成方法getModel给予调用，返回user模型

@@ -144,85 +144,85 @@ li {
   border: 0;
 }
 
-/* line 71, ../sass/common.scss */
+/* line 70, ../sass/common.scss */
 .nav-wrap {
   width: 100%;
   padding-top: 10px;
   color: #000;
   background-color: #F4F4F2;
 }
-/* line 76, ../sass/common.scss */
+/* line 75, ../sass/common.scss */
 .nav-wrap .nav-content {
   width: 90%;
   margin: 0 auto;
 }
-/* line 80, ../sass/common.scss */
+/* line 79, ../sass/common.scss */
 .nav-wrap a {
   color: #000;
 }
 
-/* line 85, ../sass/common.scss */
+/* line 84, ../sass/common.scss */
 .places span {
   padding-right: 10px;
 }
-/* line 88, ../sass/common.scss */
+/* line 87, ../sass/common.scss */
 .places span:nth-child(2) {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-/* line 94, ../sass/common.scss */
+/* line 93, ../sass/common.scss */
 .nav-list li {
   float: left;
   padding-left: 20px;
 }
 
-/* line 99, ../sass/common.scss */
+/* line 98, ../sass/common.scss */
 .mHeader {
   width: 80%;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/* line 104, ../sass/common.scss */
+/* line 103, ../sass/common.scss */
 .mHeader img {
   height: 40px;
 }
-/* line 107, ../sass/common.scss */
+/* line 106, ../sass/common.scss */
 .mHeader div {
   line-height: 20px;
   padding-top: 10px;
 }
-/* line 111, ../sass/common.scss */
+/* line 110, ../sass/common.scss */
 .mHeader .search-input {
   width: 240px;
   padding: 6px 20px;
   margin-right: -4px;
   border: 1px solid #ccc;
 }
-/* line 117, ../sass/common.scss */
+/* line 116, ../sass/common.scss */
 .mHeader .btn-default {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
-/* line 120, ../sass/common.scss */
+/* line 119, ../sass/common.scss */
 .mHeader button {
   margin-bottom: 3px;
 }
 
-/* line 124, ../sass/common.scss */
+/* line 123, ../sass/common.scss */
 .navGroup {
   width: 85%;
   margin: 0 auto;
   text-align: center;
 }
-/* line 128, ../sass/common.scss */
+/* line 127, ../sass/common.scss */
 .navGroup a {
   color: #fff;
 }
 
-/* line 132, ../sass/common.scss */
+/* line 131, ../sass/common.scss */
 .allClassify1 {
   width: 20%;
   float: left;
@@ -231,7 +231,7 @@ li {
   background-color: #EF5651;
 }
 
-/* line 139, ../sass/common.scss */
+/* line 138, ../sass/common.scss */
 .slide-title {
   width: 80%;
   float: left;
@@ -239,7 +239,7 @@ li {
   margin-bottom: 0;
   background-color: #CBAA72;
 }
-/* line 145, ../sass/common.scss */
+/* line 144, ../sass/common.scss */
 .slide-title li {
   float: left;
   width: 16.67%;
@@ -248,7 +248,7 @@ li {
   text-align: center;
 }
 
-/* line 153, ../sass/common.scss */
+/* line 152, ../sass/common.scss */
 .flex {
   display: -moz-box;
   display: -webkit-box;
@@ -330,32 +330,44 @@ li {
   border: 0;
 }
 /* line 65, ../sass/homePage.scss */
+.homePage .allClassify li.type-part {
+  padding: 19.7px;
+}
+/* line 68, ../sass/homePage.scss */
 .homePage .allClassify a {
   color: #333;
 }
-/* line 69, ../sass/homePage.scss */
+/* line 72, ../sass/homePage.scss */
 .homePage .slide-wrap {
   width: 80%;
 }
-/* line 71, ../sass/homePage.scss */
-.homePage .slide-wrap .skitter {
+/* line 74, ../sass/homePage.scss */
+.homePage .slide-wrap div.slide-con {
   width: 100%;
-  height: 205px;
+  display: table;
+  table-layout: fixed;
+  box-sizing: border-box;
+  height: 416px;
+}
+/* line 81, ../sass/homePage.scss */
+.homePage .slide-wrap .skitter {
+  display: table-cell;
+  height: 100%;
   overflow: hidden;
 }
-/* line 75, ../sass/homePage.scss */
+/* line 85, ../sass/homePage.scss */
 .homePage .slide-wrap .skitter .skitter-content {
   width: 100%;
   height: 100%;
 }
-/* line 81, ../sass/homePage.scss */
+/* line 91, ../sass/homePage.scss */
 .homePage .slide-title {
   width: 100%;
   padding-left: 0;
   margin-bottom: 0;
   background-color: #CBAA72;
 }
-/* line 86, ../sass/homePage.scss */
+/* line 96, ../sass/homePage.scss */
 .homePage .slide-title li {
   float: left;
   width: 16.67%;
@@ -363,128 +375,129 @@ li {
   padding-bottom: 13px;
   text-align: center;
 }
-/* line 93, ../sass/homePage.scss */
+/* line 103, ../sass/homePage.scss */
 .homePage .slide-title a {
   color: #fff;
 }
-/* line 97, ../sass/homePage.scss */
+/* line 107, ../sass/homePage.scss */
 .homePage .slide-footer {
-  height: 124px;
   text-align: center;
   border-left: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
   background-color: #fff;
+  display: table-cell;
+  width: 216px;
 }
-/* line 103, ../sass/homePage.scss */
+/* line 113, ../sass/homePage.scss */
 .homePage .slide-footer div {
-  width: 33.33%;
-  float: left;
-  padding: 10px;
+  width: 100%;
+  padding: 0 10px;
   padding-top: 0;
   border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
-/* line 110, ../sass/homePage.scss */
+/* line 120, ../sass/homePage.scss */
 .homePage .slide-footer .title {
-  margin: 10px;
+  padding-top: 5px;
   font-weight: bold;
 }
-/* line 114, ../sass/homePage.scss */
+/* line 124, ../sass/homePage.scss */
 .homePage .slide-footer ul {
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 5px;
 }
-/* line 118, ../sass/homePage.scss */
+/* line 129, ../sass/homePage.scss */
 .homePage .slide-footer li {
   float: left;
   padding-right: 10px;
   padding-bottom: 10px;
 }
-/* line 122, ../sass/homePage.scss */
+/* line 133, ../sass/homePage.scss */
 .homePage .slide-footer li a {
   color: #333;
 }
-/* line 127, ../sass/homePage.scss */
+/* line 138, ../sass/homePage.scss */
 .homePage .mPart {
   width: 85%;
   margin: 0 auto;
 }
-/* line 131, ../sass/homePage.scss */
+/* line 142, ../sass/homePage.scss */
 .homePage .left-mPart {
   width: 80%;
 }
-/* line 134, ../sass/homePage.scss */
+/* line 145, ../sass/homePage.scss */
 .homePage .right-mPart {
   width: 20%;
 }
-/* line 137, ../sass/homePage.scss */
+/* line 148, ../sass/homePage.scss */
 .homePage .mPartLeftCell {
   padding-right: 2%;
   border-bottom: 1px solid #333;
 }
-/* line 141, ../sass/homePage.scss */
+/* line 152, ../sass/homePage.scss */
 .homePage .cellTop {
   padding: 10px 20px;
 }
-/* line 143, ../sass/homePage.scss */
+/* line 154, ../sass/homePage.scss */
 .homePage .cellTop a {
   color: #333;
 }
-/* line 146, ../sass/homePage.scss */
+/* line 157, ../sass/homePage.scss */
 .homePage .cellTop .title {
   display: block;
   padding-bottom: 10px;
   border-bottom: 2px solid #EC574E;
 }
-/* line 152, ../sass/homePage.scss */
+/* line 163, ../sass/homePage.scss */
 .homePage .arrows {
   margin-right: 30px;
   border: 1px solid #ddd;
 }
-/* line 155, ../sass/homePage.scss */
+/* line 166, ../sass/homePage.scss */
 .homePage .arrows a {
   display: block;
   padding: 0 10px;
   float: left;
 }
-/* line 160, ../sass/homePage.scss */
+/* line 171, ../sass/homePage.scss */
 .homePage .arrows a:first-child {
   border-right: 1px solid #ddd;
 }
-/* line 164, ../sass/homePage.scss */
+/* line 175, ../sass/homePage.scss */
 .homePage .more {
   margin-right: 30px;
 }
-/* line 167, ../sass/homePage.scss */
+/* line 178, ../sass/homePage.scss */
 .homePage .tjCell {
   width: 25%;
   float: left;
 }
-/* line 173, ../sass/homePage.scss */
+/* line 184, ../sass/homePage.scss */
 .homePage .tjCell img {
   width: 100%;
 }
-/* line 177, ../sass/homePage.scss */
+/* line 188, ../sass/homePage.scss */
 .homePage .mtjCell {
   display: block;
   padding-right: 30px;
   color: #333;
 }
-/* line 182, ../sass/homePage.scss */
+/* line 193, ../sass/homePage.scss */
 .homePage .mtjCell img {
   height: 130px;
 }
-/* line 186, ../sass/homePage.scss */
+/* line 197, ../sass/homePage.scss */
 .homePage .info_h {
   height: 40px;
   font-weight: bold;
   margin: 10px auto;
 }
-/* line 191, ../sass/homePage.scss */
+/* line 202, ../sass/homePage.scss */
 .homePage .info_c {
   height: 60px;
   overflow: hidden;
 }
-/* line 195, ../sass/homePage.scss */
+/* line 206, ../sass/homePage.scss */
 .homePage .cutForNewer {
   padding-left: 10px;
   padding-right: 20px;
@@ -494,31 +507,31 @@ li {
   color: #fff;
   background-color: #EC574E;
 }
-/* line 204, ../sass/homePage.scss */
+/* line 215, ../sass/homePage.scss */
 .homePage .price {
   line-height: 30px;
 }
-/* line 207, ../sass/homePage.scss */
+/* line 218, ../sass/homePage.scss */
 .homePage .oldPrice {
   color: #555;
   font-size: 12px;
 }
-/* line 211, ../sass/homePage.scss */
+/* line 222, ../sass/homePage.scss */
 .homePage .newPrice {
   color: #EC574E;
   font-weight: bold;
   font-size: 16px;
 }
-/* line 216, ../sass/homePage.scss */
+/* line 227, ../sass/homePage.scss */
 .homePage .mark-sold {
   padding-top: 20px;
   padding-bottom: 10px;
 }
-/* line 220, ../sass/homePage.scss */
+/* line 231, ../sass/homePage.scss */
 .homePage .mark-sold div:nth-child(2) {
   color: #555;
 }
-/* line 224, ../sass/homePage.scss */
+/* line 235, ../sass/homePage.scss */
 .homePage .mPartRightCell {
   width: 90%;
   min-width: 196px;
@@ -527,44 +540,63 @@ li {
   border: 1px solid #ddd;
   background-color: #fff;
 }
-/* line 231, ../sass/homePage.scss */
+/* line 242, ../sass/homePage.scss */
 .homePage .mPartRightCell a {
   color: #333;
 }
-/* line 234, ../sass/homePage.scss */
+/* line 245, ../sass/homePage.scss */
+.homePage .mPartRightCell div.order {
+  display: none;
+}
+/* line 248, ../sass/homePage.scss */
+.homePage .mPartRightCell div.show {
+  display: block;
+}
+/* line 251, ../sass/homePage.scss */
 .homePage .mPartRightCell ul {
   padding: 10px 10px 0 10px;
   margin-bottom: 0;
   border-top: 1px solid #ddd;
 }
-/* line 239, ../sass/homePage.scss */
+/* line 256, ../sass/homePage.scss */
 .homePage .mPartRightCell li {
   width: 20%;
   float: left;
+  padding: 3px 0;
+  text-align: center;
+  cursor: pointer;
 }
-/* line 244, ../sass/homePage.scss */
+/* line 262, ../sass/homePage.scss */
+.homePage .mPartRightCell li.active {
+  border-bottom: 2px solid #EC574E;
+}
+/* line 268, ../sass/homePage.scss */
 .homePage .rightCellTitle {
   display: block;
   text-align: center;
   line-height: 40px;
 }
-/* line 249, ../sass/homePage.scss */
+/* line 273, ../sass/homePage.scss */
 .homePage .rcContent {
   min-width: 196px;
   position: relative;
   padding: 10px 10px;
   border-bottom: 1px solid #ddd;
 }
-/* line 254, ../sass/homePage.scss */
+/* line 278, ../sass/homePage.scss */
 .homePage .rcContent img {
-  width: 55%;
+  width: 60%;
 }
-/* line 257, ../sass/homePage.scss */
+/* line 281, ../sass/homePage.scss */
+.homePage .rcContent .top-right {
+  width: 35%;
+}
+/* line 284, ../sass/homePage.scss */
 .homePage .rcContent .infor {
   height: 60px;
   margin-bottom: 10px;
 }
-/* line 262, ../sass/homePage.scss */
+/* line 289, ../sass/homePage.scss */
 .homePage .topTag {
   position: absolute;
   bottom: 10px;
@@ -573,39 +605,39 @@ li {
   color: #fff;
   background-color: #EC574E;
 }
-/* line 270, ../sass/homePage.scss */
+/* line 297, ../sass/homePage.scss */
 .homePage .footer {
   width: 100%;
   padding: 50px 10% 50px 10%;
   margin-top: 50px;
   border-top: 1px solid #ddd;
 }
-/* line 277, ../sass/homePage.scss */
+/* line 304, ../sass/homePage.scss */
 .homePage .footer .mPartLeftCell {
   width: 80%;
   text-align: center;
   border-bottom: 0;
 }
-/* line 281, ../sass/homePage.scss */
+/* line 308, ../sass/homePage.scss */
 .homePage .footer .mPartLeftCell div {
   width: 25%;
   float: left;
 }
-/* line 285, ../sass/homePage.scss */
+/* line 312, ../sass/homePage.scss */
 .homePage .footer .mPartLeftCell p {
   font-size: 18px;
   color: #555;
 }
-/* line 289, ../sass/homePage.scss */
+/* line 316, ../sass/homePage.scss */
 .homePage .footer .mPartLeftCell a {
   display: block;
   color: #333;
 }
-/* line 294, ../sass/homePage.scss */
+/* line 321, ../sass/homePage.scss */
 .homePage .footer .mPartLeftCell + div {
   width: 20%;
 }
-/* line 298, ../sass/homePage.scss */
+/* line 325, ../sass/homePage.scss */
 .homePage .foot-p {
   text-align: center;
   margin-bottom: 20px;

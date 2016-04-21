@@ -18,7 +18,38 @@ router.get("/home",function(req,res){
 		user = "登录";
 	}
 	global.sellConControl.dataFindAction({},function(err,doc){
-		res.render("home",{title:'Home',objList:doc,username: user});
+		if(err){
+			res.send(500);
+		}else if(!doc){
+			res.send(401);
+		}else{
+			var docList = global.sellConControl.sortObj(doc,'soldNumber','desc');
+			var meishi = [];
+			var movie = [];
+			var recreation = [];
+			var shopping = [];
+			var live = [];
+			for(var i = 0;i < docList.length;i++){
+				if(docList[i].type == "美食"){
+					meishi.push(docList[i]);
+				}else if(docList[i].type == "电影"){
+					movie.push(docList[i]);
+				}else if(docList[i].type == "娱乐"){
+					recreation.push(docList[i]);
+				}else if(docList[i].type == "购物"){
+					shopping.push(docList[i]);
+				}else if(docList[i].type == "生活"){
+					live.push(docList[i]);
+				}
+			}
+			res.render("home",{title:'Home',objList:docList,
+				meishiList:meishi,
+				movieList: movie,
+				recreationList: recreation,
+				shoppingList: shopping,
+				liveList: live,
+				username: user});
+		}
 	});
 });
 

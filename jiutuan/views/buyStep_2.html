@@ -77,8 +77,8 @@
 				</label>
             </div>
             <div class="buy-btn-wrap pull-right">
-				<a href="javascript:;" id="noPay" class="btn btn-default buy-btn btn_order" style="background-color: #fff;color: #333;">暂不付款</a>
-			</div> 
+				<a href="userCenter?name=<%= data.userName %>&status=0" id="noPay" class="btn btn-default buy-btn btn_order" style="background-color: #fff;color: #333;">暂不付款</a>
+			</div>
             <div class="buy-btn-wrap pull-right">
 				<a href="userCenter?name=<%= data.userName %>" class="btn btn-default buy-btn btn_order" id="paySure">确认付款</a>
 			</div>
@@ -122,7 +122,7 @@
 			type:'post',
 			data: data,
 			success: function(data,status){ 
-				if(status == 'success'){ 
+				if(status == 'success'){
 					//location.href = 'home';
 					alert('支付成功！');
 				}
