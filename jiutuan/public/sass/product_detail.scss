@@ -162,8 +162,53 @@ html,body {
 
 	// }
 	.left-part {
-		width: 60%;
+		width: 70%;
 		float: left;
+	  .left-cell-info{
+		h3 {
+		  font-size: 20px;
+		  color: #666666;
+		  font-weight: bold;
+		  margin-bottom: 20px;
+		  padding-bottom: 10px;
+		  border-bottom: 2px solid #dddddd;
+		}
+		.pj {
+		  .level {
+			color: #ED5852;
+			font-size: 24px;
+			position: relative;
+			top: -10px;
+		  }
+		  .fen {
+			position: relative;
+			top: -10px;
+		  }
+		}
+		.buy-tip{
+		  .tip{
+			&:nth-child(1){
+			  margin-top: -20px;
+			}
+			color: #333333;
+			border-bottom: 1px solid #dddddd;
+			border-right: 1px solid #dddddd;
+			span{
+			  display: inline-block;
+			  background: #d5d5d5;
+			  font-size: 16px;
+			  text-align: center;
+			  line-height: 50px;
+			  width: 150px;
+			  height: 50px;
+			}
+			p {
+			  display: inline-block;
+			  font-size: 14px;
+			}
+		  }
+		}
+	  }
 	}
 	.right-part {
 		width: 40%;
