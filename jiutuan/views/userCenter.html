@@ -76,6 +76,9 @@
 			        </tr>
 			        <% objList.forEach(function(data, index){ %>
 	        		<tr>
+	        			<td>
+	        				<span class="commCode"><%= data.commCode %></span>
+	        			</td>
 	        			<td class="orderNum">
 	        				<span class="pid"><%= data._id %></span>
 	        			</td>
@@ -94,8 +97,9 @@
 			                ¥<span class="total"><%= data.price*data.pNumber %></span>
 			            </td>
 			            <% if(data.status == 0){ %>
+
 			            <td class="a-btn">
-			            	<button class="btn btn-info go-pay" data-id="<%= data.id%>" data-index="<%= index %>">前去支付</button>
+			            	<button class="btn btn-info go-pay" data-id="<%= data.id%>" data-cc="<%= data.commCode %>" data-index="<%= index %>">前去支付</button>
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if (data.status == 1){ %>
@@ -186,9 +190,9 @@
 		});
 		$(".removeData").each(function(){
 			$(this).click(function(){
-				var pid = $(this).parents('tr').find('.pid').html();
+				var cc = $(this).parents('tr').find('.commCode').html();
 				//$('#pID').html(pid);
-				remove(pid);
+				remove(cc);
 			})
 		});
 	});
@@ -238,10 +242,10 @@
 		}
 	}
 	//删除
-	function remove(id){ 
-		var pid = id;
-		var data = {pid: pid};
-		console.log(pid);
+	function remove(cc){ 
+		var cc = cc;
+		var data = {cc: cc};
+		//console.log(pid);
 		$.ajax({ 
 			url:'/removeOrder',
 			type:'post',
@@ -261,7 +265,8 @@
 	goPay.bind("click",function(){
 		var $this = $(this);
 		var id = $this.attr("data-id");
-		location.href = "buyStep_2?id="+id+"";
+		var cc = $this.attr("data-cc");
+		location.href = "buyStep_2?id="+id+"&cc="+cc;
 	});
 		/*var uname = $('#userName').html();
 		var data = {uname: uname};

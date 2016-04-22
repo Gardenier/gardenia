@@ -78,7 +78,6 @@
 		//cookie 传值
 		//alert($.cookie('pNumber'));
 		$("#pNumber").val($.cookie('pNumber'));
-		
 		//添加 减少 数量 总价相应改变
 		var p = parseFloat($('#price').html()).toFixed(1);
 		var n = parseInt($("#pNumber").val());
@@ -86,7 +85,8 @@
 		$("#pNumber").val(n);
 		$(".total").html(sum);
 		$(".sum_n").html(sum);
-
+		var time = new Date();
+		var commCode = time.getHours().toString()+time.getMinutes()+n;
 		$("#add").click(function(){
 			var p = parseFloat($('#price').html()).toFixed(1);;
 			var n = parseInt($("#pNumber").val());
@@ -144,9 +144,9 @@
 			//var pd = $('#packageName').html();
 			var price = parseFloat($('#price').html());
 			
-			var data = {'id': id,'pid':pid,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': 1,'status': 0};
+			var data = {'id': id,'pid':pid,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': 1,'status': 0,commCode: commCode};
 			//alert(name);
-			$('#subOrder').attr('href','buyStep_2?id='+id);
+			$('#subOrder').attr('href','buyStep_2?id='+id+'&cc='+commCode);
 			$.ajax({ 
 				url:'/buyStep_1',
 				type:'post',

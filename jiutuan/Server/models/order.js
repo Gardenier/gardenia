@@ -19,7 +19,8 @@ var orderSchema = new Schema({
 	// }
 	star: Number,//分数
 	text: String,//评价内容
-	fstatus: Number//评价状态 0 1 
+	fstatus: Number,//评价状态 0 1 
+	commCode: String
 });
 
 //var userSchema = new Schema({any:Schema.Types.Mixed});

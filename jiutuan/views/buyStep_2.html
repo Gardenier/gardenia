@@ -93,7 +93,11 @@
 		//数据交互
 		$('#paySure').click(function(){
 			$('.progress-bar').css('width','100%');
-			postData();
+			var pn = $.cookie('pNumber');
+			//for(var i=0;i<pn;i++){
+				postData();
+			//}
+			
 		});
 		// $('#noPay').click(function(){
 		// 	postData(false);
@@ -108,13 +112,16 @@
 		//alert(pn+'\n'+pna+'\n'+rn+'\n');
 		var str = window.location.search;
 		var id = str.substring(str.indexOf('=')+1);
+		var str2 = str.substring(str.indexOf('=')+1);
+		var cc = str2.substring(str2.indexOf('=')+1);
 		//alert(id);
 		var data = {
 			//pay: type,
 			id: id,
 			pn: pn,
 			pna: pna,
-			rn: rn
+			rn: rn,
+			commCode: cc
 		}
 		//alert(id);
 		$.ajax({ 

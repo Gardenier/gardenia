@@ -36,7 +36,7 @@ exports.equalData = function(model,condition,callback) {
  */
 exports.updateData =function(model,condition,update,callback) {
 
-    model.update(condition, update,callback);
+    model.update(condition, update,{ multi: true },callback);
 }
 
 /**

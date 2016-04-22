@@ -648,14 +648,10 @@ router.route("/buyStep_1").get(function(req,res){
 	var pn = req.body.pn;
 	var price = req.body.price;
 	var status = parseInt(req.body.status);
-	// var feed = {
-	// 	star: 0,//分数
-	// 	text: '',//评价内容
-	// 	status: 0//状态
-	// };
 	var star = 5;//分数
 	var text = '';//评价内容
 	var	fstatus = 0;//状态
+	var commCode = req.body.commCode;
 
 	var data = {
 		id: id,
@@ -670,7 +666,8 @@ router.route("/buyStep_1").get(function(req,res){
 		cstatus: 0,
 		star: star,
 		text: text,
-		fstatus: fstatus
+		fstatus: fstatus,
+		commCode: commCode
 	};
 	global.orderControl.orderAddAction(data,function(err,doc){
 		if (err) {
@@ -758,15 +755,18 @@ router.route("/buyStep_2").get(function(req,res){
 	});
 	//res.render("buyStep_2",{title:'Home'});
 }).post(function(req,res){
-	var id = req.body.id;
-	var sn =  parseInt(req.body.pn);
+	//var id = req.body.id;
+	var commCode = req.body.commCode;
+	var sn =  1;
 	var pna = req.body.pna;
 	var rn = req.body.rn;
 	var u_condition = {
 		resName: rn,
 		packageName: pna
 	};
-	global.orderControl.orderUpdateAction({id: id},{status: 1},function(err,doc){
+	console.log("什么鬼"+"\n"+commCode);//id: '2016/4/23-0:38:14:550'
+	global.orderControl.orderUpdateAction({commCode: commCode},{status: 1},function(err,doc){
+		console.log("什么鬼"+doc.length+"\n");
 		if (err) {
             res.send(500);
             console.log(err);
@@ -932,9 +932,9 @@ router.route("/evaluate").post(function(req,res){
 
 });
 router.route("/removeOrder").post(function(req,res){
-	var pid = req.body.pid;
+	var cc = req.body.cc;
 	//console.log('wrap - pid:'+pid+'\n');
-	global.orderControl.orderRemoveAction({_id: pid},function(err,doc){
+	global.orderControl.orderRemoveAction({commCode: cc},function(err,doc){
 		//console.log('doc:'+doc+'\n');
 		if (err) {
             console.log(err);
