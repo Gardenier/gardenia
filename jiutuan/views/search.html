@@ -17,7 +17,7 @@
             <div class="item">
                 <% if (objList.length > 0) {%>
                 <% objList.forEach(function(data, index){ %>
-                <% if (data.type == "美食"){%>
+                <% if (data.type == "美食" && data.sure == 1){%>
                 <a href="/product_detail?id=<%= data._id %>">
                     <div class="item-cell">
                         <div class="img">
@@ -30,12 +30,12 @@
                             <span class="money">¥<%= data.oldPrice%></span>
                         </div>
                         <div class="other">
-                            <span class="grade">4.5分</span>
+                            <!--<span class="grade">4.5分</span>-->
                             <span class="sale-num">已售<%= data.soldNumber%></span>
                         </div>
                     </div>
                 </a>
-                <% }else if (data.type == "电影"){ %>
+                <% }else if (data.type == "电影" && data.sure == 1){ %>
                 <a href="/product_detail?id=<%= data._id %>">
                     <div class="item-cell">
                         <div class="img">
@@ -48,12 +48,12 @@
                             <span class="money">¥<%= data.oldPrice%></span>
                         </div>
                         <div class="other">
-                            <span class="grade">4.5分</span>
+                            <!--<span class="grade">4.5分</span>-->
                             <span class="sale-num">已售<%= data.soldNumber%></span>
                         </div>
                     </div>
                 </a>
-                <% }else if (data.type == "娱乐"){ %>
+                <% }else if (data.type == "娱乐" && data.sure == 1){ %>
                 <a href="/product_detail?id=<%= data._id %>">
                     <div class="item-cell">
                         <div class="img">
@@ -66,12 +66,12 @@
                             <span class="money">¥<%= data.oldPrice%></span>
                         </div>
                         <div class="other">
-                            <span class="grade">4.5分</span>
+                            <!--<span class="grade">4.5分</span>-->
                             <span class="sale-num">已售<%= data.soldNumber%></span>
                         </div>
                     </div>
                 </a>
-                <% }else if (data.type == "购物"){ %>
+                <% }else if (data.type == "购物" && data.sure == 1){ %>
                 <a href="/product_detail?id=<%= data._id %>">
                     <div class="item-cell">
                         <div class="img">
@@ -84,12 +84,12 @@
                             <span class="money">¥<%= data.oldPrice%></span>
                         </div>
                         <div class="other">
-                            <span class="grade">4.5分</span>
+                            <!--<span class="grade">4.5分</span>-->
                             <span class="sale-num">已售<%= data.soldNumber%></span>
                         </div>
                     </div>
                 </a>
-                <% }else if (data.type == "服务"){ %>
+                <% }else if (data.type == "服务" && data.sure == 1){ %>
                 <a href="/product_detail?id=<%= data._id %>">
                     <div class="item-cell">
                         <div class="img">
@@ -102,12 +102,12 @@
                             <span class="money">¥<%= data.oldPrice%></span>
                         </div>
                         <div class="other">
-                            <span class="grade">4.5分</span>
+                            <!--<span class="grade">4.5分</span>-->
                             <span class="sale-num">已售<%= data.soldNumber%></span>
                         </div>
                     </div>
                 </a>
-                <% }else if (data.type == "酒店"){ %>
+                <% }else if (data.type == "酒店" && data.sure == 1){ %>
                 <a href="/product_detail?id=<%= data._id %>">
                     <div class="item-cell">
                         <div class="img">
@@ -120,7 +120,7 @@
                             <span class="money">¥<%= data.oldPrice%></span>
                         </div>
                         <div class="other">
-                            <span class="grade">4.5分</span>
+                            <!--<span class="grade">4.5分</span>-->
                             <span class="sale-num">已售<%= data.soldNumber%></span>
                         </div>
                     </div>

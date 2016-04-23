@@ -494,8 +494,8 @@ router.route('/product_list/:type').get(function(req, res){
 			titlename = "电影-列表页";
 		}
 		else if(req.params.type == "entertainment"){
-			type = "电影";
-			titlename = "电影-列表页";
+			type = "娱乐";
+			titlename = "娱乐-列表页";
 		}
 		else if(req.params.type == "shopping"){
 			type = "购物";
