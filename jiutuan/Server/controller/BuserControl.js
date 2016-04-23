@@ -37,7 +37,6 @@ exports.userRemoveAction = function() {
         bD.removeUser(conditions,dbHelper,function(result){
             res.json(result);
         });
-        //除了要删除user表里的内容，还要删除关联表(user_schoolClass)的内容
     }
 }
 

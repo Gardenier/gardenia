@@ -86,7 +86,7 @@
 		$(".total").html(sum);
 		$(".sum_n").html(sum);
 		var time = new Date();
-		var commCode = time.getHours().toString()+time.getMinutes()+n;
+		var commCode = time.getHours().toString()+time.getMinutes()+time.getSeconds()+n;
 		$("#add").click(function(){
 			var p = parseFloat($('#price').html()).toFixed(1);;
 			var n = parseInt($("#pNumber").val());
@@ -109,12 +109,6 @@
 			}
 			
 		});
-		//确认订单 隐藏当前块 显示确认支付
-		// $('#subOrder').click(function(){
-		// 	$('.table-section').hide();
-		// 	$('.controls').show();
-		// 	$('.progress-bar').css('width','66.66%');
-		// });
 
 		//数据交互
 		var pn = $('#pNumber').val();
@@ -137,11 +131,7 @@
 					date.getDate()+'-'+date.getHours()+':'+date.getMinutes()+
 					':'+date.getSeconds()+':'+date.getMilliseconds();
 
-			//$.cookie('id', id, {path: '/'});  //存储cookie数据
-
 			var name = $('#userName a').html();
-			//var resName = $('#resName').html();
-			//var pd = $('#packageName').html();
 			var price = parseFloat($('#price').html());
 			
 			var data = {'id': id,'pid':pid,'userName': name,'resName': resName,'projectDetail': pd,'price': price,'pn': 1,'status': 0,commCode: commCode};
@@ -161,7 +151,6 @@
 				}
 			});
 		}
-
 	});
 	</script>
 </body>

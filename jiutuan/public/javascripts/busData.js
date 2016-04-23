@@ -8,9 +8,7 @@ $(function(){
 		zIndexOffset: '999'//控制日期控件z-index
 	});
 	//组件调用 end
-	// $('#submit').click(function(){
-	// 	post_form();
-	// });
+
 	$("#submit").click(function(){ 
 		//表单验证
 		post_form();
@@ -247,28 +245,7 @@ function post_form(){
 	}
 	console.log();
 }
-// function _s() {
-//     var f = $('#upfile').files;
-//     //上次修改时间
-//     console.log(f);
-//     //名称
-//     console.log(f.name);
-//     //大小 字节
-//     console.log(f.size);
-//     //类型
-//     console.log(f.type);
-// }
-// function checkImgType(ths){ 
-// 	ths = ths.target || window.event.srcElement;
-//     thsType = ths.value;
-//     //判断文件类型
-//    	if (!/\.(gif|jpg|jpeg|png|GIF|JPG|PNG)$/.test(thsType)) {  
-//    		$('#upfile').after("<p style='color:#f00;font-weight: bold;margin:0;'>图片类型必须是.gif,jpeg,jpg,png中的一种</p>");  
-//         ths.value = "";  
-//         return false; 
-//     }
-//     return true;  
-// }  
+
 //获取数据
 function getData(){
 	name = $('#sellerName').text();

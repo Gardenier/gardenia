@@ -12,11 +12,7 @@ var orderSchema = new Schema({
 	status: Number,//支付状态 0 1
 	cstatus: Number,//消费状态 0 1
 	pstatus: Number,//转账状态 0 1
-	// feedBack: {
-	// 	star: Number,//分数
-	// 	text: String,//评价内容
-	// 	status: Number//状态
-	// }
+	dstatus: Number,//用户删除状态
 	star: Number,//分数
 	text: String,//评价内容
 	fstatus: Number,//评价状态 0 1 

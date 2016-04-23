@@ -8,6 +8,11 @@
 	<script src="javascripts/jquery-2.0.3.min.js"></script>
 	<script src="javascripts/bootstrap.js"></script>
 	<script src="javascripts/jquery.cookie.js"></script>
+	<style>
+	.btns {
+		display: none;
+	}
+	</style>
 </head>
 <body>
 	<!--公共头部start-->
@@ -41,22 +46,22 @@
 					<a href="myCollection">我的收藏</a>
 				</strong>
 			</div>
-			<div class="tab-t">
+			<!-- <div class="tab-t">
 				<strong id="myShopCar">
 					<a href="javascript:;">我的购物车</a>
 				</strong>
-			</div>
+			</div> -->
 		</div>
 		<div class="list-content">
 			<div class="userMes">
 				<div>
 					<span class="mesCell">用户名：</span>
 					<span id="userName_copy"></span>
-					<a href="#" class="upMes">修改</a>
+					<!-- <a href="#" class="upMes">修改</a> -->
 				</div>
-				<div>
+				<!-- <div>
 					<button type="button" class="btn btn-primary">修改密码</button>
-				</div>
+				</div> -->
 			</div>
 			<% if( objList == ''){ %>
 				<div>
@@ -76,8 +81,8 @@
 			        </tr>
 			        <% objList.forEach(function(data, index){ %>
 	        		<tr>
-	        			<td>
-	        				<span class="commCode"><%= data.commCode %></span>
+	        			<td style="display: none;">
+	        				<span class="commCode" data-index="<%= index %>"><%= data.commCode %></span>
 	        			</td>
 	        			<td class="orderNum">
 	        				<span class="pid"><%= data._id %></span>
@@ -98,32 +103,32 @@
 			            </td>
 			            <% if(data.status == 0){ %>
 
-			            <td class="a-btn">
+			            <td class="a-btn btns">
 			            	<button class="btn btn-info go-pay" data-id="<%= data.id%>" data-cc="<%= data.commCode %>" data-index="<%= index %>">前去支付</button>
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if (data.status == 1){ %>
-			            <td class="a-btn">
+			            <td class="a-btn btns">
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
 			            <% if(data.cstatus == 0){ %>
-			            <td class="p-btn">
+			            <td class="p-btn btns">
 			            	<button class="btn btn-info" onclick="use()">消费</button>
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if (data.cstatus == 1){ %>
-			            <td class="p-btn">
+			            <td class="p-btn btns">
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
 			            <% if(data.fstatus == 0){ %>
-			            <td class="f-btn">
+			            <td class="f-btn btns">
 			            	<button class="btn btn-info acc" data-toggle="modal" data-target="#myModal">评论</button>
 			 				<button class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } else if(data.fstatus == 1){ %>
-			            <td class="f-btn">
+			            <td class="f-btn btns">
 			 				<button class="s" class="btn btn-danger removeData">删除</button>
 			            </td>
 			            <% } %>
@@ -196,6 +201,39 @@
 			})
 		});
 	});
+	function showOnlyBtn(classname){
+		var clen = $('.commCode').length;
+		var ccarrAll = [],ccarr=[],text;
+		for(var i=0;i<clen;i++){
+			text = $($('.commCode')[i]).html();
+			//console.log(text);
+			ccarrAll.push(text);
+			var bool = ccarr.indexOf(ccarrAll[i]);
+			if(bool<0){
+				ccarr.push(ccarrAll[i]);
+			}
+		}
+		//var clen = $('.commCode').length;
+		var cnarr = [];
+		for(var i=0,len=ccarr.length;i<clen;i++){
+			//var len = $('.commCode').length;
+			for(var j=0;j<clen;j++){
+				if(ccarr[i] == $($('.commCode')[j]).html()){
+					cnarr[i]= $($('.commCode')[j]).attr('data-index');
+				}
+			}
+		}
+		console.log(cnarr);
+		var index;
+		for(var i=0,len = cnarr.length;i<len;i++){
+			for(var j=0;j<clen;j++){
+				index = $($('.commCode')[j]).attr('data-index');
+				if(index == cnarr[i]){
+					$($('.commCode')[j]).parents('tr').find(classname).show();
+				}
+			}
+		}
+	}
 	function lightTab(){
 		//左侧高亮
 		var str = window.location.search;
@@ -210,33 +248,44 @@
 			$('.userMes').hide();
 			$('.buy-table').show();
 			if(search == 'status=1'){
-				$('.f-btn').hide();
-				$('.p-btn').hide();
+				// $('.f-btn').hide();
+				// $('.p-btn').hide();
+				//showOnlyBtn('.a-btn');
+				$('.a-btn').show();
 				$('#succ a').addClass('bc');
 			}
 			if(search == 'status=0'){
-				$('.f-btn').hide();
-				$('.p-btn').hide();
+				// $('.f-btn').hide();
+				// $('.p-btn').hide();
+				showOnlyBtn('.a-btn');
 				$('#usucc a').addClass('bc');
 			}
 			if(search == 'status=11'){
-				$('.a-btn').hide();
-				$('.p-btn').hide();
+				// $('.a-btn').hide();
+				// $('.p-btn').hide();
+				//showOnlyBtn('.f-btn');
+				$('.f-btn').show();
 				$('#acc a').addClass('bc');
 			}
 			if(search == 'status=10'){
-				$('.a-btn').hide();
-				$('.p-btn').hide();
+				// $('.a-btn').hide();
+				// $('.p-btn').hide();
+				//showOnlyBtn('.f-btn');
+				$('.f-btn').show();
 				$('#uacc a').addClass('bc');
 			}
 			if(search == 'status=21'){
-				$('.a-btn').hide();
-				$('.f-btn').hide();
+				// $('.a-btn').hide();
+				// $('.f-btn').hide();
+				//showOnlyBtn('.p-btn');
+				$('.p-btn').show();
 				$('#use a').addClass('bc');
 			}
 			if(search == 'status=20'){
-				$('.a-btn').hide();
-				$('.f-btn').hide();
+				// $('.a-btn').hide();
+				// $('.f-btn').hide();
+				//showOnlyBtn('.p-btn');
+				$('.p-btn').show();
 				$('#unuse a').addClass('bc');
 			}
 		}
@@ -244,7 +293,12 @@
 	//删除
 	function remove(cc){ 
 		var cc = cc;
-		var data = {cc: cc};
+		var uname = $('#userName_copy a').html();
+		alert(uname);
+		var data = {
+			cc: cc,
+			uname: uname
+		};
 		//console.log(pid);
 		$.ajax({ 
 			url:'/removeOrder',
@@ -268,21 +322,6 @@
 		var cc = $this.attr("data-cc");
 		location.href = "buyStep_2?id="+id+"&cc="+cc;
 	});
-		/*var uname = $('#userName').html();
-		var data = {uname: uname};
-		 $.ajax({
-		 	url:'/userCenter',
-		 	type:'post',
-		 	data: data,
-		 	success: function(data,status){
-		 		if(status == 'success'){
-		 			location.href = '/buyStep_2';
-		 		}
-		 	},
-		 	error: function(err,status){
-		 		alert("出错了");
-		 	}
-		 });*/
 
 	//消费
 	function use(){ 
@@ -310,7 +349,6 @@
 		var pid = $('#pID').html();
 		var star = $("#star").val();
 		var text = $('#accText').val();
-		//console.log(pid+'\n'+star+'\n'+text);
 		var data =  {
 			pid: pid,
 			star: star,

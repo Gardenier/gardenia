@@ -94,43 +94,32 @@
 		$('#paySure').click(function(){
 			$('.progress-bar').css('width','100%');
 			var pn = $.cookie('pNumber');
-			//for(var i=0;i<pn;i++){
-				postData();
-			//}
+			postData();
 			
 		});
-		// $('#noPay').click(function(){
-		// 	postData(false);
-		// });
-
 	});
 	function postData(){
 		
 		var pn = $.cookie('pNumber');
 		var pna = $.cookie('pName');  //存储cookie数据
 		var rn = $.cookie('rName');  //存储cookie数据
-		//alert(pn+'\n'+pna+'\n'+rn+'\n');
 		var str = window.location.search;
 		var id = str.substring(str.indexOf('=')+1);
 		var str2 = str.substring(str.indexOf('=')+1);
 		var cc = str2.substring(str2.indexOf('=')+1);
-		//alert(id);
 		var data = {
-			//pay: type,
 			id: id,
 			pn: pn,
 			pna: pna,
 			rn: rn,
 			commCode: cc
 		}
-		//alert(id);
 		$.ajax({ 
 			url:'/buyStep_2',
 			type:'post',
 			data: data,
 			success: function(data,status){ 
 				if(status == 'success'){
-					//location.href = 'home';
 					alert('支付成功！');
 				}
 			},

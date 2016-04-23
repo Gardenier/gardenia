@@ -11,14 +11,6 @@ exports.addOrder = function(data,dbHelper,callback) {
 
 };
 /**
-
- */
-// exports.equalUser = function(condition,dbHelper,callback) {
-
-//     var userModel =user.getModel();
-//     dbHelper.equalData(userModel,condition,callback);
-// };
-/**
  * 调用公共update方法并且传入操作数据库的模型user
  * @param conditions
  * @param update

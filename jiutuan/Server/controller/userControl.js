@@ -21,9 +21,7 @@ exports.userEqualAction = function(condition,callback) {
 exports.userUpdateAction = function(condition,update,callback) {
     userDao.updateUser(condition, update,dbHelper,callback);
 }
-// exports.userAddDocumentAction = function(data,callback){
-//     userDao.addDocument(data,dbHelper,callback);
-// }
+
 /**
  * get User List
  * @returns {Function}
@@ -38,7 +36,6 @@ exports.userRemoveAction = function() {
         userDao.removeUser(conditions,dbHelper,function(result){
             res.json(result);
         });
-        //除了要删除user表里的内容，还要删除关联表(user_schoolClass)的内容
     }
 }
 

@@ -63,25 +63,6 @@ exports.findData =function(model,condition,callback) {
  */
 exports.removeData =function(model,conditions,callback) {
     model.remove(conditions,callback);
-    // model.remove(conditions, function(error,result) {
-    //     if (error) {
-    //         console.log(error);
-    //         //res.send(500);
-    //         //callback({success: 0, flag: "remove data fail"});
-    //     } else {
-    //         console.log('此订单已删除');
-    //         //res.send(200);
-    //         // if(result.result.n!=0){
-    //         //     console.log('remove success!');
-    //         //     callback({success: 1, flag: "remove data success"});
-    //         // }
-    //         // else{
-    //         //     console.log('remove fail:no this data!');
-    //         //     callback({success:0, flag: 'remove fail:no this data!'});
-    //         // }
-
-    //     }
-    // });
 }
 
 /**

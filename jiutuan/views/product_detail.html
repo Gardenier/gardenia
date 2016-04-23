@@ -173,12 +173,9 @@
 						</div>
 						<div class="buy-btn-wrap clearfix">
 							<a href="/buyStep_1?id=<%= data._id %>" class="btn btn-default buy-btn" id="toPay">立即购买</a>
-							<button id="shopCar" title="加入购物车" data-toggle="modal" data-target="#myModal">
+							<!-- <button id="shopCar" title="加入购物车" data-toggle="modal" data-target="#myModal">
 								<span class="iconfont icon-gouwuche"></span>
-							</button>
-							<!-- <a href="shopCar" class="add_shopCar" id="shopCar" title="加入购物车">
-								<span class="iconfont icon-gouwuche"></span>
-							</a> -->
+							</button> -->
 							<a href="javascript:;" class="collect-info" id="collection">
 								收藏
 								<span class="iconfont icon-weishoucang"></span>
@@ -191,25 +188,6 @@
 		<div class="cell-wrap clearfix">
 			<div class="cell">
 				<div class="left-part">
-					<!--<div class="left-cell-info">
-						<p>本店其他套餐</p>
-						 <a class="otherPackage-info clearfix">
-							<div>￥<span>200</span></div>
-							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
-							<div><span>3</span>人已购买</div>
-						</a>
-						<a class="otherPackage-info clearfix">
-							<div>￥<span>200</span></div>
-							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
-							<div><span>3</span>人已购买</div>
-						</a>
-						<a class="otherPackage-info clearfix">
-							<div>￥<span>200</span></div>
-							<div>适合<span>3-4</span>人用餐，节假日通用，提供停车位</div>
-							<div><span>3</span>人已购买</div>
-						</a> 
-					</div>-->
-					
 					<div class="left-cell-info">
 						<h3>商品评价</h3>
 						<div class="pj clearfix">
@@ -217,10 +195,6 @@
 							<div class="star-gray">
 								<div class="star-light"></div>
 							</div>
-							<!-- <div>满意率<span>93%</span></div> -->
-							<!-- <div class="satisfaction-rate">
-								<a href="javascript:;">查看全部评论</a>
-							</div> -->
 						</div>
 						<div class="pj-lines flex">
 							<div class="pjl-cell">此团购有<span><%= dobjList.length %></span>人评价</div>
@@ -284,11 +258,6 @@
 							<% }) %>
 							
 						</div>
-						<!-- <ul>
-							<li>1</li>
-							<li>2</li>
-							<li>下一页</li>
-						</ul> -->
 					</div>
 					
 					<div class="left-cell-info">
@@ -449,15 +418,7 @@
 		$("#toPay").click(function(){
 			var pn = $('#pNumber').val();       
         	$.cookie('pNumber', pn, {path: '/'});  //存储cookie数据
-        	//alert($.cookie('pNumber'));
 		});
-
-		//加入购物车
-		// $('#shopCar').click(function(){
-		// 	location.href = 'shopCar';
-		// });
-
-		
 	});
 	</script>
 </body>
