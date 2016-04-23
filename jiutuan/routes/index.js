@@ -718,7 +718,7 @@ router.route("/userCenter").get(function(req,res){
 			});
 		}
 		if(status == 1){
-			global.orderControl.orderFindAction({userName:req.query.name,status: 1},function(err,doc){//,objList: doc
+			global.orderControl.orderFindAction({userName:req.query.name,status: 1,dstatus: 0},function(err,doc){//,objList: doc
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
 			});
 		}
@@ -726,7 +726,9 @@ router.route("/userCenter").get(function(req,res){
 			var conditions = {
 				userName:req.query.name,
 				status: 1,
-				fstatus: 0
+				fstatus: 0,
+				dstatus: 0,
+				cstatus: 1
 			};
 			global.orderControl.orderFindAction(conditions,function(err,doc){//,objList: doc
 				//console.log("status=10"+'\n'+doc+'\n');
@@ -737,7 +739,9 @@ router.route("/userCenter").get(function(req,res){
 			var conditions = {
 				userName:req.query.name,
 				status: 1,
-				fstatus: 1
+				fstatus: 1,
+				cstatus: 1,
+				dstatus: 0
 			};
 			global.orderControl.orderFindAction(conditions,function(err,doc){//,objList: doc
 				//console.log("status=11"+'\n'+doc+'\n');
@@ -805,14 +809,17 @@ router.route("/evaluate").post(function(req,res){
 
 });
 router.route("/removeOrder").post(function(req,res){
-	var cc = req.body.cc;
-	var name = req.body.uname;
-	var conditions = {
-		commCode: cc,
-		userName: name
-	};
-	global.orderControl.orderUpdateAction(conditions,{dstatus: 1},function(err,doc){
-		console.log('delete-doc:'+'\n'+doc.length+'\n');
+	// var cc = req.body.cc;
+	// var name = req.body.uname;
+	// var conditions = {
+	// 	///commCode: cc,
+	// 	userName: name
+	// };
+	//console.log('delete:'+'\n'+conditions.commCode+'\n'+conditions.userName);
+	var pid = req.body.pid;
+	console.log('delete-doc:'+'\n'+pid+'\n');
+	global.orderControl.orderUpdateAction({_id: pid},{dstatus: 1},function(err,doc){
+		
 		if (err) {
             console.log(err);
             res.send(500);

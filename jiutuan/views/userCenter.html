@@ -195,9 +195,10 @@
 		});
 		$(".removeData").each(function(){
 			$(this).click(function(){
-				var cc = $(this).parents('tr').find('.commCode').html();
+				//var cc = $(this).parents('tr').find('.commCode').html();
 				//$('#pID').html(pid);
-				remove(cc);
+				var pid = $(this).parents('tr').find('.pid').html();
+				remove(pid);
 			})
 		});
 	});
@@ -291,15 +292,17 @@
 		}
 	}
 	//删除
-	function remove(cc){ 
-		var cc = cc;
-		var uname = $('#userName_copy a').html();
-		alert(uname);
-		var data = {
-			cc: cc,
-			uname: uname
-		};
-		//console.log(pid);
+	function remove(id){ 
+		// var cc = cc;
+		// var uname = $('#userName_copy a').html();
+		//alert(uname);
+		// var data = {
+		// 	cc: cc,
+		// 	uname: uname
+		// };
+		//alert(data.cc);
+		var pid = id;
+		var data = {pid: pid};
 		$.ajax({ 
 			url:'/removeOrder',
 			type:'post',
