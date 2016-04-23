@@ -75,10 +75,12 @@
 						未支付
 						<% } else { %>
 						已支付
-							<% if(data.pstatus == 0) { %>
+							<% if(data.cstatus == 1 && data.pstatus == 0) { %>
 							<button class="btn btn-success moneyToBus">给商家转账</button>
-							<% } else {%>
+							<% } else if(data.cstatus == 1 && data.pstatus == 1){%>
 							<span>—— 已转账</span>
+							<% } else if(data.cstatus == 0){ %>
+							<span>—— 未消费</span>
 							<% } %>
 						<% } %>
 					</td>
