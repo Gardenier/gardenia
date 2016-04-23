@@ -752,7 +752,8 @@ router.route("/userCenter").get(function(req,res){
 			var conditions = {
 				userName: req.query.name,
 				status: 1,
-				cstatus: 1
+				cstatus: 1,
+				dstatus: 0
 			};
 			global.orderControl.orderFindAction(conditions,function(err,doc){
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
@@ -762,7 +763,8 @@ router.route("/userCenter").get(function(req,res){
 			var conditions = {
 				userName: req.query.name,
 				status: 1,
-				cstatus: 0
+				cstatus: 0,
+				dstatus: 0
 			};
 			global.orderControl.orderFindAction(conditions,function(err,doc){
 				res.render("userCenter",{title:"个人中心",objList: doc,username: user});
