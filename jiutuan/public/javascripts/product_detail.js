@@ -119,6 +119,7 @@ $(function(){
       	}
     });
     console.log(arr);
+	console.log(arr[0]);
     getStar(arr);
     function getStar(arr){
     	var farr = [];
@@ -146,7 +147,7 @@ $(function(){
 	    			}
 	    		}
 	    	}
-	    	//console.log(farr);
+	    	console.log(farr);
 	    	if(farr.length>0){
 	    		$(".level1").html(five.length+four.length);
 		    	$(".levle2").html(three.length+two.length);
@@ -159,13 +160,16 @@ $(function(){
 		    	console.log(four.length);
 		    	$(".level1-line").css('width',(five.length+four.length)/farr.length*100+'%');
 		    	$(".level2-line").css('width',(three.length+two.length)/farr.length*100+'%');
-		    	$(".level3-line").css('width',one.length/arr.length*60+'%');
-		    	$(".level").html((5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length);
+		    	$(".level3-line").css('width',one.length/farr.length*100+'%');
+		    	$(".level").html(((5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length).toFixed(1));
 	    		//星星
 	    		var s = (5*five.length+4*four.length+3*three.length+2*two.length+one.length)/farr.length;
 	    		//console.log(farr.length);
-	    		console.log(s/5*80);
-    			$('.star-light').css('width',s/5*80+'px');
+	    		//console.log(s/5*80);
+    			$('.star-light').css('width',s/5*100+'%');
+				/*console.log("5: "+five.length+",4: "+four.length+",3: "+three.length+",2: "+two.length+",1: "+one.length);
+				console.log("评论数："+farr.length);
+				console.log(5*five.length+4*four.length+3*three.length+2*two.length+one.length);*/
 	    	}
     	}
     }
