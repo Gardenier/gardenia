@@ -1,0 +1,19 @@
+/* line 2, ../sass/evaluate.scss */
+.evaluate, .praise {
+  font-size: 20px;
+  color: #333333;
+}
+/* line 5, ../sass/evaluate.scss */
+.evaluate .icon, .praise .icon {
+  display: inline-block;
+  width: 36px;
+  height: 37px;
+  position: relative;
+  top: 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -moz-background-size: 36px 37px;
+  -o-background-size: 36px 37px;
+  -webkit-background-size: 36px 37px;
+  background-size: 36px 37px;
+}

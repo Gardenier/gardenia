@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评价</title>
+    <link rel="stylesheet" href="../public/stylesheets/evaluate.css"/>
+    <script src="../public/javascripts/jquery-2.0.3.min.js"></script>
+    <script src="../public/javascripts/evaluate.js"></script>
+</head>
+<body>
+    <div class="evaluate">
+        <span class="label" data-name="label"></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+    </div>
+    <div class="praise">
+        <span class="label" data-name="label"></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+        <span class="icon" data-name="icon" data-status></span>
+    </div>
+    <script>
+        var icons = $(".evaluate").find("[data-name = 'icon']");
+        var label = $(".evaluate").find("[data-name = 'label']");
+        var icons2 = $(".praise").find("[data-name = 'icon']");
+        var label2 = $(".praise").find("[data-name = 'label']");
+        $("evaluate").evaluate({
+            label: label,
+            label_name: "评分：",
+            evaluate: icons,
+            bg_img_on: "../public/images/evaluate/red-star.png",
+            bg_img_off: "../public/images/evaluate/gray-star.png"
+        });
+        $("praise").evaluate({
+            label: label2,
+            label_name: "综合：",
+            evaluate: icons2,
+            bg_img_on: "../public/images/evaluate/praise.png",
+            bg_img_off: "../public/images/evaluate/general.png"
+        });
+    </script>
+    <script>
+
+        function Person (name, age, job){
+            this.name = name;
+            this.age = age;
+            this.sayName = sayName;
+            this.job = job;
+            this.sayJob = function() {
+                alert(this.job);
+            };
+
+        }
+        Person.prototype.sayAge = function(){
+            alert(this.age);
+        }
+        function sayName (){
+            alert(this.name);
+        }
+        var person1 = new Person('John', 20, "IT");
+       /* person1.sayName();
+        person1.sayAge();
+        person1.sayJob();*/
+    </script>
+    <script>
+
+    </script>
+</body>
+</html>

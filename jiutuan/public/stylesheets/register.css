@@ -1,350 +1,79 @@
-@font-face {
-  font-family: "iconfont";
-  src: url("../fonts/iconfont.eot?t=1458467378");
-  /* IE9*/
-  src: url("../fonts/iconfont.eot?t=1458467378#iefix") format("embedded-opentype"), url("../fonts/iconfont.woff?t=1458467378") format("woff"), url("../fonts/iconfont.ttf?t=1458467378") format("truetype"), url("../fonts/iconfont.svg?t=1458467378#iconfont") format("svg");
-  /* iOS 4.1- */
-}
-/* line 13, ../sass/common.scss */
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*
+Error: Invalid GBK character "\xE5"
+        on line 70 of D:/git/jiutuan/jiutuan/public/sass/common.scss
+        from line 1 of D:/git/jiutuan/jiutuan/public/sass/register.scss
 
-/* line 21, ../sass/common.scss */
-.icon-huidaodingbu:before {
-  content: "\e604";
-}
+65: }
+66: .allBorder0 {
+67: 	border: 0;
+68: }
+69: 
+70: //公共头部样式
+71: .nav-wrap {
+72: 	width: 100%;
+73: 	padding-top: 10px;
+74: 	color: #000;
+75: 	background-color: #F4F4F2;
 
-/* line 22, ../sass/common.scss */
-.icon-yonghu:before {
-  content: "\e60d";
-}
-
-/* line 23, ../sass/common.scss */
-.icon-xiuxianyule:before {
-  content: "\e605";
-}
-
-/* line 24, ../sass/common.scss */
-.icon-gouwuche:before {
-  content: "\e612";
-}
-
-/* line 25, ../sass/common.scss */
-.icon-gouwuche1:before {
-  content: "\e60b";
-}
-
-/* line 26, ../sass/common.scss */
-.icon-yonghu1:before {
-  content: "\e60e";
-}
-
-/* line 27, ../sass/common.scss */
-.icon-remen:before {
-  content: "\e60f";
-}
-
-/* line 28, ../sass/common.scss */
-.icon-fuwu:before {
-  content: "\e606";
-}
-
-/* line 29, ../sass/common.scss */
-.icon-gouwu:before {
-  content: "\e607";
-}
-
-/* line 30, ../sass/common.scss */
-.icon-shangquan:before {
-  content: "\e610";
-}
-
-/* line 31, ../sass/common.scss */
-.icon-caidanxialaicon:before {
-  content: "\e613";
-}
-
-/* line 32, ../sass/common.scss */
-.icon-wuxingshixin:before {
-  content: "\e602";
-}
-
-/* line 33, ../sass/common.scss */
-.icon-wuxingmian:before {
-  content: "\e603";
-}
-
-/* line 34, ../sass/common.scss */
-.icon-weishoucang:before {
-  content: "\e600";
-}
-
-/* line 35, ../sass/common.scss */
-.icon-shoucangyishoucang-copy:before {
-  content: "\e601";
-}
-
-/* line 36, ../sass/common.scss */
-.icon-jiudian:before {
-  content: "\e608";
-}
-
-/* line 37, ../sass/common.scss */
-.icon-dianying:before {
-  content: "\e609";
-}
-
-/* line 38, ../sass/common.scss */
-.icon-meishi:before {
-  content: "\e60a";
-}
-
-/* line 39, ../sass/common.scss */
-.icon-shenghuofuwu:before {
-  content: "\e60c";
-}
-
-/* line 40, ../sass/common.scss */
-.icon-17:before {
-  content: "\e611";
-}
-
-@font-face {
-  font-family: yeGenYou;
-  font-weight: normal;
-  font-style: normal;
-  src: url("../fonts/yegenyouweiyingti.ttf");
-}
-/* line 54, ../sass/common.scss */
-body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  font-family: "Microsoft YaHei";
-}
-
-/* line 60, ../sass/common.scss */
-a, a:visited, a:focus, a:hover {
-  text-decoration: none;
-}
-
-/* line 63, ../sass/common.scss */
-li {
-  list-style: none;
-}
-
-/* line 66, ../sass/common.scss */
-.allBorder0 {
-  border: 0;
-}
-
-/* line 71, ../sass/common.scss */
-.nav-wrap {
-  width: 100%;
-  padding-top: 10px;
-  color: #000;
-  background-color: #F4F4F2;
-}
-/* line 76, ../sass/common.scss */
-.nav-wrap .nav-content {
-  width: 90%;
-  margin: 0 auto;
-}
-/* line 80, ../sass/common.scss */
-.nav-wrap a {
-  color: #000;
-}
-
-/* line 85, ../sass/common.scss */
-.places span {
-  padding-right: 10px;
-}
-/* line 88, ../sass/common.scss */
-.places span:nth-child(2) {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-/* line 94, ../sass/common.scss */
-.nav-list li {
-  float: left;
-  padding-left: 20px;
-}
-
-/* line 99, ../sass/common.scss */
-.mHeader {
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-/* line 104, ../sass/common.scss */
-.mHeader img {
-  height: 40px;
-}
-/* line 107, ../sass/common.scss */
-.mHeader div {
-  line-height: 20px;
-  padding-top: 10px;
-}
-/* line 111, ../sass/common.scss */
-.mHeader .search-input {
-  width: 240px;
-  padding: 6px 20px;
-  margin-right: -4px;
-  border: 1px solid #ccc;
-}
-/* line 117, ../sass/common.scss */
-.mHeader .btn-default {
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-/* line 120, ../sass/common.scss */
-.mHeader button {
-  margin-bottom: 3px;
-}
-
-/* line 124, ../sass/common.scss */
-.navGroup {
-  width: 85%;
-  margin: 0 auto;
-  text-align: center;
-}
-/* line 128, ../sass/common.scss */
-.navGroup a {
-  color: #fff;
-}
-
-/* line 132, ../sass/common.scss */
-.allClassify1 {
-  width: 20%;
-  float: left;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #EF5651;
-}
-
-/* line 139, ../sass/common.scss */
-.slide-title {
-  width: 80%;
-  float: left;
-  padding-left: 0;
-  margin-bottom: 0;
-  background-color: #CBAA72;
-}
-/* line 145, ../sass/common.scss */
-.slide-title li {
-  float: left;
-  width: 16.67%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-/* line 153, ../sass/common.scss */
-.flex {
-  display: -moz-box;
-  display: -webkit-box;
-  display: box;
-  -moz-box-align: center;
-  -webkit-box-align: center;
-  box-align: center;
-}
-
-/* line 4, ../sass/register.scss */
-html, body {
-  height: 100%;
-}
-
-/* line 7, ../sass/register.scss */
-.register {
-  height: 100%;
-  background-image: url("../images/loginBg.jpg");
-  background-size: 100% 100%;
-  text-align: center;
-}
-/* line 13, ../sass/register.scss */
-.register .pageTitle {
-  padding-top: 150px;
-  padding-bottom: 5%;
-  margin-top: 0;
-  color: #ED5651;
-  font-size: 40px;
-  font-family: "yeGenYou";
-}
-/* line 22, ../sass/register.scss */
-.register form {
-  width: 30%;
-  min-width: 300px;
-  margin: 0 auto;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #fff;
-}
-/* line 29, ../sass/register.scss */
-.register .form-control {
-  background: none;
-}
-/* line 32, ../sass/register.scss */
-.register .tag {
-  color: #F71119;
-}
-/* line 34, ../sass/register.scss */
-.register .tag div {
-  width: 50%;
-  padding: 10px;
-  float: left;
-  -moz-border-radius-topleft: 10px;
-  -webkit-border-top-left-radius: 10px;
-  border-top-left-radius: 10px;
-}
-/* line 41, ../sass/register.scss */
-.register .tag-active {
-  color: #fff;
-  background-color: #ED5852;
-}
-/* line 45, ../sass/register.scss */
-.register .input-block {
-  padding: 5px;
-  color: #F71119;
-  text-align: right;
-  border-bottom: 1px solid #F7BBB9;
-}
-/* line 50, ../sass/register.scss */
-.register .input-block input {
-  outline: none;
-}
-/* line 54, ../sass/register.scss */
-.register .input-block label {
-  width: 15%;
-  margin-right: 10px;
-}
-/* line 58, ../sass/register.scss */
-.register .input-block input {
-  width: 80%;
-}
-/* line 61, ../sass/register.scss */
-.register .input-block label, .register .input-block input {
-  padding-top: 5px;
-  margin-bottom: 0px;
-}
-/* line 67, ../sass/register.scss */
-.register .getCheckNum {
-  padding-bottom: 10px;
-}
-/* line 69, ../sass/register.scss */
-.register .getCheckNum input {
-  width: 48%;
-}
-/* line 72, ../sass/register.scss */
-.register .getCheckNum button {
-  width: 30%;
-}
+Backtrace:
+D:/git/jiutuan/jiutuan/public/sass/common.scss:70
+D:/git/jiutuan/jiutuan/public/sass/register.scss:1
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:1320:in `block in find_encoding_error'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:1319:in `each'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:1319:in `each_with_index'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:1319:in `find_encoding_error'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:902:in `rescue in check_sass_encoding'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/util.rb:898:in `check_sass_encoding'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/engine.rb:423:in `check_encoding!'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/engine.rb:379:in `_to_tree'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/engine.rb:299:in `to_tree'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/stack.rb:88:in `block in with_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/stack.rb:88:in `with_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:157:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/visitors/perform.rb:8:in `visit'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/tree/root_node.rb:20:in `render'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/engine.rb:268:in `render'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.11/lib/sass/plugin/compiler.rb:293:in `watch'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:46:in `watch!'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/watch_project.rb:41:in `perform'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:44:in `call'
+C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+C:/Ruby21-x64/bin/compass:23:in `load'
+C:/Ruby21-x64/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 70 of D:/git/jiutuan/jiutuan/public/sass/common.scss\A         from line 1 of D:/git/jiutuan/jiutuan/public/sass/register.scss\A \A 65: }\A 66: .allBorder0 {\A 67: 	border: 0;\A 68: }\A 69: \A 70: //公共头部样式\A 71: .nav-wrap {\A 72: 	width: 100%;\A 73: 	padding-top: 10px;\A 74: 	color: #000;\A 75: 	background-color: #F4F4F2;"; }

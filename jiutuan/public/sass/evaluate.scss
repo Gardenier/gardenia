@@ -1,0 +1,15 @@
+@import "compass/css3";
+.evaluate,.praise {
+   font-size: 20px;
+   color: #333333;
+   .icon {
+     display: inline-block;
+     width: 36px;
+     height: 37px;
+     position: relative;
+     top: 5px;
+     background-repeat: no-repeat;
+     cursor: pointer;
+     @include background-size(36px 37px);
+   }
+}
